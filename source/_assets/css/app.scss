@@ -1,0 +1,26 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Fonts
+@import "fonts";
+
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// mmenu
+@import "~mmenu-js/dist/mmenu";
+
+// Plyr
+@import "~plyr/dist/plyr";
+
+// menus custom
+@import "mmenu";
+
+// Table of Contents plugin for Bootstrap
+@import "bootstrap-toc";
+
+// Custom
+@import "custom";

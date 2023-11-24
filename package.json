@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "mix",
+        "watch": "mix watch",
+        "staging": "NODE_ENV=staging mix",
+        "prod": "mix --production"
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-free": "^6.4.2",
+        "laravel-mix": "^6.0.39",
+        "laravel-mix-jigsaw": "^2.0.0",
+        "laravel-mix-purgecss": "^6.0.0",
+        "sass": "^1.69.5",
+        "sass-loader": "^13.3.2"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "alpinejs": "^3.13.2",
+        "bootstrap": "^5.3.2",
+        "in-view": "^0.6.1",
+        "jquery": "^3.7.1",
+        "mmenu-js": "^9.3.0",
+        "plyr": "^3.7.8",
+        "vanilla-back-to-top": "^7.2.1"
+    }
+}

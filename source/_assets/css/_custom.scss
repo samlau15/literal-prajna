@@ -1,0 +1,163 @@
+body {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	background-size: cover;
+}
+
+.navbar, .fixed-bottom {
+	z-index: 4;
+}
+
+.collapsing {
+     -webkit-transition: none;
+     transition: none;
+}
+
+.navbar.navbar-expand-lg {
+	background-color: #ffebb4;
+}
+
+.navbar-toggler a[href="#page"] {
+	display: none;
+}
+
+#menu:not(.mm-menu):not(.mm) {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding-top: 100px;
+	margin-top: -100px;
+}
+
+h1, h2 {
+	margin-bottom: 1rem;
+}
+			
+h3, h4, h5, h6 {
+	margin-bottom: 0.8rem;
+}
+
+.paragraph {
+	padding: 0.3rem;
+	margin-bottom: 0.5rem;
+	line-height: 1.8rem;
+}
+
+.toc-container {
+	.btn {
+		width: 38px;
+	}
+}
+
+h4.toc-item::before {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	content: "\f1dd";
+}
+
+.word {
+	padding: 0.3rem 0;
+	border-radius: 10px;
+	
+	&[data-start] {
+		cursor: pointer;
+	}
+	
+	&[data-start]:hover {
+		background:rgba(255,255,153, 0.4);
+	}
+	
+	&.curr {
+		padding: 0.3rem;
+		background: yellow;
+	}
+}
+
+.paragraph.bg-secondary {
+	.word.curr {
+		color: black;
+	}
+	
+	&:has(> :not(blockquote:only-child)) {
+		&::before {
+			font-family: "Font Awesome 6 Free";
+			font-weight: 900;
+			content: "\f10d";
+		}
+
+		&::after {
+			font-family: "Font Awesome 6 Free";
+			font-weight: 900;
+			content: "\f10e";
+		}
+	}
+	
+	&:has(> blockquote:only-child) {
+		&::before {
+			content: none;
+		}
+
+		&::after {
+			content: none;
+		}
+		
+		blockquote {
+			&::before {
+				font-family: "Font Awesome 6 Free";
+				font-weight: 900;
+				content: "\f10d";
+			}
+
+			&::after {
+				font-family: "Font Awesome 6 Free";
+				font-weight: 900;
+				content: "\f10e";
+			}
+		}
+	}
+	
+	blockquote:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.details {
+	blockquote:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+blockquote {
+	margin-left: 30px;
+	margin-bottom: 0.5rem;
+}
+
+.audio-container {
+	.collapse {
+		background-color: #f8f9fa;
+	}
+	
+	.btn {
+		margin-top: -28px;
+		margin-right: -0px;
+		width: 38px;
+	}
+	
+	.btn::before {
+		font-family: "Font Awesome 6 Free";
+		font-weight: 900;
+		content: "\f078";
+	}
+	
+	.btn[aria-expanded="false"]::before {
+		font-family: "Font Awesome 6 Free";
+		font-weight: 900;
+		content: "\f025";
+	}
+}
+
+.footer-link-bottom {
+	padding-bottom: 100px;
+}
