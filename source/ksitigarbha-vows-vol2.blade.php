@@ -20,7 +20,7 @@
 <div class="container pb-3">
 	<div class="row">
 		<div class="col-md-3 toc-container">
-			<x-toc audio-supported>
+			<x-toc class="sticky-top" textsize-supported audio-supported trans-supported>
 				目錄
 				<ul class="nav navbar-nav">
 					<li>
@@ -43,16 +43,12 @@
 				<x-slot:audioCtrlSubtitle>
 					<small class="ms-3"><a href="https://www.youtube.com/watch?v=aCZG69gvG-M" target="_blank">(觀成法師讀誦)</a></small>
 				</x-slot>
-				<x-slot:othersCtrl>
-					<div class="form-check form-switch">
-						<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
-						<label class="form-check-label" for="switch-details">白話淺譯</label>
-						<small class="ms-1">(郭鵬原譯，本站略修。)</small>
-					</div>
+				<x-slot:transCtrlSubtitle>
+					<small class="ms-3">(郭鵬原譯，本站略修。)</small>
 				</x-slot>
 			</x-toc>
 		</div>
-		<div id="content" class="col-md-9">
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2}">
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">經典</li>
@@ -62,7 +58,7 @@
 			</nav>
 		
 			<h1>地藏菩薩本願經</h1>
-			<small class="float-end">唐‧于闐國‧三藏沙門‧實叉難陀　譯</small>
+			<small class="float-end mb-3">唐‧于闐國‧三藏沙門‧實叉難陀　譯</small>
 			<div class="clearfix"></div>
 			<h2 class="toc-item" id="vol2">
 				<span class="word" @@click="$dispatch('play-segment')" data-start="00:11.96" data-end="00:15.44" data-index="1142">地藏菩薩本願經卷中</span>
@@ -3113,9 +3109,9 @@
 @endsection
 
 @section('audio')
-<div class="container-fulid fixed-bottom" x-show="!isSidebarOpened">
+<div class="container-fulid fixed-bottom pe-none" x-show="!isSidebarOpened">
 	<div class="row my-3 px-5">
-		<x-audio-control>
+		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol2.mp3' }}" type="audio/mp3" />
 		</x-audio-control>
 	</div>

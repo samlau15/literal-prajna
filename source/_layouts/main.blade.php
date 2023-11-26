@@ -12,17 +12,9 @@
 		<link rel="icon" href="{{ $page->baseUrl.'/assets/images/favicon.png' }}">
         <link rel="stylesheet" href="{{ $page->baseUrl.mix('css/app.css', 'assets/build') }}">
 		@stack('styles')
-		
-		<script src="{{ $page->baseUrl.mix('js/manifest.js', 'assets/build') }}" defer></script>
-		<script src="{{ $page->baseUrl.mix('js/vendor.js', 'assets/build') }}" defer></script>
-        <script src="{{ $page->baseUrl.mix('js/app.js', 'assets/build') }}" defer></script>
-		@stack('scripts')
     </head>
     <body
-		x-data="{
-			isSidebarOpened: false,
-			details: false,
-		}"
+		x-data="page"
 		@@mmenu-opened.window="isSidebarOpened=true"
 		@@mmenu-closed.window="isSidebarOpened=false"
 	>
@@ -79,5 +71,20 @@
 		
 		<!-- footer -->
 		@include('_partials.footer-links')
+		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="{{ $page->baseUrl.mix('js/manifest.js', 'assets/build') }}" ></script>
+		<script src="{{ $page->baseUrl.mix('js/vendor.js', 'assets/build') }}" ></script>
+        <script src="{{ $page->baseUrl.mix('js/app.js', 'assets/build') }}"></script>
+		@stack('scripts')
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
     </body>
 </html>

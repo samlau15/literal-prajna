@@ -8,22 +8,15 @@
 		
         <link rel="canonical" href="/ksitigarbha-vows-vol1">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=eeb937ea2b9a4507d1dd04b03b20f591">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ebadad69584bb40153d52265911c927e">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
 	}
 </style>
-		
-		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" defer></script>
-		<script src="/assets/build/js/vendor.js?id=dc76556c0849f876cf8095b5e09ff3f8" defer></script>
-        <script src="/assets/build/js/app.js?id=53c92aef5e01b079032face797a290b4" defer></script>
-		    </head>
+    </head>
     <body
-		x-data="{
-			isSidebarOpened: false,
-			details: false,
-		}"
+		x-data="page"
 		@mmenu-opened.window="isSidebarOpened=true"
 		@mmenu-closed.window="isSidebarOpened=false"
 	>
@@ -79,7 +72,8 @@
 	x-data="Object.assign({}, {
 		audioPlaying: false,
 		tocItems: {},
-		currItems: {vol1: true},
+		currItems: {},
+		audioCollapsed: false,
 		tocEnter: e => {
 			let id = e.detail;
 			$data.tocItems[id].inview = true;
@@ -110,7 +104,10 @@
 		jumpTo: id => {
 			$dispatch('jump-to', id);
 		},
-		audioCollapsed: false,
+		adjustFontsize: deg => {
+			$data.textsize = deg;
+			console.log($data)
+		}
 	}, {})"
 	x-init="
 		let items = tocItems;
@@ -129,7 +126,13 @@
 				$dispatch('toc-exit', $(el).attr('id'));
 			});
 		inView.offset(60);
-	"
+		
+				$data.textsize = 1;
+						
+				$data.autoScroll = true;
+			
+				$data.details = false;
+			"
 	@toc-enter.window="tocEnter"
 	@toc-exit.window="tocExit"
 	@audio-shown.window="audioCollapsed=false"
@@ -137,7 +140,11 @@
 	@audio-played.window="audioPlaying=true"
 	@audio-paused.window="audioPlaying=false"
 	@audio-stopped.window="audioPlaying=false"
-	class="sticky-top"
+	
+	
+	
+		class="sticky-top"
+		
 	data-toggle="toc"
 >
 	目錄
@@ -160,34 +167,55 @@
 				</ul>
 	<hr/>
 		<div class="mb-3">
-		聲音導讀 <small class="ms-3"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀誦)</a></small>
-	</div>
-	<div class="mb-3">
-		<button x-show="audioCollapsed" @click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
-			<i class="fa fa-headphones"></i>
+		字體大小 
+		<button @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+			<i class="fa fa-magnifying-glass-minus"></i>
 		</button>
-		<button x-show="!audioCollapsed"@click="$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-primary" type="button" title="關閉聲音控制">
-			<i class="fa fa-volume-xmark"></i>
-		</button>
-		<i class="fas arrow"></i>
-		<button x-show="!audioPlaying" @click="$dispatch('play-audio')" class="btn btn-sm btn-secondary" type="button" title="播放">
-			<i class="fa fa-play"></i>
-		</button>
-		<button x-show="audioPlaying" @click="$dispatch('pause-audio')" class="btn btn-sm btn-secondary" type="button" title="暫停">
-			<i class="fa fa-pause"></i>
-		</button>
-		<button x-show="audioPlaying" @click="$dispatch('stop-audio')" class="btn btn-sm btn-secondary" type="button" title="停止">
-			<i class="fa fa-stop"></i>
+		<button @click="textsize=2" class="btn btn-sm btn-secondary" type="button" title="增大">
+			<i class="fa fa-magnifying-glass-plus"></i>
 		</button>
 	</div>
 	<hr/>
-		<div class="form-check form-switch">
-						<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
-						<label class="form-check-label" for="switch-details">白話淺譯</label>
-						<small class="ms-1">(郭鵬原譯，本站略修。)</small>
-					</div>
+			<div class="mb-3">
+		聲音導讀 <small class="ms-3"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀誦)</a></small>
+	</div>
+	<div class="mb-2">
+		<div class="float-start mb-1">
+			<button x-show="audioCollapsed" @click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
+				<i class="fa fa-headphones"></i>
+			</button>
+			<button x-show="!audioCollapsed"@click="$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-primary" type="button" title="關閉聲音控制">
+				<i class="fa fa-volume-xmark"></i>
+			</button>
+			<i class="fas arrow"></i>
+			<button x-show="!audioPlaying" @click="$dispatch('play-audio')" class="btn btn-sm btn-secondary" type="button" title="播放">
+				<i class="fa fa-play"></i>
+			</button>
+			<button x-show="audioPlaying" @click="$dispatch('pause-audio')" class="btn btn-sm btn-secondary" type="button" title="暫停">
+				<i class="fa fa-pause"></i>
+			</button>
+			<button x-show="audioPlaying" @click="$dispatch('stop-audio')" class="btn btn-sm btn-secondary" type="button" title="停止">
+				<i class="fa fa-stop"></i>
+			</button>
+		</div>
+		<div class="form-check form-switch float-end mb-1">
+			<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
+			<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<hr/>
+			<div class="mb-3">
+		白話淺譯 <small class="ms-3">(郭鵬原譯，本站略修。)</small>
+	</div>
+	<div class="form-check form-switch">
+		<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+		<label class="form-check-label" for="switch-details">顯示</label>
+	</div>
+	<hr/>
+		
 </nav>		</div>
-		<div id="content" class="col-md-9">
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2}">
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">經典</li>
@@ -197,7 +225,7 @@
 			</nav>
 		
 			<h1>地藏菩薩本願經</h1>
-			<small class="float-end">唐‧于闐國‧三藏沙門‧實叉難陀　譯</small>
+			<small class="float-end mb-3">唐‧于闐國‧三藏沙門‧實叉難陀　譯</small>
 			<div class="clearfix"></div>
 			<div class="paragraph">
 				<span class="word" @click="$dispatch('play-segment')" data-start="00:11.88" data-end="00:22.90" data-index="0"><strong>南無本師釋迦牟尼佛 <sub>(三稱)</sub></strong></span>
@@ -3225,7 +3253,7 @@
 		</div>
 		
 		<!-- audio control -->
-		<div class="container-fulid fixed-bottom" x-show="!isSidebarOpened">
+		<div class="container-fulid fixed-bottom pe-none" x-show="!isSidebarOpened">
 	<div class="row my-3 px-5">
 		<div
     x-data="Object.assign({}, {
@@ -3243,15 +3271,18 @@
 			let {stop} = e.detail;
 			let {player} = $data;
 			if(stop) {
-				player.stop();
+				$data.stop();
 			} else if(player.playing) {
-				player.pause();
+				$data.pause();
 			}
 			$data.collapsable.hide();
 		},
 		play: e => $data.player.play(),
 		pause: e => $data.player.pause(),
-		stop: e => $data.player.stop(),
+		stop: e => {
+			$data.player.stop();
+			$('span.word').removeClass('curr');
+		},
 		playSegment: e => {
 			let {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
@@ -3311,7 +3342,7 @@
 				$('html,body').animate({
 					scrollTop: $el.offset().top-100
 				}, 0);
-			}, 1000);
+			}, 500);
 			
 			if(currIntId) clearInterval(currIntId);
 			$data.currIntId = setInterval(() => {
@@ -3329,7 +3360,7 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100)) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll) {
 						throttleScroll($el);
 					}
 				}
@@ -3355,7 +3386,6 @@
 		player.on('ended', e => {
 			clearInterval($data.currIntId);
 			$data.end=null;
-			$('span.word').removeClass('curr');
 			$dispatch('audio-stopped');
 		});
         
@@ -3368,9 +3398,11 @@
 	@play-segment.window="playSegment"
 	@jump-to.window="jumpTo"
     
-	class="col-md-12 px-4 audio-container"
->
-	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
+	
+	:class="{'pe-auto': !collapsed}"
+		class="col-md-12 px-4 audio-container"
+	>
+	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
 	<div id="collapseAudioCtrl" class="collapse p-2 border">
 		<audio id="audio-controls" controls @mmenu-opened.window="pause">
 			<source src="/assets/audios/ksitigarbha-vows-vol1.mp3" type="audio/mp3" />
@@ -3381,7 +3413,7 @@
 </div>
 		
 		<!-- footer -->
-		<div class="container-fuild footer-link py-4 mt-5 bg-light">
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
 	<div class="row px-5">
 		<div class="col-lg-6 px-4 mb-3">
 			<p>
@@ -3402,5 +3434,19 @@
 		
 	</div>
 </div>
-<div class="footer-link-bottom bg-light"></div>    </body>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" ></script>
+		<script src="/assets/build/js/vendor.js?id=0601b182968eb4668dc238752cf017b2" ></script>
+        <script src="/assets/build/js/app.js?id=2ddbe6001638abbc53c38772ca643503"></script>
+				<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </body>
 </html>

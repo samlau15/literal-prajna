@@ -45,9 +45,19 @@ h3, h4, h5, h6 {
 	line-height: 1.8rem;
 }
 
+.font-enlarged {
+	font-size: 1.4rem;
+	
+	.paragraph {
+		line-height: 2.5rem;
+	}
+}
+
 .toc-container {
+	font-size: 0.9rem;
+
 	.btn {
-		width: 38px;
+		width: 35px;
 	}
 }
 
@@ -65,8 +75,10 @@ h4.toc-item::before {
 		cursor: pointer;
 	}
 	
-	&[data-start]:hover {
-		background:rgba(255,255,153, 0.4);
+	@media(hover: hover) {
+		&[data-start]:hover {
+			background:rgba(255,255,153, 0.4);
+		}
 	}
 	
 	&.curr {

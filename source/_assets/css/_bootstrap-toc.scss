@@ -62,6 +62,10 @@ nav[data-toggle="toc"] .nav-link.active + ul {
 /********** Custom **********/
 nav[data-toggle="toc"] {
 	top: 100px;
+	
+	> ul {
+		overflow: hidden;
+	}
 }
 
 /* small screens */

@@ -4,11 +4,16 @@ body {
 }
 
 .mm-menu--theme-light-contrast {
-	--mm-color-background: inherit;
+	--mm-color-background: white;
 }
 
 .mm-menu {
 	padding-top: 30px;
+	visibility: hidden;
+	
+	&.mm-menu--opened {
+		visibility: visible;
+	}
 }
 
 .mm-wrapper--opened .mm-page {
@@ -19,8 +24,10 @@ body {
 	background: none;
 }
 
-.mm-panels > .mm-panel {
-	padding-top: 50px;
+.mm-panels {
+	> .mm-panel {
+		padding-top: 50px;
+	}
 }
 
 .mm-panel--parent {

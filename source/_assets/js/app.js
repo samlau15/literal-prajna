@@ -47,5 +47,21 @@ $(function() {
 		textColor: '#fff',
 		zIndex: 10,
 		cornerOffset: 12,
-	})
+	});
 });
+
+// alpinejs
+// https://github.com/alpinejs/alpine
+// Must add "defer" attribute if loaded from script tag
+// so that alpinejs initialization takes place after DOM is ready
+const Alpine = require('alpinejs').default;
+window.Alpine = Alpine;
+
+Alpine.data('page', () => ({
+	isSidebarOpened: false,
+	textsize: 1,
+	autoScroll: true,
+	details: false,
+}));
+
+Alpine.start();

@@ -1,4 +1,4 @@
-<div class="container-fuild footer-link py-4 mt-5 bg-light">
+<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
 	<div class="row px-5">
 		<div class="col-lg-6 px-4 mb-3">
 			<p>

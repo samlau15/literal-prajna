@@ -14,15 +14,18 @@
 			let {stop} = e.detail;
 			let {player} = $data;
 			if(stop) {
-				player.stop();
+				$data.stop();
 			} else if(player.playing) {
-				player.pause();
+				$data.pause();
 			}
 			$data.collapsable.hide();
 		},
 		play: e => $data.player.play(),
 		pause: e => $data.player.pause(),
-		stop: e => $data.player.stop(),
+		stop: e => {
+			$data.player.stop();
+			$('span.word').removeClass('curr');
+		},
 		playSegment: e => {
 			let {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
@@ -82,7 +85,7 @@
 				$('html,body').animate({
 					scrollTop: $el.offset().top-100
 				}, 0);
-			}, 1000);
+			}, 500);
 			
 			if(currIntId) clearInterval(currIntId);
 			$data.currIntId = setInterval(() => {
@@ -100,7 +103,7 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100)) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll) {
 						throttleScroll($el);
 					}
 				}
@@ -126,7 +129,6 @@
 		player.on('ended', e => {
 			clearInterval($data.currIntId);
 			$data.end=null;
-			$('span.word').removeClass('curr');
 			$dispatch('audio-stopped');
 		});
         {!! $attributes->has('x-init') ? $attributes['x-init'] : '' !!}
@@ -139,9 +141,13 @@
 	@@play-segment.window="playSegment"
 	@@jump-to.window="jumpTo"
     {!! $attributes->whereStartsWith('@') !!}
-	class="col-md-12 px-4 audio-container"
+	
+	{!! $attributes->whereStartsWith(':class') !!}
+	@if ($attributes->has('class'))
+	class="{!! $attributes['class'] !!}"
+	@endif
 >
-	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
+	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
 	<div id="collapseAudioCtrl" class="collapse p-2 border">
 		<audio id="{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}" controls @@mmenu-opened.window="pause">
 			{{ $slot }}
