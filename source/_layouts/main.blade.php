@@ -12,6 +12,16 @@
 		<link rel="icon" href="{{ $page->baseUrl.'/assets/images/favicon.png' }}">
         <link rel="stylesheet" href="{{ $page->baseUrl.mix('css/app.css', 'assets/build') }}">
 		@stack('styles')
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
     </head>
     <body
 		x-data="page"
@@ -78,13 +88,5 @@
 		<script src="{{ $page->baseUrl.mix('js/vendor.js', 'assets/build') }}" ></script>
         <script src="{{ $page->baseUrl.mix('js/app.js', 'assets/build') }}"></script>
 		@stack('scripts')
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-9CYG1JG43E');
-		</script>
     </body>
 </html>
