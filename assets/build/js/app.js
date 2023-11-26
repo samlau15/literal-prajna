@@ -51,6 +51,22 @@ $(function () {
   });
 });
 
+// alpinejs
+// https://github.com/alpinejs/alpine
+// Must add "defer" attribute if loaded from script tag
+// so that alpinejs initialization takes place after DOM is ready
+var Alpine = (__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js")["default"]);
+window.Alpine = Alpine;
+Alpine.data('page', function () {
+  return {
+    isSidebarOpened: false,
+    textsize: 1,
+    autoScroll: true,
+    details: false
+  };
+});
+Alpine.start();
+
 /***/ }),
 
 /***/ "./source/_assets/js/bootstrap.js":
@@ -62,12 +78,6 @@ $(function () {
 // jQuery
 // https://jquery.com/
 window.jQuery = window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-// Must add "defer" attribute to script tag 
-// so that alpinejs initialization takes place after DOM is ready
-// alpinejs
-// https://github.com/alpinejs/alpine
-__webpack_require__(/*! alpinejs/dist/cdn.js */ "./node_modules/alpinejs/dist/cdn.js");
 
 // Bootstrap
 // https://getbootstrap.com/docs/5.3/getting-started/introduction/

@@ -24812,11 +24812,15 @@ body {
 }
 
 .mm-menu--theme-light-contrast {
-  --mm-color-background: inherit;
+  --mm-color-background: white;
 }
 
 .mm-menu {
   padding-top: 30px;
+  visibility: hidden;
+}
+.mm-menu.mm-menu--opened {
+  visibility: visible;
 }
 
 .mm-wrapper--opened .mm-page {
@@ -24921,6 +24925,9 @@ nav[data-toggle=toc] .nav-link.active + ul {
 nav[data-toggle=toc] {
   top: 100px;
 }
+nav[data-toggle=toc] > ul {
+  overflow: hidden;
+}
 
 /* small screens */
 @media (max-width: 768px) {
@@ -24987,8 +24994,18 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   line-height: 1.8rem;
 }
 
+.font-enlarged {
+  font-size: 1.4rem;
+}
+.font-enlarged .paragraph {
+  line-height: 2.5rem;
+}
+
+.toc-container {
+  font-size: 0.9rem;
+}
 .toc-container .btn {
-  width: 38px;
+  width: 35px;
 }
 
 h4.toc-item::before, .toc-item.h4::before {
@@ -25004,8 +25021,10 @@ h4.toc-item::before, .toc-item.h4::before {
 .word[data-start] {
   cursor: pointer;
 }
-.word[data-start]:hover {
-  background: rgba(255, 255, 153, 0.4);
+@media (hover: hover) {
+  .word[data-start]:hover {
+    background: rgba(255, 255, 153, 0.4);
+  }
 }
 .word.curr {
   padding: 0.3rem;

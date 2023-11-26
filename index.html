@@ -8,20 +8,10 @@
 				
         <link rel="canonical" href="/">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=eeb937ea2b9a4507d1dd04b03b20f591">
-				
-		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" defer></script>
-		<script src="/assets/build/js/vendor.js?id=dc76556c0849f876cf8095b5e09ff3f8" defer></script>
-        <script src="/assets/build/js/app.js?id=53c92aef5e01b079032face797a290b4" defer></script>
-		<script>
-	window.location.replace('/ksitigarbha-vows-vol1');
-</script>
-    </head>
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ebadad69584bb40153d52265911c927e">
+		    </head>
     <body
-		x-data="{
-			isSidebarOpened: false,
-			details: false,
-		}"
+		x-data="page"
 		@mmenu-opened.window="isSidebarOpened=true"
 		@mmenu-closed.window="isSidebarOpened=false"
 	>
@@ -74,7 +64,7 @@
 		<!-- audio control -->
 				
 		<!-- footer -->
-		<div class="container-fuild footer-link py-4 mt-5 bg-light">
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
 	<div class="row px-5">
 		<div class="col-lg-6 px-4 mb-3">
 			<p>
@@ -95,5 +85,22 @@
 		
 	</div>
 </div>
-<div class="footer-link-bottom bg-light"></div>    </body>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" ></script>
+		<script src="/assets/build/js/vendor.js?id=0601b182968eb4668dc238752cf017b2" ></script>
+        <script src="/assets/build/js/app.js?id=2ddbe6001638abbc53c38772ca643503"></script>
+		<script>
+	window.location.replace('/ksitigarbha-vows-vol1');
+</script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </body>
 </html>
