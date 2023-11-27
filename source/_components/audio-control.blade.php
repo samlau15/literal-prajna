@@ -6,6 +6,7 @@
 		end: null,
 		collapsable: null,
 		collapsed: false,
+		userScrolling: false,
 		playFromSelected: false,
 		show: e => {
 			$data.collapsable.show();
@@ -30,6 +31,7 @@
 			let {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
 			let end = timeToSecond($(e.target).data('end'));
+			if(readOnly) return;
 			if(player.playing && (start <= player.currentTime && end >= player.currentTime)) return;
 			player.currentTime = start;
 			$data.end = end;
@@ -56,7 +58,11 @@
 		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
 	}, {!! $attributes->has('x-data') ? $attributes['x-data'] : '{}' !!})"
     x-init="
-        $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0], { show: true});
+        $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0]);
+		if(collapsed) {
+			setTimeout(() => $data.collapsable.hide(), 100);
+		}
+		
 		$('#collapseAudioCtrl')[0].addEventListener('shown.bs.collapse', e => {
 			$data.collapsed = false;
 			$dispatch('audio-shown');
@@ -64,6 +70,10 @@
 		$('#collapseAudioCtrl')[0].addEventListener('hidden.bs.collapse', e => {
 			$data.collapsed = true;
 			$dispatch('audio-collapsed');
+		});
+		
+		$(window).on('scroll', function(e) {
+			$data.userScrolling = true;
 		});
 		
 		$('span.word')
@@ -103,15 +113,16 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !userScrolling) {
 						throttleScroll($el);
 					}
 				}
-			}, 200);
+				userScrolling = false;
+			}, 100);
 		});
 		player.on('playing', e => {
 			if(player.currentTime <= 0.5) {
-				$data.show();
+				// $data.show();
 				$('html,body').animate({
 					scrollTop: 0
 				}, 0);
@@ -133,6 +144,7 @@
 		});
         {!! $attributes->has('x-init') ? $attributes['x-init'] : '' !!}
     "
+	x-show="!readOnly"
 	@@show-audio.window="show"
 	@@collapse-audio.window="collapse"
 	@@play-audio.window="play"
@@ -147,7 +159,7 @@
 	class="{!! $attributes['class'] !!}"
 	@endif
 >
-	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
+	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
 	<div id="collapseAudioCtrl" class="collapse p-2 border">
 		<audio id="{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}" controls @@mmenu-opened.window="pause">
 			{{ $slot }}

@@ -88,3 +88,25 @@ nav[data-toggle="toc"] {
 	}
 	*/
 }
+
+/* large screens */
+@media (min-width: 768px) {
+	nav[data-toggle="toc"] {
+		max-height: calc(100vh - 200px);
+		overflow-y: auto;
+		
+		&::-webkit-scrollbar {
+			width: 6px;
+			background-color: #F5F5F5;
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			background-color: #c1c1c1;
+		}
+		
+		&::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			background-color: #F5F5F5;
+		}
+	}
+}

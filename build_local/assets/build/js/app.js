@@ -53,14 +53,15 @@ $(function () {
 
 // alpinejs
 // https://github.com/alpinejs/alpine
-// Must add "defer" attribute if loaded from script tag
-// so that alpinejs initialization takes place after DOM is ready
+// Don't add "defer" attribute to script tag as it would cause the bundled scripts not working.
+// Always place the script tag to the bottom of the page so that alpinejs initialization can take place after DOM is ready.
 var Alpine = (__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js")["default"]);
 window.Alpine = Alpine;
 Alpine.data('page', function () {
   return {
     isSidebarOpened: false,
     textsize: 1,
+    readOnly: true,
     autoScroll: true,
     details: false
   };

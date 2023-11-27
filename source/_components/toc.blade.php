@@ -68,6 +68,8 @@
 		@if($attributes->has('trans-supported'))
 		$data.details = false;
 		@endif
+		
+		
 	"
 	@@toc-enter.window="tocEnter"
 	@@toc-exit.window="tocExit"
@@ -80,35 +82,41 @@
 	
 	{!! $attributes->whereStartsWith(':class') !!}
 	@if ($attributes->has('class'))
-	class="{!! $attributes['class'] !!}"
+	class="{!! $attributes['class'] !!} pe-2"
 	@endif
 	
 	data-toggle="toc"
 >
+	<i class="fa fa-list"></i> 目錄
 	{{ $slot }}
 	<hr/>
 	@if($attributes->has('textsize-supported'))
 	<div class="mb-3">
-		字體大小 
-		<button @@click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+		<i class="fa fa-font"></i>
+		字體大小
+		<button x-show="textsize==2" @@click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
 			<i class="fa fa-magnifying-glass-minus"></i>
 		</button>
-		<button @@click="textsize=2" class="btn btn-sm btn-secondary" type="button" title="增大">
+		<button x-show="textsize==1" @@click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
 			<i class="fa fa-magnifying-glass-plus"></i>
 		</button>
 	</div>
 	<hr/>
 	@endif
 	@if($attributes->has('audio-supported'))
-	<div class="mb-3">
+	<div x-show="!readOnly" class="mb-3">
+		<i class="fa fa-headphones"></i>
 		聲音導讀 {{ $audioCtrlSubtitle ?? '' }}
 	</div>
-	<div class="mb-2">
+	<div x-show="!readOnly" class="mb-3">
 		<div class="float-start mb-1">
+			{{--
 			<button x-show="audioCollapsed" @@click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
 				<i class="fa fa-headphones"></i>
 			</button>
-			<button x-show="!audioCollapsed"@@click="$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-primary" type="button" title="關閉聲音控制">
+			<button @@click="readOnly=true;$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
+			--}}
+			<button @@click="readOnly=true;$dispatch('stop-audio')" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
 				<i class="fa fa-volume-xmark"></i>
 			</button>
 			<i class="fas arrow"></i>
@@ -128,10 +136,19 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	<div x-show="!readOnly">
+		<i class="fa fa-book-open"></i>
+		<a @@click.prevent="readOnly=true;$dispatch('pause-audio')" href="#">開啟閱讀模式</a>
+	</div>
+	<div x-show="readOnly">
+		<i class="fa fa-headphones"></i>
+		<a @@click.prevent="readOnly=false" href="#">開啟聲音導讀</a>
+	</div>
 	<hr/>
 	@endif
 	@if($attributes->has('trans-supported'))
 	<div class="mb-3">
+		<i class="fa fa-globe"></i>
 		白話淺譯 {{ $transCtrlSubtitle ?? '' }}
 	</div>
 	<div class="form-check form-switch">

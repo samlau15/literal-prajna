@@ -75,23 +75,38 @@ h4.toc-item::before {
 		cursor: pointer;
 	}
 	
-	@media(hover: hover) {
-		&[data-start]:hover {
-			background:rgba(255,255,153, 0.4);
-		}
-	}
-	
 	&.curr {
 		padding: 0.3rem;
 		background: yellow;
+		color: black;
+	}
+}
+
+@media(hover: hover) and (pointer: fine) {
+	.word[data-start]:hover {
+		background:rgba(255,255,153, 0.4);
+	}
+}
+
+.readonly {
+	.word {
+		&[data-start] {
+			cursor: inherit;
+		}
+		
+		&.curr {
+			padding: 0.3rem 0;
+			background: inherit;
+			color: inherit;
+		}
+		
+		&:hover {
+			background: inherit;
+		}
 	}
 }
 
 .paragraph.bg-secondary {
-	.word.curr {
-		color: black;
-	}
-	
 	&:has(> :not(blockquote:only-child)) {
 		&::before {
 			font-family: "Font Awesome 6 Free";

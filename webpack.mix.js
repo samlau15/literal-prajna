@@ -9,11 +9,12 @@ mix.jigsaw()
     .js('source/_assets/js/app.js', 'js')
 	.extract([
         'jquery',
-		'alpinejs',
-		'@popperjs/core',
+	'alpinejs',
+	'@popperjs/core',
         'bootstrap',
         'mmenu-js',
         'plyr',
+	'minibarjs',
         'in-view',
         'vanilla-back-to-top',
 	])

@@ -20,8 +20,13 @@
 <div class="container pb-3">
 	<div class="row">
 		<div class="col-md-3 toc-container">
-			<x-toc class="sticky-top" textsize-supported audio-supported trans-supported>
-				目錄
+			<x-toc
+				x-data="{currItems: {vol3: true}}"
+				class="sticky-top"
+				textsize-supported
+				audio-supported
+				trans-supported
+			>
 				<ul class="nav navbar-nav">
 					<li>
 						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經卷上</a>
@@ -40,14 +45,14 @@
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-3"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀誦)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀誦)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
-					<small class="ms-3">(郭鵬原譯，本站略修。)</small>
+					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
 				</x-slot>
 			</x-toc>
 		</div>
-		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2}">
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">經典</li>

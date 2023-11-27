@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-vows-vol3">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=ebadad69584bb40153d52265911c927e">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=6903946d211b69c5b9a873667eae2d8e">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -118,7 +118,7 @@
 			$data.textsize = deg;
 			console.log($data)
 		}
-	}, {})"
+	}, {currItems: {vol3: true}})"
 	x-init="
 		let items = tocItems;
 		$('.toc-item').each(function(pos) {
@@ -142,7 +142,9 @@
 				$data.autoScroll = true;
 			
 				$data.details = false;
-			"
+				
+		
+	"
 	@toc-enter.window="tocEnter"
 	@toc-exit.window="tocExit"
 	@audio-shown.window="audioCollapsed=false"
@@ -153,12 +155,12 @@
 	
 	
 	
-		class="sticky-top"
+		class="sticky-top pe-2"
 		
 	data-toggle="toc"
 >
-	目錄
-				<ul class="nav navbar-nav">
+	<i class="fa fa-list"></i> 目錄
+	<ul class="nav navbar-nav">
 					<li>
 						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol1">地藏菩薩本願經卷上</a>
 					</li>
@@ -177,24 +179,24 @@
 				</ul>
 	<hr/>
 		<div class="mb-3">
-		字體大小 
-		<button @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+		<i class="fa fa-font"></i>
+		字體大小
+		<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
 			<i class="fa fa-magnifying-glass-minus"></i>
 		</button>
-		<button @click="textsize=2" class="btn btn-sm btn-secondary" type="button" title="增大">
+		<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
 			<i class="fa fa-magnifying-glass-plus"></i>
 		</button>
 	</div>
 	<hr/>
-			<div class="mb-3">
-		聲音導讀 <small class="ms-3"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀誦)</a></small>
+			<div x-show="!readOnly" class="mb-3">
+		<i class="fa fa-headphones"></i>
+		聲音導讀 <small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀誦)</a></small>
 	</div>
-	<div class="mb-2">
+	<div x-show="!readOnly" class="mb-3">
 		<div class="float-start mb-1">
-			<button x-show="audioCollapsed" @click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
-				<i class="fa fa-headphones"></i>
-			</button>
-			<button x-show="!audioCollapsed"@click="$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-primary" type="button" title="關閉聲音控制">
+			
+			<button @click="readOnly=true;$dispatch('stop-audio')" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
 				<i class="fa fa-volume-xmark"></i>
 			</button>
 			<i class="fas arrow"></i>
@@ -214,9 +216,18 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	<div x-show="!readOnly">
+		<i class="fa fa-book-open"></i>
+		<a @click.prevent="readOnly=true;$dispatch('pause-audio')" href="#">開啟閱讀模式</a>
+	</div>
+	<div x-show="readOnly">
+		<i class="fa fa-headphones"></i>
+		<a @click.prevent="readOnly=false" href="#">開啟聲音導讀</a>
+	</div>
 	<hr/>
 			<div class="mb-3">
-		白話淺譯 <small class="ms-3">(郭鵬原譯，本站略修。)</small>
+		<i class="fa fa-globe"></i>
+		白話淺譯 <small class="ms-2">(郭鵬原譯，本站略修。)</small>
 	</div>
 	<div class="form-check form-switch">
 		<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
@@ -225,7 +236,7 @@
 	<hr/>
 		
 </nav>		</div>
-		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2}">
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">經典</li>
@@ -2567,6 +2578,7 @@
 		end: null,
 		collapsable: null,
 		collapsed: false,
+		userScrolling: false,
 		playFromSelected: false,
 		show: e => {
 			$data.collapsable.show();
@@ -2591,6 +2603,7 @@
 			let {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
 			let end = timeToSecond($(e.target).data('end'));
+			if(readOnly) return;
 			if(player.playing && (start <= player.currentTime && end >= player.currentTime)) return;
 			player.currentTime = start;
 			$data.end = end;
@@ -2617,7 +2630,11 @@
 		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
 	}, {})"
     x-init="
-        $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0], { show: true});
+        $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0]);
+		if(collapsed) {
+			setTimeout(() => $data.collapsable.hide(), 100);
+		}
+		
 		$('#collapseAudioCtrl')[0].addEventListener('shown.bs.collapse', e => {
 			$data.collapsed = false;
 			$dispatch('audio-shown');
@@ -2625,6 +2642,10 @@
 		$('#collapseAudioCtrl')[0].addEventListener('hidden.bs.collapse', e => {
 			$data.collapsed = true;
 			$dispatch('audio-collapsed');
+		});
+		
+		$(window).on('scroll', function(e) {
+			$data.userScrolling = true;
 		});
 		
 		$('span.word')
@@ -2664,15 +2685,16 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !userScrolling) {
 						throttleScroll($el);
 					}
 				}
-			}, 200);
+				userScrolling = false;
+			}, 100);
 		});
 		player.on('playing', e => {
 			if(player.currentTime <= 0.5) {
-				$data.show();
+				// $data.show();
 				$('html,body').animate({
 					scrollTop: 0
 				}, 0);
@@ -2694,6 +2716,7 @@
 		});
         
     "
+	x-show="!readOnly"
 	@show-audio.window="show"
 	@collapse-audio.window="collapse"
 	@play-audio.window="play"
@@ -2706,7 +2729,7 @@
 	:class="{'pe-auto': !collapsed}"
 		class="col-md-12 px-4 audio-container"
 	>
-	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-expanded="true" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
+	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
 	<div id="collapseAudioCtrl" class="collapse p-2 border">
 		<audio id="audio-controls" controls @mmenu-opened.window="pause">
 			<source src="/assets/audios/ksitigarbha-vows-vol3.mp3" type="audio/mp3" />
@@ -2743,6 +2766,6 @@
 		<!-- never use defer attribute as it caused jQuery undefined -->
 		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" ></script>
 		<script src="/assets/build/js/vendor.js?id=0601b182968eb4668dc238752cf017b2" ></script>
-        <script src="/assets/build/js/app.js?id=2ddbe6001638abbc53c38772ca643503"></script>
+        <script src="/assets/build/js/app.js?id=c3d165bf7ccf123098ec7711cb2989b7"></script>
 		    </body>
 </html>
