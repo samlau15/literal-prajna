@@ -24948,6 +24948,24 @@ nav[data-toggle=toc] > ul {
   }
   */
 }
+/* large screens */
+@media (min-width: 768px) {
+  nav[data-toggle=toc] {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  nav[data-toggle=toc]::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+  }
+  nav[data-toggle=toc]::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+  }
+  nav[data-toggle=toc]::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+  }
+}
 body {
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -25021,19 +25039,29 @@ h4.toc-item::before, .toc-item.h4::before {
 .word[data-start] {
   cursor: pointer;
 }
-@media (hover: hover) {
+.word.curr {
+  padding: 0.3rem;
+  background: yellow;
+  color: black;
+}
+
+@media (hover: hover) and (pointer: fine) {
   .word[data-start]:hover {
     background: rgba(255, 255, 153, 0.4);
   }
 }
-.word.curr {
-  padding: 0.3rem;
-  background: yellow;
+.readonly .word[data-start] {
+  cursor: inherit;
+}
+.readonly .word.curr {
+  padding: 0.3rem 0;
+  background: inherit;
+  color: inherit;
+}
+.readonly .word:hover {
+  background: inherit;
 }
 
-.paragraph.bg-secondary .word.curr {
-  color: black;
-}
 .paragraph.bg-secondary:has(> :not(blockquote:only-child))::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
