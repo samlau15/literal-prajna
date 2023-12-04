@@ -46,7 +46,7 @@
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-2"><a href="https://www.youtube.com/watch?v=aCZG69gvG-M" target="_blank">(觀成法師讀誦)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=aCZG69gvG-M" target="_blank">(觀成法師讀經)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
 					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
@@ -56,7 +56,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">經典</li>
+					<li class="breadcrumb-item">地藏法門</li>
 					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷中</li>
 				</ol>

@@ -45,7 +45,7 @@
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀誦)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀經)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
 					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
@@ -55,7 +55,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">經典</li>
+					<li class="breadcrumb-item">地藏法門</li>
 					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷下</li>
 				</ol>
@@ -2376,12 +2376,11 @@
 						</div>
 					</a>
 				</div>
-				{{--
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
-								<span class="me-2 text-start text-truncate">地藏菩薩本願經卷下</span>
+								<span class="me-2 text-start text-truncate">地藏經修行概要</span>
 							</div>
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-right fs-1"></i>
@@ -2389,7 +2388,6 @@
 						</div>
 					</a>
 				</div>
-				--}}
 			</div>
 		</div>
 	</div>

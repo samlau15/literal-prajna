@@ -25012,7 +25012,24 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   line-height: 1.8rem;
 }
 
+.blockquote {
+  font-size: 1rem;
+}
+.blockquote > :first-child::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f10d";
+}
+.blockquote > :last-child::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f10e";
+}
+
 .font-enlarged {
+  font-size: 1.4rem;
+}
+.font-enlarged .blockquote {
   font-size: 1.4rem;
 }
 .font-enlarged .paragraph {

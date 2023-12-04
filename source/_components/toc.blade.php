@@ -4,9 +4,7 @@
 		tocItems: {},
 		currItems: {},
 		audioCollapsed: false,
-		tocEnter: e => {
-			let id = e.detail;
-			$data.tocItems[id].inview = true;
+		updateCurrItems: () => {
 			let enteries = Object.entries($data.tocItems);
 			let tmpArr = new Array(enteries.length);
 			for(let [id, val] of enteries) {
@@ -27,9 +25,15 @@
 				}
 			}
 		},
+		tocEnter: e => {
+			let id = e.detail;
+			$data.tocItems[id].inview = true;
+			$data.updateCurrItems();
+		},
 		tocExit: e => {
 			let id = e.detail;
 			$data.tocItems[id].inview = false;
+			$data.updateCurrItems();
 		},
 		jumpTo: id => {
 			$dispatch('jump-to', id);
@@ -55,7 +59,7 @@
 			.on('exit', el => {
 				$dispatch('toc-exit', $(el).attr('id'));
 			});
-		inView.offset(60);
+		inView.offset(80);
 		
 		@if($attributes->has('textsize-supported'))
 		$data.textsize = 1;
@@ -82,7 +86,7 @@
 	
 	{!! $attributes->whereStartsWith(':class') !!}
 	@if ($attributes->has('class'))
-	class="{!! $attributes['class'] !!} pe-2"
+	class="{!! $attributes['class'] !!} px-2"
 	@endif
 	
 	data-toggle="toc"
@@ -106,7 +110,7 @@
 	@if($attributes->has('audio-supported'))
 	<div x-show="!readOnly" class="mb-3">
 		<i class="fa fa-headphones"></i>
-		聲音導讀 {{ $audioCtrlSubtitle ?? '' }}
+		粵語導讀 {{ $audioCtrlSubtitle ?? '' }}
 	</div>
 	<div x-show="!readOnly" class="mb-3">
 		<div class="float-start mb-1">
@@ -142,7 +146,7 @@
 	</div>
 	<div x-show="readOnly">
 		<i class="fa fa-headphones"></i>
-		<a @@click.prevent="readOnly=false" href="#">開啟聲音導讀</a>
+		<a @@click.prevent="readOnly=false" href="#">開啟粵語導讀</a>
 	</div>
 	<hr/>
 	@endif

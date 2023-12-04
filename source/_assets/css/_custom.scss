@@ -45,8 +45,27 @@ h3, h4, h5, h6 {
 	line-height: 1.8rem;
 }
 
+.blockquote {
+	font-size: 1rem;
+	> :first-child::before {
+		font-family: "Font Awesome 6 Free";
+		font-weight: 900;
+		content: "\f10d";
+	}
+	
+	> :last-child::after {
+		font-family: "Font Awesome 6 Free";
+		font-weight: 900;
+		content: "\f10e";
+	}
+}
+
 .font-enlarged {
 	font-size: 1.4rem;
+	
+	.blockquote {
+	  font-size: 1.4rem;
+	}
 	
 	.paragraph {
 		line-height: 2.5rem;
