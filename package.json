@@ -11,6 +11,7 @@
         "laravel-mix": "^6.0.39",
         "laravel-mix-jigsaw": "^2.0.0",
         "laravel-mix-purgecss": "^6.0.0",
+        "sanskrit-tts": "^1.0.0",
         "sass": "^1.69.5",
         "sass-loader": "^13.3.2"
     },
