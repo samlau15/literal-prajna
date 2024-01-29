@@ -42,6 +42,8 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}">地藏經修行概要</a></li>
 							</ul>
 						</li>
@@ -67,6 +69,7 @@
 					<span>地藏法門</span>
 					<ul>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
+						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}">地藏經修行概要</a></li>
 					</ul>
 				</li>

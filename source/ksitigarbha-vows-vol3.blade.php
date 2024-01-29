@@ -327,7 +327,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="05:18.16" data-end="05:19.58" data-index="2450">畢竟成佛</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.16" data-end="05:23.26" data-index="2451">何況帝釋梵轉輪之報</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.16" data-end="05:23.26" data-index="2451">何況釋梵轉輪之報</span>
 				<span class="punc">。</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="05:23.78" data-end="05:25.26" data-index="2452">是故地藏</span>
 				<span class="punc">，</span>
@@ -2395,8 +2395,8 @@
 @endsection
 
 @section('audio')
-<div class="container-fulid fixed-bottom pe-none" x-show="!isSidebarOpened">
-	<div class="row my-3 px-5">
+<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
+	<div class="row my-3">
 		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol3.mp3' }}" type="audio/mp3" />
 		</x-audio-control>
