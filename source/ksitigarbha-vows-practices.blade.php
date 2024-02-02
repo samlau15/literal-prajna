@@ -50,7 +50,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">地藏法門</li>
+					<li class="breadcrumb-item">修行概要</li>
 					<li class="breadcrumb-item active">地藏經修行概要</li>
 				</ol>
 			</nav>

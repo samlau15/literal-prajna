@@ -55,7 +55,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">地藏法門</li>
+					<li class="breadcrumb-item">地藏經典</li>
 					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷下</li>
 				</ol>

@@ -38,13 +38,28 @@
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								地藏法門
+								地藏經典
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
-								<li><hr class="dropdown-divider"></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-practices' }}">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-tools-group3' }}">第三輪相翻查結果</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -66,11 +81,23 @@
 		<nav id="menu">
 			<ul id="panel-menu">
 				<li>
-					<span>地藏法門</span>
+					<span>地藏經典</span>
 					<ul>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}">地藏經修行概要</a></li>
+						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-practices' }}">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-tools-group3' }}">第三輪相翻查結果</a></li>
 					</ul>
 				</li>
 			</ul>

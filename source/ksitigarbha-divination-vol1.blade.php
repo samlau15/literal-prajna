@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('title')
-<title>占察善惡業報經</title>
+<title>占察善惡業報經卷上</title>
 @endsection
 
 @push('styles')
@@ -42,7 +42,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">地藏法門</li>
+					<li class="breadcrumb-item">地藏經典</li>
 					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
 					<li class="breadcrumb-item active">卷上</li>
 				</ol>

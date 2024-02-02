@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('title')
-<title>地藏占察第三輪相紀錄工具</title>
+<title>第三輪相翻查結果</title>
 @endsection
 
 @push('styles')
@@ -22,8 +22,9 @@
 		stage: 1,
 		rawQuestions: '',
 		questions:[],
-		results:[],
+		inputs:[],
 		errMsgs: 0,
+		results:[],
 		submitQuestions: e => {
 			$data.errMsgs = 0;
 			
@@ -41,6 +42,17 @@
 		},
 		initStage2: () => {
 			$data.stage = 2;
+			
+			if($data.inputs.length === 0) {
+				$data.inputs = new Array($data.questions.length)
+					.fill()
+					.map(() => ({
+						round0: ['', '', ''],
+						round1: ['', '', ''],
+						round2: ['', '', ''],
+					}));
+			}
+			
 			if($data.errMsgs === 0) {
 				$data.errMsgs = new Array($data.questions.length)
 					.fill()
@@ -48,8 +60,10 @@
 						round0: 0,
 						round1: 0,
 						round2: 0,
+						ins: 0,
 					}));
 			}
+			
 			if($data.results.length == 0) {
 				$data.results = new Array($data.questions.length)
 					.fill()
@@ -63,9 +77,14 @@
 		updateResults: (e, i, j) => {
 			$data.errMsgs[i][`round${j}`] = 0;
 			
-			let val0 = $(`#q${i}-${j}-0`).val().trim();
-			let val1 = $(`#q${i}-${j}-1`).val().trim();
-			let val2 = $(`#q${i}-${j}-2`).val().trim();
+			/*
+			*let val0 = $(`#q${i}-${j}-0`).val().trim();
+			*let val1 = $(`#q${i}-${j}-1`).val().trim();
+			*let val2 = $(`#q${i}-${j}-2`).val().trim();
+			*/
+			let val0 = $data.inputs[i][`round${j}`][0].trim();
+			let val1 = $data.inputs[i][`round${j}`][1].trim();
+			let val2 = $data.inputs[i][`round${j}`][2].trim();
 			if(!val0 || !val1 || !val2) {
 				$data.errMsgs[i][`round${j}`] = 1;
 				return;
@@ -84,14 +103,56 @@
 				$data.errMsgs[i][`round${j}`] = 2;
 			}
 		},
+		insertQuestion: (e, i) => {
+			$data.errMsgs[i]['ins'] = 0;
+			
+			let $el = $(e.target).parent().parent().find('input');
+			let val = $el.val();
+			if(!val) {
+				$data.errMsgs[i]['ins'] = 1;
+				return;
+			}
+			$el.val('');
+			
+			$data.questions.splice(i+1, 0, val);
+			
+			$data.inputs.splice(i+1, 0, {
+				round0: ['', '', ''],
+				round1: ['', '', ''],
+				round2: ['', '', ''],
+			});
+			
+			$data.errMsgs.splice(i+1, 0, {
+				round0: 0,
+				round1: 0,
+				round2: 0,
+				ins: 0,
+			});
+			
+			$data.results.splice(i+1, 0, {
+				round0: '',
+				round1: '',
+				round2: '',
+			});
+		},
+		removeQuestion: (e, i) => {
+			if(confirm(`確定移除問題 ${i+1}.？`)) {
+				$data.questions.splice(i, 1);
+				$data.inputs.splice(i, 1);
+				$data.errMsgs.splice(i, 1);
+				$data.results.splice(i, 1);
+			}
+		},
 		reset: e => {
 			if(confirm('重新設置問題，所有結果將會被清除！')) {
 				$data.stage = 1;
 				$data.rawQuestions = '';
 				$data.questions = [];
-				$data.results = [];
 				$data.errMsgs = 0;
+				$data.results = [];
 				$('html, body').animate({ scrollTop: 0 }, 0);
+				// reset later, otherwise 'Cannot read properties of undefined' occured
+				$nextTick(() => { $data.inputs = [] });
 			}
 		}
 	}"
@@ -100,7 +161,13 @@
 	"
 	class="container pb-3 divination"
 >
-	<h3>地藏占察第三輪相紀錄工具</h3>
+	<nav>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">占察工具</li>
+			<li class="breadcrumb-item active">第三輪相翻查結果</li>
+		</ol>
+	</nav>
+	<h3>第三輪相翻查結果</h3>
 	<div x-show="stage==1">
 		<h4>1. 輪入問題</h4>
 		<form class="row g-3">
@@ -115,28 +182,48 @@
 		</form>
 	</div>
 	<div x-show="stage==2">
-		<h4>2. 紀錄輪相結果</h4>
+		<h4>2. 翻查輪相結果</h4>
+		<small>輪相白話解說來自<a href="https://www.myfate.biz/" target="_blank">易學佛堂</a>，本站只是制作翻查工具方便他人修習。</small>
 		<div class="container mt-3">
 			<template x-for="(q, i) in questions">
 				<div class="p-3 mb-3 border rounded" :class="i % 2 == 0 ? 'bg-body-tertiary' : 'bg-body-secondary'" :key="`q${i}`">
 					<h5 x-text="`問題 ${i+1}.`"></h5>
+					<button x-show="questions.length > 1" @click="removeQuestion($event, i)" type="button" class="btn btn-sm btn-danger float-end">
+						<i class="fa-solid fa-trash-can"></i>
+					</button>
 					<strong><p x-text="`「${q}」`"></p></strong>
 					
-					<h6>第一回</h6>
+					<h6>第一回應</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round0 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
-									<input type="text" class="form-control" :id="`q${i}-0-0`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-0-0`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round0[0]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第二擲</span>
-									<input type="text" class="form-control" :id="`q${i}-0-1`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input 
+										type="text"
+										class="form-control"
+										:id="`q${i}-0-1`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round0[1]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第三擲</span>
-									<input type="text" class="form-control" :id="`q${i}-0-2`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-0-2`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round0[2]"
+									/>
 								</div>
 							</div>
 							<div class="invalid-feedback">請輪入結果。</div>
@@ -148,28 +235,43 @@
 								x-text="results[i] ? results[i]['round0'] : ''"
 							>
 							</pre>
-							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。</div>
+							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 0)" type="button" class="btn btn-primary">更新</button>
+							<button @@click="updateResults($event, i, 0)" type="button" class="btn btn-primary">翻查</button>
 						</div>
 					</div>
 					
-					<h6>第二回</h6>
+					<h6>第二回應</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round1 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
-									<input type="text" class="form-control" :id="`q${i}-1-0`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-1-0`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round1[0]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第二擲</span>
-									<input type="text" class="form-control" :id="`q${i}-1-1`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-1-1`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round1[1]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第三擲</span>
-									<input type="text" class="form-control" :id="`q${i}-1-2`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-1-2`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round1[2]"
+									/>
 								</div>
 							</div>
 							<div class="invalid-feedback">請輪入結果。</div>
@@ -181,27 +283,43 @@
 								x-text="results[i] ? results[i]['round1'] : ''"
 							>
 							</pre>
-							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。</div>
+							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 1)" type="button" class="btn btn-primary mb-3">更新</button>
+							<button @@click="updateResults($event, i, 1)" type="button" class="btn btn-primary mb-3">翻查</button>
 						</div>
 					</div>
-					<h6>第三回</h6>
+					
+					<h6>第三回應</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round2 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
-									<input type="text" class="form-control" :id="`q${i}-2-0`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-2-0`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round2[0]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第二擲</span>
-									<input type="text" class="form-control" :id="`q${i}-2-1`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-2-1`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round2[1]"
+									/>
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第三擲</span>
-									<input type="text" class="form-control" :id="`q${i}-2-2`" placeholder="空格作分隔，輸入 0 如所有木輪皆空白。">
+									<input class="form-control"
+										type="text"
+										:id="`q${i}-2-2`"
+										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
+										x-model="inputs[i].round2[2]"
+									/>
 								</div>
 							</div>
 							<div class="invalid-feedback">請輪入結果。</div>
@@ -213,12 +331,25 @@
 								x-text="results[i] ? results[i]['round2'] : ''"
 							>
 							</pre>
-							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。</div>
+							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 2)" type="button" class="btn btn-primary mb-3">更新</button>
+							<button @@click="updateResults($event, i, 2)" type="button" class="btn btn-primary mb-3">翻查</button>
 						</div>
 					</div>
+					
+					<div class="row g-3 align-items-center" :class="{'is-invalid': errMsgs && errMsgs[i].ins == 1}">
+						<div class="col-auto">
+							<label :for="`q${i}-ins`" class="col-form-label">即時新增問題</label>
+						</div>
+						<div class="col-auto">
+							<input type="text" class="form-control" :id="`q${i}-ins`">
+						</div>
+						<div class="col-auto">
+							<button @@click="insertQuestion($event, i)" type="button" class="btn btn-warning">插入問題</button>
+						</div>
+					</div>
+					<div class="invalid-feedback">請輪入問題。</div>
 				</div>
 			</template>
 		
