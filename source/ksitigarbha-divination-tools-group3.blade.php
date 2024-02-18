@@ -205,7 +205,7 @@
 					</button>
 					<strong><p x-text="`「${q}」`"></p></strong>
 					
-					<h6>第一輪相結果</h6>
+					<h6>輪相結果 1.</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round0 == 1}">
@@ -254,7 +254,7 @@
 						</div>
 					</div>
 					
-					<h6>第二輪相結果</h6>
+					<h6>輪相結果 2.</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round1 == 1}">
@@ -302,7 +302,7 @@
 						</div>
 					</div>
 					
-					<h6>第三輪相結果</h6>
+					<h6>輪相結果 3.</h6>
 					<div class="row mb-3">
 						<div>
 							<div :class="{'is-invalid': errMsgs && errMsgs[i].round2 == 1}">
