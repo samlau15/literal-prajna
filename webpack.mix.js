@@ -9,14 +9,15 @@ mix.jigsaw()
     .js('source/_assets/js/app.js', 'js')
 	.extract([
         'jquery',
-	'alpinejs',
-	'@popperjs/core',
+        'alpinejs',
+        '@popperjs/core',
         'bootstrap',
         'mmenu-js',
         'plyr',
-	'minibarjs',
+        'minibarjs',
         'in-view',
         'vanilla-back-to-top',
+		'clipboard',
 	])
     .sass('source/_assets/css/app.scss', 'css')
     .options({

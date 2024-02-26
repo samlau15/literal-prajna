@@ -25,6 +25,7 @@
 		inputs:[],
 		errMsgs: 0,
 		results:[],
+		exportedResults: '',
 		submitQuestions: e => {
 			$data.errMsgs = 0;
 			
@@ -103,6 +104,15 @@
 				$data.errMsgs[i][`round${j}`] = 2;
 			}
 		},
+		exportResults: e => {
+			$data.exportedResults = $data.questions.reduce((txt, q, i) => {
+				let val = `問題 ${i+1}. 「${q}」\n\n`;
+				val += `輪相結果 1.\n${$data.results[i].round0}\n\n`;
+				val += `輪相結果 2.\n${$data.results[i].round1}\n\n`;
+				val += `輪相結果 3.\n${$data.results[i].round2}\n\n`;
+				return txt + val;
+			}, '');
+		},
 		insertQuestion: (e, i) => {
 			$data.errMsgs[i]['ins'] = 0;
 			
@@ -138,9 +148,13 @@
 		removeQuestion: (e, i) => {
 			if(confirm(`確定移除問題 ${i+1}.？`)) {
 				$data.questions.splice(i, 1);
-				$data.inputs.splice(i, 1);
 				$data.errMsgs.splice(i, 1);
 				$data.results.splice(i, 1);
+				
+				// remove later, otherwise 'Cannot read properties of undefined' occured
+				let inputs = $data.inputs.slice();
+				inputs.splice(i, 1);
+				$nextTick(() => { $data.inputs = inputs });
 			}
 		},
 		reset: e => {
@@ -150,7 +164,9 @@
 				$data.questions = [];
 				$data.errMsgs = 0;
 				$data.results = [];
+				$data.exportedResults = '';
 				$('html, body').animate({ scrollTop: 0 }, 0);
+				
 				// reset later, otherwise 'Cannot read properties of undefined' occured
 				$nextTick(() => { $data.inputs = [] });
 			}
@@ -158,6 +174,13 @@
 	}"
 	x-init="
 		window.onbeforeunload = () => '';
+		new bootstrap.Popover($('.btn-export')[0], {
+			trigger: 'focus',
+			delay: { show:0, hide: 1000 },
+		});
+		new ClipboardJS('.btn-export', {
+			text: el => $data.exportedResults,
+		});
 	"
 	class="container pb-3 divination"
 >
@@ -180,22 +203,34 @@
 				<button @@click="submitQuestions" type="button" class="btn btn-primary">提交</button>
 			</div>
 		</form>
-	</div>
-	<div x-show="stage==2">
-		<h4>2. 翻查輪相結果</h4>
 		<small>輪相白話解說來自<a href="https://www.myfate.biz/" target="_blank">易學佛堂</a>，本站只是制作翻查工具方便他人修習。</small>
 		<div class="mt-3 small">
-			<strong>備註：</strong>
+			<strong>修習經驗備註：</strong>
 			<ul>
+				<li>易學佛堂的白話解說只作參考，作者於意譯上滲入不少個人見解，解讀輪相時要多加考慮自身的因緣際遇才作判斷。（在不懂護身的情況下，請不要按建議自行施食。）</li>
 				<li>每一提問為了方便解讀，實際操作上，同一問題可求地藏菩薩連續出三個輪相結果，從字裏行間推敲聖意。</li>
-				<li>如菩薩只有一個信息給你，那麼三個輪相結果，會有機會出現其中兩個輪相是矛盾對立的，此時取相應的輪相即可。</li>
-				<li>有時菩薩會有可能為你帶來提問以外的信息，而且會反復出現的，這時請認真看待，不要當作虛謬。</li>
-				<li>有時輪相結果是明顯矛盾對立的，有機會是你先入為主，錯誤提問，此時可即時轉換提問方向，如方向正確，會即時出現相應的輪相。</li>
-				<li>亦有些情況下反復提問所出的結果總是模稜兩可，似虛謬又非虛謬，不能解讀。建議多唸菩薩聖號看會否得到完滿結果。</li>
-				<li>如果相應的輪相結果不完滿，請不必氣餒，趁惡業果報未完全成熟之時，勤唸地藏菩薩聖號，多讀地藏菩薩本願經，供養禮拜菩薩，並普皆迴向法界一切有情。以地藏菩薩廣大慈悲深誓願故，及承斯瞻禮供養菩薩的功德力，必定能消除業障，所願所求悉皆成就。當用功精勤一段時間，可再用輪相占察消業進度，看是否得到改善。</li>
-				<li>網絡上充斥着各式各樣的修行方法，因自身根基、因緣或未能掌握秘訣等問題，未必種種法都能切合需要，何況末法時代邪師說法比比皆是，凡夫根本不能分別，這時更加需要詢問菩薩到底想修習的法門是否適合自己。</li>
+				<li>如菩薩只有一個信息給你，那麼三個輪相結果，會有機會出現其中兩個輪相是矛盾對立的，此時取相應的輪相即可。所以如果開頭回應清晰則不用再求出第二或第三個輪相，額外的都是虛謬居多。</li>
+				<li>有時菩薩會有可能為你帶來提問以外的信息，甚至會反復出現的，這時請認真看待，不要當作虛謬。</li>
+				<li>有時輪相結果是虛謬不相應，有機會是你先入為主錯誤提問，此時可試轉換提問方向，如方向正確，會即時出現相應的輪相。</li>
+				<li>亦有些情況下反復提問所出的結果總是模稜兩可，似虛謬又非虛謬，不能解讀。建議多唸菩薩聖號看會否得到圓滿結果。</li>
+				<li>如果問的是應期（預測應驗之時），通常都不作回應。</li>
+				<li>問事時務必專心一致，提問要清晰、簡潔扼要，如果提問中途給外來打擾，極大機會出虛謬輪相，可虛心請問多次或另行再問。</li>
+				<li>如果相應的輪相結果不圓滿，請不必氣餒，趁惡業果報未完全成熟之時，勤唸地藏菩薩聖號，多讀地藏菩薩本願經，供養禮拜菩薩，並普皆迴向法界一切有情。以地藏菩薩廣大慈悲深誓願故，及承斯瞻禮供養菩薩的功德力，必定能消除業障，所願所求悉皆成就。當用功精勤一段時間，可再用輪相占察消業進度，看是否得到改善。</li>
+				<li>網絡上充斥着各式各樣的修行方法，因自身根基淺薄、因緣不具足或未能掌握秘訣等問題，未必種種法都能切合需要，何況末法時代邪師說法比比皆是，凡夫根本不能分別，這時更加需要詢問菩薩到底想修習的法門是否適合自己。</li>
 			</ul>
 		</div>
+	</div>
+	<div x-show="stage==2">
+		<h4 class="float-start">2. 翻查輪相結果</h4>
+		<button 
+			@@click="exportResults($event)"
+			type="button"
+			class="btn btn-success btn-export float-end me-3"
+			data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已複製"
+		>
+			複製結果
+		</button>
+		<div class="clearfix"></div>
 		<div class="container mt-3">
 			<template x-for="(q, i) in questions">
 				<div class="p-3 mb-3 border rounded" :class="i % 2 == 0 ? 'bg-body-tertiary' : 'bg-body-secondary'" :key="`q${i}`">
@@ -208,7 +243,7 @@
 					<h6>輪相結果 1.</h6>
 					<div class="row mb-3">
 						<div>
-							<div :class="{'is-invalid': errMsgs && errMsgs[i].round0 == 1}">
+							<div :class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round0 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
@@ -242,7 +277,7 @@
 						</div>
 						<div>
 							<pre class="white-space-break"
-								:class="{'is-invalid': errMsgs && errMsgs[i].round0 == 2}"
+								:class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round0 == 2}"
 								x-show="results[i] && results[i]['round0']"
 								x-text="results[i] ? results[i]['round0'] : ''"
 							>
@@ -257,7 +292,7 @@
 					<h6>輪相結果 2.</h6>
 					<div class="row mb-3">
 						<div>
-							<div :class="{'is-invalid': errMsgs && errMsgs[i].round1 == 1}">
+							<div :class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round1 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
@@ -290,7 +325,7 @@
 						</div>
 						<div>
 							<pre class="white-space-break"
-								:class="{'is-invalid': errMsgs && errMsgs[i].round1 == 2}"
+								:class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round1 == 2}"
 								x-show="results[i] && results[i]['round1']"
 								x-text="results[i] ? results[i]['round1'] : ''"
 							>
@@ -305,7 +340,7 @@
 					<h6>輪相結果 3.</h6>
 					<div class="row mb-3">
 						<div>
-							<div :class="{'is-invalid': errMsgs && errMsgs[i].round2 == 1}">
+							<div :class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round2 == 1}">
 								<div class="input-group mb-3">
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
@@ -338,7 +373,7 @@
 						</div>
 						<div>
 							<pre class="white-space-break"
-								:class="{'is-invalid': errMsgs && errMsgs[i].round2 == 2}"
+								:class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].round2 == 2}"
 								x-show="results[i] && results[i]['round2']"
 								x-text="results[i] ? results[i]['round2'] : ''"
 							>
@@ -350,7 +385,7 @@
 						</div>
 					</div>
 					
-					<div class="row g-3 align-items-center" :class="{'is-invalid': errMsgs && errMsgs[i].ins == 1}">
+					<div class="row g-3 align-items-center" :class="{'is-invalid': errMsgs && errMsgs[i] && errMsgs[i].ins == 1}">
 						<div class="col-auto">
 							<label :for="`q${i}-ins`" class="col-form-label">即時新增問題</label>
 						</div>

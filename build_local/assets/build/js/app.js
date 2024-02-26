@@ -98,6 +98,9 @@ window.inView = __webpack_require__(/*! in-view/dist/in-view.min.js */ "./node_m
 // Vanilla Back To Top
 window.addBackToTop = (__webpack_require__(/*! vanilla-back-to-top/dist/vanilla-back-to-top.umd */ "./node_modules/vanilla-back-to-top/dist/vanilla-back-to-top.umd.js").addBackToTop);
 
+// clipboard
+window.ClipboardJS = __webpack_require__(/*! clipboard */ "./node_modules/clipboard/dist/clipboard.js");
+
 /***/ }),
 
 /***/ "./source/_assets/js/functions.js":
