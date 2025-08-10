@@ -7,7 +7,7 @@
 @push('styles')
 <style>
 	body {
-		background-image: url('{{ $page->baseUrl.'/assets/images/background-mantra.png' }}')；
+		background-image: url('{{ $page->baseUrl.'/assets/images/background-mantra.png' }}');
 	}
 </style>
 @endpush

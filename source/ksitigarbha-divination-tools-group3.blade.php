@@ -192,13 +192,13 @@
 	</nav>
 	<h3>第三輪相翻查結果</h3>
 	<div x-show="stage==1">
-		<h4>1. 輪入問題</h4>
+		<h4>1. 輸入問題</h4>
 		<form class="row g-3">
 			<div class="form-floating col-12" :class="{'is-invalid': errMsgs == 1}">
 				<textarea x-model="rawQuestions" class="form-control" id="questions" placeholder="可入多條問題，以換行作分隔。" rows="4" cols="50"></textarea>
 				<label for="questions">可入多條問題，以換行作分隔。</label>
 			</div>
-			<div class="invalid-feedback">請輪入問題。</div>
+			<div class="invalid-feedback">請輸入問題。</div>
 			<div class="col-auto ms-auto">
 				<button @@click="submitQuestions" type="button" class="btn btn-primary">提交</button>
 			</div>
@@ -273,7 +273,7 @@
 									/>
 								</div>
 							</div>
-							<div class="invalid-feedback">請輪入結果。</div>
+							<div class="invalid-feedback">請輸入結果。</div>
 						</div>
 						<div>
 							<pre class="white-space-break"
@@ -321,7 +321,7 @@
 									/>
 								</div>
 							</div>
-							<div class="invalid-feedback">請輪入結果。</div>
+							<div class="invalid-feedback">請輸入結果。</div>
 						</div>
 						<div>
 							<pre class="white-space-break"
@@ -369,7 +369,7 @@
 									/>
 								</div>
 							</div>
-							<div class="invalid-feedback">請輪入結果。</div>
+							<div class="invalid-feedback">請輸入結果。</div>
 						</div>
 						<div>
 							<pre class="white-space-break"
@@ -396,7 +396,7 @@
 							<button @@click="insertQuestion($event, i)" type="button" class="btn btn-warning">插入問題</button>
 						</div>
 					</div>
-					<div class="invalid-feedback">請輪入問題。</div>
+					<div class="invalid-feedback">請輸入問題。</div>
 				</div>
 			</template>
 		

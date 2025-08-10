@@ -217,3 +217,10 @@ blockquote {
 		height: 200px;
 	}
 }
+
+@include media-breakpoint-down(sm) {
+	#back-to-top {
+		right: 20px;
+		bottom: 120px;
+	}
+}

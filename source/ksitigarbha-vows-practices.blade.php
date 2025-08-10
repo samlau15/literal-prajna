@@ -57,8 +57,7 @@
 		
 			<h1>地藏經修行概要</h1>
 			<p>
-				本概要輯錄自此書「如何依地藏經修行」的第七章，作者為道昇居士。由佛陀教育基金會印贈，電子版可到官網
-				<a target="_blank" href="http://ftp.budaedu.org/publish/C3/CH36/CH362-26-01-001.PDF">下載</a>。
+				本概要輯錄自此書「如何依地藏經修行」的第七章，作者為道昇居士。由佛陀教育基金會印贈，電子版可到此<a target="_blank" href="{{ $page->baseUrl.'/assets/bin/如何依地藏經修行.pdf' }}">下載</a>。
 			</p>
 			<h4 class="toc-item" id="sec1">為病人或亡者捨財消業植福</h4>
 			<figure>
