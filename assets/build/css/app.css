@@ -25148,3 +25148,10 @@ blockquote {
 .divination textarea.form-control {
   height: 200px;
 }
+
+@media (max-width: 575.98px) {
+  #back-to-top {
+    right: 20px;
+    bottom: 120px;
+  }
+}
