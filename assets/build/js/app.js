@@ -49,6 +49,7 @@ $(function () {
     zIndex: 10,
     cornerOffset: 12
   });
+  $('#back-to-top').attr('title', '回到頂端');
 });
 
 // alpinejs
