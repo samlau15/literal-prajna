@@ -90,6 +90,12 @@ h4.toc-item::before {
 	content: "\f1dd";
 }
 
+h6.toc-item::before {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	content: "\f02e";
+}
+
 .word {
 	padding: 0.3rem 0;
 	border-radius: 10px;
@@ -102,6 +108,10 @@ h4.toc-item::before {
 		padding: 0.3rem;
 		background: yellow;
 		color: black;
+	}
+	
+	sub {
+		color: $indigo-200;
 	}
 }
 
@@ -208,6 +218,14 @@ blockquote {
 	}
 }
 
+#back-to-top {
+	opacity: 0.5;
+	
+	&:hover {
+		opacity: 1;
+	}
+}
+
 .footer-link-bottom {
 	padding-bottom: 100px;
 }
@@ -218,9 +236,32 @@ blockquote {
 	}
 }
 
+/* small screens */
 @include media-breakpoint-down(sm) {
-	#back-to-top {
-		right: 20px;
-		bottom: 120px;
+	body {
+		&:has(.audio-container.opened) {
+			#back-to-top {
+				right: 20px;
+				bottom: 60px;
+			}
+		}
+	
+		&:has(.audio-container.opened .collapse.show) {
+			#back-to-top {
+				right: 20px;
+				bottom: 120px;
+			}
+		}
+	}
+}
+
+/* large screens */
+@include media-breakpoint-up(sm) {
+	body {
+		&:has(.audio-container.opened .collapse.show) {
+			nav[data-toggle="toc"] {
+				max-height: calc(100vh - 200px);
+			}
+		}
 	}
 }

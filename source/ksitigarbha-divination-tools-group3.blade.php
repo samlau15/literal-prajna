@@ -193,7 +193,7 @@
 	<h3>第三輪相翻查結果</h3>
 	<div x-show="stage==1">
 		<h4>1. 輸入問題</h4>
-		<form class="row g-3">
+		<form class="row g-3 mb-3" autocomplete="off">
 			<div class="form-floating col-12" :class="{'is-invalid': errMsgs == 1}">
 				<textarea x-model="rawQuestions" class="form-control" id="questions" placeholder="可入多條問題，以換行作分隔。" rows="4" cols="50"></textarea>
 				<label for="questions">可入多條問題，以換行作分隔。</label>
@@ -203,7 +203,8 @@
 				<button @@click="submitQuestions" type="button" class="btn btn-primary">提交</button>
 			</div>
 		</form>
-		<small>輪相白話解說來自<a href="https://www.myfate.biz/" target="_blank">易學佛堂</a>，本站只是制作翻查工具方便他人修習。</small>
+		<small class="float-end">輪相白話解說來自<a href="https://www.myfate.biz/" target="_blank">易學佛堂</a>，本站只是制作翻查工具方便他人修習。</small>
+		<div class="clearfix"></div>
 		<div class="mt-3 small">
 			<strong>修習經驗備註：</strong>
 			<ul>
@@ -222,16 +223,24 @@
 	</div>
 	<div x-show="stage==2">
 		<h4 class="float-start">2. 翻查輪相結果</h4>
-		<button 
-			@@click="exportResults($event)"
+		<button
+			@@click="reset"
 			type="button"
-			class="btn btn-success btn-export float-end me-3"
-			data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已複製"
+			class="btn btn-danger float-end me-3"
 		>
-			複製結果
+			重新設置問題
 		</button>
 		<div class="clearfix"></div>
 		<div class="container mt-3">
+			<h5 class="text-center text-danger lh-lg">
+				至心敬禮十方一切諸佛、法藏、賢聖及地藏菩薩，如法供養。
+				次當稱名或默念<br/>
+				<b>「南無地藏菩薩摩訶薩」</b><br/>
+				滿足一千，而作是言：<br/>
+				<b>「地藏菩薩摩訶薩！ 大慈大悲！ 唯願護念我及一切眾生，速除諸障，增長淨信，令今所觀稱實相應。」</b>
+			</h5>
+			<small class="float-end">儀軌詳見<a href="/ksitigarbha-divination-practices#vol1-ch7">占察善惡業報經行法</a></small>
+			<div class="clearfix"></div>
 			<template x-for="(q, i) in questions">
 				<div class="p-3 mb-3 border rounded" :class="i % 2 == 0 ? 'bg-body-tertiary' : 'bg-body-secondary'" :key="`q${i}`">
 					<h5 x-text="`問題 ${i+1}.`"></h5>
@@ -248,6 +257,7 @@
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-0-0`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round0[0]"
@@ -255,9 +265,9 @@
 								</div>
 								<div class="input-group mb-3">
 									<span class="input-group-text">第二擲</span>
-									<input 
+									<input class="form-control"
 										type="text"
-										class="form-control"
+										inputmode="numeric"
 										:id="`q${i}-0-1`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round0[1]"
@@ -267,6 +277,7 @@
 									<span class="input-group-text">第三擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-0-2`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round0[2]"
@@ -297,6 +308,7 @@
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-1-0`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round1[0]"
@@ -306,6 +318,7 @@
 									<span class="input-group-text">第二擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-1-1`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round1[1]"
@@ -315,6 +328,7 @@
 									<span class="input-group-text">第三擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-1-2`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round1[2]"
@@ -345,6 +359,7 @@
 									<span class="input-group-text">第一擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-2-0`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round2[0]"
@@ -354,6 +369,7 @@
 									<span class="input-group-text">第二擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-2-1`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round2[1]"
@@ -363,6 +379,7 @@
 									<span class="input-group-text">第三擲</span>
 									<input class="form-control"
 										type="text"
+										inputmode="numeric"
 										:id="`q${i}-2-2`"
 										placeholder="空格作分隔，輸入 0 如所有木輪皆空白。"
 										x-model="inputs[i].round2[2]"
@@ -399,8 +416,14 @@
 					<div class="invalid-feedback">請輸入問題。</div>
 				</div>
 			</template>
-		
-			<button @@click="reset" type="button" class="btn btn-danger mb-3">重新設置問題</button>
+			<button 
+				@@click="exportResults($event)"
+				type="button"
+				class="btn btn-success btn-export mb-3"
+				data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已複製"
+			>
+				複製結果
+			</button>
 		</div>
 	</div>
 	<div class="visually-hidden" id="ref">

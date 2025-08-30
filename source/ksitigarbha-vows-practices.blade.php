@@ -57,15 +57,15 @@
 		
 			<h1>地藏經修行概要</h1>
 			<p>
-				本概要輯錄自此書「如何依地藏經修行」的第七章，作者為道昇居士。由佛陀教育基金會印贈，電子版可到此<a target="_blank" href="{{ $page->baseUrl.'/assets/bin/如何依地藏經修行.pdf' }}">下載</a>。
+				本概要輯錄自此書「如何依地藏經修行」的第七章，作者為道昇居士。由佛陀教育基金會印贈，電子版可到此<a target="_blank" href="/assets/bin/如何依地藏經修行.pdf">下載</a>。
 			</p>
 			<h4 class="toc-item" id="sec1">為病人或亡者捨財消業植福</h4>
 			<figure>
 				<div class="blockquote bg-secondary-subtle p-2 rounded">
-					<p>復次觀世音：若未來現在諸世界中，六道眾生臨命終時，得聞地藏菩薩名，一聲歷耳根者。是諸眾生，永不歷三惡道苦。何況臨命終時，父母眷屬，將是命終人舍宅、財物、寶貝、衣服，塑畫地藏形像。或使病人未終之時，眼耳見聞，知道眷屬將舍宅、寶貝等為其自身塑畫地藏菩薩形像。是人若是業報合受重病者，承斯功德，尋即除愈，壽命增益。是人若是業報命盡，應有一切罪障業障，合墮惡趣者。承斯功德，命終之後，即生人天，受勝妙樂，一切罪障，皆悉消滅。</p>
+					<p>復次觀世音：若未來現在諸世界中，六道眾生臨命終時，得聞地藏菩薩名，一聲歷耳根者。是諸眾生，永不歷三惡道苦。何況臨命終時，父母眷屬，將是命終人舍宅、財物、寶貝、衣服，塑畫地藏形像。或使病人未終之時，眼耳見聞，知道眷屬將舍宅、寶貝等為其自身塑畫地藏菩薩形像。是人若是業報合受重病者，承斯功德，尋即除愈，壽命增益。是人若是業報命盡，應有一切罪障業障，合墮惡趣者。承斯功德，命終之後，即生人天，受勝妙樂，一切罪障，悉皆消滅。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch12' }}">(見聞利益品第十二)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch12">(見聞利益品第十二)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -83,7 +83,7 @@
 					<p>世尊，一切眾生臨命終時，若得聞一佛名，一菩薩名，或大乘經典，一句一偈。我觀如是輩人，除五無間殺害之罪，小小惡業，合墮惡趣者，尋即解脫。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch8' }}">(閻羅王眾讚歎品第八)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch8">(閻羅王眾讚歎品第八)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -105,7 +105,7 @@
 					<p>世尊，我觀閻浮眾生，但能於諸佛教中，乃至善事，一毛一渧，一沙一塵，如是利益，悉皆自得。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch7' }}">(利益存亡品第七)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch7">(利益存亡品第七)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -127,7 +127,7 @@
 					<p>復次長者：如是罪業眾生，命終之後，眷屬骨肉，為修營齋，資助業道未齋食竟，及營齋之次，米泔菜葉，不棄於地，乃至諸食未獻佛僧，勿得先食。如有違食，及不精勤，是命終人，了不得力。如精勤護淨奉獻佛僧，是命終人，七分獲一。是故長者，閻浮眾生，若能為其父母乃至眷屬，命終之後，設齋供養，志心勤懇。如是之人，存亡獲利。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch7' }}">(利益存亡品第七)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch7">(利益存亡品第七)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -139,7 +139,7 @@
 						<li>水官：審你偷盜多少，最重罪是偷十方僧物。</li>
 						<li>鐵官：審邪淫次數。</li>
 						<li>土官：審囗業罪。</li>
-						<li>天官：審飮酒斗量。</li>
+						<li>天官：審飲酒斗量。</li>
 					</ol>
 				</p>
 				<p>審定之後，隨業受報，未測之間，千萬愁苦，定了罪後，更加悲恐。</p>
@@ -155,13 +155,13 @@
 			<figure>
 				<div class="blockquote bg-secondary-subtle p-2 rounded">
 					<p>會中有一長者，名曰大辯，是長者久證無生，化度十方，現長者身，合掌恭敬，問地藏菩薩言：大士，是南閻浮提眾生，命終之後，小大眷屬，為修功德，乃至設齋，造眾善因，是命終人，得大利益及解脫不？</p>
+					<p>地藏答言：長者，我今為未來現在一切眾生，承佛威力，略說是事。長者，未來現在諸眾生等，臨命終日，得聞一佛名、一菩薩名、一辟支佛名，不問有罪無罪，悉得解脫。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch7' }}">(利益存亡品第七)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch7">(利益存亡品第七)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
-				<p>地藏答言：長者，我今為未來現在一切眾生，承佛威力，略說是事。長者，未來現在諸眾生等，臨命終日，得聞一佛名、一菩薩名、一辟支佛名，不問有罪無罪，悉得解脫。</p>
 				<p>修功德即是念佛、拜懺、誦經、乃至設齋供佛及僧。</p>
 				<p>設齋供佛及僧，功德很大，僧人之中，有菩薩僧、羅漢僧、亦有古佛再來。況且出家人食了齋後，增氣增力，增加其修行之功用，將來悟道，也是供齋人之功德，是故叢林中，最大功德是供齋。</p>
 				<p>造善因即是懸旛懸蓋、燃燈造像、獻花供水、起塔，都是三寶中之種種善因。</p>
@@ -176,7 +176,7 @@
 					<p>若有男子女人，在生不修善因多造眾罪。命終之後，眷屬小大，為造福利一切聖事，七分之中而乃獲一，六分功德，生者自利。以是之故，未來現在善男女等，聞健自修，分分己獲。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch7' }}">(利益存亡品第七)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch7">(利益存亡品第七)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -194,7 +194,7 @@
 					<p>復次普廣：若未來世中，閻浮提內，剎利、婆羅門、長者、居士、一切人等，及異姓種族，有新產者，或男或女，七日之中，早與讀誦此不思議經典，更為念菩薩名，可滿萬遍。是新生子，或男或女，宿有殃報，便得解脫，安樂易養，壽命增長。若是承福生者，轉增安樂，及與壽命。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -207,11 +207,11 @@
 			<h4 class="toc-item" id="sec8">勿殺生產補飲酒作樂</h4>
 			<figure>
 				<div class="blockquote bg-secondary-subtle p-2 rounded">
-					<p>說是語時，會中有一鬼王，名曰主命。白佛言：世尊，我本業緣，主閻浮人命，生時死時，我皆主之。在我本願，甚欲利益。自是眾生不會我意，致令生死俱不得安。何以故。是閻浮提人初生之時，不問男女，或欲生時，但作善事，增益宅舍，自令土地無量歡喜，擁護子母，得大安樂，利益眷屬。或已生下，慎勿殺害，取諸鮮味供給產母，及廣聚眷屬，飲酒食肉，歌樂絃管，能令子母不得安樂。</p>
+					<p>說是語時，會中有一鬼王，名曰主命。白佛言：世尊，我本業緣，主閻浮人命，生時死時，我皆主之。在我本願，甚欲利益。自是眾生不會我意，致令生死俱不得安。何以故。是閻浮提人初生之時，不問男女，或欲生時，但作善事，增益舍宅，自令土地無量歡喜，擁護子母，得大安樂，利益眷屬。或已生下，慎勿殺害，取諸鮮味供給產母，及廣聚眷屬，飲酒食肉，歌樂絃管，能令子母不得安樂。</p>
 					<p>何以故。是產難時，有無數惡鬼及魍魎精魅，欲食腥血。是我早令舍宅土地靈祇。荷護子母，使令安樂，而得利益。如是之人，見安樂故，便合設福，答諸土地。翻為殺害，聚集眷屬。以是之故，犯殃自受，子母俱損。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch8' }}">(閻羅王眾讚歎品第八)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch8">(閻羅王眾讚歎品第八)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -219,9 +219,9 @@
 				<p>我本昔所發的願，是利益眾生，今既由我主理生死之事，我便藉此機會盡量利益，但眾生不會我意，不與我合作，致令生時死時，都不得安穩。 </p>
 				<p>閻浮提人，初生之時，不問生男生女，在未生以前應該作三寶善事，或世間利生之事，以此福力，增益舍宅威光， 宅神、土地神，無量歡喜，預先擁護子母，臨生之時，外邪不侵，母樂子安，眷屬增益。 </p>
 				<p>天地有好生之德，自古放生，名之為仁，殺生，名曰殘忍。人畜雖殊，愛子之心不異，為何慶我子之生，而殺飛禽走獸眷屬，傷其母子之情呢？</p>
-				<p>所以未生之前，或已生下，慎勿殺害生靈，取其鮮味，供給產母，及至小兒滿月時，親友歡聚，可設素宴，慎勿飮酒食肉，酒能亂神，肉由殺命，飮酒斷智慧種，食肉斷慈悲心。更莫歌樂絃管，唱世間之樂，蕩情而逸志，如是違天地之仁慈，背主命鬼王之願心，減舍宅之威光，致令母子俱不得安樂。</p>
+				<p>所以未生之前，或已生下，慎勿殺害生靈，取其鮮味，供給產母，及至小兒滿月時，親友歡聚，可設素宴，慎勿飲酒食肉，酒能亂神，肉由殺命，飲酒斷智慧種，食肉斷慈悲心。更莫歌樂絃管，唱世間之樂，蕩情而逸志，如是違天地之仁慈，背主命鬼王之願心，減舍宅之威光，致令母子俱不得安樂。</p>
 				<p>生產是一個難，因為臨產時，有無數惡鬼，及魍魎精魅，候食腥血，稍為無福者，鬼得其便，連母子皆犯，致令母子不安。</p>
-				<p>是主命鬼王，先令土地宅神，荷護子母，使安穩產子。如是產家男女之人，見生育安樂，應思安樂之功，功由土地，便應設福，如誦經、放生、供齋等諸善事，酬答宅神土地之恩。今殺害生靈，聚集眷屬，歌樂絃管，飮酒食肉，作諸罪殃，自受其報，子母俱損，非是主命鬼王不護。</p>
+				<p>是主命鬼王，先令土地宅神，荷護子母，使安穩產子。如是產家男女之人，見生育安樂，應思安樂之功，功由土地，便應設福，如誦經、放生、供齋等諸善事，酬答宅神土地之恩。今殺害生靈，聚集眷屬，歌樂絃管，飲酒食肉，作諸罪殃，自受其報，子母俱損，非是主命鬼王不護。</p>
 				<hr/>
 			</div>
 			<h4 class="toc-item" id="sec9">夢見有人悲啼愁嘆之修法</h4>
@@ -231,7 +231,7 @@
 					<p>普廣，汝以神力，遣是眷屬，令對諸佛菩薩像前，志心自讀此經，或請人讀，其數三遍或七遍。如是惡道眷屬，經聲畢是遍數，當得解脫，乃至夢寐之中，永不復見。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -250,7 +250,7 @@
 					<p>是故普廣，若見有人讀誦是經，乃至一念讚歎是經，或恭敬者。汝須百千方便，勸是等人，勤心莫退，能得未來、現在千萬億不可思議功德。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -284,7 +284,7 @@
 					<p>復次觀世音菩薩：若未來世，有諸人等，衣食不足，求者乖願、或多病疾、或多凶衰、家宅不安、眷屬分散、或諸橫事，多來忤身，睡夢之間，多有驚怖。如是人等，聞地藏名、見地藏形，至心恭敬，念滿萬遍。是諸不如意事，漸漸消滅，即得安樂、衣食豐溢，乃至於睡夢中，悉皆安樂。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch12' }}">(見聞利益品第十二)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch12">(見聞利益品第十二)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -299,7 +299,7 @@
 					<p>當此居家，若長若幼，現在未來百千歲中，永離惡趣。能於十齋日每轉一遍，現世令此居家無諸橫病，衣食豐溢。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -316,7 +316,7 @@
 					<p>復次普廣：若未來世，有諸下賤等人，或奴或婢，乃至諸不自由之人，覺知宿業，要懺悔者。志心瞻禮地藏菩薩形像，乃至一七日中，念菩薩名，可滿萬遍。如是等人，盡此報後，千萬生中，常生尊貴，更不經三惡道苦。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -333,7 +333,7 @@
 					<p>復次普廣：若有女人，厭是醜陋，多疾病者，但於地藏像前，志心瞻禮，食頃之間。是人千萬劫中，所受生身，相貌圓滿。是醜陋女人，如不厭女身，即百千萬億生中，常為王女，乃及王妃，宰輔大姓，大長者女，端正受生，諸相圓滿。由志心故，瞻禮地藏菩薩，獲福如是。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2#vol2-ch6' }}">(如來讚歎品第六)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol2#vol2-ch6">(如來讚歎品第六)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -345,11 +345,11 @@
 			<h4 class="toc-item" id="sec15">思念幼時亡故父母之修法</h4>
 			<figure>
 				<div class="blockquote bg-secondary-subtle p-2 rounded">
-					<p>復次觀世音菩薩：若未來世，有男子女人，或乳哺時、或三歲、五歲、十歲以下，亡失父母，乃及亡失兄弟姐妹，是人年既長大，思憶父母及諸眷屬，不知落在何趣、生何世界、生何天中？是人若能塑畫地藏菩薩形像，乃至聞名，一瞻一禮，一日至七日，莫退初心，聞名見形，瞻禮供養。是人眷屬，假因業故，墮惡趣者，計當劫數，承斯男女，兄弟姊妹，塑畫地藏形像，瞻禮功德，尋即解脫，生人天中，受勝妙樂。是人眷屬，如有福力，已生人天，受勝妙樂者，即承斯功德，轉增聖因，受無量樂。</p>
+					<p>復次觀世音菩薩：若未來世，有男子女人，或乳哺時、或三歲、五歲、十歲以下，亡失父母，乃及亡失兄弟姊妹，是人年既長大，思憶父母及諸眷屬，不知落在何趣、生何世界、生何天中？是人若能塑畫地藏菩薩形像，乃至聞名，一瞻一禮，一日至七日，莫退初心，聞名見形，瞻禮供養。是人眷屬，假因業故，墮惡趣者，計當劫數，承斯男女，兄弟姊妹，塑畫地藏形像，瞻禮功德，尋即解脫，生人天中，受勝妙樂。是人眷屬，如有福力，已生人天，受勝妙樂者，即承斯功德，轉增聖因，受無量樂。</p>
 					<p>是人更能三七日中，一心瞻禮地藏形像，念其名字，滿於萬遍。當得菩薩現無邊身，具告是人，眷屬生界。或於夢中，菩薩現大神力，親領是人，於諸世界，見諸眷屬。更能每日念菩薩名千遍，至於千日。是人當得菩薩遣所在土地鬼神，終身衛護，現世衣食豐溢，無諸疾苦。乃至橫事不入其門，何況及身。是人畢竟得菩薩摩頂授記。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch12' }}">(見聞利益品第十二)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch12">(見聞利益品第十二)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -368,7 +368,7 @@
 					<p>復次觀世音菩薩：若未來世，善男子善女人，於大乘經典，深生珍重，發不思議心，欲讀欲誦。縱遇明師教視令熟，旋得旋忘，動經年月，不能讀誦。是善男子等，有宿業障，未得消除，故於大乘經典，無讀誦性。如是之人，聞地藏菩薩名、見地藏菩薩像，具以本心恭敬陳白，更以香華、衣服、飲食、一切玩具，供養菩薩。以淨水一盞，經一日一夜安菩薩前，然後合掌請服，回首向南。臨入口時，至心鄭重，服水既畢，慎五辛酒肉，邪婬妄語，及諸殺害，一七日或三七日。是善男子善女人，於睡夢中，具見地藏菩薩現無邊身，於是人處，授灌頂水。其人夢覺，即獲聰明，應是經典，一歷耳根，即當永記，更不忘失一句一偈。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch12' }}">(見聞利益品第十二)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch12">(見聞利益品第十二)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -389,7 +389,7 @@
 					<p>復次觀世音菩薩：若未來世，有善男子善女人，或因治生、或因公私、或因生死、或因急事，入山林中、過渡河海、乃及大水、或經險道。是人先當念地藏菩薩名萬遍，所過土地，鬼神衛護，行住坐臥，永保安樂。乃至逢於虎狼師子，一切毒害，不能損之。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch12' }}">(見聞利益品第十二)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch12">(見聞利益品第十二)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -411,7 +411,7 @@
 					</blockquote>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch11' }}">(地神護法品第十一)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch11">(地神護法品第十一)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -438,7 +438,7 @@
 					<p>佛告堅牢地神：汝大神力，諸神少及。何以故？閻浮土地，悉蒙汝護，乃至草木沙石，稻麻竹葦，穀米寶貝，從地而有，皆因汝力。又常稱揚地藏菩薩利益之事。汝之功德，及以神通，百千倍於常分地神。若未來世中，有善男子善女人，供養菩薩，及轉讀是經，但依地藏本願經一事修行者。汝以本神力而擁護之，勿令一切災害及不如意事，輒聞於耳，何況令受。非但汝獨護是人故，亦有釋梵眷屬，諸天眷屬，擁護是人。何故得如是聖賢擁護，皆由瞻禮地藏形像，及轉讀是本願經故，自然畢竟出離苦海，證涅槃樂。以是之故，得大擁護。</p>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch11' }}">(地神護法品第十一)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch11">(地神護法品第十一)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -474,7 +474,7 @@
 					</blockquote>
 				</div>
 				<figcaption class="blockquote-footer">
-					地藏菩薩本願經 <cite><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3#vol3-ch13' }}">(囑累人天品第十三)</a></cite>
+					地藏菩薩本願經 <cite><a href="/ksitigarbha-vows-vol3#vol3-ch13">(囑累人天品第十三)</a></cite>
 				</figcaption>
 			</figure>
 			<div class="mb-3">
@@ -516,7 +516,7 @@
 			</div>
 			<div class="d-flex mb-3">
 				<div class="me-auto w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3' }}" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-vol3" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
@@ -527,12 +527,11 @@
 						</div>
 					</a>
 				</div>
-				{{--
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-divination-vol1" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
-								<span class="me-2 text-start text-truncate">地藏經修行概要</span>
+								<span class="me-2 text-start text-truncate">占察善惡業報經卷上</span>
 							</div>
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-right fs-1"></i>
@@ -540,19 +539,8 @@
 						</div>
 					</a>
 				</div>
-				--}}
 			</div>
 		</div>
-	</div>
-</div>
-@endsection
-
-@section('audio')
-<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
-	<div class="row my-3">
-		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
-			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol3.mp3' }}" type="audio/mp3" />
-		</x-audio-control>
 	</div>
 </div>
 @endsection

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
@@ -11978,7 +11978,9 @@ textarea.form-control-lg {
   }
 }
 * {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", Verdana, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 /*!
@@ -24930,7 +24932,7 @@ nav[data-toggle=toc] > ul {
 }
 
 /* small screens */
-@media (max-width: 768px) {
+@media (max-width: 575.98px) {
   /* override stickyness so that the navigation does not follow scrolling */
   nav[data-toggle=toc] {
     margin-bottom: 80px;
@@ -24949,9 +24951,9 @@ nav[data-toggle=toc] > ul {
   */
 }
 /* large screens */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   nav[data-toggle=toc] {
-    max-height: calc(100vh - 200px);
+    max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
   nav[data-toggle=toc]::-webkit-scrollbar {
@@ -25053,6 +25055,12 @@ h4.toc-item::before, .toc-item.h4::before {
   content: "\f1dd";
 }
 
+h6.toc-item::before, .toc-item.h6::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f02e";
+}
+
 .word {
   padding: 0.3rem 0;
   border-radius: 10px;
@@ -25064,6 +25072,9 @@ h4.toc-item::before, .toc-item.h4::before {
   padding: 0.3rem;
   background: yellow;
   color: black;
+}
+.word sub {
+  color: #c29ffa;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -25141,6 +25152,13 @@ blockquote {
   content: "\f025";
 }
 
+#back-to-top {
+  opacity: 0.5;
+}
+#back-to-top:hover {
+  opacity: 1;
+}
+
 .footer-link-bottom {
   padding-bottom: 100px;
 }
@@ -25149,9 +25167,20 @@ blockquote {
   height: 200px;
 }
 
+/* small screens */
 @media (max-width: 575.98px) {
-  #back-to-top {
+  body:has(.audio-container.opened) #back-to-top {
+    right: 20px;
+    bottom: 60px;
+  }
+  body:has(.audio-container.opened .collapse.show) #back-to-top {
     right: 20px;
     bottom: 120px;
+  }
+}
+/* large screens */
+@media (min-width: 576px) {
+  body:has(.audio-container.opened .collapse.show) nav[data-toggle=toc] {
+    max-height: calc(100vh - 200px);
   }
 }

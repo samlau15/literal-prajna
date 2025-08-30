@@ -29,7 +29,7 @@
 			>
 				<ul class="nav navbar-nav">
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經卷上</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol1">地藏菩薩本願經卷上</a>
 					</li>
 					<li>
 						<a @@click="jumpTo('vol2')" :class="{active: currItems['vol2'] && true}" class="nav-link text-nowrap" href="#vol2">地藏菩薩本願經卷中</a>
@@ -42,11 +42,11 @@
 						</ul>
 					</li>
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3' }}">地藏菩薩本願經卷下</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol3">地藏菩薩本願經卷下</a>
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-2"><a href="https://www.youtube.com/watch?v=aCZG69gvG-M" target="_blank">(觀成法師讀經)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=aCZG69gvG-M" target="_blank">(觀成法師讀經 - 卷中)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
 					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
@@ -57,7 +57,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">地藏經典</li>
-					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷中</li>
 				</ol>
 			</nav>
@@ -492,7 +492,7 @@
 					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="05:18.44" data-end="05:19.86" data-index="1298">或有地獄</span>
 					<span class="punc">，</span>
-					<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.12" data-end="05:21.76" data-index="1299">純飛鈒鑗</span>
+					<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.12" data-end="05:21.76" data-index="1299">純飛𨪏鑗</span>
 					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="05:22.24" data-end="05:23.52" data-index="1300">或有地獄</span>
 					<span class="punc">，</span>
@@ -1269,7 +1269,7 @@
 				<span class="punc">。</span>
 			</div>
 			<div x-show="details" class="details mb-3">
-				佛又對普廣菩薩說：「假使未來世中，在閻浮提內，有刹利種族、婆羅門種族、有尊貴的長者，以及在家信佛的居士，這一切人，還有一切異姓種族的人，如果有新出生的嬰兒，或男或女，剛生產七天之中，趁早給他們讀誦這部《地藏本願經》不思議經典，再為他們念地藏菩薩名號，念滿萬遍，不管是男孩還是女孩，他們在前世所帶來的禍殃惡報，便全得到解脫，可平安快樂長大，容易養育，而且他們的壽命會隨之增長。如果是因承自己的福報轉生的，那更轉增他們安樂與壽命。」
+				佛又對普廣菩薩說：「假使未來世中，在閻浮提內，有剎利種族、婆羅門種族、有尊貴的長者，以及在家信佛的居士，這一切人，還有一切異姓種族的人，如果有新出生的嬰兒，或男或女，剛生產七天之中，趁早給他們讀誦這部《地藏本願經》不思議經典，再為他們念地藏菩薩名號，念滿萬遍，不管是男孩還是女孩，他們在前世所帶來的禍殃惡報，便全得到解脫，可平安快樂長大，容易養育，而且他們的壽命會隨之增長。如果是因承自己的福報轉生的，那更轉增他們安樂與壽命。」
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
@@ -2171,7 +2171,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="34:18.54" data-end="34:21.26" data-index="1976">而遣悟宿世之事</span>
 				<span class="punc">。</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="34:21.96" data-end="34:27.16" data-index="1977">自是閻浮提眾生結惡習重</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="34:21.96" data-end="34:27.16" data-index="1977">自是閻浮眾生結惡習重</span>
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="34:27.76" data-end="34:29.62" data-index="1978">旋出旋入</span>
 				<span class="punc">，</span>
@@ -2475,7 +2475,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="40:01.60" data-end="40:03.10" data-index="2109">但作善事</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="40:03.62" data-end="40:05.24" data-index="2110">增益宅舍</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="40:03.62" data-end="40:05.24" data-index="2110">增益舍宅</span>
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="40:05.78" data-end="40:09.28" data-index="2111">自令土地無量歡喜</span>
 				<span class="punc">，</span>
@@ -2581,7 +2581,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="41:53.74" data-end="41:59.64" data-index="2153">如是閻浮提男子女人臨命終時</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="42:00.02" data-end="42:01.78" data-index="2154">神識惛昧</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="42:00.00" data-end="42:01.78" data-index="2154">神識惛昧</span>
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="42:02.04" data-end="42:03.70" data-index="2155">不辨善惡</span>
 				<span class="punc">，</span>
@@ -3084,7 +3084,7 @@
 			</div>
 			<div class="d-flex mb-3">
 				<div class="me-auto w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-vol1" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
@@ -3096,7 +3096,7 @@
 					</a>
 				</div>
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-vol3" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
 								<span class="me-2 text-start text-truncate">地藏菩薩本願經卷下</span>
@@ -3114,7 +3114,7 @@
 @endsection
 
 @section('audio')
-<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
+<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol2.mp3' }}" type="audio/mp3" />

@@ -1002,7 +1002,7 @@
 			
 			<div class="d-flex mb-3">
 				<div class="me-auto w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol2' }}" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-divination-vol2" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
@@ -1014,10 +1014,10 @@
 					</a>
 				</div>
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-divination-tools-group3' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-dasacakra-vol1" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
-								<span class="me-2 text-start text-truncate">第三輪相翻查結果</span>
+								<span class="me-2 text-start text-truncate">大乘大集地藏十輪經卷一</span>
 							</div>
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-right fs-1"></i>
@@ -1027,16 +1027,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-@endsection
-
-@section('audio')
-<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
-	<div class="row my-3">
-		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
-			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol1.mp3' }}" type="audio/mp3" />
-		</x-audio-control>
 	</div>
 </div>
 @endsection

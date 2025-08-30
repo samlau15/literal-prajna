@@ -43,6 +43,7 @@
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-dasacakra-vol1' }}">大乘大集地藏十輪經</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -85,6 +86,7 @@
 					<ul>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+						<li><a href="{{ $page->baseUrl.'/ksitigarbha-dasacakra-vol1' }}">大乘大集地藏十輪經</a></li>
 					</ul>
 				</li>
 				<li>

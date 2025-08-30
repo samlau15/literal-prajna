@@ -43,7 +43,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">地藏經典</li>
-					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
 					<li class="breadcrumb-item active">卷下</li>
 				</ol>
 			</nav>

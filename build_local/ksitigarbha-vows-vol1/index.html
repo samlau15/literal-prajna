@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-vows-vol1">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=941327a1f4eae140aefd30cdd35d9f61">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=08d9bb87038fb0a68b5458db25da07dc">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -45,6 +45,7 @@
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -87,6 +88,7 @@
 					<ul>
 						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
 					</ul>
 				</li>
 				<li>
@@ -227,7 +229,7 @@
 	<hr/>
 			<div x-show="!readOnly" class="mb-3">
 		<i class="fa fa-headphones"></i>
-		粵語導讀 <small class="ms-2"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀經)</a></small>
+		粵語導讀 <small class="ms-2"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀經 - 卷上)</a></small>
 	</div>
 	<div x-show="!readOnly" class="mb-3">
 		<div class="float-start mb-1">
@@ -396,13 +398,13 @@
 					<span class="punc">、</span>
 					<span class="word" @click="$dispatch('play-segment')" data-start="02:16.90" data-end="02:18.96" data-index="36">尸波羅蜜音</span>
 					<span class="punc">、</span><br/>
-					<span class="word" @click="$dispatch('play-segment')" data-start="02:19.44" data-end="02:21.70" data-index="37">羼提波羅密音</span>
+					<span class="word" @click="$dispatch('play-segment')" data-start="02:19.44" data-end="02:21.70" data-index="37">羼提波羅蜜音</span>
 					<span class="punc">、</span>
 					<span class="word" @click="$dispatch('play-segment')" data-start="02:22.68" data-end="02:25.08" data-index="38">毗離耶波羅蜜音</span>
 					<span class="punc">、</span><br/>
 					<span class="word" @click="$dispatch('play-segment')" data-start="02:25.52" data-end="02:27.56" data-index="39">禪波羅蜜音</span>
 					<span class="punc">、</span>
-					<span class="word" @click="$dispatch('play-segment')" data-start="02:27.88" data-end="02:30.14" data-index="40">般若波羅密音</span>
+					<span class="word" @click="$dispatch('play-segment')" data-start="02:27.88" data-end="02:30.14" data-index="40">般若波羅蜜音</span>
 					<span class="punc">、</span><br/>
 					<span class="word" @click="$dispatch('play-segment')" data-start="02:30.52" data-end="02:31.84" data-index="41">慈悲音</span>
 					<span class="punc">、</span>
@@ -465,7 +467,7 @@
 					<span class="punc">、</span>
 					<span class="word" @click="$dispatch('play-segment')" data-start="03:08.70" data-end="03:10.12" data-index="57">忉利天</span>
 					<span class="punc">、</span><br/>
-					<span class="word" @click="$dispatch('play-segment')" data-start="03:10.70" data-end="03:12.48" data-index="58">須燄摩天</span>
+					<span class="word" @click="$dispatch('play-segment')" data-start="03:10.70" data-end="03:12.48" data-index="58">須焰摩天</span>
 					<span class="punc">、</span>
 					<span class="word" @click="$dispatch('play-segment')" data-start="03:12.76" data-end="03:14.50" data-index="59">兜率陀天</span>
 					<span class="punc">、</span><br/>
@@ -2123,7 +2125,7 @@
 				<span class="punc">，</span>
 				<span class="word" @click="$dispatch('play-segment')" data-start="28:03.22" data-end="28:06.94" data-index="692">復有鐵鷹啗罪人目</span>
 				<span class="punc">。</span>
-				<span class="word" @click="$dispatch('play-segment')" data-start="28:07.44" data-end="28:11.08" data-index="693">復有鐵蛇絞罪人頸</span>
+				<span class="word" @click="$dispatch('play-segment')" data-start="28:07.44" data-end="28:11.08" data-index="693">復有鐵蛇繳罪人頸</span>
 				<span class="punc">。</span>
 				<span class="word" @click="$dispatch('play-segment')" data-start="28:11.48" data-end="28:13.18" data-index="694">百肢節內</span>
 				<span class="punc">，</span>
@@ -2578,7 +2580,7 @@
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
-				<span class="word" @click="$dispatch('play-segment')" data-start="35:07.28" data-end="35:08.92" data-index="872">光目答曰</span>
+				<span class="word" @click="$dispatch('play-segment')" data-start="35:07.28" data-end="35:08.92" data-index="872">光目答言</span>
 				<span class="punc">：</span>
 				<span class="word" @click="$dispatch('play-segment')" data-start="35:09.02" data-end="35:11.48" data-index="873">我以母亡之日</span>
 				<span class="punc">，</span>
@@ -2846,7 +2848,7 @@
 				<span class="punc">，</span>
 				<span class="word" @click="$dispatch('play-segment')" data-start="39:20.36" data-end="39:22.00" data-index="975">盡成佛竟</span>
 				<span class="punc">，</span>
-				<span class="word" @click="$dispatch('play-segment')" data-start="39:22.10" data-end="39:24.88" data-index="976">我然後方成正等正覺</span>
+				<span class="word" @click="$dispatch('play-segment')" data-start="39:22.10" data-end="39:24.88" data-index="976">我然後方成正覺</span>
 				<span class="punc">。</span>
 			</div>
 			<div x-show="details" class="details mb-3">
@@ -3310,7 +3312,7 @@
 		</div>
 		
 		<!-- audio control -->
-		<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
+		<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<div
     x-data="Object.assign({}, {
@@ -3367,6 +3369,11 @@
 				if(!(start <= player.currentTime && end >= player.currentTime)) {
 					player.currentTime = start;
 				}
+			}
+		},
+		escape: e => {
+			if($data.player.playing) {
+				$data.player.pause();
 			}
 		},
 		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
@@ -3466,6 +3473,7 @@
 	@stop-audio.window="stop"
 	@play-segment.window="playSegment"
 	@jump-to.window="jumpTo"
+	@keydown.escape.window="escape"
     
 	
 	:class="{'pe-auto': !collapsed}"
@@ -3508,6 +3516,6 @@
 		<!-- never use defer attribute as it caused jQuery undefined -->
 		<script src="/assets/build/js/manifest.js?id=515b82507b0d747943bac5104678d000" ></script>
 		<script src="/assets/build/js/vendor.js?id=6a0b3d173f3d36dce51a77472cd69ed4" ></script>
-        <script src="/assets/build/js/app.js?id=dc8d02fb74f207f1f23adaa3b8508c98"></script>
+        <script src="/assets/build/js/app.js?id=8e830ce89c7cb1c087daa8a1d5588b52"></script>
 		    </body>
 </html>

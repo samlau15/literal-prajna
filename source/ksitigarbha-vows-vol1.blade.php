@@ -38,14 +38,14 @@
 						</ul>
 					</li>
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2' }}">地藏菩薩本願經卷中</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol2">地藏菩薩本願經卷中</a>
 					</li>
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol3' }}">地藏菩薩本願經卷下</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol3">地藏菩薩本願經卷下</a>
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-2"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀經)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=FxKANq2yPs8" target="_blank">(觀成法師讀經 - 卷上)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
 					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
@@ -56,7 +56,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">地藏經典</li>
-					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷上</li>
 				</ol>
 			</nav>
@@ -176,13 +176,13 @@
 					<span class="punc">、</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:16.90" data-end="02:18.96" data-index="36">尸波羅蜜音</span>
 					<span class="punc">、</span><br/>
-					<span class="word" @@click="$dispatch('play-segment')" data-start="02:19.44" data-end="02:21.70" data-index="37">羼提波羅密音</span>
+					<span class="word" @@click="$dispatch('play-segment')" data-start="02:19.44" data-end="02:21.70" data-index="37">羼提波羅蜜音</span>
 					<span class="punc">、</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:22.68" data-end="02:25.08" data-index="38">毗離耶波羅蜜音</span>
 					<span class="punc">、</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:25.52" data-end="02:27.56" data-index="39">禪波羅蜜音</span>
 					<span class="punc">、</span>
-					<span class="word" @@click="$dispatch('play-segment')" data-start="02:27.88" data-end="02:30.14" data-index="40">般若波羅密音</span>
+					<span class="word" @@click="$dispatch('play-segment')" data-start="02:27.88" data-end="02:30.14" data-index="40">般若波羅蜜音</span>
 					<span class="punc">、</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:30.52" data-end="02:31.84" data-index="41">慈悲音</span>
 					<span class="punc">、</span>
@@ -245,7 +245,7 @@
 					<span class="punc">、</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="03:08.70" data-end="03:10.12" data-index="57">忉利天</span>
 					<span class="punc">、</span><br/>
-					<span class="word" @@click="$dispatch('play-segment')" data-start="03:10.70" data-end="03:12.48" data-index="58">須燄摩天</span>
+					<span class="word" @@click="$dispatch('play-segment')" data-start="03:10.70" data-end="03:12.48" data-index="58">須焰摩天</span>
 					<span class="punc">、</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="03:12.76" data-end="03:14.50" data-index="59">兜率陀天</span>
 					<span class="punc">、</span><br/>
@@ -1903,7 +1903,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="28:03.22" data-end="28:06.94" data-index="692">復有鐵鷹啗罪人目</span>
 				<span class="punc">。</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="28:07.44" data-end="28:11.08" data-index="693">復有鐵蛇絞罪人頸</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="28:07.44" data-end="28:11.08" data-index="693">復有鐵蛇繳罪人頸</span>
 				<span class="punc">。</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="28:11.48" data-end="28:13.18" data-index="694">百肢節內</span>
 				<span class="punc">，</span>
@@ -2358,7 +2358,7 @@
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
-				<span class="word" @@click="$dispatch('play-segment')" data-start="35:07.28" data-end="35:08.92" data-index="872">光目答曰</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="35:07.28" data-end="35:08.92" data-index="872">光目答言</span>
 				<span class="punc">：</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="35:09.02" data-end="35:11.48" data-index="873">我以母亡之日</span>
 				<span class="punc">，</span>
@@ -2626,7 +2626,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="39:20.36" data-end="39:22.00" data-index="975">盡成佛竟</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="39:22.10" data-end="39:24.88" data-index="976">我然後方成正等正覺</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="39:22.10" data-end="39:24.88" data-index="976">我然後方成正覺</span>
 				<span class="punc">。</span>
 			</div>
 			<div x-show="details" class="details mb-3">
@@ -3070,20 +3070,20 @@
 			<div class="d-flex mb-3">
 				<div class="me-auto w-50">
 					{{--
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="#" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
 							</div>
 							<div class="d-flex w-100 justify-content-center">
-								<span class="ms-2 text-start text-truncate">地藏菩薩本願經卷上</span>
+								<span class="ms-2 text-start text-truncate"></span>
 							</div>
 						</div>
 					</a>
 					--}}
 				</div>
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-vol2" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
 								<span class="me-2 text-start text-truncate">地藏菩薩本願經卷中</span>
@@ -3101,7 +3101,7 @@
 @endsection
 
 @section('audio')
-<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
+<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol1.mp3' }}" type="audio/mp3" />

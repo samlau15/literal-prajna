@@ -55,6 +55,11 @@
 				}
 			}
 		},
+		escape: e => {
+			if($data.player.playing) {
+				$data.player.pause();
+			}
+		},
 		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
 	}, {!! $attributes->has('x-data') ? $attributes['x-data'] : '{}' !!})"
     x-init="
@@ -152,6 +157,7 @@
 	@@stop-audio.window="stop"
 	@@play-segment.window="playSegment"
 	@@jump-to.window="jumpTo"
+	@@keydown.escape.window="escape"
     {!! $attributes->whereStartsWith('@') !!}
 	
 	{!! $attributes->whereStartsWith(':class') !!}

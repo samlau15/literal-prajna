@@ -43,7 +43,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">地藏經典</li>
-					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
 					<li class="breadcrumb-item active">卷上</li>
 				</ol>
 			</nav>
@@ -3318,20 +3318,18 @@
 				</h2>
 			</div>
 			<div class="d-flex mb-3">
-			{{--
 				<div class="me-auto w-50">
-					<a href="#" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-practices" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
 							</div>
 							<div class="d-flex w-100 justify-content-center">
-								<span class="ms-2 text-start text-truncate"></span>
+								<span class="ms-2 text-start text-truncate">地藏經修行概要</span>
 							</div>
 						</div>
 					</a>
 				</div>
-			--}}
 				<div class="ms-auto me-3 w-50">
 					<a href="/ksitigarbha-divination-vol2" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">

@@ -29,10 +29,10 @@
 			>
 				<ul class="nav navbar-nav">
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經卷上</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol1">地藏菩薩本願經卷上</a>
 					</li>
 					<li>
-						<a class="nav-link text-nowrap" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2' }}">地藏菩薩本願經卷中</a>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-vows-vol2">地藏菩薩本願經卷中</a>
 					</li>
 					<li>
 						<a @@click="jumpTo('vol3')" :class="{active: currItems['vol3'] && true}" class="nav-link text-nowrap" href="#vol3">地藏菩薩本願經卷下</a>
@@ -45,7 +45,7 @@
 					</li>
 				</ul>
 				<x-slot:audioCtrlSubtitle>
-					<small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀經)</a></small>
+					<small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀經 - 卷下)</a></small>
 				</x-slot>
 				<x-slot:transCtrlSubtitle>
 					<small class="ms-2">(郭鵬原譯，本站略修。)</small>
@@ -56,7 +56,7 @@
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">地藏經典</li>
-					<li class="breadcrumb-item"><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 					<li class="breadcrumb-item active">卷下</li>
 				</ol>
 			</nav>
@@ -185,7 +185,7 @@
 				<span class="punc">。</span>
 			</div>
 			<div x-show="details" class="details mb-3">
-				佛告訴地藏菩薩說：「在南閻浮提，無論那一國的國王、宰相、大臣，或是大長者、有錢的王族刹帝利人及淨行修道的大婆羅門人等，如果遇見最低下貧窮的人，甚至殘廢、癱瘓、啞巴、聾子、傻子、瞎子，像這樣一些有種種殘疾、身體不完備的人，這些大國王等人想要布施時，如果能以慈悲之心，放下自己尊貴的身份，面帶笑容，親自遍行布施，或者派別人代為布施，並用溫柔體貼的言語去安慰這些貧窮之人。這些國王等人所獲得的福報利益，就好像布施了上百條恆河沙那麼多的佛而獲得的功德利益。為什麼呢？因為這些國王等人，對於最卑微貧賤的人及五體殘缺不全的人發出大慈悲心來布施，所以才能獲得這麼大的福報。在他們百千生中，常能得到各種寶物，更何況衣服、飲食等，自然受用不盡了。
+				佛告訴地藏菩薩說：「在南閻浮提，無論那一國的國王、宰相、大臣，或是大長者、有錢的王族剎帝利人及淨行修道的大婆羅門人等，如果遇見最低下貧窮的人，甚至殘廢、癱瘓、啞巴、聾子、傻子、瞎子，像這樣一些有種種殘疾、身體不完備的人，這些大國王等人想要布施時，如果能以慈悲之心，放下自己尊貴的身份，面帶笑容，親自遍行布施，或者派別人代為布施，並用溫柔體貼的言語去安慰這些貧窮之人。這些國王等人所獲得的福報利益，就好像布施了上百條恆河沙那麼多的佛而獲得的功德利益。為什麼呢？因為這些國王等人，對於最卑微貧賤的人及五體殘缺不全的人發出大慈悲心來布施，所以才能獲得這麼大的福報。在他們百千生中，常能得到各種寶物，更何況衣服、飲食等，自然受用不盡了。
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
@@ -994,7 +994,7 @@
 				<span class="punc">。</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="16:52.52" data-end="16:54.18" data-index="2723">因果將熟</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="16:54.78" data-end="16:56.40" data-index="2724">遇佛受記</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="16:54.78" data-end="16:56.40" data-index="2724">遇佛授記</span>
 				<span class="punc">。</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="16:56.82" data-end="16:59.66" data-index="2725">汝今具大慈悲</span>
 				<span class="punc">，</span>
@@ -1142,7 +1142,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="19:35.40" data-end="19:37.14" data-index="2788">一切罪障</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="19:37.22" data-end="19:38.74" data-index="2789">皆悉消滅</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="19:37.22" data-end="19:38.74" data-index="2789">悉皆消滅</span>
 				<span class="punc">。</span>
 			</div>
 			<div x-show="details" class="details mb-3">
@@ -1166,7 +1166,7 @@
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="19:53.14" data-end="19:54.64" data-index="2797">亡失父母</span>
 				<span class="punc">，</span>
-				<span class="word" @@click="$dispatch('play-segment')" data-start="19:55.04" data-end="19:58.16" data-index="2798">乃及亡失兄弟姐妹</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="19:55.04" data-end="19:58.16" data-index="2798">乃及亡失兄弟姊妹</span>
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="19:58.42" data-end="20:00.88" data-index="2799">是人年既長大</span>
 				<span class="punc">，</span>
@@ -2365,7 +2365,7 @@
 			</div>
 			<div class="d-flex mb-3">
 				<div class="me-auto w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol2' }}" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-vol2" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-left fs-1"></i>
@@ -2377,7 +2377,7 @@
 					</a>
 				</div>
 				<div class="ms-auto me-3 w-50">
-					<a href="{{ $page->baseUrl.'/ksitigarbha-vows-practices' }}" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-vows-practices" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
 								<span class="me-2 text-start text-truncate">地藏經修行概要</span>
@@ -2395,7 +2395,7 @@
 @endsection
 
 @section('audio')
-<div class="container fixed-bottom pe-none" x-show="!isSidebarOpened">
+<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol3.mp3' }}" type="audio/mp3" />
