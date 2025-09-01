@@ -31,7 +31,7 @@
 						<a @@click="jumpTo('vol1')" :class="{active: currItems['vol1'] && true}" class="nav-link text-nowrap" href="#vol1">地藏十輪經卷一</a>
 						<ul class="nav navbar-nav">
 							<li><a @@click="jumpTo('vol1-ch1')" :class="{active: currItems['vol1-ch1'] && true}" class="nav-link text-nowrap" href="#vol1-ch1">序品第一</a></li>
-							<li><a @@click="jumpTo('vol1-m1')" :class="{active: currItems['vol1-m1'] && true}" class="nav-link text-nowrap" href="#vol1-m1">具足水火吉祥光明大記明呪</a></li>
+							<li><a @@click="jumpTo('vol1-m1')" :class="{active: currItems['vol1-m1'] && true}" class="nav-link text-nowrap" href="#vol1-m1">具足水火吉祥光明<br/>大記明呪總持章句</a></li>
 						</ul>
 					</li>
 					<li>
@@ -2834,12 +2834,8 @@
 				<hr/>
 			</div>
 			<h6 class="toc-item" id="vol1-m1">
-				<span class="word">具足水火吉祥光明大記明呪</span>
+				<span class="word">具足水火吉祥光明大記明呪總持章句</span>
 			</h6>
-			<small>
-				<a @@click.prevent="" class="float-end" href="#">顯示真言羅馬拼音</a>
-			</small>
-			<div class="clearfix"></div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
 				<span class="word">即說呪曰</span>
 				<span class="punc">：</span>
@@ -2917,7 +2913,7 @@
 					<span class="word">善說能淨濁惡意</span>
 					<span class="punc">，</span>
 					<span class="word">善說能淨濁大種</span>
-					<span class="punc">；</span><br/>
+					<span class="punc">，</span><br/>
 					<span class="word">善說能淨濁惡味</span>
 					<span class="punc">，</span>
 					<span class="word">善說能淨濁惡氣</span>
@@ -2925,7 +2921,7 @@
 					<span class="word">善說能滿諸希望</span>
 					<span class="punc">，</span>
 					<span class="word">善說能成諸稼穡</span>
-					<span class="punc">；</span><br/>
+					<span class="punc">，</span><br/>
 					<span class="word">善說能令一切佛</span>
 					<span class="punc">，</span>
 					<span class="word">如來世尊所加護</span>
@@ -2936,6 +2932,89 @@
 					<span class="punc">。</span>
 				</blockquote>
 			</div>
+			<x-audio-para
+				x-data="{audioSource: '{{ $page->baseUrl.'/assets/audios/ksitigarbha-dasacakra-mantra1.mp3' }}'}"
+				class="paragraph mantra"
+				::class="collapsed ? 'collapsed' : ''"
+			>
+				<x-slot:collapsed>
+					<small><a @@click.prevent="toggle(true)" class="float-end" href="#">顯示 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+				</x-slot>
+				<x-slot:expanded>
+					<small><a @@click.prevent="toggle(false)" class="float-end" href="#">關閉 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+					<blockquote>
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:00.05" data-end="00:03.12" data-index="0">kṣimbhu kṣimbhu kṣimkṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:03.26" data-end="00:05.35" data-index="1">ākāsa kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:05.47" data-end="00:07.34" data-index="2">vakara kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:07.48" data-end="00:09.37" data-index="3">ambara kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:09.49" data-end="00:11.16" data-index="4">vala kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:11.33" data-end="00:13.12" data-index="5">vajra kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:13.29" data-end="00:15.11" data-index="6">aloka kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:15.33" data-end="00:17.25" data-index="7">dhamma kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:17.46" data-end="00:19.51" data-index="8">satyama kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:19.72" data-end="00:22.54" data-index="9">satya nirhāra kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:22.71" data-end="00:25.41" data-index="10">vyavaloka kṣava kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:25.59" data-end="00:27.63" data-index="11">upaśama kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:27.83" data-end="00:29.66" data-index="12">nayana kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:29.93" data-end="00:32.95" data-index="13">prajñā samutīraṇa kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:33.21" data-end="00:34.89" data-index="14">kṣaṇa kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:35.10" data-end="00:37.32" data-index="15">viśāvarya kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:37.53" data-end="00:39.83" data-index="16">śāstarava kṣimbhu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:40.04" data-end="00:42.13" data-index="17">vyāḍasuṭe mahile</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:42.32" data-end="00:43.93" data-index="18">dame śame</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:44.22" data-end="00:46.77" data-index="19">cakrase cakramasire</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:47.02" data-end="00:49.70" data-index="20">kṣire phire ghra sabala</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:49.88" data-end="00:52.82" data-index="21">vrate hire prabhe pracara</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:53.01" data-end="00:55.45" data-index="22">vantane ratane pāra</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:55.69" data-end="00:57.65" data-index="23">ca ca ca ca</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:57.80" data-end="01:00.14" data-index="24">hile mile ekatha</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:00.42" data-end="01:02.29" data-index="25">thaḥkhe thakhulu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:02.50" data-end="01:04.49" data-index="26">thare thare mire</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:04.66" data-end="01:06.98" data-index="27">mādhe tādhe kule</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:07.19" data-end="01:09.47" data-index="28">mile aṅkucitāvi</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:09.66" data-end="01:10.95" data-index="29">ari giri</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:11.16" data-end="01:12.44" data-index="30">parā giri</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:12.67" data-end="01:14.03" data-index="31">kuṭaśamale</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:14.24" data-end="01:16.73" data-index="32">ḍiṅge ḍiṅge ḍiṅgule</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:16.93" data-end="01:18.85" data-index="33">hulu hulu hulu</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:19.12" data-end="01:22.15" data-index="34">kulustumile miridhe miridhe</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:22.34" data-end="01:24.98" data-index="35">bhāṇḍadha hāra hili</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="01:25.17" data-end="01:26.73" data-index="36">hulu hurulu</span>　
+						<br/><br/>
+						<span class="word">善說能淨諸有塵</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨鬪諍劫</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能淨濁惡意</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨濁大種</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能淨濁惡味</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨濁惡氣</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能滿諸希望</span>
+						<span class="punc">，</span>
+						<span class="word">善說能成諸稼穡</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能令一切佛</span>
+						<span class="punc">，</span>
+						<span class="word">如來世尊所加護</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說又能令一切</span>
+						<span class="punc">，</span>
+						<span class="word">菩薩加護而隨喜</span>
+						<span class="punc">。</span>
+					</blockquote>
+					<small class="text-muted float-end">
+						IAST 羅馬拼音出自此書
+						<a href="https://www.mantra.com.tw/classic/m9.html">「地藏十輪經咒音初探」</a>
+					</small>
+					<div class="clearfix"></div>
+				</x-slot>
+			</x-audio-para>
 			<div x-show="details" class="details mb-3">
 				<blockquote>
 					圓滿陀羅尼能清淨所有塵垢。<br/>
@@ -3461,6 +3540,16 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+@endsection
+
+@section('audio')
+<div class="container audio-outer-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
+	<div class="row my-3">
+		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}" x-data="{scrollTopFirstPlay: false}">
+			<source src="" type="audio/mp3" />
+		</x-audio-control>
 	</div>
 </div>
 @endsection

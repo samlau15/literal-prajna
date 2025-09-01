@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-dasacakra-vol1">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=08d9bb87038fb0a68b5458db25da07dc">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=8dafaff6eeeaf5b71d5741f654f6738d">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -154,7 +154,6 @@
 		},
 		adjustFontsize: deg => {
 			$data.textsize = deg;
-			console.log($data)
 		}
 	}, {currItems: {vol1: true}})"
 	x-init="
@@ -179,9 +178,7 @@
 						
 			
 				$data.details = false;
-				
-		
-	"
+			"
 	@toc-enter.window="tocEnter"
 	@toc-exit.window="tocExit"
 	@audio-shown.window="audioCollapsed=false"
@@ -202,7 +199,7 @@
 						<a @click="jumpTo('vol1')" :class="{active: currItems['vol1'] && true}" class="nav-link text-nowrap" href="#vol1">地藏十輪經卷一</a>
 						<ul class="nav navbar-nav">
 							<li><a @click="jumpTo('vol1-ch1')" :class="{active: currItems['vol1-ch1'] && true}" class="nav-link text-nowrap" href="#vol1-ch1">序品第一</a></li>
-							<li><a @click="jumpTo('vol1-m1')" :class="{active: currItems['vol1-m1'] && true}" class="nav-link text-nowrap" href="#vol1-m1">具足水火吉祥光明大記明呪</a></li>
+							<li><a @click="jumpTo('vol1-m1')" :class="{active: currItems['vol1-m1'] && true}" class="nav-link text-nowrap" href="#vol1-m1">具足水火吉祥光明<br/>大記明呪總持章句</a></li>
 						</ul>
 					</li>
 					<li>
@@ -3023,12 +3020,8 @@
 				<hr/>
 			</div>
 			<h6 class="toc-item" id="vol1-m1">
-				<span class="word">具足水火吉祥光明大記明呪</span>
+				<span class="word">具足水火吉祥光明大記明呪總持章句</span>
 			</h6>
-			<small>
-				<a @click.prevent="" class="float-end" href="#">顯示真言羅馬拼音</a>
-			</small>
-			<div class="clearfix"></div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
 				<span class="word">即說呪曰</span>
 				<span class="punc">：</span>
@@ -3106,7 +3099,7 @@
 					<span class="word">善說能淨濁惡意</span>
 					<span class="punc">，</span>
 					<span class="word">善說能淨濁大種</span>
-					<span class="punc">；</span><br/>
+					<span class="punc">，</span><br/>
 					<span class="word">善說能淨濁惡味</span>
 					<span class="punc">，</span>
 					<span class="word">善說能淨濁惡氣</span>
@@ -3114,7 +3107,7 @@
 					<span class="word">善說能滿諸希望</span>
 					<span class="punc">，</span>
 					<span class="word">善說能成諸稼穡</span>
-					<span class="punc">；</span><br/>
+					<span class="punc">，</span><br/>
 					<span class="word">善說能令一切佛</span>
 					<span class="punc">，</span>
 					<span class="word">如來世尊所加護</span>
@@ -3125,7 +3118,117 @@
 					<span class="punc">。</span>
 				</blockquote>
 			</div>
-			<div x-show="details" class="details mb-3">
+			<div
+	x-data="Object.assign({}, {
+		collapsed: true,
+		audioSource: '',
+		toggle: show => {
+			if(show) {
+				$data.collapsed = false,
+				$data.readOnly = false;
+				$dispatch('load-audio', {source: $data.audioSource});
+			} else {
+				$data.collapsed = true,
+				$data.readOnly = true;
+				$dispatch('stop-audio');
+			}
+		},
+	}, {audioSource: '/assets/audios/ksitigarbha-dasacakra-mantra1.mp3'})"
+	x-init="
+		// reset to readonly mode
+		// as we dynamically load the audio source to the player
+		// after user has toggled on the audio mode
+		readOnly = true;
+		
+		// turnoff autoscroll
+		autoScroll = false;
+		
+	"
+	
+	
+	:class="collapsed ? 'collapsed' : ''"
+		class="paragraph mantra"
+		
+	id="audio-para"
+>
+	<div x-show="collapsed">
+		<small><a @click.prevent="toggle(true)" class="float-end" href="#">顯示 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+	</div>
+	<div x-show="!collapsed">
+		<small><a @click.prevent="toggle(false)" class="float-end" href="#">關閉 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+					<blockquote>
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:00.05" data-end="00:03.12" data-index="0">kṣimbhu kṣimbhu kṣimkṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:03.26" data-end="00:05.35" data-index="1">ākāsa kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:05.47" data-end="00:07.34" data-index="2">vakara kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:07.48" data-end="00:09.37" data-index="3">ambara kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:09.49" data-end="00:11.16" data-index="4">vala kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:11.33" data-end="00:13.12" data-index="5">vajra kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:13.29" data-end="00:15.11" data-index="6">aloka kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:15.33" data-end="00:17.25" data-index="7">dhamma kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:17.46" data-end="00:19.51" data-index="8">satyama kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:19.72" data-end="00:22.54" data-index="9">satya nirhāra kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:22.71" data-end="00:25.41" data-index="10">vyavaloka kṣava kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:25.59" data-end="00:27.63" data-index="11">upaśama kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:27.83" data-end="00:29.66" data-index="12">nayana kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:29.93" data-end="00:32.95" data-index="13">prajñā samutīraṇa kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:33.21" data-end="00:34.89" data-index="14">kṣaṇa kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:35.10" data-end="00:37.32" data-index="15">viśāvarya kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:37.53" data-end="00:39.83" data-index="16">śāstarava kṣimbhu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:40.04" data-end="00:42.13" data-index="17">vyāḍasuṭe mahile</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:42.32" data-end="00:43.93" data-index="18">dame śame</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:44.22" data-end="00:46.77" data-index="19">cakrase cakramasire</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:47.02" data-end="00:49.70" data-index="20">kṣire phire ghra sabala</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:49.88" data-end="00:52.82" data-index="21">vrate hire prabhe pracara</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:53.01" data-end="00:55.45" data-index="22">vantane ratane pāra</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:55.69" data-end="00:57.65" data-index="23">ca ca ca ca</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="00:57.80" data-end="01:00.14" data-index="24">hile mile ekatha</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:00.42" data-end="01:02.29" data-index="25">thaḥkhe thakhulu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:02.50" data-end="01:04.49" data-index="26">thare thare mire</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:04.66" data-end="01:06.98" data-index="27">mādhe tādhe kule</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:07.19" data-end="01:09.47" data-index="28">mile aṅkucitāvi</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:09.66" data-end="01:10.95" data-index="29">ari giri</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:11.16" data-end="01:12.44" data-index="30">parā giri</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:12.67" data-end="01:14.03" data-index="31">kuṭaśamale</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:14.24" data-end="01:16.73" data-index="32">ḍiṅge ḍiṅge ḍiṅgule</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:16.93" data-end="01:18.85" data-index="33">hulu hulu hulu</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:19.12" data-end="01:22.15" data-index="34">kulustumile miridhe miridhe</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:22.34" data-end="01:24.98" data-index="35">bhāṇḍadha hāra hili</span>　
+						<span class="word" @click="$dispatch('play-segment')" data-start="01:25.17" data-end="01:26.73" data-index="36">hulu hurulu</span>　
+						<br/><br/>
+						<span class="word">善說能淨諸有塵</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨鬪諍劫</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能淨濁惡意</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨濁大種</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能淨濁惡味</span>
+						<span class="punc">，</span>
+						<span class="word">善說能淨濁惡氣</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能滿諸希望</span>
+						<span class="punc">，</span>
+						<span class="word">善說能成諸稼穡</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說能令一切佛</span>
+						<span class="punc">，</span>
+						<span class="word">如來世尊所加護</span>
+						<span class="punc">，</span><br/>
+						<span class="word">善說又能令一切</span>
+						<span class="punc">，</span>
+						<span class="word">菩薩加護而隨喜</span>
+						<span class="punc">。</span>
+					</blockquote>
+					<small class="text-muted float-end">
+						IAST 羅馬拼音出自此書
+						<a href="https://www.mantra.com.tw/classic/m9.html">「地藏十輪經咒音初探」</a>
+					</small>
+					<div class="clearfix"></div>
+	</div>
+</div>			<div x-show="details" class="details mb-3">
 				<blockquote>
 					圓滿陀羅尼能清淨所有塵垢。<br/>
 					圓滿陀羅尼能清淨鬥諍劫難。<br/>
@@ -3655,7 +3758,198 @@
 		</div>
 		
 		<!-- audio control -->
-				
+		<div class="container audio-outer-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
+	<div class="row my-3">
+		<div
+    x-data="Object.assign({}, {
+		player: null,
+		currIntId: null,
+		times: [],
+		end: null,
+		collapsable: null,
+		collapsed: false,
+		userScrolling: false,
+		playFromSelected: false,
+		scrollTopFirstPlay: true,
+		show: e => {
+			$data.collapsable.show();
+		},
+		collapse: e => {
+			let {stop} = e.detail;
+			let {player} = $data;
+			if(stop) {
+				$data.stop();
+			} else if(player.playing) {
+				$data.pause();
+			}
+			$data.collapsable.hide();
+		},
+		load: e => {
+			let {source} = e.detail;
+			let {player, stop} = $data;
+			stop();
+			player.source = {
+				type: 'audio',
+				sources: [{
+					src: source,
+					type: 'audio/mp3',
+				}],
+			};
+		},
+		play: e => $data.player.play(),
+		pause: e => $data.player.pause(),
+		stop: e => {
+			$data.player.stop();
+			$('span.word').removeClass('curr');
+		},
+		playSegment: e => {
+			let {player, timeToSecond} = $data;
+			let start = timeToSecond($(e.target).data('start'));
+			let end = timeToSecond($(e.target).data('end'));
+			if(readOnly) return;
+			if(player.playing && (start <= player.currentTime && end >= player.currentTime)) return;
+			player.currentTime = start;
+			$data.end = end;
+			if(!player.playing) {
+				$data.playFromSelected = true;
+				player.play();
+			}
+		},
+		jumpTo: e => {
+			let id = e.detail;
+			let {player, timeToSecond} = $data;
+			
+			player.pause();
+			let start = $(`#${id} .word`).data('start');
+			let end = $(`#${id} .word`).data('end');
+			if(start && end) {
+				start = timeToSecond(start);
+				end = timeToSecond(end);
+				if(!(start <= player.currentTime && end >= player.currentTime)) {
+					player.currentTime = start;
+				}
+			}
+		},
+		escape: e => {
+			if($data.player.playing) {
+				$data.player.pause();
+			}
+		},
+		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
+	}, {scrollTopFirstPlay: false})"
+    x-init="
+        $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0]);
+		if(collapsed) {
+			setTimeout(() => $data.collapsable.hide(), 100);
+		}
+		
+		$('#collapseAudioCtrl')[0].addEventListener('shown.bs.collapse', e => {
+			$data.collapsed = false;
+			$dispatch('audio-shown');
+		});
+		$('#collapseAudioCtrl')[0].addEventListener('hidden.bs.collapse', e => {
+			$data.collapsed = true;
+			$dispatch('audio-collapsed');
+		});
+		
+		$(window).on('scroll', function(e) {
+			$data.userScrolling = true;
+		});
+		
+		$('span.word')
+			.filter(function() {
+				return $(this).data('start') && $(this).data('end')
+			})
+			.each(function() {
+				let {times, timeToSecond} = $data;
+				let start = timeToSecond($(this).data('start'));
+				let end = timeToSecond($(this).data('end'));
+				let index = Number($(this).data('index'));
+				times.push({start, end, index});
+			});
+			
+		player = new Plyr('#audio-controls');
+		player.on('play', e => {
+			const {currIntId, times} = $data;
+			let throttleScroll = throttle(function($el) {
+				$('html,body').animate({
+					scrollTop: $el.offset().top-100
+				}, 0);
+			}, 500);
+			
+			if(currIntId) clearInterval(currIntId);
+			$data.currIntId = setInterval(() => {
+				let target = times.filter(d => d.start <= player.currentTime && d.end >= player.currentTime);
+				if($data.end && player.currentTime >= $data.end) {
+					if($data.playFromSelected) {
+						player.pause();
+						$data.playFromSelected = false;
+					}
+					$data.end = null;
+					return;
+				}
+				if(target.length > 0) {
+					$('span.word').removeClass('curr');
+					let {index} = target[0];
+					let $el = $(`span.word[data-index=${index}]`);
+					$el.addClass('curr');
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !$data.userScrolling) {
+						throttleScroll($el);
+					}
+				}
+				$data.userScrolling = false;
+			}, 100);
+		});
+		player.on('playing', e => {
+			if($data.scrollTopFirstPlay && player.currentTime <= 0.5) {
+				// $data.show();
+				$('html,body').animate({
+					scrollTop: 0
+				}, 0);
+				$('span.word').removeClass('curr');
+			}
+			$dispatch('audio-played');
+		});
+		player.on('pause', e => {
+			clearInterval($data.currIntId);
+			$data.end=null;
+			$data.playFromSelected = false;
+			// stop event
+			if(player.currentTime <= 0.5) $('span.word').removeClass('curr');
+			$dispatch('audio-paused');
+		});
+		player.on('ended', e => {
+			clearInterval($data.currIntId);
+			$data.end=null;
+			$dispatch('audio-stopped');
+		});
+        
+    "
+	x-show="!readOnly"
+	@show-audio.window="show"
+	@collapse-audio.window="collapse"
+	@load-audio.window="load"
+	@play-audio.window="play"
+	@pause-audio.window="pause"
+	@stop-audio.window="stop"
+	@play-segment.window="playSegment"
+	@jump-to.window="jumpTo"
+	@keydown.escape.window="escape"
+    
+	
+	:class="{'pe-auto': !collapsed}"
+		class="col-md-12 px-4 audio-container"
+	>
+	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
+	<div id="collapseAudioCtrl" class="collapse p-2 border">
+		<audio id="audio-controls" controls @mmenu-opened.window="pause">
+			<source src="" type="audio/mp3" />
+		</audio>
+	</div>
+</div>
+	</div>
+</div>
+		
 		<!-- footer -->
 		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
 	<div class="row px-5">

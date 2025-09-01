@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-dasacakra-vol3">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=08d9bb87038fb0a68b5458db25da07dc">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=8dafaff6eeeaf5b71d5741f654f6738d">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -154,7 +154,6 @@
 		},
 		adjustFontsize: deg => {
 			$data.textsize = deg;
-			console.log($data)
 		}
 	}, {currItems: {vol3: true}})"
 	x-init="
@@ -179,9 +178,7 @@
 						
 			
 				$data.details = false;
-				
-		
-	"
+			"
 	@toc-enter.window="tocEnter"
 	@toc-exit.window="tocExit"
 	@audio-shown.window="audioCollapsed=false"

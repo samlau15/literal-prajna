@@ -31,7 +31,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	padding-top: 100px;
+	padding-top: 120px;
 	margin-top: -100px;
 }
 
@@ -183,6 +183,10 @@ h6.toc-item::before {
 	}
 }
 
+.mantra:not(.collapsed) {
+	background-color: $orange-100;
+}
+
 .details {
 	blockquote:last-of-type {
 		margin-bottom: 0;
@@ -220,6 +224,7 @@ blockquote {
 
 #back-to-top {
 	opacity: 0.5;
+	right: 0px;
 	
 	&:hover {
 		opacity: 1;
@@ -239,14 +244,14 @@ blockquote {
 /* small screens */
 @include media-breakpoint-down(sm) {
 	body {
-		&:has(.audio-container.opened) {
+		&:has(.audio-outer-container.opened) {
 			#back-to-top {
 				right: 20px;
 				bottom: 60px;
 			}
 		}
 	
-		&:has(.audio-container.opened .collapse.show) {
+		&:has(.audio-outer-container.opened .collapse.show) {
 			#back-to-top {
 				right: 20px;
 				bottom: 120px;
@@ -258,7 +263,7 @@ blockquote {
 /* large screens */
 @include media-breakpoint-up(sm) {
 	body {
-		&:has(.audio-container.opened .collapse.show) {
+		&:has(.audio-outer-container.opened .collapse.show) {
 			nav[data-toggle="toc"] {
 				max-height: calc(100vh - 200px);
 			}

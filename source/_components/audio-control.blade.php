@@ -8,6 +8,7 @@
 		collapsed: false,
 		userScrolling: false,
 		playFromSelected: false,
+		scrollTopFirstPlay: true,
 		show: e => {
 			$data.collapsable.show();
 		},
@@ -20,6 +21,18 @@
 				$data.pause();
 			}
 			$data.collapsable.hide();
+		},
+		load: e => {
+			let {source} = e.detail;
+			let {player, stop} = $data;
+			stop();
+			player.source = {
+				type: 'audio',
+				sources: [{
+					src: source,
+					type: 'audio/mp3',
+				}],
+			};
 		},
 		play: e => $data.player.play(),
 		pause: e => $data.player.pause(),
@@ -95,7 +108,7 @@
 			
 		player = new Plyr('#{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}');
 		player.on('play', e => {
-			let {currIntId, times, playFromSelected} = $data;
+			const {currIntId, times} = $data;
 			let throttleScroll = throttle(function($el) {
 				$('html,body').animate({
 					scrollTop: $el.offset().top-100
@@ -106,7 +119,7 @@
 			$data.currIntId = setInterval(() => {
 				let target = times.filter(d => d.start <= player.currentTime && d.end >= player.currentTime);
 				if($data.end && player.currentTime >= $data.end) {
-					if(playFromSelected) {
+					if($data.playFromSelected) {
 						player.pause();
 						$data.playFromSelected = false;
 					}
@@ -118,15 +131,15 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !userScrolling) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !$data.userScrolling) {
 						throttleScroll($el);
 					}
 				}
-				userScrolling = false;
+				$data.userScrolling = false;
 			}, 100);
 		});
 		player.on('playing', e => {
-			if(player.currentTime <= 0.5) {
+			if($data.scrollTopFirstPlay && player.currentTime <= 0.5) {
 				// $data.show();
 				$('html,body').animate({
 					scrollTop: 0
@@ -138,6 +151,7 @@
 		player.on('pause', e => {
 			clearInterval($data.currIntId);
 			$data.end=null;
+			$data.playFromSelected = false;
 			// stop event
 			if(player.currentTime <= 0.5) $('span.word').removeClass('curr');
 			$dispatch('audio-paused');
@@ -152,6 +166,7 @@
 	x-show="!readOnly"
 	@@show-audio.window="show"
 	@@collapse-audio.window="collapse"
+	@@load-audio.window="load"
 	@@play-audio.window="play"
 	@@pause-audio.window="pause"
 	@@stop-audio.window="stop"

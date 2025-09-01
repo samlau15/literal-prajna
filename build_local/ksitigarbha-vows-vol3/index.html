@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-vows-vol3">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=08d9bb87038fb0a68b5458db25da07dc">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=8dafaff6eeeaf5b71d5741f654f6738d">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -154,7 +154,6 @@
 		},
 		adjustFontsize: deg => {
 			$data.textsize = deg;
-			console.log($data)
 		}
 	}, {currItems: {vol3: true}})"
 	x-init="
@@ -180,9 +179,7 @@
 				$data.autoScroll = true;
 			
 				$data.details = false;
-				
-		
-	"
+			"
 	@toc-enter.window="tocEnter"
 	@toc-exit.window="tocExit"
 	@audio-shown.window="audioCollapsed=false"
@@ -232,7 +229,7 @@
 		粵語導讀 <small class="ms-2"><a href="https://www.youtube.com/watch?v=Sff9emcqW-Q" target="_blank">(觀成法師讀經 - 卷下)</a></small>
 	</div>
 	<div x-show="!readOnly" class="mb-3">
-		<div class="float-start mb-1">
+		<div class="mb-1">
 			
 			<button @click="readOnly=true;$dispatch('stop-audio')" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
 				<i class="fa fa-volume-xmark"></i>
@@ -248,11 +245,10 @@
 				<i class="fa fa-stop"></i>
 			</button>
 		</div>
-		<div class="form-check form-switch float-end mb-1">
+		<div class="form-check form-switch my-3">
 			<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
 			<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
 		</div>
-		<div class="clearfix"></div>
 	</div>
 	<div x-show="!readOnly">
 		<i class="fa fa-book-open"></i>
@@ -2617,7 +2613,7 @@
 		</div>
 		
 		<!-- audio control -->
-		<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
+		<div class="container audio-outer-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<div
     x-data="Object.assign({}, {
@@ -2629,6 +2625,7 @@
 		collapsed: false,
 		userScrolling: false,
 		playFromSelected: false,
+		scrollTopFirstPlay: true,
 		show: e => {
 			$data.collapsable.show();
 		},
@@ -2641,6 +2638,18 @@
 				$data.pause();
 			}
 			$data.collapsable.hide();
+		},
+		load: e => {
+			let {source} = e.detail;
+			let {player, stop} = $data;
+			stop();
+			player.source = {
+				type: 'audio',
+				sources: [{
+					src: source,
+					type: 'audio/mp3',
+				}],
+			};
 		},
 		play: e => $data.player.play(),
 		pause: e => $data.player.pause(),
@@ -2716,7 +2725,7 @@
 			
 		player = new Plyr('#audio-controls');
 		player.on('play', e => {
-			let {currIntId, times, playFromSelected} = $data;
+			const {currIntId, times} = $data;
 			let throttleScroll = throttle(function($el) {
 				$('html,body').animate({
 					scrollTop: $el.offset().top-100
@@ -2727,7 +2736,7 @@
 			$data.currIntId = setInterval(() => {
 				let target = times.filter(d => d.start <= player.currentTime && d.end >= player.currentTime);
 				if($data.end && player.currentTime >= $data.end) {
-					if(playFromSelected) {
+					if($data.playFromSelected) {
 						player.pause();
 						$data.playFromSelected = false;
 					}
@@ -2739,15 +2748,15 @@
 					let {index} = target[0];
 					let $el = $(`span.word[data-index=${index}]`);
 					$el.addClass('curr');
-					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !userScrolling) {
+					if(!isScrolledIntoView($el[0], 0, 100) && $data.autoScroll && !$data.userScrolling) {
 						throttleScroll($el);
 					}
 				}
-				userScrolling = false;
+				$data.userScrolling = false;
 			}, 100);
 		});
 		player.on('playing', e => {
-			if(player.currentTime <= 0.5) {
+			if($data.scrollTopFirstPlay && player.currentTime <= 0.5) {
 				// $data.show();
 				$('html,body').animate({
 					scrollTop: 0
@@ -2759,6 +2768,7 @@
 		player.on('pause', e => {
 			clearInterval($data.currIntId);
 			$data.end=null;
+			$data.playFromSelected = false;
 			// stop event
 			if(player.currentTime <= 0.5) $('span.word').removeClass('curr');
 			$dispatch('audio-paused');
@@ -2773,6 +2783,7 @@
 	x-show="!readOnly"
 	@show-audio.window="show"
 	@collapse-audio.window="collapse"
+	@load-audio.window="load"
 	@play-audio.window="play"
 	@pause-audio.window="pause"
 	@stop-audio.window="stop"

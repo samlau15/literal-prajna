@@ -2395,7 +2395,7 @@
 @endsection
 
 @section('audio')
-<div class="container audio-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
+<div class="container audio-outer-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
 	<div class="row my-3">
 		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}">
 			<source src="{{ $page->baseUrl.'/assets/audios/ksitigarbha-vows-vol3.mp3' }}" type="audio/mp3" />

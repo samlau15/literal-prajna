@@ -43,7 +43,7 @@
 						<a @@click="jumpTo('vol5')" :class="{active: currItems['vol5'] && true}" class="nav-link text-nowrap" href="#vol5">地藏十輪經卷五</a>
 						<ul class="nav navbar-nav">
 							<li><a @@click="jumpTo('vol5-ch5')" :class="{active: currItems['vol5-ch5'] && true}" class="nav-link text-nowrap" href="#vol5-ch5">無依行品第三之三</a></li>
-							<li><a @@click="jumpTo('vol5-m2')" :class="{active: currItems['vol5-m2'] && true}" class="nav-link text-nowrap" href="#vol5-m2">護國不退輪心大陀羅尼明呪</a></li>
+							<li><a @@click="jumpTo('vol5-m2')" :class="{active: currItems['vol5-m2'] && true}" class="nav-link text-nowrap" href="#vol5-m2">護國不退輪心<br/>大陀羅尼明呪章句</a></li>
 							<li><a @@click="jumpTo('vol5-ch6')" :class="{active: currItems['vol5-ch6'] && true}" class="nav-link text-nowrap" href="#vol5-ch6">有依行品第四之一</a></li>
 						</ul>
 					</li>
@@ -1221,12 +1221,8 @@
 				<hr/>
 			</div>
 			<h6 class="toc-item" id="vol5-m2">
-				<span class="word">護國不退輪心大陀羅尼明呪</span>
+				<span class="word">護國不退輪心大陀羅尼明呪章句</span>
 			</h6>
-			<small>
-				<a @@click.prevent="" class="float-end" href="#">顯示真言羅馬拼音</a>
-			</small>
-			<div class="clearfix"></div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
 				<span class="word">爾時天藏大梵即說護國不退輪心大陀羅尼明呪章句</span>
 				<span class="punc">：</span>
@@ -1252,6 +1248,46 @@
 			</div>
 			<div x-show="details" class="details mb-3">
 				這時天藏大梵就說了護國不退輪心大陀羅尼明咒章句：
+			</div>
+			<x-audio-para
+				x-data="{audioSource: '{{ $page->baseUrl.'/assets/audios/ksitigarbha-dasacakra-mantra2.mp3' }}'}"
+				class="paragraph mantra"
+				::class="collapsed ? 'collapsed' : ''"
+			>
+				<x-slot:collapsed>
+					<small><a @@click.prevent="toggle(true)" class="float-end" href="#">顯示 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+				</x-slot>
+				<x-slot:expanded>
+					<small><a @@click.prevent="toggle(false)" class="float-end" href="#">關閉 IAST 羅馬拼音</a></small>
+					<div class="clearfix"></div>
+					<blockquote>
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:00.00" data-end="00:01.31" data-index="0">tadyathā</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:01.42" data-end="00:03.83" data-index="1">munimore munakalpe</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:03.94" data-end="00:05.70" data-index="2">muni hṛdaye</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:05.82" data-end="00:07.89" data-index="3">muni ruhābhicare</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:08.04" data-end="00:09.71" data-index="4">muna halce</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:09.82" data-end="00:11.36" data-index="5">muni game</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:11.49" data-end="00:13.21" data-index="6">śukra pakṣe</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:13.41" data-end="00:15.05" data-index="7">praśa pakṣe</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:15.17" data-end="00:16.77" data-index="8">mira pakṣe</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:16.92" data-end="00:19.07" data-index="9">saurabha hṛte</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:19.31" data-end="00:21.11" data-index="10">turaṇa hṛcre</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:21.28" data-end="00:23.28" data-index="11">patrakṣa hṛte</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:23.44" data-end="00:24.99" data-index="12">gugunamile</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:25.10" data-end="00:26.58" data-index="13">avakṣasare</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:26.73" data-end="00:28.48" data-index="14">anuhāgeriva</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:28.59" data-end="00:30.29" data-index="15">muni pathava</span>　
+						<span class="word" @@click="$dispatch('play-segment')" data-start="00:30.42" data-end="00:31.61" data-index="16">svāhā</span>　
+					</blockquote>
+					<small class="text-muted float-end">
+						IAST 羅馬拼音出自此書
+						<a href="https://www.mantra.com.tw/classic/m9.html">「地藏十輪經咒音初探」</a>
+					</small>
+					<div class="clearfix"></div>
+				</x-slot>
+			</x-audio-para>
+			<div x-show="details" class="details mb-3">
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
@@ -3037,6 +3073,16 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+@endsection
+
+@section('audio')
+<div class="container audio-outer-container fixed-bottom pe-none" :class="{'opened': !readOnly}" x-show="!isSidebarOpened">
+	<div class="row my-3">
+		<x-audio-control class="col-md-12 px-4 audio-container" ::class="{'pe-auto': !collapsed}" x-data="{scrollTopFirstPlay: false}">
+			<source src="" type="audio/mp3" />
+		</x-audio-control>
 	</div>
 </div>
 @endsection

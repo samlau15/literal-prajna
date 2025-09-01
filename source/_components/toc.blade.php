@@ -40,7 +40,6 @@
 		},
 		adjustFontsize: deg => {
 			$data.textsize = deg;
-			console.log($data)
 		}
 	}, {!! $attributes->has('x-data') ? $attributes['x-data'] : '{}' !!})"
 	x-init="
@@ -72,8 +71,6 @@
 		@if($attributes->has('trans-supported'))
 		$data.details = false;
 		@endif
-		
-		
 	"
 	@@toc-enter.window="tocEnter"
 	@@toc-exit.window="tocExit"
@@ -113,7 +110,7 @@
 		粵語導讀 {{ $audioCtrlSubtitle ?? '' }}
 	</div>
 	<div x-show="!readOnly" class="mb-3">
-		<div class="float-start mb-1">
+		<div class="mb-1">
 			{{--
 			<button x-show="audioCollapsed" @@click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
 				<i class="fa fa-headphones"></i>
@@ -134,11 +131,10 @@
 				<i class="fa fa-stop"></i>
 			</button>
 		</div>
-		<div class="form-check form-switch float-end mb-1">
+		<div class="form-check form-switch my-3">
 			<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
 			<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
 		</div>
-		<div class="clearfix"></div>
 	</div>
 	<div x-show="!readOnly">
 		<i class="fa fa-book-open"></i>
