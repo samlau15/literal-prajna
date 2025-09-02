@@ -2850,8 +2850,8 @@
 					<span class="word">伐折洛讖蒱<sub>(八)</sub>　</span>
 					<span class="word">阿路迦讖蒱<sub>(九)</sub>　</span>
 					<span class="word">萏摩讖蒱<sub>(十)</sub>　</span>
-					<span class="word">薩帝<sub>(丁𤿺反)</sub>摩讖蒱<sub>(十一)</sub>　</span>
-					<span class="word">薩帝<sub>(丁𤿺反)</sub>昵<sub>(泥吉反)</sub>訶羅讖蒱<sub>(十二)</sub>　</span>
+					<span class="word">薩帝<sub>(丁𤿺[其*皮]反)</sub>摩讖蒱<sub>(十一)</sub>　</span>
+					<span class="word">薩帝<sub>(丁𤿺[其*皮]反)</sub>昵<sub>(泥吉反)</sub>訶羅讖蒱<sub>(十二)</sub>　</span>
 					<span class="word">毘婆<sub>(縛迦反)</sub>路迦插婆讖蒱<sub>(十三)</sub>　</span>
 					<span class="word">鄔波睒摩讖蒱<sub>(十四)</sub>　</span>
 					<span class="word">奈野娜讖蒱<sub>(十五)</sub>　</span>
@@ -2868,13 +2868,13 @@
 					<span class="word">廁(初凡反)隷<sub>(二十六)</sub>　</span>
 					<span class="word">諀(匹里反)隸<sub>(二十七)</sub>　</span>
 					<span class="word">揭剌婆跋羅伐剌帝<sub>(二十八)</sub>　</span>
-					<span class="word">𣢁<sub>(上聲醯以反)</sub>㘑<sub>(二十九)</sub>　</span>
+					<span class="word">𣢁[尸*欠]<sub>(上聲醯以反)</sub>㘑<sub>(二十九)</sub>　</span>
 					<span class="word">鉢臘薜<sub>(三十)</sub>　</span>
 					<span class="word">鉢剌遮囉飯怛泥<sub>(三十一)(去聲)</sub>　</span>
 					<span class="word">曷剌怛泥<sub>(三十二)(去聲)</sub>　</span>
 					<span class="word">播囉<sub>(三十三)</sub>　</span>
 					<span class="word">遮遮遮遮<sub>(三十四)</sub>　</span>
-					<span class="word">𣢁<sub>(上聲)</sub>隸<sub>(三十五)</sub>　</span>
+					<span class="word">𣢁[尸*欠]<sub>(上聲)</sub>隸<sub>(三十五)</sub>　</span>
 					<span class="word">弭隸<sub>(三十六)</sub>　</span>
 					<span class="word">黳羯他<sub>(三十七)</sub>　</span>
 					<span class="word">託契<sub>(三十八)</sub>　</span>
@@ -2887,9 +2887,9 @@
 					<span class="word">矩隸<sub>(四十五)</sub>　</span>
 					<span class="word">弭隸隸<sub>(四十六)</sub>　</span>
 					<span class="word">盎矩之多毘<sub>(四十七)</sub>　</span>
-					<span class="word">遏𠼝<sub>(四十八)</sub>　</span>
-					<span class="word">祁<sub>(上聲)</sub>𠼝<sub>(四十九)</sub>　</span>
-					<span class="word">波囉祁<sub>(上聲)</sub>𠼝<sub>(五十)</sub>　</span>
+					<span class="word">遏𠼝[口*梨]<sub>(四十八)</sub>　</span>
+					<span class="word">祁<sub>(上聲)</sub>𠼝[口*梨]<sub>(四十九)</sub>　</span>
+					<span class="word">波囉祁<sub>(上聲)</sub>𠼝[口*梨]<sub>(五十)</sub>　</span>
 					<span class="word">矩吒苫沫隸<sub>(五十一)</sub>　</span>
 					<span class="word">敦祇<sub>(五十二)(葵計反)</sub>　</span>
 					<span class="word">敦祇<sub>(五十三)(葵計反)</sub>　</span>
@@ -2898,11 +2898,11 @@
 					<span class="word">滸盧<sub>(五十六)</sub>　</span>
 					<span class="word">滸盧<sub>(五十七)</sub>　</span>
 					<span class="word">矩盧窣都弭隸<sub>(五十八)</sub>　</span>
-					<span class="word">弭𭇶第<sub>(五十九)</sub>　</span>
-					<span class="word">彌𭇶綻<sub>(六十)(徒界反)</sub>　</span>
+					<span class="word">弭𭇶[口*李]第<sub>(五十九)</sub>　</span>
+					<span class="word">彌𭇶[口*李]綻<sub>(六十)(徒界反)</sub>　</span>
 					<span class="word">叛荼陀<sub>(六十一)</sub>　</span>
 					<span class="word">喝<sub>(訶葛反)</sub>羅<sub>(六十二)</sub>　</span>
-					<span class="word">𣢁<sub>(上聲)</sub>梨<sub>(六十三)</sub>　</span>
+					<span class="word">𣢁[尸*欠]<sub>(上聲)</sub>梨<sub>(六十三)</sub>　</span>
 					<span class="word">滸盧<sub>(六十四)</sub>　</span>
 					<span class="word">滸魯盧<sub>(六十五)</sub></span>
 					<br/><br/>

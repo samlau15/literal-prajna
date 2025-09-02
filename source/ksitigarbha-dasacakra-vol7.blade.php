@@ -470,7 +470,7 @@
 					<span class="punc">。</span><br/>
 					<span class="word">是故若欲復人身</span>
 					<span class="punc">，</span>
-					<span class="word">不患舌𤴽而捨命</span>
+					<span class="word">不患舌𤴽[疒/今]而捨命</span>
 					<span class="punc">，</span><br/>
 					<span class="word">常樂值遇諸佛者</span>
 					<span class="punc">，</span>

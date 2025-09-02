@@ -1241,7 +1241,7 @@
 					<span class="word">鉢怛邏叉紇栗帝<sub>(十二)</sub>　</span>
 					<span class="word">具具拏蜜隸<sub>(十三)</sub>　</span>
 					<span class="word">唈<sub>(烏合反)</sub>茷叉薩隸<sub>(十四)</sub>　</span>
-					<span class="word">遏怒訶祇𭌆茷<sub>(十五)</sub>　</span>
+					<span class="word">遏怒訶祇𭌆[口*履]茷<sub>(十五)</sub>　</span>
 					<span class="word">牟尼鉢塔茷<sub>(十六)</sub>　</span>
 					<span class="word">莎訶<sub>(唐言善說)</sub></span>
 				</blockquote>

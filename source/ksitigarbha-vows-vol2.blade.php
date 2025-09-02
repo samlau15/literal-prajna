@@ -492,7 +492,7 @@
 					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="05:18.44" data-end="05:19.86" data-index="1298">或有地獄</span>
 					<span class="punc">，</span>
-					<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.12" data-end="05:21.76" data-index="1299">純飛𨪏鑗</span>
+					<span class="word" @@click="$dispatch('play-segment')" data-start="05:20.12" data-end="05:21.76" data-index="1299">純飛𨪏[金*疾]鑗</span>
 					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="05:22.24" data-end="05:23.52" data-index="1300">或有地獄</span>
 					<span class="punc">，</span>
