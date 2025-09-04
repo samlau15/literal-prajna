@@ -44,6 +44,7 @@
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
 								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-dasacakra-vol1' }}">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="{{ $page->baseUrl.'/ksitigarbha-reciting-rituals' }}">地藏菩薩念誦儀軌</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -87,6 +88,7 @@
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-vows-vol1' }}">地藏菩薩本願經</a></li>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-divination-vol1' }}">占察善惡業報經</a></li>
 						<li><a href="{{ $page->baseUrl.'/ksitigarbha-dasacakra-vol1' }}">大乘大集地藏十輪經</a></li>
+						<li><a href="{{ $page->baseUrl.'/ksitigarbha-reciting-rituals' }}">地藏菩薩念誦儀軌</a></li>
 					</ul>
 				</li>
 				<li>

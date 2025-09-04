@@ -46,6 +46,7 @@
 								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
 								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -89,6 +90,7 @@
 						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
 						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
 						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
 					</ul>
 				</li>
 				<li>
@@ -140,12 +142,12 @@
 			}
 		},
 		tocEnter: e => {
-			let id = e.detail;
+			const id = e.detail;
 			$data.tocItems[id].inview = true;
 			$data.updateCurrItems();
 		},
 		tocExit: e => {
-			let id = e.detail;
+			const id = e.detail;
 			$data.tocItems[id].inview = false;
 			$data.updateCurrItems();
 		},
@@ -159,7 +161,7 @@
 	x-init="
 		let items = tocItems;
 		$('.toc-item').each(function(pos) {
-			let id = $(this).attr('id');
+			const id = $(this).attr('id');
 			items[id] = {
 				pos,
 				inview: false,

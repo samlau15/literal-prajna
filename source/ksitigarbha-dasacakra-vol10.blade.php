@@ -2559,12 +2559,11 @@
 						</div>
 					</a>
 				</div>
-				{{--
 				<div class="ms-auto me-3 w-50">
-					<a href="#" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-reciting-rituals" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
-								<span class="me-2 text-start text-truncate"></span>
+								<span class="me-2 text-start text-truncate">地藏菩薩念誦儀軌</span>
 							</div>
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-right fs-1"></i>
@@ -2572,7 +2571,6 @@
 						</div>
 					</a>
 				</div>
-				--}}
 			</div>
 		</div>
 	</div>

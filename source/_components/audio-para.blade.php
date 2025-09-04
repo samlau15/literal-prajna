@@ -6,11 +6,18 @@
 			if(show) {
 				$data.collapsed = false,
 				$data.readOnly = false;
-				$dispatch('load-audio', {source: $data.audioSource});
+				$dispatch('load-audio', {source: $data.audioSource, prefix: `#${$el.id}`});
+				$dispatch('audiopara-opened', {id: $el.id});
 			} else {
 				$data.collapsed = true,
 				$data.readOnly = true;
 				$dispatch('stop-audio');
+			}
+		},
+		audioParaOpened: e => {
+			const {id} = e.detail;
+			if(id != $el.id) {
+				if(!$data.collapsed) $data.collapsed = true;
 			}
 		},
 	}, {!! $attributes->has('x-data') ? $attributes['x-data'] : '{}' !!})"
@@ -25,6 +32,7 @@
 		
 	"
 	{!! $attributes->whereStartsWith('@') !!}
+	@@audiopara-opened.window="audioParaOpened"
 	
 	{!! $attributes->whereStartsWith(':class') !!}
 	@if ($attributes->has('class'))

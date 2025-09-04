@@ -9,12 +9,13 @@
 		userScrolling: false,
 		playFromSelected: false,
 		scrollTopFirstPlay: true,
+		wordSelectorPrefix: '',
 		show: e => {
 			$data.collapsable.show();
 		},
 		collapse: e => {
-			let {stop} = e.detail;
-			let {player} = $data;
+			const {stop} = e.detail;
+			const {player} = $data;
 			if(stop) {
 				$data.stop();
 			} else if(player.playing) {
@@ -23,8 +24,8 @@
 			$data.collapsable.hide();
 		},
 		load: e => {
-			let {source} = e.detail;
-			let {player, stop} = $data;
+			const {source, prefix} = e.detail;
+			const {player, stop} = $data;
 			stop();
 			player.source = {
 				type: 'audio',
@@ -33,6 +34,9 @@
 					type: 'audio/mp3',
 				}],
 			};
+			$data.wordSelectorPrefix = prefix || '';
+			$data.initTimes();
+			$data.show();
 		},
 		play: e => $data.player.play(),
 		pause: e => $data.player.pause(),
@@ -41,7 +45,7 @@
 			$('span.word').removeClass('curr');
 		},
 		playSegment: e => {
-			let {player, timeToSecond} = $data;
+			const {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
 			let end = timeToSecond($(e.target).data('end'));
 			if(readOnly) return;
@@ -54,8 +58,8 @@
 			}
 		},
 		jumpTo: e => {
-			let id = e.detail;
-			let {player, timeToSecond} = $data;
+			const id = e.detail;
+			const {player, timeToSecond} = $data;
 			
 			player.pause();
 			let start = $(`#${id} .word`).data('start');
@@ -73,7 +77,24 @@
 				$data.player.pause();
 			}
 		},
-		timeToSecond: time => (Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100),
+		initTimes: e => {
+			const {wordSelectorPrefix, times, currIntId} = $data;
+			let selector = wordSelectorPrefix ? `${wordSelectorPrefix} span.word`: 'span.word';
+			times.splice(0);
+			if(currIntId) clearInterval(currIntId);
+			$(selector)
+				.filter(function() {
+					return $(this).data('start') && $(this).data('end')
+				})
+				.each(function() {
+					const {times, timeToSecond} = $data;
+					let start = timeToSecond($(this).data('start'));
+					let end = timeToSecond($(this).data('end'));
+					let index = Number($(this).data('index'));
+					times.push({start, end, index});
+				});
+		},	
+		timeToSecond: time => Math.round(((Number(time.substring(0, 2))*60+Number(time.substring(3, 5)))+Number(time.substring(6, 8)/100)+Number.EPSILON)*100)/100,
 	}, {!! $attributes->has('x-data') ? $attributes['x-data'] : '{}' !!})"
     x-init="
         $data.collapsable = new bootstrap.Collapse($('#collapseAudioCtrl')[0]);
@@ -94,17 +115,7 @@
 			$data.userScrolling = true;
 		});
 		
-		$('span.word')
-			.filter(function() {
-				return $(this).data('start') && $(this).data('end')
-			})
-			.each(function() {
-				let {times, timeToSecond} = $data;
-				let start = timeToSecond($(this).data('start'));
-				let end = timeToSecond($(this).data('end'));
-				let index = Number($(this).data('index'));
-				times.push({start, end, index});
-			});
+		$data.initTimes();
 			
 		player = new Plyr('#{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}');
 		player.on('play', e => {
@@ -172,6 +183,7 @@
 	@@stop-audio.window="stop"
 	@@play-segment.window="playSegment"
 	@@jump-to.window="jumpTo"
+	@@mmenu-opened.window="pause"
 	@@keydown.escape.window="escape"
     {!! $attributes->whereStartsWith('@') !!}
 	
@@ -182,7 +194,7 @@
 >
 	<button :class="{'border-bottom-0': !collapsed}" class="btn btn-light btn-sm float-end border pe-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudioCtrl" aria-controls="collapseAudioCtrl" title="收藏／顯示聲音控制"></button>
 	<div id="collapseAudioCtrl" class="collapse p-2 border">
-		<audio id="{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}" controls @@mmenu-opened.window="pause">
+		<audio id="{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}" controls>
 			{{ $slot }}
 		</audio>
 	</div>

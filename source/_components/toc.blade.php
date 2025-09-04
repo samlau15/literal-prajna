@@ -26,12 +26,12 @@
 			}
 		},
 		tocEnter: e => {
-			let id = e.detail;
+			const id = e.detail;
 			$data.tocItems[id].inview = true;
 			$data.updateCurrItems();
 		},
 		tocExit: e => {
-			let id = e.detail;
+			const id = e.detail;
 			$data.tocItems[id].inview = false;
 			$data.updateCurrItems();
 		},
@@ -45,7 +45,7 @@
 	x-init="
 		let items = tocItems;
 		$('.toc-item').each(function(pos) {
-			let id = $(this).attr('id');
+			const id = $(this).attr('id');
 			items[id] = {
 				pos,
 				inview: false,
@@ -142,7 +142,7 @@
 	</div>
 	<div x-show="readOnly">
 		<i class="fa fa-headphones"></i>
-		<a @@click.prevent="readOnly=false" href="#">開啟粵語導讀</a>
+		<a @@click.prevent="readOnly=false;$dispatch('show-audio')" href="#">開啟粵語導讀</a>
 	</div>
 	<hr/>
 	@endif
