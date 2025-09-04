@@ -1590,7 +1590,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:26.68" data-end="27:29.44" data-index="2983">吾觀地藏威神力</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:29.88" data-end="27:32.82" data-index="2984">恆河沙劫說難盡</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:33.62" data-end="27:36.42" data-index="2985">見聞瞻禮一念間</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:36.84" data-end="27:39.70" data-index="2986">利益人天無量事</span>
@@ -1598,7 +1598,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:40.18" data-end="27:43.02" data-index="2987">若男若女若龍神</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:43.40" data-end="27:46.10" data-index="2988">報盡應當墮惡道</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:46.70" data-end="27:49.36" data-index="2989">至心歸依大士身</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:49.78" data-end="27:53.10" data-index="2990">壽命轉增除罪障</span>
@@ -1606,7 +1606,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:53.60" data-end="27:56.52" data-index="2991">少失父母恩愛者</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="27:57.14" data-end="27:59.76" data-index="2992">未知魂神在何趣</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:00.30" data-end="28:03.06" data-index="2993">兄弟姊妹及諸親</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:03.46" data-end="28:06.08" data-index="2994">生長以來皆不識</span>
@@ -1614,7 +1614,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:06.76" data-end="28:09.60" data-index="2995">或塑或畫大士身</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:10.24" data-end="28:13.02" data-index="2996">悲戀瞻禮不暫捨</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:13.86" data-end="28:16.72" data-index="2997">三七日中念其名</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:17.14" data-end="28:20.30" data-index="2998">菩薩當現無邊體</span>
@@ -1622,7 +1622,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:20.74" data-end="28:23.40" data-index="2999">示其眷屬所生界</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:23.94" data-end="28:26.74" data-index="3000">縱墮惡趣尋出離</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:27.40" data-end="28:30.04" data-index="3001">若能不退是初心</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:30.60" data-end="28:33.48" data-index="3002">即獲摩頂受聖記</span>
@@ -1630,7 +1630,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:34.02" data-end="28:37.14" data-index="3003">欲修無上菩提者</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:37.72" data-end="28:40.54" data-index="3004">乃至出離三界苦</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:41.04" data-end="28:43.90" data-index="3005">是人既發大悲心</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:44.30" data-end="28:47.30" data-index="3006">先當瞻禮大士像</span>
@@ -1638,7 +1638,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:47.86" data-end="28:50.84" data-index="3007">一切諸願速成就</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:51.48" data-end="28:54.46" data-index="3008">永無業障能遮止</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:55.04" data-end="28:58.20" data-index="3009">有人發心念經典</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="28:58.66" data-end="29:01.44" data-index="3010">欲度群迷超彼岸</span>
@@ -1646,7 +1646,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:02.04" data-end="29:04.68" data-index="3011">雖立是願不思議</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:05.04" data-end="29:07.94" data-index="3012">旋讀旋忘多廢失</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:08.70" data-end="29:11.58" data-index="3013">斯人有業障惑故</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:12.04" data-end="29:14.82" data-index="3014">於大乘經不能記</span>
@@ -1654,7 +1654,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:15.40" data-end="29:18.10" data-index="3015">供養地藏以香華</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:18.58" data-end="29:21.24" data-index="3016">衣服飲食諸玩具</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:21.76" data-end="29:24.66" data-index="3017">以淨水安大士前</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:25.02" data-end="29:27.48" data-index="3018">一日一夜求服之</span>
@@ -1662,7 +1662,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:28.04" data-end="29:31.34" data-index="3019">發殷重心慎五辛</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:31.80" data-end="29:34.40" data-index="3020">酒肉邪婬及妄語</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:34.78" data-end="29:37.70" data-index="3021">三七日內勿殺害</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:38.14" data-end="29:41.30" data-index="3022">至心思念大士名</span>
@@ -1670,7 +1670,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:41.80" data-end="29:44.88" data-index="3023">即於夢中見無邊</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:45.24" data-end="29:47.96" data-index="3024">覺來便得利根耳</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:48.42" data-end="29:51.32" data-index="3025">應是經教歷耳聞</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:51.74" data-end="29:54.38" data-index="3026">千萬生中永不忘</span>
@@ -1678,7 +1678,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:55.00" data-end="29:57.66" data-index="3027">以是大士不思議</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="29:58.18" data-end="30:00.82" data-index="3028">能使斯人獲此慧</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:01.36" data-end="30:04.24" data-index="3029">貧窮眾生及疾病</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:04.74" data-end="30:07.52" data-index="3030">家宅凶衰眷屬離</span>
@@ -1686,7 +1686,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:08.06" data-end="30:10.54" data-index="3031">睡夢之中悉不安</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:11.10" data-end="30:14.00" data-index="3032">求者乖違無稱遂</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:14.46" data-end="30:17.16" data-index="3033">至心瞻禮地藏像</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:17.52" data-end="30:20.42" data-index="3034">一切惡事皆消滅</span>
@@ -1694,7 +1694,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:20.98" data-end="30:23.88" data-index="3035">至於夢中盡得安</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:24.40" data-end="30:27.74" data-index="3036">衣食豐饒神鬼護</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:28.08" data-end="30:30.84" data-index="3037">欲入山林及渡海</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:31.40" data-end="30:34.18" data-index="3038">毒惡禽獸及惡人</span>
@@ -1702,7 +1702,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:34.66" data-end="30:37.56" data-index="3039">惡神惡鬼并惡風</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:37.96" data-end="30:40.88" data-index="3040">一切諸難諸苦惱</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:41.34" data-end="30:44.38" data-index="3041">但當瞻禮及供養</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:44.90" data-end="30:47.92" data-index="3042">地藏菩薩大士像</span>
@@ -1710,7 +1710,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:48.42" data-end="30:51.34" data-index="3043">如是山林大海中</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:51.62" data-end="30:54.50" data-index="3044">應是諸惡皆消滅</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:55.06" data-end="30:58.04" data-index="3045">觀音至心聽吾說</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="30:58.46" data-end="31:01.38" data-index="3046">地藏無盡不思議</span>
@@ -1718,7 +1718,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:01.70" data-end="31:04.24" data-index="3047">百千萬劫說不周</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:04.76" data-end="31:07.48" data-index="3048">廣宣大士如是力</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:08.16" data-end="31:11.04" data-index="3049">地藏名字人若聞</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:11.40" data-end="31:14.34" data-index="3050">乃至見像瞻禮者</span>
@@ -1726,7 +1726,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:14.92" data-end="31:17.66" data-index="3051">香華衣服飲食奉</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:18.20" data-end="31:21.06" data-index="3052">供養百千受妙樂</span>
-					<span class="punc">。</span>
+					<span class="punc">。</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:21.74" data-end="31:24.70" data-index="3053">若能以此迴法界</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="31:25.16" data-end="31:28.04" data-index="3054">畢竟成佛超生死</span>

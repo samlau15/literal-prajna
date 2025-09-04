@@ -1,32 +1,224 @@
-@extends('_layouts.main')
-
-@section('title')
-<title>大乘大集地藏十輪經卷十</title>
-@endsection
-
-@push('styles')
-<style>
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="大乘經典">
+		<title>大乘大集地藏十輪經卷十</title>
+		
+        <link rel="canonical" href="/ksitigarbha-dasacakra-vol10">
+		<link rel="icon" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ec77030a13e450fc2cfdc6d140c59ae2">
+		<style>
 	body {
-		background-image: url('{{ $page->baseUrl.'/assets/images/background-mantra.png' }}');
+		background-image: url('/assets/images/background-mantra.png');
 	}
 </style>
-@endpush
-
-@section('navbar-brand-img')
-<img class="" width="55" src="{{ $page->baseUrl.'/assets/images/logo-mantra.png' }}" />
-@endsection
-
-@section('content')
-<div class="container pb-3">
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </head>
+    <body
+		x-data="page"
+		@mmenu-opened.window="isSidebarOpened=true"
+		@mmenu-closed.window="isSidebarOpened=false"
+	>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="" width="55" src="/assets/images/logo-mantra.png" />
+				</a>
+				<div class="collapse navbar-collapse" id="main_nav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								地藏經典
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#menu" x-show="!isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+				<a href="#page" x-show="isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+			</div>
+		</nav>
+		
+		<!-- sidebar -->
+		<nav id="menu">
+			<ul id="panel-menu">
+				<li>
+					<span>地藏經典</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+						<li><a href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+		<!-- content -->
+		<div id="page" class="pt-3">
+			<div class="container pb-3">
 	<div class="row">
 		<div class="col-md-3 toc-container">
-			<x-toc
-				x-data="{currItems: {vol10: true}}"
-				class="sticky-top"
-				textsize-supported
-				trans-supported
-			>
-				<ul class="nav navbar-nav">
+			<nav
+	x-data="Object.assign({}, {
+		audioPlaying: false,
+		tocItems: {},
+		currItems: {},
+		audioCollapsed: false,
+		forceShow: false,
+		updateCurrItems: () => {
+			let enteries = Object.entries($data.tocItems);
+			let tmpArr = new Array(enteries.length);
+			for(let [id, val] of enteries) {
+				//tmpArr[val.pos] = {
+				tmpArr[tmpArr.length-1-val.pos] = {
+					id,
+					inview: val.inview,
+				}
+			}
+			tmpArr = tmpArr.filter(t => t.inview);
+			if(tmpArr.length > 0) {
+				$data.currItems = {};
+				$data.currItems[tmpArr[0].id] = true;
+				let ids = tmpArr[0].id.split('-');
+				ids.pop();
+				if(ids.length > 0) {
+					ids.forEach(id => $data.currItems[id] = true);
+				}
+			}
+		},
+		tocEnter: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = true;
+			$data.updateCurrItems();
+		},
+		tocExit: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = false;
+			$data.updateCurrItems();
+		},
+		jumpTo: id => {
+			$dispatch('jump-to', id);
+		},
+		adjustFontsize: deg => {
+			$data.textsize = deg;
+		}
+	}, {currItems: {vol10: true}})"
+	x-init="
+		let items = tocItems;
+		$('.toc-item').each(function(pos) {
+			const id = $(this).attr('id');
+			items[id] = {
+				pos,
+				inview: false,
+			};
+		});
+		inView('.toc-item')
+			.on('enter', el => {
+				$dispatch('toc-enter', $(el).attr('id'));
+			})
+			.on('exit', el => {
+				$dispatch('toc-exit', $(el).attr('id'));
+			});
+		inView.offset(80);
+		
+				$data.textsize = 1;
+						
+			
+				$data.details = false;
+			"
+	@toc-enter.window="tocEnter"
+	@toc-exit.window="tocExit"
+	@audio-shown.window="audioCollapsed=false"
+	@audio-collapsed.window="audioCollapsed=true"
+	@audio-played.window="audioPlaying=true"
+	@audio-paused.window="audioPlaying=false"
+	@audio-stopped.window="audioPlaying=false"
+	
+	
+	
+		class="sticky-top"
+		
+	data-toggle="toc"
+>
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
 					<li>
 						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol1">地藏十輪經卷一</a>
 					</li>
@@ -55,20 +247,40 @@
 						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol9">地藏十輪經卷九</a>
 					</li>
 					<li>
-						<a @@click="jumpTo('vol10')" :class="{active: currItems['vol10'] && true}" class="nav-link text-nowrap" href="#vol10">地藏十輪經卷十</a>
+						<a @click="jumpTo('vol10')" :class="{active: currItems['vol10'] && true}" class="nav-link text-nowrap" href="#vol10">地藏十輪經卷十</a>
 						<ul class="nav navbar-nav">
-							<li><a @@click="jumpTo('vol10-ch13')" :class="{active: currItems['vol10-ch13'] && true}" class="nav-link text-nowrap" href="#vol10-ch13">福田相品第七之二</a></li>
-							<li><a @@click="jumpTo('vol10-ch14')" :class="{active: currItems['vol10-ch14'] && true}" class="nav-link text-nowrap" href="#vol10-ch14">獲益囑累品第八</a></li>
+							<li><a @click="jumpTo('vol10-ch13')" :class="{active: currItems['vol10-ch13'] && true}" class="nav-link text-nowrap" href="#vol10-ch13">福田相品第七之二</a></li>
+							<li><a @click="jumpTo('vol10-ch14')" :class="{active: currItems['vol10-ch14'] && true}" class="nav-link text-nowrap" href="#vol10-ch14">獲益囑累品第八</a></li>
 						</ul>
 					</li>
 				</ul>
-				<x-slot:transCtrlSubtitle>
-					<small class="ms-2">
+		<hr/>
+				<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 <small class="ms-2">
 						(譕非原譯，轉載自 <a href="https://mahagoogol.pixnet.net/blog/post/185651701">「譕非的部落格」</a>，內有詳盡註釋。
 						由於原譯經文與 <a href="https://cbetaonline.dila.edu.tw/zh/T13n0411_p0721a04">CBETA</a> 有出入，本站依從 CBETA 的版本及對內容略作修改。)
 					</small>
-				</x-slot>
-			</x-toc>
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+				
+	</div>
+</nav>
 		</div>
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
@@ -2590,4 +2802,37 @@
 		</div>
 	</div>
 </div>
-@endsection
+		</div>
+		
+		<!-- audio control -->
+				
+		<!-- footer -->
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
+	<div class="row px-5">
+		<div class="col-lg-6 px-4 mb-3">
+			<p>
+				本站的所有內容皆轉載自網絡或流通善書，目的為宏揚法門才加以整理匯編，無意侵犯版權著作。
+				版權持有人如覺有利益侵損，請與本站管理員聯絡，我們會盡快刪除相關內容。
+			</p>
+			
+			<p>
+				本站的內容經過初步校對，盡最大努力保持內容的完整和準確性，如有缺失遺漏還請各位大德指正，功德無量。
+			</p>
+			
+			<p>
+				如果對本站有任何建議或使用問題，亦都歡迎與我們聯絡。
+			</p>
+
+			我們的聯絡方法：<a href="mailto:admin@mahayanasutras.xyz">admin@mahayanasutras.xyz</a>
+		</div>
+		
+	</div>
+</div>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
+		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
+        <script src="/assets/build/js/app.js?id=5545468d150b09f8bc1a551763b7af04"></script>
+		    </body>
+</html>

@@ -138,7 +138,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:14.70" data-end="01:16.10" data-index="1166">有大地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:16.50" data-end="01:18.10" data-index="1167">號極無間</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:18.40" data-end="01:19.62" data-index="1168">又有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:19.68" data-end="01:21.34" data-index="1169">名大阿鼻</span>
@@ -146,7 +146,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:21.80" data-end="01:22.94" data-index="1170">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:22.94" data-end="01:24.36" data-index="1171">名曰四角</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:24.74" data-end="01:25.92" data-index="1172">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:26.06" data-end="01:27.50" data-index="1173">名曰飛刀</span>
@@ -154,7 +154,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:28.04" data-end="01:29.14" data-index="1174">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:29.14" data-end="01:30.92" data-index="1175">名曰火箭</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:31.26" data-end="01:32.40" data-index="1176">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:32.56" data-end="01:33.94" data-index="1177">名曰夾山</span>
@@ -162,7 +162,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:34.36" data-end="01:35.50" data-index="1178">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:35.50" data-end="01:37.16" data-index="1179">名曰通槍</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:37.62" data-end="01:38.74" data-index="1180">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:38.90" data-end="01:40.40" data-index="1181">名曰鐵車</span>
@@ -170,7 +170,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:40.80" data-end="01:41.96" data-index="1182">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:42.08" data-end="01:43.46" data-index="1183">名曰鐵床</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:43.98" data-end="01:45.08" data-index="1184">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:45.18" data-end="01:46.60" data-index="1185">名曰鐵牛</span>
@@ -178,7 +178,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:47.00" data-end="01:48.06" data-index="1186">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:48.20" data-end="01:49.72" data-index="1187">名曰鐵衣</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:50.08" data-end="01:51.22" data-index="1188">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:51.44" data-end="01:52.88" data-index="1189">名曰千刃</span>
@@ -186,7 +186,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:53.30" data-end="01:54.44" data-index="1190">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:54.74" data-end="01:56.24" data-index="1191">名曰鐵驢</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:56.46" data-end="01:57.80" data-index="1192">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:57.94" data-end="01:59.66" data-index="1193">名曰烊銅</span>
@@ -194,7 +194,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="01:59.98" data-end="02:01.14" data-index="1194">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:01.34" data-end="02:02.84" data-index="1195">名曰抱柱</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:03.22" data-end="02:04.46" data-index="1196">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:04.68" data-end="02:06.30" data-index="1197">名曰流火</span>
@@ -202,7 +202,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:06.70" data-end="02:07.84" data-index="1198">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:08.02" data-end="02:09.62" data-index="1199">名曰耕舌</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:09.94" data-end="02:11.00" data-index="1200">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:11.32" data-end="02:12.94" data-index="1201">名曰剉首</span>
@@ -210,7 +210,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:13.46" data-end="02:14.48" data-index="1202">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:14.70" data-end="02:16.16" data-index="1203">名曰燒腳</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:16.62" data-end="02:17.98" data-index="1204">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:18.06" data-end="02:19.56" data-index="1205">名曰啗眼</span>
@@ -218,7 +218,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:20.00" data-end="02:21.02" data-index="1206">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:21.20" data-end="02:22.66" data-index="1207">名曰鐵丸</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:23.04" data-end="02:24.24" data-index="1208">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:24.42" data-end="02:25.92" data-index="1209">名曰諍論</span>
@@ -226,7 +226,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:26.18" data-end="02:27.32" data-index="1210">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:27.56" data-end="02:29.16" data-index="1211">名曰鐵鈇</span>
-					<span class="punc">；</span>
+					<span class="punc">；</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:29.50" data-end="02:30.70" data-index="1212">復有地獄</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="02:30.84" data-end="02:32.46" data-index="1213">名曰多瞋</span>
@@ -2285,7 +2285,7 @@
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
-				<span class="word" @@click="$dispatch('play-segment')" data-start="36:29.92" data-end="36:34.52" data-index="2025">是故地藏菩薩俱大慈悲</span>
+				<span class="word" @@click="$dispatch('play-segment')" data-start="36:29.92" data-end="36:34.52" data-index="2025">是故地藏菩薩具大慈悲</span>
 				<span class="punc">，</span>
 				<span class="word" @@click="$dispatch('play-segment')" data-start="36:34.76" data-end="36:37.40" data-index="2026">救拔罪苦眾生</span>
 				<span class="punc">，</span>

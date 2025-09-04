@@ -2,5 +2,5 @@
 
 return [
     'production' => true,
-	'baseUrl' => 'https://mahayanasutras.xyz',
+    // 'baseUrl' => 'https://mahayanasutras.xyz',
 ];

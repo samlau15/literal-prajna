@@ -1,0 +1,2870 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="大乘經典">
+		<title>大乘大集地藏十輪經卷三</title>
+		
+        <link rel="canonical" href="/ksitigarbha-dasacakra-vol3">
+		<link rel="icon" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ec77030a13e450fc2cfdc6d140c59ae2">
+		<style>
+	body {
+		background-image: url('/assets/images/background-mantra.png');
+	}
+</style>
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </head>
+    <body
+		x-data="page"
+		@mmenu-opened.window="isSidebarOpened=true"
+		@mmenu-closed.window="isSidebarOpened=false"
+	>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="" width="55" src="/assets/images/logo-mantra.png" />
+				</a>
+				<div class="collapse navbar-collapse" id="main_nav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								地藏經典
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#menu" x-show="!isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+				<a href="#page" x-show="isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+			</div>
+		</nav>
+		
+		<!-- sidebar -->
+		<nav id="menu">
+			<ul id="panel-menu">
+				<li>
+					<span>地藏經典</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+						<li><a href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+		<!-- content -->
+		<div id="page" class="pt-3">
+			<div class="container pb-3">
+	<div class="row">
+		<div class="col-md-3 toc-container">
+			<nav
+	x-data="Object.assign({}, {
+		audioPlaying: false,
+		tocItems: {},
+		currItems: {},
+		audioCollapsed: false,
+		forceShow: false,
+		updateCurrItems: () => {
+			let enteries = Object.entries($data.tocItems);
+			let tmpArr = new Array(enteries.length);
+			for(let [id, val] of enteries) {
+				//tmpArr[val.pos] = {
+				tmpArr[tmpArr.length-1-val.pos] = {
+					id,
+					inview: val.inview,
+				}
+			}
+			tmpArr = tmpArr.filter(t => t.inview);
+			if(tmpArr.length > 0) {
+				$data.currItems = {};
+				$data.currItems[tmpArr[0].id] = true;
+				let ids = tmpArr[0].id.split('-');
+				ids.pop();
+				if(ids.length > 0) {
+					ids.forEach(id => $data.currItems[id] = true);
+				}
+			}
+		},
+		tocEnter: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = true;
+			$data.updateCurrItems();
+		},
+		tocExit: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = false;
+			$data.updateCurrItems();
+		},
+		jumpTo: id => {
+			$dispatch('jump-to', id);
+		},
+		adjustFontsize: deg => {
+			$data.textsize = deg;
+		}
+	}, {currItems: {vol3: true}})"
+	x-init="
+		let items = tocItems;
+		$('.toc-item').each(function(pos) {
+			const id = $(this).attr('id');
+			items[id] = {
+				pos,
+				inview: false,
+			};
+		});
+		inView('.toc-item')
+			.on('enter', el => {
+				$dispatch('toc-enter', $(el).attr('id'));
+			})
+			.on('exit', el => {
+				$dispatch('toc-exit', $(el).attr('id'));
+			});
+		inView.offset(80);
+		
+				$data.textsize = 1;
+						
+			
+				$data.details = false;
+			"
+	@toc-enter.window="tocEnter"
+	@toc-exit.window="tocExit"
+	@audio-shown.window="audioCollapsed=false"
+	@audio-collapsed.window="audioCollapsed=true"
+	@audio-played.window="audioPlaying=true"
+	@audio-paused.window="audioPlaying=false"
+	@audio-stopped.window="audioPlaying=false"
+	
+	
+	
+		class="sticky-top"
+		
+	data-toggle="toc"
+>
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol1">地藏十輪經卷一</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol2">地藏十輪經卷二</a>
+					</li>
+					<li>
+						<a @click="jumpTo('vol3')" :class="{active: currItems['vol3'] && true}" class="nav-link text-nowrap" href="#vol3">地藏十輪經卷三</a>
+						<ul class="nav navbar-nav">
+							<li><a @click="jumpTo('vol3-ch3')" :class="{active: currItems['vol3-ch3'] && true}" class="nav-link text-nowrap" href="#vol3-ch3">無依行品第三之一</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol4">地藏十輪經卷四</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol5">地藏十輪經卷五</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol6">地藏十輪經卷六</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol7">地藏十輪經卷七</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol8">地藏十輪經卷八</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol9">地藏十輪經卷九</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol10">地藏十輪經卷十</a>
+					</li>
+				</ul>
+		<hr/>
+				<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 <small class="ms-2">
+						(譕非原譯，轉載自 <a href="https://mahagoogol.pixnet.net/blog/post/185651701">「譕非的部落格」</a>，內有詳盡註釋。
+						由於原譯經文與 <a href="https://cbetaonline.dila.edu.tw/zh/T13n0411_p0721a04">CBETA</a> 有出入，本站依從 CBETA 的版本及對內容略作修改。)
+					</small>
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+				
+	</div>
+</nav>
+		</div>
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">地藏經典</li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+					<li class="breadcrumb-item active">卷三</li>
+				</ol>
+			</nav>
+		
+			<h1>大乘大集地藏十輪經</h1>
+			<small class="float-end mb-3">三藏法師玄奘　譯</small>
+			<div class="clearfix"></div>
+			<h2 class="toc-item" id="vol3">
+				<span class="word">地藏十輪經卷三</span>
+			</h2>
+			<h4 class="toc-item" id="vol3-ch3">
+				<span class="word">無依行品第三之一</span>
+			</h4>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時會中有大梵天</span>
+				<span class="punc">，</span>
+				<span class="word">名曰天藏</span>
+				<span class="punc">，</span>
+				<span class="word">久殖善根</span>
+				<span class="punc">，</span>
+				<span class="word">住第十地</span>
+				<span class="punc">，</span>
+				<span class="word">具諸菩薩摩訶薩德</span>
+				<span class="punc">，</span>
+				<span class="word">即從座起</span>
+				<span class="punc">，</span>
+				<span class="word">合掌禮佛</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">功德藏慧海</span>
+					<span class="punc">，</span>
+					<span class="word">我今問所疑</span>
+					<span class="punc">，</span><br/>
+					<span class="word">願慧海垂聽</span>
+					<span class="punc">，</span>
+					<span class="word">為我除疑滯</span>
+					<span class="punc">。</span><br/>
+					<span class="word">我等今渴仰</span>
+					<span class="punc">，</span>
+					<span class="word">德藏勝法味</span>
+					<span class="punc">，</span><br/>
+					<span class="word">及最上義味</span>
+					<span class="punc">，</span>
+					<span class="word">舉眾咸欲聞</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時法會中有一位大梵天王，名為天藏，久修福德、善根固植，安住第十地菩薩境界，具足了種種菩薩摩訶薩福慧功德，就由座位上起身，合掌禮佛而說偈頌：
+				<blockquote>
+					無邊功德智慧如海的世尊，我今天要向您請問心中的疑惑，願大慧如海的世尊能夠垂聽，為我解除心中疑惑滯難。<br/>
+					我們如今都非常仰慕，佛法無盡的功德寶藏，眾生們都渴望世尊開示，佛法最高境界的真諦法義。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">佛告天藏大梵天言</span>
+				<span class="punc">：</span>
+				<span class="word">如來今者</span>
+				<span class="punc">，</span>
+				<span class="word">恣汝意問</span>
+				<span class="punc">，</span>
+				<span class="word">當隨問答</span>
+				<span class="punc">，</span>
+				<span class="word">令汝心喜</span>
+				<span class="punc">。</span>
+				<span class="word">大梵天言</span>
+				<span class="punc">：</span>
+				<span class="word">唯然</span>
+				<span class="punc">。</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">以頌問曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">利慧修定者</span>
+					<span class="punc">，</span>
+					<span class="word">安住不放逸</span>
+					<span class="punc">，</span><br/>
+					<span class="word">為住勝義諦</span>
+					<span class="punc">？</span>
+					<span class="word">為依止生死</span>
+					<span class="punc">？</span><br/>
+					<span class="word">晝夜於法義</span>
+					<span class="punc">，</span>
+					<span class="word">精勤而誦習</span>
+					<span class="punc">，</span><br/>
+					<span class="word">為渡煩惱海</span>
+					<span class="punc">？</span>
+					<span class="word">為退墮惡趣</span>
+					<span class="punc">？</span><br/>
+					<span class="word">勇猛勤營福</span>
+					<span class="punc">，</span>
+					<span class="word">為定趣涅槃</span>
+					<span class="punc">？</span><br/>
+					<span class="word">為處生死中</span>
+					<span class="punc">，</span>
+					<span class="word">退墮於惡趣</span>
+					<span class="punc">？</span><br/>
+					<span class="word">聰慧剎帝利</span>
+					<span class="punc">，</span>
+					<span class="word">成就十種輪</span>
+					<span class="punc">，</span><br/>
+					<span class="word">為沉生死中</span>
+					<span class="punc">？</span>
+					<span class="word">為當升佛果</span>
+					<span class="punc">？</span><br/>
+					<span class="word">雜染心難伏</span>
+					<span class="punc">，</span>
+					<span class="word">諸煩惱所亂</span>
+					<span class="punc">，</span><br/>
+					<span class="word">以何淨其心</span>
+					<span class="punc">，</span>
+					<span class="word">修定福誦業</span>
+					<span class="punc">？</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				世尊對天藏大梵天王說：如來今天任由你發問，如來會應答你的問題，讓你歡喜滿意。大梵天王說：太好了，世尊！就以偈頌發問：
+				<blockquote>
+					智慧聰利修持禪定的人，安攝心念不怠惰放逸，能安住在最高出世境地嗎？還是仍舊維持在生死輪迴？<br/>
+					眾生日夜精進讀誦經典，研習法義，能安渡煩惱大海得生寂靜嗎？還是會退墮惡道？<br/>
+					勇猛精進勤作營福事業，一定能趨向證悟涅槃嗎？還是仍處在生死輪迴中？甚而退墮惡道？<br/>
+					智慧聰敏的剎帝利王，成就了十種王輪，依然會在生死中浮沉嗎？還是福德升進證得佛果？<br/>
+					眾生心念雜染嚴重極難調伏，有種種煩惱來擾亂，要修持禪定、習誦、營福那一種業輪來清淨心念？
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊告彼天藏大梵天曰</span>
+				<span class="punc">：</span>
+				<span class="word">善哉</span>
+				<span class="punc">，</span>
+				<span class="word">善哉</span>
+				<span class="punc">！</span>
+				<span class="word">汝善辯才能問斯義</span>
+				<span class="punc">，</span>
+				<span class="word">汝於此法已作劬勞</span>
+				<span class="punc">，</span>
+				<span class="word">汝於諸行已得圓滿</span>
+				<span class="punc">。</span>
+				<span class="word">汝於過去殑伽沙等佛世尊所</span>
+				<span class="punc">，</span>
+				<span class="word">已勤三業</span>
+				<span class="punc">，</span>
+				<span class="word">興隆正法</span>
+				<span class="punc">，</span>
+				<span class="word">紹三寶種</span>
+				<span class="punc">；</span>
+				<span class="word">今為饒益無量眾生</span>
+				<span class="punc">，</span>
+				<span class="word">復問如來如是深義</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時世尊對天藏大梵天王說：很好！問得很好！你有傑出的辯才能問到這樣的法義，你已經辛勤研究過這義理，你的萬行功德已經圓滿。過去你在如恆河沙數諸佛世尊處，勤修身口意清淨三業，興隆昌盛佛道正法，延續光大三寶傳承；今天你是為了利益無量眾生，才又請問如來這樣的深奧法義。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">有大記別法</span>
+				<span class="punc">，</span>
+				<span class="word">名無依行</span>
+				<span class="punc">；</span>
+				<span class="word">過去一切諸佛世尊</span>
+				<span class="punc">，</span>
+				<span class="word">為欲成熟諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">為令厭離生死法故</span>
+				<span class="punc">，</span>
+				<span class="word">為令除斷業煩惱故</span>
+				<span class="punc">，</span>
+				<span class="word">為令三乘速圓滿故</span>
+				<span class="punc">，</span>
+				<span class="word">宣說住持此無依行大記別法</span>
+				<span class="punc">。</span>
+				<span class="word">現在十方諸佛世尊</span>
+				<span class="punc">，</span>
+				<span class="word">亦為成熟諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">為令厭離生死法故</span>
+				<span class="punc">，</span>
+				<span class="word">為令除斷業煩惱故</span>
+				<span class="punc">、</span>
+				<span class="word">為令三乘速圓滿故</span>
+				<span class="punc">，</span>
+				<span class="word">宣說住持此無依行大記別法</span>
+				<span class="punc">。</span>
+				<span class="word">未來一切諸佛世尊</span>
+				<span class="punc">，</span>
+				<span class="word">亦為成熟諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">為令厭離生死法故</span>
+				<span class="punc">，</span>
+				<span class="word">為令除斷業煩惱故</span>
+				<span class="punc">、</span>
+				<span class="word">為令三乘速圓滿故</span>
+				<span class="punc">，</span>
+				<span class="word">宣說住持此無依行大記別法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！有個開示密理的大了義法，稱為無依行法。過去一切諸佛世尊，為了要成熟有情眾生，為了使眾生厭離生死輪迴，為了使眾生斷除惑業煩惱，為了使眾生快速圓滿三乘果位，宣說了這無依行大了義法，讓法住持於世讓眾生受持。現在十方諸佛世尊，也為了要成熟有情眾生，為了使眾生厭離生死輪迴，為了使眾生斷除惑業煩惱，為了使眾生快速圓滿三乘果位，宣說這無依行大了義法，讓法住持於世讓眾生受持。未來一切諸佛世尊，也為了要成熟有情眾生，為了使眾生厭離生死輪迴，為了使眾生斷除惑業煩惱，為了使眾生快速圓滿三乘果位，會宣說這無依行大了義法，讓法住持於世讓眾生受持。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">汝於過去諸如來所</span>
+				<span class="punc">，</span>
+				<span class="word">已具得聞此無依行大記別法</span>
+				<span class="punc">。</span>
+				<span class="word">我於今者亦為成熟諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">為令厭離生死法故</span>
+				<span class="punc">，</span>
+				<span class="word">為令除斷業煩惱故</span>
+				<span class="punc">，</span>
+				<span class="word">為令三乘速圓滿故</span>
+				<span class="punc">，</span>
+				<span class="word">宣說住持此無依行大記別法</span>
+				<span class="punc">。</span>
+				<span class="word">汝應諦聽</span>
+				<span class="punc">！</span>
+				<span class="word">善思念之</span>
+				<span class="punc">！</span>
+				<span class="word">吾當為汝分別解說</span>
+				<span class="punc">。</span>
+				<span class="word">爾時天藏大梵天言</span>
+				<span class="punc">：</span>
+				<span class="word">唯然</span>
+				<span class="punc">，</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">願樂欲聞</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				你在過去諸佛如來世尊前，已經圓滿聽受了這無依行大了義法。今日我也為了成熟有情眾生，為了使眾生厭離生死輪迴，為了使眾生斷除惑業煩惱，為了使眾生快速圓滿三乘果位，宣說這無依行大了義法，讓法住持於世讓眾生受持。你要仔細聽！認真思惟！我會為你分別解說。這時天藏大梵天王說：太好了，世尊！我非常歡喜聽您開示。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">佛言</span>
+				<span class="punc">：</span>
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">有十種無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">若修定者</span>
+				<span class="punc">，</span>
+				<span class="word">隨有一行</span>
+				<span class="punc">，</span>
+				<span class="word">尚不能成欲界善根</span>
+				<span class="punc">，</span>
+				<span class="word">設使先成</span>
+				<span class="punc">，</span>
+				<span class="word">尋還退失</span>
+				<span class="punc">，</span>
+				<span class="word">況當能成色</span>
+				<span class="punc">、</span>
+				<span class="word">無色定</span>
+				<span class="punc">，</span>
+				<span class="word">乃至三乘隨成一乘</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">世有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而乏資緣</span>
+					<span class="punc">，</span>
+					<span class="word">經求擾亂</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而犯尸羅</span>
+					<span class="punc">，</span>
+					<span class="word">行諸惡行</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而顛倒見</span>
+					<span class="punc">，</span>
+					<span class="word">妄執吉凶</span>
+					<span class="punc">，</span>
+					<span class="word">身心剛強</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而心掉動</span>
+					<span class="punc">，</span>
+					<span class="word">不順賢聖</span>
+					<span class="punc">，</span>
+					<span class="word">諸根輕躁</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而離間語破亂彼此</span>
+					<span class="punc">。</span><br/>
+					<span class="word">六者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而麁惡語毀罵賢聖</span>
+					<span class="punc">。</span><br/>
+					<span class="word">七者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而雜穢語及虛誑語</span>
+					<span class="punc">。</span><br/>
+					<span class="word">八者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而懷貪嫉</span>
+					<span class="punc">，</span>
+					<span class="word">於他所得利養恭敬</span>
+					<span class="punc">，</span>
+					<span class="word">心不歡悅</span>
+					<span class="punc">。</span><br/>
+					<span class="word">九者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而懷瞋忿</span>
+					<span class="punc">，</span>
+					<span class="word">於諸有情</span>
+					<span class="punc">，</span>
+					<span class="word">心常憤恚</span>
+					<span class="punc">。</span><br/>
+					<span class="word">十者</span>
+					<span class="punc">、</span>
+					<span class="word">復有一類</span>
+					<span class="punc">，</span>
+					<span class="word">雖欲修定</span>
+					<span class="punc">，</span>
+					<span class="word">而懷邪見</span>
+					<span class="punc">，</span>
+					<span class="word">撥無因果</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">大梵當知</span>
+				<span class="punc">，</span>
+				<span class="word">是名十種無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">若修定者</span>
+				<span class="punc">，</span>
+				<span class="word">隨有一行</span>
+				<span class="punc">，</span>
+				<span class="word">尚不能成欲界善根</span>
+				<span class="punc">，</span>
+				<span class="word">設使先成</span>
+				<span class="punc">，</span>
+				<span class="word">尋還退失</span>
+				<span class="punc">，</span>
+				<span class="word">況當能成色</span>
+				<span class="punc">、</span>
+				<span class="word">無色定</span>
+				<span class="punc">，</span>
+				<span class="word">乃至三乘隨成一乘</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				佛說：大梵！有十種無依行不善法。如果修行禪定的人，只要有了其中任何一種無依行法，欲界的禪定善根尚且無法成熟，即使先前有所成就，很快就會退失。更不用說去成就色界、無色界禪定，乃至無法成就三乘法中任何一乘的果位。是那十種呢？
+				<blockquote>
+					一、世間有一類人，雖想修行禪定，卻缺乏資糧，常被尋求資糧外緣的俗事擾亂。<br/>
+					二、還有一類人，雖想修行禪定，卻違犯戒律，造作種種惡行。<br/>
+					三、還有一類人，雖想修行禪定，卻顛倒知見，迷執吉凶禍福，生性剛愎暴戾難以調伏。<br/>
+					四、還有一類人，雖想修行禪定，卻妄念紛亂，不順從聖賢教誨，六根輕浮躁動不安。<br/>
+					五、還有一類人，雖想修行禪定，卻有兩舌口業，挑撥離間，破壞彼此和合。<br/>
+					六、還有一類人，雖想修行禪定，卻有惡語口業，詆毀辱罵賢聖。<br/>
+					七、還有一類人，雖想修行禪定，卻有綺語及妄語口業。<br/>
+					八、還有一類人，雖想修行禪定，卻心懷慳貪嫉妒，對於他人所得到的利養恭敬，心懷不悅。<br/>
+					九、還有一類人，雖想修行禪定，卻心懷瞋怒忿怨，對眾生們，常帶怨憤心念。<br/>
+					十、還有一類人，雖想修行禪定，卻心懷邪知邪見，不信因果。
+				</blockquote>
+				大梵應當明白！這就是十種的無依行不善法。修行禪定的人，只要有了其中任何一種無依行法，欲界的禪定善根尚且無法成熟，即使先前有所成就，很快就會退失。更不用說去成就色界、無色界禪定，乃至無法成就三乘法中任何一乘的果位。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次大梵</span>
+				<span class="punc">。</span>
+				<span class="word">又有十種無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">若修定者隨有一行</span>
+				<span class="punc">。</span>
+				<span class="word">終不能成諸三摩地</span>
+				<span class="punc">。</span>
+				<span class="word">設使先成尋還退失</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">。</span>
+				<blockquote>
+					<span class="word">一者樂著事業</span>
+					<span class="punc">。</span>
+					<span class="word">二者樂著談論</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者樂著睡眠</span>
+					<span class="punc">。</span>
+					<span class="word">四者樂著營求</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者樂著艶色</span>
+					<span class="punc">。</span>
+					<span class="word">六者樂著妙聲</span>
+					<span class="punc">。</span><br/>
+					<span class="word">七者樂著芬香</span>
+					<span class="punc">。</span>
+					<span class="word">八者樂著美味</span>
+					<span class="punc">。</span><br/>
+					<span class="word">九者樂著細觸</span>
+					<span class="punc">。</span>
+					<span class="word">十者樂著尋伺</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">大梵當知是名十種無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">若修定者隨有一行</span>
+				<span class="punc">。</span>
+				<span class="word">終不能成諸三摩地</span>
+				<span class="punc">。</span>
+				<span class="word">設使先成尋還退失</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，大梵！還有十種無依行不善法。修行禪定的人，只要有了其中任何一種無依行不善法，終究不能成就各種三摩地正定，即使先前有所成就，不久就會退失。是那十種呢？
+				<blockquote>
+					一者、貪愛執著世間俗務。<br/>
+					二者、貪愛執著虛談妄論。<br/>
+					三者、貪愛執著昏昧睡眠。<br/>
+					四者、貪愛執著追求世俗名聞利養。<br/>
+					五者、貪愛執著豔麗美色。<br/>
+					六者、貪愛執著美妙音聲。<br/>
+					七者、貪愛執著芬芳香味。<br/>
+					八者、貪愛執著美味飲食。<br/>
+					九者、貪愛執著軟滑細觸。<br/>
+					十者、貪愛執著種種尋思念想。
+				</blockquote>
+				大梵！就是這十種無依行法。如果修行禪定的人，有了其中任何一種無依行不善法，終究不能成就各種三摩地正定，即使先前有所成就，很快就會退失。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若不能成諸三摩地</span>
+				<span class="punc">，</span>
+				<span class="word">雖集所餘諸善法聚</span>
+				<span class="punc">，</span>
+				<span class="word">而有是事</span>
+				<span class="punc">：</span>
+				<span class="word">追求受用信施因緣</span>
+				<span class="punc">，</span>
+				<span class="word">發起惡心</span>
+				<span class="punc">、</span>
+				<span class="word">心所有法</span>
+				<span class="punc">，</span>
+				<span class="word">於諸國王大臣等所</span>
+				<span class="punc">，</span>
+				<span class="word">犯諸過罪</span>
+				<span class="punc">。</span>
+				<span class="word">或被呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或被捶打</span>
+				<span class="punc">、</span>
+				<span class="word">或被斷截肢節手足</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">或成重病長時受苦</span>
+				<span class="punc">，</span>
+				<span class="word">或疾命終於三惡趣</span>
+				<span class="punc">，</span>
+				<span class="word">隨生一所</span>
+				<span class="punc">，</span>
+				<span class="word">乃至或生無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">如嗢達洛迦</span>
+				<span class="punc">、</span>
+				<span class="word">阿邏荼底沙</span>
+				<span class="punc">、</span>
+				<span class="word">瞿波理迦</span>
+				<span class="punc">、</span>
+				<span class="word">提婆達多</span>
+				<span class="punc">，</span>
+				<span class="word">如是等類</span>
+				<span class="punc">，</span>
+				<span class="word">退失靜慮</span>
+				<span class="punc">，</span>
+				<span class="word">乃至墮於無間地獄</span>
+				<span class="punc">，</span>
+				<span class="word">受無量種難忍大苦</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果不能成就三摩地正定，雖然累修了其他種種善法功德，卻會犯出種種過失：為了追求名聞利養及信眾布施，生起了種種攀緣的惡心、惡心法，在國王、大臣律法前，犯下種種罪行。有的會被呵斥責罵、或被鞭杖拷打、或被斬斷手足四肢。有人因為這種種惡因緣而罹患重病，長期受到病苦折磨，或者很快命終，投生三惡道其中一道，甚至淪墮無間地獄。譬如嗢達洛迦、阿邏荼底、瞿伽離、提婆達多等人便是如此，不但禪定毀壞退失，甚至淪墮無間地獄，遭受無量無數難忍大苦。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊告阿若多憍陳那言</span>
+				<span class="punc">：</span>
+				<span class="word">吾聽汝等給阿練若修定苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">最上房舍</span>
+				<span class="punc">、</span>
+				<span class="word">最上臥具</span>
+				<span class="punc">、</span>
+				<span class="word">最上飲食</span>
+				<span class="punc">，</span>
+				<span class="word">一切僧事皆應放免</span>
+				<span class="punc">。</span>
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">諸修定者</span>
+				<span class="punc">，</span>
+				<span class="word">若乏資緣</span>
+				<span class="punc">，</span>
+				<span class="word">即便發起一切惡心</span>
+				<span class="punc">、</span>
+				<span class="word">心所有法</span>
+				<span class="punc">，</span>
+				<span class="word">不能成就諸三摩地</span>
+				<span class="punc">，</span>
+				<span class="word">乃至墮於無間地獄</span>
+				<span class="punc">，</span>
+				<span class="word">受無量種難忍大苦</span>
+				<span class="punc">。</span>
+				<span class="word">修定行者</span>
+				<span class="punc">，</span>
+				<span class="word">若具資緣</span>
+				<span class="punc">，</span>
+				<span class="word">諸三摩地未成能成</span>
+				<span class="punc">；</span>
+				<span class="word">若先已成</span>
+				<span class="punc">，</span>
+				<span class="word">終不退失</span>
+				<span class="punc">。</span>
+				<span class="word">由此不起一切惡法</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至不善尋伺</span>
+				<span class="punc">，</span>
+				<span class="word">往生天上證得涅槃</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時世尊對阿若多憍陳那說：我允許你們這些在寂靜處修習禪定的比丘，住最好的房舍，用最好的臥具，吃最好的飲食，免除了所有僧務雜事。為何如此呢？修行禪定的人，倘若缺乏資糧助緣，便會生起種種惡心、惡心所的攀緣煩惱，不能成就各種三摩地，乃而淪墮無間地獄，遭受無數種難忍大苦。修行禪定的人，如果資糧助緣具足，尚未成就三摩地的人終能成就；如果已有成就，就不會再退失。一切惡不善法不會生起，乃至捨離尋伺覺觀，往生天道、得證涅槃。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">修定行者</span>
+				<span class="punc">，</span>
+				<span class="word">若未成就諸三摩地</span>
+				<span class="punc">，</span>
+				<span class="word">初夜</span>
+				<span class="punc">、</span>
+				<span class="word">後夜當捨睡眠精進修學</span>
+				<span class="punc">，</span>
+				<span class="word">遠離憒閙</span>
+				<span class="punc">，</span>
+				<span class="word">少欲知足無所顧戀</span>
+				<span class="punc">。</span>
+				<span class="word">一切貪</span>
+				<span class="punc">、</span>
+				<span class="word">瞋</span>
+				<span class="punc">、</span>
+				<span class="word">忿</span>
+				<span class="punc">、</span>
+				<span class="word">覆</span>
+				<span class="punc">、</span>
+				<span class="word">惱害</span>
+				<span class="punc">、</span>
+				<span class="word">憍慢</span>
+				<span class="punc">、</span>
+				<span class="word">貢高</span>
+				<span class="punc">、</span>
+				<span class="word">慳悋</span>
+				<span class="punc">、</span>
+				<span class="word">嫉妬</span>
+				<span class="punc">、</span>
+				<span class="word">離間</span>
+				<span class="punc">、</span>
+				<span class="word">麁惡</span>
+				<span class="punc">、</span>
+				<span class="word">虛誑</span>
+				<span class="punc">、</span>
+				<span class="word">雜穢</span>
+				<span class="punc">、</span>
+				<span class="word">一切人間嬉戲</span>
+				<span class="punc">、</span>
+				<span class="word">放逸</span>
+				<span class="punc">，</span>
+				<span class="word">皆悉遠離</span>
+				<span class="punc">。</span>
+				<span class="word">如是行者</span>
+				<span class="punc">，</span>
+				<span class="word">應受釋</span>
+				<span class="punc">、</span>
+				<span class="word">梵</span>
+				<span class="punc">、</span>
+				<span class="word">護世四王</span>
+				<span class="punc">、</span>
+				<span class="word">轉輪王等</span>
+				<span class="punc">，</span>
+				<span class="word">讚歎</span>
+				<span class="punc">、</span>
+				<span class="word">禮拜</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">承事</span>
+				<span class="punc">，</span>
+				<span class="word">奉施百千那庾多供</span>
+				<span class="punc">，</span>
+				<span class="word">況剎帝利</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門</span>
+				<span class="punc">、</span>
+				<span class="word">茷舍</span>
+				<span class="punc">、</span>
+				<span class="word">戍達羅等</span>
+				<span class="punc">。</span>
+				<span class="word">未得定者</span>
+				<span class="punc">，</span>
+				<span class="word">尚應受此讚歎</span>
+				<span class="punc">、</span>
+				<span class="word">禮拜</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">承事</span>
+				<span class="punc">，</span>
+				<span class="word">奉施供養</span>
+				<span class="punc">，</span>
+				<span class="word">何況已得三摩地者</span>
+				<span class="punc">！</span>
+				<span class="word">爾時世尊而說頌曰</span>
+				<span class="punc">：</span>
+				<span class="word">修定能斷惑</span>
+				<span class="punc">，</span>
+				<span class="word">餘業所不能</span>
+				<span class="punc">，</span>
+				<span class="word">故修定為尊</span>
+				<span class="punc">，</span>
+				<span class="word">智者應供養</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				禪定的修行人，如果尚未成就三摩地，應當捨棄初夜及後夜的睡眠時間精進修行，遠離喧囂混閙，少欲知足，不再顧戀掛懷所有得失。遠離一切貪欲、瞋恚、忿恨、隱覆過失、惱害、驕慢、貢高、慳吝、嫉妒、兩舌、惡口、妄語、綺語，及遠離世間一切的嬉戲玩樂、懶惰放逸。這樣的修行人，應當受到帝釋、梵天、護世四天王、轉輪王等的讚歎、禮拜、恭敬、侍奉，供奉無數無量供養。更何況還有剎帝利、婆羅門、吠舍、旃陀羅等世俗的供養。還未證得禪定的修行人，尚且能到這樣的讚歎、禮拜、恭敬、侍奉、供養，更何況是已經圓滿三摩地的人。這時世尊說了偈頌：修定能斷惑業煩惱，其他道業所不能及，修定行者最為尊上，應受智者敬奉供養。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時天藏大梵天言</span>
+				<span class="punc">：</span>
+				<span class="word">大德世尊</span>
+				<span class="punc">！</span>
+				<span class="word">於佛法中而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若剎帝利</span>
+				<span class="punc">、</span>
+				<span class="word">大臣</span>
+				<span class="punc">、</span>
+				<span class="word">宰相</span>
+				<span class="punc">，</span>
+				<span class="word">以鞭杖等捶拷其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解肢節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">，</span>
+				<span class="word">為當合爾</span>
+				<span class="punc">？</span>
+				<span class="word">為不合耶</span>
+				<span class="punc">？</span>
+				<span class="word">佛告天藏大梵天言</span>
+				<span class="punc">：</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若諸有情於我法中出家</span>
+				<span class="punc">，</span>
+				<span class="word">乃至剃除鬚髮被片袈裟</span>
+				<span class="punc">。</span>
+				<span class="word">若持戒</span>
+				<span class="punc">、</span>
+				<span class="word">若破戒</span>
+				<span class="punc">、</span>
+				<span class="word">下至無戒</span>
+				<span class="punc">，</span>
+				<span class="word">一切天人</span>
+				<span class="punc">、</span>
+				<span class="word">阿素洛等</span>
+				<span class="punc">，</span>
+				<span class="word">依俗正法</span>
+				<span class="punc">，</span>
+				<span class="word">猶尚不合以鞭杖等捶拷其身</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解肢節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">，</span>
+				<span class="word">況依非法</span>
+				<span class="punc">！</span>
+				<span class="word">何以故</span>
+				<span class="punc">？</span>
+				<span class="word">除其一切持戒多聞</span>
+				<span class="punc">、</span>
+				<span class="word">於我法中而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若有破戒行諸惡法</span>
+				<span class="punc">，</span>
+				<span class="word">內懷腐敗如穢蝸螺</span>
+				<span class="punc">；</span>
+				<span class="word">實非沙門自稱沙門</span>
+				<span class="punc">，</span>
+				<span class="word">實非梵行自稱梵行</span>
+				<span class="punc">，</span>
+				<span class="word">恒為種種煩惱所勝敗壞傾覆</span>
+				<span class="punc">。</span>
+				<span class="word">如是破戒諸惡苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">猶能示導一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉</span>
+				<span class="punc">、</span>
+				<span class="word">健達縛</span>
+				<span class="punc">、</span>
+				<span class="word">阿素洛</span>
+				<span class="punc">、</span>
+				<span class="word">揭路荼</span>
+				<span class="punc">、</span>
+				<span class="word">緊捺洛</span>
+				<span class="punc">、</span>
+				<span class="word">莫呼洛伽</span>
+				<span class="punc">、</span>
+				<span class="word">人</span>
+				<span class="punc">、</span>
+				<span class="word">非人等</span>
+				<span class="punc">，</span>
+				<span class="word">無量功德珍寶伏藏</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				<hr/>
+				這時天藏大梵天說：大德世尊！歸依佛法如法出家的僧人，如果剎帝利、大臣、宰相，用鞭杖刑罰拷打他們的身體，或關入牢獄、或喝斥責罵、或斬斷四肢手足、或殺害性命，是合乎法度嗎？還是不合法度？世尊對天藏大梵天說：善男子！如果眾生歸依佛法如法出家，乃至只是剃除鬚髮身披短片袈裟。不論他是持守戒律的清淨僧眾、或是破戒僧人、下到從來沒有受戒的僧人，一切的天人、阿修羅等，依從經律論三藏所傳正法，尚且不能用鞭杖拷打他的身體，或關入牢獄、或喝斥責罵、或砍斷四肢手足、或殺害性命，更何況是不依正法的邪法處罰。為何如此呢？除了一切持戒多聞、皈依佛法如法出家的正行比丘外，還有一些破壞戒律造作惡業的惡行比丘，他們的內心腐敗如同將身體糞污都藏在殼內的臭穢蝸螺；並不是精勤修道的沙門卻自稱沙門，並不是清修梵行的清淨僧人卻自稱是清淨梵行，心中總有種種煩惱，顛倒敗壞了正知正念。這種破戒惡行比丘，仍然可以為一切天人、龍眾、藥叉、健達縛、阿修羅、迦樓羅、緊那羅、摩睺羅伽、人非人等，示導佛法所含藏的無量功德寶藏。
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於我法中而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">雖破戒行</span>
+				<span class="punc">，</span>
+				<span class="word">而諸有情覩其形相</span>
+				<span class="punc">，</span>
+				<span class="word">應生十種殊勝思惟</span>
+				<span class="punc">，</span>
+				<span class="word">當獲無量功德寶聚</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<span class="word">謂我法中而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">雖破戒行</span>
+				<span class="punc">，</span>
+				<span class="word">而諸有情或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生於念佛慇重信敬殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">終不歸信諸外道師</span>
+				<span class="punc">、</span>
+				<span class="word">書</span>
+				<span class="punc">、</span>
+				<span class="word">論</span>
+				<span class="punc">、</span>
+				<span class="word">徒眾</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念聖戒殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">能離殺生</span>
+				<span class="punc">、</span>
+				<span class="word">離不與取</span>
+				<span class="punc">、</span>
+				<span class="word">離欲邪行</span>
+				<span class="punc">、</span>
+				<span class="word">離虛誑語</span>
+				<span class="punc">、</span>
+				<span class="word">離飲諸酒生放逸處</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				況且善男子！歸依佛法如法出家的僧眾，雖有破戒行為，但眾生們看到出家人的威儀形相，會生起十種殊勝思維，能得無量無邊福德妙果。是那十種呢？就是皈依佛法如法出家的僧眾，雖有破戒行為，而眾生們看到了出家人的威儀形相，會生起懇切念佛、信敬三寶的殊勝思惟。由這因緣，永遠不會歸依信奉各種外道邪師、邪典、邪論、邪徒眾，乃至能證入遠離一切怖畏的不生不滅大涅槃城。或者見到了出家人的威儀形相，就會緣念生起清淨持戒的殊勝思惟。由這因緣，便能斷離殺生、偷盜、邪淫、妄語、飲酒，不生各種放逸心行，乃至能證入遠離一切怖畏的不生不滅大涅槃城。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念布施殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">得大財位</span>
+				<span class="punc">，</span>
+				<span class="word">親近供養正至正行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念忍辱</span>
+				<span class="punc">、</span>
+				<span class="word">柔和</span>
+				<span class="punc">、</span>
+				<span class="word">質直殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">便能遠離離間</span>
+				<span class="punc">、</span>
+				<span class="word">麁惡</span>
+				<span class="punc">、</span>
+				<span class="word">雜穢</span>
+				<span class="punc">、</span>
+				<span class="word">瞋忿</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念出家</span>
+				<span class="punc">、</span>
+				<span class="word">精勤修行殊勝思惟</span>
+				<span class="punc">，</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">能捨家法</span>
+				<span class="punc">，</span>
+				<span class="word">趣於非家</span>
+				<span class="punc">，</span>
+				<span class="word">勇猛精進修諸勝行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念遠離諸散亂心</span>
+				<span class="punc">、</span>
+				<span class="word">靜慮</span>
+				<span class="punc">、</span>
+				<span class="word">等至殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">心樂山林阿練若處</span>
+				<span class="punc">，</span>
+				<span class="word">晝夜精勤修諸定行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				或者見到了出家人的威儀形相，就會緣念生起布施的殊勝思惟。由此因緣，來世能得大財富，親近供養證道正行聖賢，乃至能證入遠離一切怖畏的不生不滅大涅槃城。或者見到了出家人的威儀形相，就會緣念生起忍辱、不損惱他人、樸實正直的殊勝思惟。由此因緣，便能遠離兩舌、惡語、綺語、瞋恨，乃至能證入遠離一切怖畏的不生不滅大涅槃城。或者見到了出家人的威儀形相，就會緣念生起出家、精勤修行的殊勝思惟。由此因緣，便能捨棄世俗雜欲，追求出離一切惡不善法，勇猛精進修行種種殊勝善法，乃至能證入遠離一切怖畏的不生不滅大涅槃城。或者見到了出家人的威儀形相，就會緣生起遠離散亂心念，修持靜慮、等至等殊勝思惟。由此因緣，喜愛身處寂靜山林，日夜精勤修行各種禪定法門，乃至能證入遠離一切怖畏的不生不滅大涅槃城。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念智慧殊勝思惟</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">欣樂聽聞讀誦正法</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">或有見已</span>
+				<span class="punc">，</span>
+				<span class="word">生念宿殖出離善根殊勝思惟</span>
+				<span class="punc">，</span>
+				<span class="word">軟語慰問</span>
+				<span class="punc">，</span>
+				<span class="word">乃至禮足</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣當生尊貴大勢力家</span>
+				<span class="punc">，</span>
+				<span class="word">無量有情咸共瞻仰</span>
+				<span class="punc">，</span>
+				<span class="word">乃至能入離諸怖畏大涅槃城</span>
+				<span class="punc">。</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於我法中而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">雖破戒行</span>
+				<span class="punc">，</span>
+				<span class="word">而諸有情覩其形相</span>
+				<span class="punc">，</span>
+				<span class="word">生此十種殊勝思惟</span>
+				<span class="punc">，</span>
+				<span class="word">當獲無量功德寶聚</span>
+				<span class="punc">。</span>
+				<span class="word">是故一切剎帝利王</span>
+				<span class="punc">、</span>
+				<span class="word">大臣</span>
+				<span class="punc">、</span>
+				<span class="word">宰相</span>
+				<span class="punc">，</span>
+				<span class="word">決定不合以鞭杖等捶拷其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				或者見到了出家人的威儀形相，就會緣念生起開悟智慧的殊勝思惟。由此因緣，歡喜聽聞、讀誦正法經典，研習法義，乃至能證入遠離一切怖畏的不生不滅大涅槃城。或者見到了出家人的威儀形相，就會緣念起累世所修、出離生死善根的殊勝思惟。軟言慰問出家人，乃至恭敬頂禮。由此因緣，來世當生尊貴勢力顯赫的家族，受到無量眾生同心敬仰，乃至能證入遠離一切怖畏的不生不滅大涅槃城。善男子！歸依佛法如法出家的僧人，雖有破戒行為，而眾生們見到出家人的威儀形相，就會生起這十種殊勝思惟，必能得到無量無邊功德福聚。因此一切剎帝利王、大臣、宰相，絕對不能用鞭杖拷打出家人身體，或關入牢獄、或喝斥責罵、或斬斷四肢手足、或殺害性命。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">若有依我而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">犯戒惡行</span>
+				<span class="punc">，</span>
+				<span class="word">內懷腐敗如穢蝸螺</span>
+				<span class="punc">；</span>
+				<span class="word">實非沙門自稱沙門</span>
+				<span class="punc">，</span>
+				<span class="word">實非梵行自稱梵行</span>
+				<span class="punc">，</span>
+				<span class="word">恒為種種煩惱所勝</span>
+				<span class="punc">，</span>
+				<span class="word">敗壞傾覆</span>
+				<span class="punc">。</span>
+				<span class="word">如是苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">雖破禁戒</span>
+				<span class="punc">，</span>
+				<span class="word">行諸惡行</span>
+				<span class="punc">，</span>
+				<span class="word">而為一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉</span>
+				<span class="punc">、</span>
+				<span class="word">健達縛</span>
+				<span class="punc">、</span>
+				<span class="word">阿素洛</span>
+				<span class="punc">、</span>
+				<span class="word">揭路荼</span>
+				<span class="punc">、</span>
+				<span class="word">緊捺洛</span>
+				<span class="punc">、</span>
+				<span class="word">莫呼洛伽</span>
+				<span class="punc">、</span>
+				<span class="word">人</span>
+				<span class="punc">、</span>
+				<span class="word">非人等作善知識</span>
+				<span class="punc">，</span>
+				<span class="word">示導無量功德伏藏</span>
+				<span class="punc">。</span>
+				<span class="word">如是苾芻雖非法器</span>
+				<span class="punc">，</span>
+				<span class="word">而剃鬚髮被服袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">進止威儀同諸賢聖</span>
+				<span class="punc">。</span>
+				<span class="word">因見彼故</span>
+				<span class="punc">，</span>
+				<span class="word">無量有情種種善根皆得生長</span>
+				<span class="punc">；</span>
+				<span class="word">又能開示無量有情</span>
+				<span class="punc">，</span>
+				<span class="word">善趣生天涅槃正路</span>
+				<span class="punc">。</span>
+				<span class="word">是故依我而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若持戒</span>
+				<span class="punc">，</span>
+				<span class="word">若破戒</span>
+				<span class="punc">、</span>
+				<span class="word">下至無戒</span>
+				<span class="punc">，</span>
+				<span class="word">我尚不許轉輪聖王及餘國王</span>
+				<span class="punc">、</span>
+				<span class="word">諸大臣等</span>
+				<span class="punc">，</span>
+				<span class="word">依俗正法</span>
+				<span class="punc">，</span>
+				<span class="word">以鞭杖等捶拷其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">，</span>
+				<span class="word">況依非法</span>
+				<span class="punc">！</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，大梵！如有歸依佛法如法出家的僧眾，違犯戒律造作惡行，內心腐敗如同將身體糞污都藏在殼內的臭穢蝸螺；並不是精勤修道的沙門卻自稱沙門，並不是清修梵行的清淨僧人卻自稱是清淨梵行，心中總有種種煩惱，顛倒敗壞了正知正念。這樣的比丘，雖然違犯戒律，造作各種惡行，仍然能成為一切天、龍、藥叉、健達縛、阿修羅、迦樓羅、緊那羅、摩睺羅伽、人非人等的善知識，示導佛法所含藏的無量功德寶藏。這種破戒惡行的比丘，雖然不是能任持佛法的法器僧，但剃除了鬚髮穿著袈裟，行止威儀如同賢聖。無量眾生見到這威儀外相，種種善根都能啟蒙生長；又能為無量眾生開示生天善道涅槃正路。因此歸依佛法如法出家的僧人，不論他是持守戒律的清淨僧眾、或是破戒僧人、下到從來沒受過戒的僧人，如來尚且不允許轉輪聖王、國王、大臣等權眾，依照經律論三藏所傳世俗正法，用鞭杖拷打他的身體，或關入牢獄、或喝斥責罵、或砍斷四肢手足、或殺害性命，何況是不依正法的邪法處罰。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">如是破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">雖於我法毘奈耶中名為死尸</span>
+				<span class="punc">，</span>
+				<span class="word">而有出家戒德餘勢</span>
+				<span class="punc">。</span>
+				<span class="word">譬如牛麝身命終後</span>
+				<span class="punc">，</span>
+				<span class="word">雖是無識傍生死尸</span>
+				<span class="punc">，</span>
+				<span class="word">而牛有黃</span>
+				<span class="punc">，</span>
+				<span class="word">而麝有香</span>
+				<span class="punc">，</span>
+				<span class="word">能為無量無邊有情作大饒益</span>
+				<span class="punc">。</span>
+				<span class="word">破戒苾芻亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">雖於我法毘奈耶中名為死尸</span>
+				<span class="punc">，</span>
+				<span class="word">而有出家戒德餘勢</span>
+				<span class="punc">，</span>
+				<span class="word">能為無量無邊有情作大饒益</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				大梵！這樣的破戒惡行比丘，在佛法律藏中雖然稱為死屍，卻仍有出家僧眾的未完全喪失的戒德威勢。譬如牛、麝命終之後，雖是無意識的畜生屍體，然而牛體還有牛黃，麝身還有麝香，仍能利益著無量無邊眾生。破戒比丘也是如此，在佛法律藏中雖然稱為死屍，卻仍有出家僧眾未完全喪失的戒德餘威，仍能利益著無量無邊眾生。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">譬如賈客</span>
+				<span class="punc">，</span>
+				<span class="word">入於大海殺彼一類無量眾生</span>
+				<span class="punc">，</span>
+				<span class="word">挑取其目</span>
+				<span class="punc">，</span>
+				<span class="word">與末達那果和合擣簁</span>
+				<span class="punc">，</span>
+				<span class="word">成眼寶藥</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情盲冥無目</span>
+				<span class="punc">，</span>
+				<span class="word">乃至胞胎而生盲者</span>
+				<span class="punc">，</span>
+				<span class="word">持此寶藥塗彼眼中</span>
+				<span class="punc">，</span>
+				<span class="word">所患皆除得明淨目</span>
+				<span class="punc">。</span>
+				<span class="word">破戒苾芻亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">雖於我法毘奈耶中名為死尸</span>
+				<span class="punc">，</span>
+				<span class="word">而有出家威儀形相</span>
+				<span class="punc">，</span>
+				<span class="word">能令無量無邊有情</span>
+				<span class="punc">，</span>
+				<span class="word">暫得見者</span>
+				<span class="punc">，</span>
+				<span class="word">尚獲清淨智慧法眼</span>
+				<span class="punc">，</span>
+				<span class="word">況能為他宣說正法</span>
+				<span class="punc">！</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				大梵！譬如一些藥商，在大海中補殺一種數量眾多的海生動物，挑取眼睛，與醉人果混合搥擣篩末，製成治療眼疾的寶藥。如果眾生眼睛失明，甚至天生眼盲的人，用這種寶藥塗抹眼中，所有眼疾都能治癒，眼目明淨。破戒比丘也是如此，在佛法律藏中雖然稱為死屍，卻仍有出家僧人的威儀形相；無量眾生僅僅見到這威儀形相，就能得到清淨無染、見察正法的智慧法眼，更何況比丘僧人還能為他們開示宣說佛道正法。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">譬如燒香</span>
+				<span class="punc">，</span>
+				<span class="word">其質雖壞</span>
+				<span class="punc">，</span>
+				<span class="word">而氣芬馥</span>
+				<span class="punc">，</span>
+				<span class="word">熏他令香</span>
+				<span class="punc">。</span>
+				<span class="word">破戒苾芻亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">由破戒故</span>
+				<span class="punc">，</span>
+				<span class="word">非良福田</span>
+				<span class="punc">。</span>
+				<span class="word">雖恒晝夜信施所燒</span>
+				<span class="punc">，</span>
+				<span class="word">身壞命終墮三惡趣</span>
+				<span class="punc">；</span>
+				<span class="word">而為無量無邊有情作大饒益</span>
+				<span class="punc">，</span>
+				<span class="word">謂皆令得聞於生天涅槃香氣</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				大梵！譬如所用的焚香，香體雖然會有破損，但仍能燒出芬芳濃郁的香氣，也能熏香他物。破戒比丘也是如此，由於破戒緣故，已經不能作為世人的植福良田。雖然妄受信施的破戒罪業深重，日夜燒耗了福德，命終身後必定淪墮三惡道；但仍能利益無量無邊眾生，使眾生得聞生天涅槃的正法香氣。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">是故大梵</span>
+				<span class="punc">！</span>
+				<span class="word">如是破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">一切白衣皆應守護</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">供養</span>
+				<span class="punc">。</span>
+				<span class="word">我終不許諸在家者</span>
+				<span class="punc">，</span>
+				<span class="word">以鞭杖等捶拷其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+				<span class="word">我唯許彼清淨僧眾</span>
+				<span class="punc">，</span>
+				<span class="word">於布薩時</span>
+				<span class="punc">、</span>
+				<span class="word">或自恣時</span>
+				<span class="punc">，</span>
+				<span class="word">驅擯令出</span>
+				<span class="punc">。</span>
+				<span class="word">一切給施四方僧物</span>
+				<span class="punc">、</span>
+				<span class="word">飲食</span>
+				<span class="punc">、</span>
+				<span class="word">資具不聽受用</span>
+				<span class="punc">；</span>
+				<span class="word">一切沙門毘奈耶事</span>
+				<span class="punc">，</span>
+				<span class="word">皆令驅出不得在眾</span>
+				<span class="punc">。</span>
+				<span class="word">而我不許加其鞭杖</span>
+				<span class="punc">，</span>
+				<span class="word">繫縛斷命</span>
+				<span class="punc">。</span>
+				<span class="word">爾時世尊而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">瞻博迦華雖萎悴</span>
+					<span class="punc">，</span>
+					<span class="word">而尚勝彼諸餘華</span>
+					<span class="punc">，</span><br/>
+					<span class="word">破戒惡行諸苾芻</span>
+					<span class="punc">，</span>
+					<span class="word">猶勝一切外道眾</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				因此大梵！這種破戒惡行的比丘，一切白衣俗眾仍然應該守護、恭敬、供養。我從不允許在家信眾，用鞭杖拷打出家人的身體，或關入牢獄、或喝斥責罵、或斬斷四肢手足、或殺害性命。我只允許清淨僧眾，在布薩懺悔儀軌中、或自恣發露懺悔時，將破戒比丘驅逐出僧團或擯除僧籍。一切信眾供養的四方僧物、飲食、生活用具都不能讓他享用；僧團一切有關戒律的各種法事，都要將他逐出禁止參與。但我不允許對他用鞭杖刑罰、或繫縛禁閉、或傷害性命。這時世尊說了偈頌：
+				<blockquote>
+					瞻博迦花雖已枯萎，剩餘香氣仍勝他香；<br/>
+					破戒惡行諸苾芻眾，功德猶勝一切外道。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">有五無間大罪惡業</span>
+				<span class="punc">，</span>
+				<span class="word">何等為五</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">故思殺父</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">故思殺母</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">故思殺阿羅漢</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">倒見破聲聞僧</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者</span>
+					<span class="punc">、</span>
+					<span class="word">惡心出佛身血</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">如是五種</span>
+				<span class="punc">，</span>
+				<span class="word">名為無間大罪惡業</span>
+				<span class="punc">。</span>
+				<span class="word">若人於此五無間中</span>
+				<span class="punc">，</span>
+				<span class="word">隨造一種</span>
+				<span class="punc">，</span>
+				<span class="word">不合出家及受具戒</span>
+				<span class="punc">。</span>
+				<span class="word">若令出家或受具戒</span>
+				<span class="punc">，</span>
+				<span class="word">師便犯罪</span>
+				<span class="punc">，</span>
+				<span class="word">彼應驅擯令出我法</span>
+				<span class="punc">。</span>
+				<span class="word">如是之人</span>
+				<span class="punc">，</span>
+				<span class="word">以有出家威儀形相</span>
+				<span class="punc">，</span>
+				<span class="word">我亦不許加其鞭杖</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，大梵！有五種會淪墮無間地獄的大罪惡業，是那五種呢？
+				<blockquote>
+					一、故意殺父，<br/>
+					二、故意殺母，<br/>
+					三、故意殺阿羅漢，<br/>
+					四、顛倒邪見破壞僧眾和合，<br/>
+					五、惡意傷害佛身以致出血。
+				</blockquote>
+				這五種罪行，稱為無間大罪惡業。如果有人在這五無間罪中，無論犯了任何一種，都不允許出家及受具足戒。倘若戒師讓他出家或受具足戒，戒師便是違犯戒律，應被驅出僧團擯除僧籍。即使犯了這種重罪的僧人，因為具有了出家人的威儀形相，我也不允許對他用鞭杖刑罰，或關入牢獄，或喝斥責罵，或斬斷四肢，或殺害性命。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復有四種</span>
+				<span class="punc">，</span>
+				<span class="word">近五無間大罪惡業根本之罪</span>
+				<span class="punc">。</span>
+				<span class="word">何等為四</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">起不善心殺害獨覺</span>
+					<span class="punc">，</span>
+					<span class="word">是殺生命大罪惡業根本之罪</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">婬阿羅漢苾芻尼僧</span>
+					<span class="punc">，</span>
+					<span class="word">是欲邪行大罪惡業根本之罪</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">侵損所施三寶財物</span>
+					<span class="punc">，</span>
+					<span class="word">是不與取大罪惡業根本之罪</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">倒見破壞和合僧眾</span>
+					<span class="punc">，</span>
+					<span class="word">是虛誑語大罪惡業根本之罪</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">若人於此四近無間大罪惡業根本罪中</span>
+				<span class="punc">，</span>
+				<span class="word">隨犯一種</span>
+				<span class="punc">，</span>
+				<span class="word">不合出家及受具戒</span>
+				<span class="punc">。</span>
+				<span class="word">若令出家</span>
+				<span class="punc">、</span>
+				<span class="word">或受具戒</span>
+				<span class="punc">，</span>
+				<span class="word">師便得罪</span>
+				<span class="punc">，</span>
+				<span class="word">彼應驅擯令出我法</span>
+				<span class="punc">。</span>
+				<span class="word">如是之人</span>
+				<span class="punc">，</span>
+				<span class="word">以有出家及受具戒威儀形相</span>
+				<span class="punc">，</span>
+				<span class="word">我亦不許加其鞭杖</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				還有四種，近似五無間大罪惡業的根本罪。是那四種根本罪呢？
+				<blockquote>
+					一者、生起惡心殺害獨覺，是殺生大罪惡業根本罪。<br/>
+					二者、奸淫阿羅漢，比丘僧、尼，是邪淫大罪惡業根本罪。<br/>
+					三者、侵佔損壞信眾布施的三寶財物，是偷盜大罪惡業根本罪。<br/>
+					四者、顛倒邪見言語作惡，破壞僧眾和合，是妄語大罪惡業根本罪。
+				</blockquote>
+				如果有人在這四種近似無間大罪惡業的四根本罪中，犯下了任何一種罪，都不允許出家及受具足戒。倘若戒師讓他出家或受具足戒，戒師便是違犯戒律，應被驅出僧團擯除僧籍。即使犯了這根本重罪的僧人，因為已有出家及受具足戒的威儀形相，我也不允許對他用鞭杖刑罰，或關入牢獄，或喝斥責罵，或斬斷四肢，或殺害性命。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">如是</span>
+				<span class="punc">，</span>
+				<span class="word">或有是根本罪非無間罪</span>
+				<span class="punc">，</span>
+				<span class="word">有無間罪非根本罪</span>
+				<span class="punc">，</span>
+				<span class="word">有根本罪亦無間罪</span>
+				<span class="punc">，</span>
+				<span class="word">有非根本罪亦非無間罪</span>
+				<span class="punc">。</span>
+				<span class="word">何等名為是根本罪亦無間罪</span>
+				<span class="punc">？</span>
+				<span class="word">謂我法中先已出家受具戒者</span>
+				<span class="punc">，</span>
+				<span class="word">故思殺他已到究竟見諦人等</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為是根本罪亦無間罪</span>
+				<span class="punc">。</span>
+				<span class="word">此於我法毘奈耶中</span>
+				<span class="punc">，</span>
+				<span class="word">應速驅擯何等名為是根本罪非無間罪</span>
+				<span class="punc">？</span>
+				<span class="word">謂我法中</span>
+				<span class="punc">，</span>
+				<span class="word">先已出家受具戒者</span>
+				<span class="punc">，</span>
+				<span class="word">故思殺害他異生人</span>
+				<span class="punc">，</span>
+				<span class="word">下至方便與人毒藥墮其胎藏</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為是根本罪非無間罪</span>
+				<span class="punc">。</span>
+				<span class="word">此人不應與僧共住</span>
+				<span class="punc">，</span>
+				<span class="word">諸有給施四方僧物</span>
+				<span class="punc">，</span>
+				<span class="word">亦不應令於中受用</span>
+				<span class="punc">。</span>
+				<span class="word">何等名為是無間罪非根本罪</span>
+				<span class="punc">？</span>
+				<span class="word">謂若有人</span>
+				<span class="punc">，</span>
+				<span class="word">或受三歸</span>
+				<span class="punc">、</span>
+				<span class="word">或受五戒</span>
+				<span class="punc">、</span>
+				<span class="word">或受十戒</span>
+				<span class="punc">。</span>
+				<span class="word">於五無間隨造一種</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為是無間罪非根本罪</span>
+				<span class="punc">。</span>
+				<span class="word">如是之人</span>
+				<span class="punc">，</span>
+				<span class="word">不合出家及受具戒</span>
+				<span class="punc">。</span>
+				<span class="word">若令出家或受具戒</span>
+				<span class="punc">，</span>
+				<span class="word">師便得罪</span>
+				<span class="punc">，</span>
+				<span class="word">彼應驅擯令出我法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				在這些大罪業中還有區分：是根本罪但不是無間罪；或者是無間罪但不是根本罪；或者既是根本罪也同樣是無間罪；或者既不是根本罪也不是無間罪。什麼是「既是根本罪也同樣是無間罪？」就是歸依佛法已經出家受具足戒的僧人，故意殺害已經見道證果的聖人，就稱為既是根本罪也同樣是無間罪。按照佛法律藏戒律，應當盡速將他驅出僧團擯除僧籍。什麼是根本罪但不是無間罪？就是歸依佛法已經出家受具足戒的僧人，故意殺害他人，下到經由不同的方法給人毒藥讓人墮胎，這種罪行就是根本罪但不是無間罪。犯這種罪的僧人不應該與僧團同住，所有信眾布施供養的四方僧物，也不能讓他享用。什麼是無間罪但不是根本罪？是說如果有人領受過三皈依、或者領受過五戒、或者領受過十戒。無論造作了任何一項五無間罪，就是所謂無間罪但不是根本罪。犯這種罪的人不允許出家及受具足戒。倘若戒師讓他出家或受具足戒，戒師便是違犯戒律，應被驅出僧團擯除僧籍。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">何等名為非根本罪亦非無間罪</span>
+				<span class="punc">？</span>
+				<span class="word">謂若有人</span>
+				<span class="punc">，</span>
+				<span class="word">或受三歸</span>
+				<span class="punc">、</span>
+				<span class="word">或受五戒</span>
+				<span class="punc">，</span>
+				<span class="word">於佛</span>
+				<span class="punc">、</span>
+				<span class="word">法</span>
+				<span class="punc">、</span>
+				<span class="word">僧而生疑心</span>
+				<span class="punc">，</span>
+				<span class="word">或歸外道以為師導</span>
+				<span class="punc">，</span>
+				<span class="word">或執種種若少若多吉凶之相</span>
+				<span class="punc">，</span>
+				<span class="word">祠祭鬼神</span>
+				<span class="punc">。</span>
+				<span class="word">若復有人於諸如來所說正法</span>
+				<span class="punc">、</span>
+				<span class="word">或聲聞乘相應正法</span>
+				<span class="punc">、</span>
+				<span class="word">或獨覺乘相應正法</span>
+				<span class="punc">、</span>
+				<span class="word">或是大乘相應正法</span>
+				<span class="punc">，</span>
+				<span class="word">誹謗遮止</span>
+				<span class="punc">。</span>
+				<span class="word">自不信受</span>
+				<span class="punc">，</span>
+				<span class="word">令他厭背</span>
+				<span class="punc">；</span>
+				<span class="word">障礙他人讀誦書寫</span>
+				<span class="punc">，</span>
+				<span class="word">下至留難一頌正法</span>
+				<span class="punc">。</span>
+				<span class="word">如是名為非根本罪亦非無間</span>
+				<span class="punc">，</span>
+				<span class="word">而生極重大罪惡業</span>
+				<span class="punc">，</span>
+				<span class="word">近無間罪</span>
+				<span class="punc">。</span>
+				<span class="word">如是之人</span>
+				<span class="punc">，</span>
+				<span class="word">若未懺悔除滅如是大罪惡業</span>
+				<span class="punc">，</span>
+				<span class="word">不合出家及受具戒</span>
+				<span class="punc">。</span>
+				<span class="word">若令出家或受具戒</span>
+				<span class="punc">，</span>
+				<span class="word">師便得罪</span>
+				<span class="punc">，</span>
+				<span class="word">彼應驅擯令出我法</span>
+				<span class="punc">；</span>
+				<span class="word">若已出家或受具戒</span>
+				<span class="punc">，</span>
+				<span class="word">犯如是罪若不懺悔</span>
+				<span class="punc">，</span>
+				<span class="word">此於我法毘奈耶中</span>
+				<span class="punc">，</span>
+				<span class="word">應速驅擯</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是「既不是根本罪也不是無間罪」？如果有人，已受了三皈依、或領受了五戒，卻對佛、法、僧三寶心生懷疑，或是歸依外道以外道為師，或者迷執種種吉凶感應去祭祀鬼神。還有些人，造謠誹謗諸佛世尊所宣說的正法，或是聲聞乘相應正法，或是獨覺乘相應正法，或是大乘相應正法，阻止正法流傳。非但自己不信受正法，也使他人感到厭惡而背離正法；障礙他人讀誦書寫經典，下到連一句正法經文的偈頌都會刁難阻止。這就稱為「既不是根本罪也不是無間罪」，而是造作了極重的大罪惡業，類同是無間大罪。犯這種罪業的人，如果不通過懺悔來滅除這種重大罪業，是不允許出家及受具足戒。倘若戒師讓他出家或受具足戒，戒師便是違犯戒律，應被驅出僧團擯除僧籍。倘若已經出家或已受具足戒的僧人，犯下這種罪業而不懺悔，依照佛法律藏戒律，應當盡快將他驅出僧團擯除僧籍。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">此二種人</span>
+				<span class="punc">，</span>
+				<span class="word">習行破毀正法眼行</span>
+				<span class="punc">；</span>
+				<span class="word">習行隱滅正法燈行</span>
+				<span class="punc">；</span>
+				<span class="word">習行斷絕三寶種行</span>
+				<span class="punc">；</span>
+				<span class="word">令諸天人習行無義無利苦行</span>
+				<span class="punc">，</span>
+				<span class="word">墮諸惡趣</span>
+				<span class="punc">。</span>
+				<span class="word">此二種人</span>
+				<span class="punc">，</span>
+				<span class="word">自謗正法毀呰賢聖</span>
+				<span class="punc">，</span>
+				<span class="word">亦令他人誹謗正法毀呰賢聖</span>
+				<span class="punc">。</span>
+				<span class="word">命終當墮無間地獄</span>
+				<span class="punc">，</span>
+				<span class="word">經劫受苦</span>
+				<span class="punc">，</span>
+				<span class="word">不可療治</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				為何如此呢？這兩種人的修習造作，毀壞了眾生徹見真理的清淨法眼；隱滅了照亮無明黑暗的正法明燈；斷絕了三寶的傳承；讓所有天、人，也修習造作招引惡趣苦果、無利生死解脫的惡行。這二種人，不但自己誹謗正法詆毀賢聖，也教使他人誹謗正法詆毀賢聖。命終必當淪墮無間地獄，經歷長劫苦難折磨，無法救拔。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">或有遮罪無依行法</span>
+				<span class="punc">，</span>
+				<span class="word">或有性罪無依行法</span>
+				<span class="punc">；</span>
+				<span class="word">於性罪中</span>
+				<span class="punc">，</span>
+				<span class="word">或有根本無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">云何根本無依行法</span>
+				<span class="punc">？</span>
+				<span class="word">謂若苾芻行非梵行犯根本罪</span>
+				<span class="punc">，</span>
+				<span class="word">或以故思殺異生人犯根本罪</span>
+				<span class="punc">，</span>
+				<span class="word">或復偷盜非三寶物犯根本罪</span>
+				<span class="punc">，</span>
+				<span class="word">或大妄語犯根本罪</span>
+				<span class="punc">。</span>
+				<span class="word">若有苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">於此四種根本罪中</span>
+				<span class="punc">，</span>
+				<span class="word">隨犯一種</span>
+				<span class="punc">，</span>
+				<span class="word">於諸苾芻所作事業令受折伏</span>
+				<span class="punc">，</span>
+				<span class="word">一切給施四方僧物</span>
+				<span class="punc">，</span>
+				<span class="word">皆悉不聽於中受用</span>
+				<span class="punc">。</span>
+				<span class="word">而亦不合加其鞭杖</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+				<span class="word">如是名為</span>
+				<span class="punc">，</span>
+				<span class="word">於性罪中</span>
+				<span class="punc">，</span>
+				<span class="word">根本重罪無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">何故說名為根本罪</span>
+				<span class="punc">？</span>
+				<span class="word">謂若有人犯此四法</span>
+				<span class="punc">，</span>
+				<span class="word">身壞命終墮諸惡趣</span>
+				<span class="punc">，</span>
+				<span class="word">是諸惡趣根本罪故</span>
+				<span class="punc">，</span>
+				<span class="word">是故說名為根本罪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，大梵！還有世尊制定禁戒的遮罪無依行法，還有自性不善造作惡行的性罪無依行法；在性罪中，還有根本罪無依行法。什麼是根本罪無依行法？就是說，比丘造作了不淨淫行，是犯了邪淫根本罪；或故意殺人，是犯了殺生根本罪，或偷盜非三寶物，是犯了偷盜根本罪，或大妄語欺騙世人謀取利養，是犯了妄語根本罪。比丘在這四種根本罪中，無論犯了任何一種，都禁止他參與比丘所能從事的各種法事，一切信眾所供養的四方僧物，也都不允許讓他享用。但仍然不能對他用鞭杖刑罰，或關入牢獄，或喝斥責罵，或斬斷四肢，或殺害性命。這就稱為性罪無依行法中的根本重罪無依行法。為何說這罪行是根本罪呢？就是說，如有違犯了這四種戒法的人，身壞命終必定淪墮三惡道，因為這是淪墮惡道的根本罪業，所以稱為根本罪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">何故無間及近無間根本罪等</span>
+				<span class="punc">，</span>
+				<span class="word">說名極重大罪惡業無依行法</span>
+				<span class="punc">？</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如鐵摶</span>
+				<span class="punc">、</span>
+				<span class="word">鉛錫摶等</span>
+				<span class="punc">，</span>
+				<span class="word">擲置空中</span>
+				<span class="punc">，</span>
+				<span class="word">終無暫住必速墮地</span>
+				<span class="punc">。</span>
+				<span class="word">造五無間及近無間四根本罪</span>
+				<span class="punc">，</span>
+				<span class="word">并謗正法疑三寶等</span>
+				<span class="punc">，</span>
+				<span class="word">二種罪人亦復如是</span>
+				<span class="punc">。</span>
+				<span class="word">若人於此十一罪中</span>
+				<span class="punc">，</span>
+				<span class="word">隨造一種</span>
+				<span class="punc">，</span>
+				<span class="word">身壞命終無餘間隔</span>
+				<span class="punc">，</span>
+				<span class="word">定生無間大地獄中</span>
+				<span class="punc">，</span>
+				<span class="word">受諸劇苦</span>
+				<span class="punc">，</span>
+				<span class="word">故名極重大罪惡業無依行法</span>
+				<span class="punc">。</span>
+				<span class="word">犯此極重大罪惡業無依行法補特伽羅</span>
+				<span class="punc">，</span>
+				<span class="word">於現身中</span>
+				<span class="punc">，</span>
+				<span class="word">決定不能盡諸煩惱</span>
+				<span class="punc">，</span>
+				<span class="word">尚不能成諸三摩地</span>
+				<span class="punc">，</span>
+				<span class="word">況能趣入正性離生</span>
+				<span class="punc">！</span>
+				<span class="word">彼人命終定生地獄受諸重苦</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				為何無間罪及近似無間的四根本罪，稱為最嚴重大罪惡業無依行法？善男子！譬如鐵塊、鉛錫塊等，拋擲空中，必然快速墜地沒有一刻暫停。造作五無間及近似無間罪業的四根本罪，與誹謗正法、懷疑三寶的兩種罪人也是如此。在這十一種罪中，無論犯了其中任何一種罪行，身壞命終後沒有片刻時間暫停，立即投生無間大地獄中，遭受各種劇烈痛苦，因此稱為最嚴重大罪惡業無依行法。犯了這最嚴重大罪惡業無依行法的眾生，在今生中，必定不能盡除各種煩惱，尚且不能成就各種三摩地，又豈能出離生死證得涅槃！這些人命終身後必定投生地獄遭受各種劇苦。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">大梵</span>
+				<span class="punc">！</span>
+				<span class="word">若善男子若善女人</span>
+				<span class="punc">，</span>
+				<span class="word">以淨信心歸依我法</span>
+				<span class="punc">，</span>
+				<span class="word">或趣聲聞乘</span>
+				<span class="punc">、</span>
+				<span class="word">或趣獨覺乘</span>
+				<span class="punc">、</span>
+				<span class="word">或趣大乘</span>
+				<span class="punc">，</span>
+				<span class="word">於我法中淨信出家</span>
+				<span class="punc">，</span>
+				<span class="word">受具足戒</span>
+				<span class="punc">；</span>
+				<span class="word">於諸學處深心敬重</span>
+				<span class="punc">，</span>
+				<span class="word">於四根本性罪戒中</span>
+				<span class="punc">，</span>
+				<span class="word">堅固勇猛精勤守護</span>
+				<span class="punc">。</span>
+				<span class="word">如是之人</span>
+				<span class="punc">，</span>
+				<span class="word">常為一切人</span>
+				<span class="punc">、</span>
+				<span class="word">非人等隨逐擁衛</span>
+				<span class="punc">，</span>
+				<span class="word">名不虛受人天供養</span>
+				<span class="punc">；</span>
+				<span class="word">於三乘中隨所欣樂</span>
+				<span class="punc">，</span>
+				<span class="word">速能趣入成辦究竟</span>
+				<span class="punc">。</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">真實求涅槃者</span>
+				<span class="punc">，</span>
+				<span class="word">寧捨身命終不毀犯如是四法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，大梵！無論是善男子或善女人，信心清淨歸依佛法，志向修學聲聞乘、或志向修學緣覺乘、或志向修學大乘，如法歸依淨信出家，領受了具足戒；對於所受持的各種戒律，發自內心深深敬重，心念堅定精勤守護殺、盜、淫、妄，四根本性罪戒律。這樣清淨持戒的出家人，時時受到一切人、非人等眾生的追隨擁護，真正值得人界、天界來供養；隨心所喜修學任何一乘佛法，必定能夠快速證悟究竟圓滿。因此，真心志求涅槃解脫的修行人，寧捨生命也絕不會毀犯這四種根本罪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">諸有情類要由三因得涅槃樂</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">依止如來為因</span>
+					<span class="punc">；</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">依我聖教為因</span>
+					<span class="punc">；</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">依我弟子為因</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">諸有情類依此三因</span>
+				<span class="punc">，</span>
+				<span class="word">精勤修行得涅槃樂</span>
+				<span class="punc">。</span>
+				<span class="word">若人毀犯如是四法</span>
+				<span class="punc">，</span>
+				<span class="word">我非彼師</span>
+				<span class="punc">，</span>
+				<span class="word">彼非弟子</span>
+				<span class="punc">。</span>
+				<span class="word">若人毀犯如是四法</span>
+				<span class="punc">，</span>
+				<span class="word">則為違越我所宣說</span>
+				<span class="punc">、</span>
+				<span class="word">甚深廣大</span>
+				<span class="punc">、</span>
+				<span class="word">無常</span>
+				<span class="punc">、</span>
+				<span class="word">苦</span>
+				<span class="punc">、</span>
+				<span class="word">空</span>
+				<span class="punc">、</span>
+				<span class="word">無我相應</span>
+				<span class="punc">，</span>
+				<span class="word">利益安樂一切有情別解脫教</span>
+				<span class="punc">。</span>
+				<span class="word">若越如是別解脫教</span>
+				<span class="punc">，</span>
+				<span class="word">則於一切靜慮</span>
+				<span class="punc">、</span>
+				<span class="word">等持</span>
+				<span class="punc">，</span>
+				<span class="word">皆成盲冥</span>
+				<span class="punc">，</span>
+				<span class="word">不能趣入</span>
+				<span class="punc">。</span>
+				<span class="word">為諸煩惱惡業纏縛</span>
+				<span class="punc">，</span>
+				<span class="word">於三乘法亦為非器</span>
+				<span class="punc">，</span>
+				<span class="word">當墮惡趣受諸重苦</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				為何如此呢？所有眾生必須憑依三正因才能證得不生不滅的涅槃快樂：
+				<blockquote>
+					一、依止如來，以佛為因；<br/>
+					二、依從佛法正教，以法為因；<br/>
+					三、依從佛法正位弟子，以僧為因。
+				</blockquote>
+				眾生憑依佛法僧三因，精勤修行才能證得不生不滅的涅槃快樂。如果有人毀犯了四根本罪，如來就不是他的師父，他也不是如來的弟子。如果有人毀犯了四根本罪，就是違越了如來所宣說廣大深妙，與無常、苦、空、無我相應的佛法教示，違越了能利益安樂一切眾生的別解脫戒。如果違越了這別解脫教戒，則一切的止觀禪修都無法見聞，無法趣入修習。被各種煩惱惡業纏縛，也無法受持三乘佛法成為三乘法器，必當淪墮惡道遭受各種劇苦。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若善男子若善女人</span>
+				<span class="punc">，</span>
+				<span class="word">於我所說別解脫教</span>
+				<span class="punc">，</span>
+				<span class="word">所制四種根本重罪</span>
+				<span class="punc">，</span>
+				<span class="word">清淨無犯</span>
+				<span class="punc">，</span>
+				<span class="word">我是彼師</span>
+				<span class="punc">，</span>
+				<span class="word">彼是弟子</span>
+				<span class="punc">；</span>
+				<span class="word">隨順我語</span>
+				<span class="punc">，</span>
+				<span class="word">善住我法</span>
+				<span class="punc">，</span>
+				<span class="word">一切所作皆當成滿</span>
+				<span class="punc">。</span>
+				<span class="word">此人善住尸羅蘊故</span>
+				<span class="punc">，</span>
+				<span class="word">名為善住一切善法</span>
+				<span class="punc">、</span>
+				<span class="word">或名具足住聲聞乘</span>
+				<span class="punc">、</span>
+				<span class="word">或名具足住獨覺乘</span>
+				<span class="punc">、</span>
+				<span class="word">或名具足住於大乘</span>
+				<span class="punc">。</span>
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">若能護持如是性罪四根本法</span>
+				<span class="punc">，</span>
+				<span class="word">當知則為建立一切有漏</span>
+				<span class="punc">、</span>
+				<span class="word">無漏善法勝因</span>
+				<span class="punc">。</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">護持如是四法</span>
+				<span class="punc">，</span>
+				<span class="word">名為一切善法根本</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				無論是善男子或善女人，對於如來所教示的別解脫戒，如來所制定的四種根本重罪，能夠清淨持守而不違犯，如來就是他的上師，他也是如來的弟子；隨順如來法語教誨，安住佛法正念正道，一切修行都能究竟圓滿。此人能夠盡心持守所有戒律諸惡不作，就稱為盡心持守一切善法，或稱為圓滿安住聲聞乘法、或稱為圓滿安住緣覺乘法、或稱為圓滿安住大乘法。為何如此呢？應當明白，如能護持性罪四根本法，是建立一切有漏、無漏各種善法的殊勝善因。因此，護持這四種根本法，就是一切善法的根本。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">如依大地</span>
+				<span class="punc">，</span>
+				<span class="word">一切藥穀</span>
+				<span class="punc">、</span>
+				<span class="word">卉木</span>
+				<span class="punc">、</span>
+				<span class="word">叢林</span>
+				<span class="punc">、</span>
+				<span class="word">皆得生長</span>
+				<span class="punc">；</span>
+				<span class="word">如是依止極善護持四根本戒</span>
+				<span class="punc">，</span>
+				<span class="word">一切善法皆得生長</span>
+				<span class="punc">。</span>
+				<span class="word">如依大地</span>
+				<span class="punc">，</span>
+				<span class="word">一切諸山</span>
+				<span class="punc">，</span>
+				<span class="word">小輪圍山</span>
+				<span class="punc">、</span>
+				<span class="word">大輪圍山</span>
+				<span class="punc">、</span>
+				<span class="word">妙高山王</span>
+				<span class="punc">，</span>
+				<span class="word">皆得安住</span>
+				<span class="punc">；</span>
+				<span class="word">如是依止極善護持四根本戒</span>
+				<span class="punc">，</span>
+				<span class="word">諸聲聞乘及獨覺乘</span>
+				<span class="punc">、</span>
+				<span class="word">無上大乘</span>
+				<span class="punc">，</span>
+				<span class="word">皆得安住</span>
+				<span class="punc">。</span>
+				<span class="word">如依大地</span>
+				<span class="punc">，</span>
+				<span class="word">求得一切世間美味</span>
+				<span class="punc">；</span>
+				<span class="word">如是依止極善護持四根本戒</span>
+				<span class="punc">，</span>
+				<span class="word">求得一切念定</span>
+				<span class="punc">、</span>
+				<span class="word">總持</span>
+				<span class="punc">、</span>
+				<span class="word">安忍聖道</span>
+				<span class="punc">，</span>
+				<span class="word">乃至無上正等菩提</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				譬如，一切的藥材五穀、花卉、叢林，憑依著大地，才能生長茁壯；同樣的，憑依著盡心護持四根本戒，一切善法才都能生長。譬如，所有山嶺，小鐵圍山、大鐵圍山、妙高山王等，憑依著大地，才能安住不動；同樣，憑依著盡心護持四根本戒，才能安住身心無所動搖、修行聲聞乘法、緣覺乘法、無上大乘法。譬如憑依著大地，能求得到一切世間美味飲食；同樣，憑依著盡心護持四根本戒，才能修得一切正念正定、陀羅尼、安忍等解脫正道，乃至成就無上正等正覺。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又如大地</span>
+				<span class="punc">，</span>
+				<span class="word">於淨</span>
+				<span class="punc">、</span>
+				<span class="word">不淨皆等任持</span>
+				<span class="punc">；</span>
+				<span class="word">極善護持四根本戒諸善男子及善女人亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">於其法器及非法器</span>
+				<span class="punc">，</span>
+				<span class="word">其心平等</span>
+				<span class="punc">，</span>
+				<span class="word">不譏不弄</span>
+				<span class="punc">，</span>
+				<span class="word">不自貢高</span>
+				<span class="punc">，</span>
+				<span class="word">不卒呵舉</span>
+				<span class="punc">，</span>
+				<span class="word">能為一切善法生處</span>
+				<span class="punc">。</span>
+				<span class="word">又如大地</span>
+				<span class="punc">，</span>
+				<span class="word">一切有情皆共受用而得存活</span>
+				<span class="punc">；</span>
+				<span class="word">極善護持四根本戒諸善男子及善女人亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">於諸如來所說正法</span>
+				<span class="punc">，</span>
+				<span class="word">生長第一歡喜淨信</span>
+				<span class="punc">；</span>
+				<span class="word">於諸有情無差別想</span>
+				<span class="punc">，</span>
+				<span class="word">以四攝法平等攝受一切有情</span>
+				<span class="punc">，</span>
+				<span class="word">皆共依止受用法樂</span>
+				<span class="punc">，</span>
+				<span class="word">而自存活</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				又譬如大地，對於所有清淨、不清淨萬物都能平等載受；盡心護持四根本戒的善男子及善女人也是如此，對於能任持正法的法器僧或非法器僧，都以平等心來看待，不會去譏諷嘲弄，不會有貢高慢心，對於犯戒僧人不會輕率呵責或舉發過失，自身就能成就為生長一切善法的寶地。又譬如大地，一切眾生都能共同受用大地萬物而續養生命；盡心護持四根本戒的善男子及善女人也是如此，對於諸佛所說正法，都能生起最大歡喜心來淨信受持；對於一切眾生不起分別心，以布施、愛語、利行、同事四攝法，平等引領一切眾生，一切眾生都能相互依止，享受法喜安樂，安養法身慧命。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時</span>
+				<span class="punc">，</span>
+				<span class="word">尊者優波離聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">從座而起整理衣服</span>
+				<span class="punc">，</span>
+				<span class="word">頂禮佛足</span>
+				<span class="punc">，</span>
+				<span class="word">偏袒一肩右膝著地</span>
+				<span class="punc">，</span>
+				<span class="word">合掌恭敬白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">如佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">極善護持四根本戒諸善男子及善女人</span>
+				<span class="punc">，</span>
+				<span class="word">於其法器及非法器</span>
+				<span class="punc">，</span>
+				<span class="word">其心平等</span>
+				<span class="punc">，</span>
+				<span class="word">不譏不弄</span>
+				<span class="punc">、</span>
+				<span class="word">不自貢高</span>
+				<span class="punc">、</span>
+				<span class="word">不卒呵舉</span>
+				<span class="punc">。</span>
+				<span class="word">若如是者</span>
+				<span class="punc">，</span>
+				<span class="word">於未來世</span>
+				<span class="punc">，</span>
+				<span class="word">有諸苾芻破戒惡行</span>
+				<span class="punc">，</span>
+				<span class="word">實非沙門自稱沙門</span>
+				<span class="punc">，</span>
+				<span class="word">實非梵行自稱梵行</span>
+				<span class="punc">；</span>
+				<span class="word">諸苾芻僧於是人等</span>
+				<span class="punc">，</span>
+				<span class="word">云何方便呵舉驅擯</span>
+				<span class="punc">？</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時，優波離尊者聽聞了世尊的開示，就從座位起身整理好衣服，頂禮佛足，偏袒一肩右膝跪地，合掌恭敬對佛說：世尊！如佛所說，盡心護持四根本戒的善男子善女人，對於能任持正法的法器僧或非法器僧，都以平等心來看待，不會去譏諷嘲弄，不會有貢高慢心，對於犯戒僧人不會輕率呵責或舉發過失。若是如此，在未來世，若有比丘違犯戒律造作惡行，並非精勤修道的沙門卻自稱沙門，並非清修梵行卻自稱是清淨梵行；比丘僧眾對於這些犯戒比丘，應當如何呵責舉過驅逐擯籍？
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">佛告尊者優波離言</span>
+				<span class="punc">：</span>
+				<span class="word">我終不許外道俗人舉苾芻罪</span>
+				<span class="punc">，</span>
+				<span class="word">我尚不許諸苾芻僧</span>
+				<span class="punc">，</span>
+				<span class="word">不依於法率爾呵舉破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">何況驅擯</span>
+				<span class="punc">！</span>
+				<span class="word">若不依法</span>
+				<span class="punc">，</span>
+				<span class="word">率爾呵舉破戒苾芻或復驅擯</span>
+				<span class="punc">，</span>
+				<span class="word">便獲大罪</span>
+				<span class="punc">。</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">汝今當知有十非法率爾呵舉破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">便獲大罪</span>
+				<span class="punc">。</span>
+				<span class="word">諸有智者皆不應受</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">不和僧眾</span>
+					<span class="punc">，</span>
+					<span class="word">於國王前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">不和僧眾</span>
+					<span class="punc">，</span>
+					<span class="word">梵志眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">不和僧眾</span>
+					<span class="punc">，</span>
+					<span class="word">宰官眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">不和僧眾</span>
+					<span class="punc">，</span>
+					<span class="word">於諸長者居士眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者</span>
+					<span class="punc">、</span>
+					<span class="word">女人眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">六者</span>
+					<span class="punc">、</span>
+					<span class="word">男子眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">七者</span>
+					<span class="punc">、</span>
+					<span class="word">淨人眾前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">八者</span>
+					<span class="punc">、</span>
+					<span class="word">眾多苾芻</span>
+					<span class="punc">、</span>
+					<span class="word">苾芻尼前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">九者</span>
+					<span class="punc">、</span>
+					<span class="word">宿怨嫌前</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">十者</span>
+					<span class="punc">、</span>
+					<span class="word">內懷忿恨</span>
+					<span class="punc">，</span>
+					<span class="word">率爾呵舉破戒苾芻</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">如是十種</span>
+				<span class="punc">，</span>
+				<span class="word">名為非法</span>
+				<span class="punc">，</span>
+				<span class="word">率爾呵舉破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">便獲大罪</span>
+				<span class="punc">；</span>
+				<span class="word">設依實事而呵舉者</span>
+				<span class="punc">，</span>
+				<span class="word">尚不應受</span>
+				<span class="punc">，</span>
+				<span class="word">況於非實</span>
+				<span class="punc">，</span>
+				<span class="word">諸有受者亦得大罪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				世尊對優波離尊者說：我從不允許外道或白衣俗人揭舉比丘罪過，我尚且不許比丘僧眾不依戒律正法，輕率呵責揭舉破戒比丘，何況是驅逐出僧團擯除僧籍這種大事！如果不依戒律正法，輕率呵責揭舉破戒比丘或是驅逐擯籍，就是違戒犯了大罪。優波離！你要知道，有十種違律輕率呵舉破戒比丘的非法行為，是犯大罪的。有智慧的人都不應當這麼做。是那十種呢？
+				<blockquote>
+					一者、不和合僧眾，在國王前輕率呵責揭舉破戒比丘。<br/>
+					二者、不和合僧眾，在婆羅門眾前隨意輕率呵責揭舉破戒比丘。<br/>
+					三者、不和合僧眾，在宰官眾前輕率呵責揭舉破戒比丘。<br/>
+					四者、不和合僧眾，在長者居士眾前輕率呵責揭舉破戒比丘。<br/>
+					五者、在白衣女眾前輕率呵責揭舉破戒比丘。<br/>
+					六者、在白衣男眾前輕率呵責揭舉破戒比丘。<br/>
+					七者、在淨人眾前輕率呵責揭舉破戒比丘。<br/>
+					八者、在眾多比丘、比丘尼前輕率呵責揭舉破戒比丘。<br/>
+					九者、在與破戒比丘有舊怨嫌隙的人前，輕率呵責揭舉破戒比丘。<br/>
+					十者、心懷忿恨，輕率呵責揭舉破戒比丘。
+				</blockquote>
+				這十種不合戒律，輕率呵舉破戒比丘的非法行為，是犯大罪的。即使是依照事實來舉罪，比丘在這眾人前也不應該承認，更何況是不實的污衊。若有比丘遭到非法舉罪而認罪，也犯大罪。<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復有十種非法呵舉破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">便獲大罪</span>
+				<span class="punc">。</span>
+				<span class="word">諸有智者亦不應受</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">諸餘外道</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">不持禁戒在家白衣</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">造無間罪</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">誹謗正法</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者</span>
+					<span class="punc">、</span>
+					<span class="word">毀呰賢聖</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">六者</span>
+					<span class="punc">、</span>
+					<span class="word">癡狂心亂</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">七者</span>
+					<span class="punc">、</span>
+					<span class="word">痛惱所纏</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">八者</span>
+					<span class="punc">、</span>
+					<span class="word">四方僧淨人</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">九者</span>
+					<span class="punc">、</span>
+					<span class="word">守園林人</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span><br/>
+					<span class="word">十者</span>
+					<span class="punc">、</span>
+					<span class="word">被罰苾芻</span>
+					<span class="punc">，</span>
+					<span class="word">呵舉苾芻</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">如是十種非法呵舉破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">便獲大罪</span>
+				<span class="punc">。</span>
+				<span class="word">設依實事而呵舉者</span>
+				<span class="punc">，</span>
+				<span class="word">亦不應受</span>
+				<span class="punc">，</span>
+				<span class="word">況於非實</span>
+				<span class="punc">！</span>
+				<span class="word">諸有受者亦得大罪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				還有十種呵舉破戒比丘的非法行為，是犯大罪的。有智慧的人都不應當這麼做。是那十種呢？
+				<blockquote>
+					一者、其他外道，呵責揭舉比丘。<br/>
+					二者、不受淨戒的在家白衣，呵責揭舉比丘。<br/>
+					三者、造作無間罪的人，呵責揭舉比丘。<br/>
+					四者、誹謗正法的人，呵責揭舉比丘。<br/>
+					五者、詆毀聖賢的人，呵責揭舉比丘。<br/>
+					六者、顛狂心亂意識不清的人，呵責揭舉比丘。<br/>
+					七者、受痛苦煩惱纏縛，心術偏失心智不正的人，呵責揭舉比丘。<br/>
+					八者、服務僧團的淨人，呵責揭舉比丘。<br/>
+					九者，照護寺院園林的人，呵責揭舉比丘。<br/>
+					十者，犯戒受罰的比丘，呵責揭舉比丘。
+				</blockquote>
+				這十種非法呵舉破戒比丘的行為，是犯大罪的。即使是依照事實來舉罪，比丘在這眾人前也不應該承認，更何況是不實的污衊；若有比丘遭到非法舉罪而認罪，也犯大罪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">若有苾芻毀犯禁戒</span>
+				<span class="punc">，</span>
+				<span class="word">與僧共住</span>
+				<span class="punc">；</span>
+				<span class="word">於僧眾中有餘苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">軌則所行皆悉具足</span>
+				<span class="punc">，</span>
+				<span class="word">一切五德無不圓滿</span>
+				<span class="punc">。</span>
+				<span class="word">應從坐起整理衣服</span>
+				<span class="punc">，</span>
+				<span class="word">恭敬頂禮苾芻僧足</span>
+				<span class="punc">，</span>
+				<span class="word">便至破戒惡苾芻前</span>
+				<span class="punc">，</span>
+				<span class="word">求聽舉罪</span>
+				<span class="punc">，</span>
+				<span class="word">作如是言</span>
+				<span class="punc">：</span>
+				<span class="word">長老憶念</span>
+				<span class="punc">，</span>
+				<span class="word">我今欲舉長老所犯</span>
+				<span class="punc">，</span>
+				<span class="word">以實非虛妄</span>
+				<span class="punc">，</span>
+				<span class="word">應時不非時</span>
+				<span class="punc">，</span>
+				<span class="word">軟語非麁獷</span>
+				<span class="punc">，</span>
+				<span class="word">慈心不瞋恚</span>
+				<span class="punc">，</span>
+				<span class="word">利益非損減</span>
+				<span class="punc">，</span>
+				<span class="word">為令如來法眼</span>
+				<span class="punc">、</span>
+				<span class="word">法燈久熾盛故</span>
+				<span class="punc">。</span>
+				<span class="word">長老聽者</span>
+				<span class="punc">，</span>
+				<span class="word">我當如法舉長老罪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，優波離！如果有比丘毀犯禁戒，與僧團同住；在僧團中，持戒清淨威儀具足，五德皆已圓滿的其他比丘。應從座位起身整理好衣服，恭敬頂禮比丘僧眾，來到破戒比丘面前，請他聽取舉發罪過，應當這樣說：長老大德請您回想思惟，我現在要舉發長老您所犯罪過，所舉發的罪行是事實不是虛假，現在舉罪是合適的時間，我用柔和不粗惡的語氣來舉罪，我是以慈悲不帶瞋忿的心念來舉罪，舉罪為了利益長老您而不是損害長老您，為了能使如來徹見真理的智慧法眼、照破黑暗的正法明燈久住興盛。請長老您傾聽，我要如法來舉發長老您的罪過。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">彼若聽者</span>
+				<span class="punc">，</span>
+				<span class="word">便應如法如實舉之</span>
+				<span class="punc">。</span>
+				<span class="word">彼若不聽</span>
+				<span class="punc">，</span>
+				<span class="word">復應頂禮上座僧足</span>
+				<span class="punc">，</span>
+				<span class="word">恭敬白言</span>
+				<span class="punc">：</span>
+				<span class="word">如是苾芻犯如是事</span>
+				<span class="punc">，</span>
+				<span class="word">我依五法如實舉之</span>
+				<span class="punc">。</span>
+				<span class="word">時僧眾中上坐苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">應審觀察能舉</span>
+				<span class="punc">、</span>
+				<span class="word">所舉</span>
+				<span class="punc">，</span>
+				<span class="word">及所犯事虛實輕重</span>
+				<span class="punc">，</span>
+				<span class="word">依毘奈耶及素怛纜</span>
+				<span class="punc">，</span>
+				<span class="word">方便撿問</span>
+				<span class="punc">，</span>
+				<span class="word">慰喻呵責</span>
+				<span class="punc">；</span>
+				<span class="word">以七種法如應滅除</span>
+				<span class="punc">；</span>
+				<span class="word">若犯重罪應重治罰</span>
+				<span class="punc">、</span>
+				<span class="word">若犯中罪應中治罰</span>
+				<span class="punc">、</span>
+				<span class="word">若犯輕罪應輕治罰</span>
+				<span class="punc">，</span>
+				<span class="word">令其慚愧懺悔所犯</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果犯過比丘允許被舉罪，就應該如法如實舉發罪行。如果這比丘不允許被舉罪，應當再次頂禮上座比丘，恭敬陳述：這位比丘違犯了某種戒律，我是依照舉罪五法來如實舉罪。此時僧眾的上座比丘，應當詳細審察舉發人、被舉發人，及所舉發罪行的真假與輕重，依照律藏及經典所記載的方法來檢察詢問，或是安慰開導、或是訶斥責備；以七羯磨法，處以相當治罰來滅罪；若犯重罪則應重罰、若犯中罪則應中罰、若犯輕罪則應輕罰，使他發起慚愧心，懺悔所犯罪過。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時優波離復白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">若實有過惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">恃白衣力</span>
+				<span class="punc">、</span>
+				<span class="word">或財寶力</span>
+				<span class="punc">、</span>
+				<span class="word">或多聞力</span>
+				<span class="punc">、</span>
+				<span class="word">或詞辯力</span>
+				<span class="punc">、</span>
+				<span class="word">或弟子力</span>
+				<span class="punc">，</span>
+				<span class="word">以如是等諸勢力故</span>
+				<span class="punc">，</span>
+				<span class="word">凌拒僧眾</span>
+				<span class="punc">，</span>
+				<span class="word">上坐苾芻持素怛纜及毘奈耶</span>
+				<span class="punc">、</span>
+				<span class="word">摩怛理迦者</span>
+				<span class="punc">，</span>
+				<span class="word">如法教誨皆不承順</span>
+				<span class="punc">。</span>
+				<span class="word">如是苾芻云何治罰</span>
+				<span class="punc">？</span>
+				<span class="word">佛言</span>
+				<span class="punc">：</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">上座苾芻持三藏者</span>
+				<span class="punc">，</span>
+				<span class="word">應和僧眾</span>
+				<span class="punc">，</span>
+				<span class="word">遣使告白國王</span>
+				<span class="punc">、</span>
+				<span class="word">大臣令助威力</span>
+				<span class="punc">，</span>
+				<span class="word">然後如實依法治罰</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時優波離尊者又再請問佛：世尊！如果實際犯戒有罪的惡行比丘，憑藉自己世俗在家勢力、或財寶力、或博學多聞威望力、或機巧詞辯力、或眾多弟子力，憑藉著這種種勢力，高傲抗拒僧眾舉罪，對於上座比丘奉循經、律、論三藏的如法教誨，全部不順從領受，這樣的比丘要如何來治罰？佛對優波離說：如法奉持經、律、論三藏的上座比丘，應當聯合僧眾，派人稟明國王、大臣，借助他們令人威服的勢力，再依法來如實治罰。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時優波離復白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">若彼有過惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">以財寶力</span>
+				<span class="punc">、</span>
+				<span class="word">或多聞力</span>
+				<span class="punc">、</span>
+				<span class="word">或詞辯力</span>
+				<span class="punc">、</span>
+				<span class="word">或以種種巧方便力</span>
+				<span class="punc">，</span>
+				<span class="word">令彼國王大臣歡喜</span>
+				<span class="punc">，</span>
+				<span class="word">皆住破戒非法朋中</span>
+				<span class="punc">；</span>
+				<span class="word">容縱如是惡苾芻罪</span>
+				<span class="punc">，</span>
+				<span class="word">不聽如實依法治罰</span>
+				<span class="punc">。</span>
+				<span class="word">爾時</span>
+				<span class="punc">，</span>
+				<span class="word">僧眾應當云何</span>
+				<span class="punc">？</span>
+				<span class="word">佛言</span>
+				<span class="punc">：</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">若彼苾芻行無依行</span>
+				<span class="punc">，</span>
+				<span class="word">於僧眾中麁重罪相未彰露者</span>
+				<span class="punc">，</span>
+				<span class="word">是時僧眾應權捨置</span>
+				<span class="punc">。</span>
+				<span class="word">若彼苾芻行無依行</span>
+				<span class="punc">，</span>
+				<span class="word">於僧眾中麁重罪相已彰露者</span>
+				<span class="punc">，</span>
+				<span class="word">是時僧眾應共和合</span>
+				<span class="punc">，</span>
+				<span class="word">依法驅擯令出佛法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時，優波離尊者又再請問佛：世尊！如果那個有罪的惡行比丘，藉著財力、或多聞威望力、或詞辯力，或以種種機巧方法，使得國王大臣們歡喜，與這破戒比丘結成了非法朋黨，因此縱容犯戒比丘種種罪行，不允許僧團如實依律治罰。此時僧眾應當如何處理？佛對優波離說：如果這比丘所作的無依惡行，在僧團中尚未清楚顯露惡劣罪相時，僧團可權宜不去處理。如果這比丘所作的無依惡行，在僧團中已經清楚顯露出惡劣罪相，僧團應當和合一心，依律將他逐出僧團擯除僧籍。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">譬如鷰麥在麥田中</span>
+				<span class="punc">，</span>
+				<span class="word">牙莖枝葉與麥相似</span>
+				<span class="punc">，</span>
+				<span class="word">穢雜淨麥</span>
+				<span class="punc">。</span>
+				<span class="word">乃至彼草其穗未出</span>
+				<span class="punc">，</span>
+				<span class="word">是時農夫應權捨置</span>
+				<span class="punc">。</span>
+				<span class="word">穗既出已</span>
+				<span class="punc">，</span>
+				<span class="word">是時農夫恐穢淨麥</span>
+				<span class="punc">，</span>
+				<span class="word">并根剪拔棄於田外</span>
+				<span class="punc">。</span>
+				<span class="word">行無依行破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">亦復如是</span>
+				<span class="punc">。</span>
+				<span class="word">恃白衣等種種勢力</span>
+				<span class="punc">，</span>
+				<span class="word">住於僧中</span>
+				<span class="punc">，</span>
+				<span class="word">威儀形相與僧相似</span>
+				<span class="punc">，</span>
+				<span class="word">穢雜清眾</span>
+				<span class="punc">，</span>
+				<span class="word">乃至善神未相覺發</span>
+				<span class="punc">。</span>
+				<span class="word">於僧眾中麁重罪相未彰露者</span>
+				<span class="punc">，</span>
+				<span class="word">是時僧眾應權捨置</span>
+				<span class="punc">。</span>
+				<span class="word">若諸善神已相覺發</span>
+				<span class="punc">，</span>
+				<span class="word">於僧眾中麁重罪相已彰露者</span>
+				<span class="punc">，</span>
+				<span class="word">是時僧眾應共和合</span>
+				<span class="punc">，</span>
+				<span class="word">依法驅擯令出佛法</span>
+				<span class="punc">。</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">譬如大海不宿死尸</span>
+				<span class="punc">，</span>
+				<span class="word">我聲聞僧諸弟子眾</span>
+				<span class="punc">，</span>
+				<span class="word">亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">不與破戒惡行苾芻死尸共住</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				優波離！譬如鷰草生長在麥田中，芽莖枝葉與一般麥子相似，混雜生長在淨麥中。在那鷰草禾穗還沒長出前，芽苗小到無法清楚區別時，農夫可以權宜不去處理。直到他的草穗長出，這時農夫擔心鷰草與淨麥雜混生長不利收成，才將他連根拔除丟棄田外。造作無依惡行的破戒比丘也是如此。憑藉俗家、財寶等等勢力，住於僧團中，威儀形象與一般僧眾相似，不淨僧人混處在清淨僧眾中，甚至護法善神也未察覺善惡。他在僧團中還沒明顯出現惡劣罪相時，僧團可以權宜不去處理。如果護法善神已經察覺惡相，他在僧團中也明顯出現了惡劣罪相，這時僧團應當和合一心，依律將他逐出僧團擯除僧籍。優波離！譬如清淨大海中不會覆藏死屍，如來聲聞弟子僧眾也是如此，不與破戒惡行比丘這樣的死屍共住。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時優波離復白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">若彼破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">僧眾和合共驅擯已</span>
+				<span class="punc">。</span>
+				<span class="word">彼惡苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">以財寶力</span>
+				<span class="punc">、</span>
+				<span class="word">或多聞力</span>
+				<span class="punc">、</span>
+				<span class="word">或詞辯力</span>
+				<span class="punc">、</span>
+				<span class="word">或以種種巧方便力</span>
+				<span class="punc">，</span>
+				<span class="word">令彼國王</span>
+				<span class="punc">、</span>
+				<span class="word">大臣歡喜</span>
+				<span class="punc">，</span>
+				<span class="word">皆住破戒非法朋中</span>
+				<span class="punc">，</span>
+				<span class="word">以威勢力凌逼僧眾</span>
+				<span class="punc">，</span>
+				<span class="word">還令如是破戒苾芻與僧共住</span>
+				<span class="punc">。</span>
+				<span class="word">爾時僧眾當復云何</span>
+				<span class="punc">？</span>
+				<span class="word">佛言</span>
+				<span class="punc">：</span>
+				<span class="word">優波離</span>
+				<span class="punc">！</span>
+				<span class="word">爾時</span>
+				<span class="punc">，</span>
+				<span class="word">僧中有能悔愧持戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">為護戒故</span>
+				<span class="punc">，</span>
+				<span class="word">不應瞋罵破戒苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">但應告白國王大臣</span>
+				<span class="punc">，</span>
+				<span class="word">或恐凌逼而不告白</span>
+				<span class="punc">，</span>
+				<span class="word">應捨本居別往餘處</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時優波離又再請問佛：世尊！如果僧眾已經和合一心將這破戒惡行比丘驅擯。而這惡行比丘，憑藉財力、或多聞威望力、或辯才力、或以種種機巧方法，使得國王大臣們歡喜，與這破戒比丘結成了非法朋黨；以威權力逼迫僧團，仍讓這破戒比丘與眾僧共住。這時僧團又該如何處理？佛說：優波離！僧團中持戒清淨正行悔愧的比丘，為了護持戒律，不應生起瞋怨斥罵破戒比丘，應將真相稟告國王大臣，如果害怕受到威勢侵迫而不稟告真相，就應棄離本來居所遷往他處。
+				<hr/>
+			</div>
+			<div class="paragraph">
+				<h2>
+					<span class="word">地藏十輪經卷三</span>
+				</h2>
+			</div>
+			<div class="d-flex mb-3">
+				<div class="me-auto w-50">
+					<a href="/ksitigarbha-dasacakra-vol2" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-left fs-1"></i>
+							</div>
+							<div class="d-flex w-100 justify-content-center">
+								<span class="ms-2 text-start text-truncate">地藏十輪經卷二</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="ms-auto me-3 w-50">
+					<a href="/ksitigarbha-dasacakra-vol4" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex w-100 justify-content-center">
+								<span class="me-2 text-start text-truncate">地藏十輪經卷四</span>
+							</div>
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-right fs-1"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+		
+		<!-- audio control -->
+				
+		<!-- footer -->
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
+	<div class="row px-5">
+		<div class="col-lg-6 px-4 mb-3">
+			<p>
+				本站的所有內容皆轉載自網絡或流通善書，目的為宏揚法門才加以整理匯編，無意侵犯版權著作。
+				版權持有人如覺有利益侵損，請與本站管理員聯絡，我們會盡快刪除相關內容。
+			</p>
+			
+			<p>
+				本站的內容經過初步校對，盡最大努力保持內容的完整和準確性，如有缺失遺漏還請各位大德指正，功德無量。
+			</p>
+			
+			<p>
+				如果對本站有任何建議或使用問題，亦都歡迎與我們聯絡。
+			</p>
+
+			我們的聯絡方法：<a href="mailto:admin@mahayanasutras.xyz">admin@mahayanasutras.xyz</a>
+		</div>
+		
+	</div>
+</div>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
+		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
+        <script src="/assets/build/js/app.js?id=5545468d150b09f8bc1a551763b7af04"></script>
+		    </body>
+</html>

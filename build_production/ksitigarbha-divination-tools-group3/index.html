@@ -1,23 +1,117 @@
-@extends('_layouts.main')
-
-@section('title')
-<title>第三輪相翻查結果</title>
-@endsection
-
-@push('styles')
-<style>
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="大乘經典">
+		<title>第三輪相翻查結果</title>
+		
+        <link rel="canonical" href="/ksitigarbha-divination-tools-group3">
+		<link rel="icon" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ec77030a13e450fc2cfdc6d140c59ae2">
+		<style>
 	body {
-		background-image: url('{{ $page->baseUrl.'/assets/images/background-mantra.png' }}');
+		background-image: url('/assets/images/background-mantra.png');
 	}
 </style>
-@endpush
-
-@section('navbar-brand-img')
-<img class="" width="55" src="{{ $page->baseUrl.'/assets/images/logo-mantra.png' }}" />
-@endsection
-
-@section('content')
-<div
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </head>
+    <body
+		x-data="page"
+		@mmenu-opened.window="isSidebarOpened=true"
+		@mmenu-closed.window="isSidebarOpened=false"
+	>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="" width="55" src="/assets/images/logo-mantra.png" />
+				</a>
+				<div class="collapse navbar-collapse" id="main_nav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								地藏經典
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#menu" x-show="!isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+				<a href="#page" x-show="isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+			</div>
+		</nav>
+		
+		<!-- sidebar -->
+		<nav id="menu">
+			<ul id="panel-menu">
+				<li>
+					<span>地藏經典</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+						<li><a href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+		<!-- content -->
+		<div id="page" class="pt-3">
+			<div
 	x-data="{
 		stage: 1,
 		rawQuestions: '',
@@ -200,7 +294,7 @@
 			</div>
 			<div class="invalid-feedback">請輸入問題。</div>
 			<div class="col-auto ms-auto">
-				<button @@click="submitQuestions" type="button" class="btn btn-primary">提交</button>
+				<button @click="submitQuestions" type="button" class="btn btn-primary">提交</button>
 			</div>
 		</form>
 		<small class="float-end">輪相白話解說來自<a href="https://www.myfate.biz/" target="_blank">易學佛堂</a>，本站只是制作翻查工具方便他人修習。</small>
@@ -224,7 +318,7 @@
 	<div x-show="stage==2">
 		<h4 class="float-start">2. 翻查輪相結果</h4>
 		<button
-			@@click="reset"
+			@click="reset"
 			type="button"
 			class="btn btn-danger float-end me-3"
 		>
@@ -296,7 +390,7 @@
 							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 0)" type="button" class="btn btn-primary">翻查</button>
+							<button @click="updateResults($event, i, 0)" type="button" class="btn btn-primary">翻查</button>
 						</div>
 					</div>
 					
@@ -347,7 +441,7 @@
 							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 1)" type="button" class="btn btn-primary mb-3">翻查</button>
+							<button @click="updateResults($event, i, 1)" type="button" class="btn btn-primary mb-3">翻查</button>
 						</div>
 					</div>
 					
@@ -398,7 +492,7 @@
 							<div class="invalid-feedback">輪相組合為 1 - 189，輸入的總輪數超出預定組合。如果投擲三次都沒有數字顯示，那麼此人已得無所得了。</div>
 						</div>
 						<div class="col-auto ms-auto">
-							<button @@click="updateResults($event, i, 2)" type="button" class="btn btn-primary mb-3">翻查</button>
+							<button @click="updateResults($event, i, 2)" type="button" class="btn btn-primary mb-3">翻查</button>
 						</div>
 					</div>
 					
@@ -410,14 +504,14 @@
 							<input type="text" class="form-control" :id="`q${i}-ins`">
 						</div>
 						<div class="col-auto">
-							<button @@click="insertQuestion($event, i)" type="button" class="btn btn-warning">插入問題</button>
+							<button @click="insertQuestion($event, i)" type="button" class="btn btn-warning">插入問題</button>
 						</div>
 					</div>
 					<div class="invalid-feedback">請輸入問題。</div>
 				</div>
 			</template>
 			<button 
-				@@click="exportResults($event)"
+				@click="exportResults($event)"
 				type="button"
 				class="btn btn-success btn-export mb-3"
 				data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已複製"
@@ -2738,4 +2832,37 @@
 		</div>
 	</div>
 </div>
-@endsection
+		</div>
+		
+		<!-- audio control -->
+				
+		<!-- footer -->
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
+	<div class="row px-5">
+		<div class="col-lg-6 px-4 mb-3">
+			<p>
+				本站的所有內容皆轉載自網絡或流通善書，目的為宏揚法門才加以整理匯編，無意侵犯版權著作。
+				版權持有人如覺有利益侵損，請與本站管理員聯絡，我們會盡快刪除相關內容。
+			</p>
+			
+			<p>
+				本站的內容經過初步校對，盡最大努力保持內容的完整和準確性，如有缺失遺漏還請各位大德指正，功德無量。
+			</p>
+			
+			<p>
+				如果對本站有任何建議或使用問題，亦都歡迎與我們聯絡。
+			</p>
+
+			我們的聯絡方法：<a href="mailto:admin@mahayanasutras.xyz">admin@mahayanasutras.xyz</a>
+		</div>
+		
+	</div>
+</div>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
+		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
+        <script src="/assets/build/js/app.js?id=5545468d150b09f8bc1a551763b7af04"></script>
+		    </body>
+</html>
