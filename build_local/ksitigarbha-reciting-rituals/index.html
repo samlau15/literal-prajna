@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-reciting-rituals">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=8dafaff6eeeaf5b71d5741f654f6738d">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=68dc142e29be1894cbcfa5e0b328a207">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -120,6 +120,7 @@
 		tocItems: {},
 		currItems: {},
 		audioCollapsed: false,
+		forceShow: false,
 		updateCurrItems: () => {
 			let enteries = Object.entries($data.tocItems);
 			let tmpArr = new Array(enteries.length);
@@ -190,12 +191,33 @@
 	
 	
 	
-		class="sticky-top px-2"
+		class="sticky-top"
 		
 	data-toggle="toc"
 >
-	<i class="fa fa-list"></i> 目錄
-	<ul class="nav navbar-nav">
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
 					<li>
 						<a @click="jumpTo('vol1')" :class="{active: currItems['vol1'] && true}" class="nav-link text-nowrap" href="#vol1">地藏菩薩念誦儀軌</a>
 						<ul class="nav navbar-nav">
@@ -208,20 +230,22 @@
 						</ul>
 					</li>
 				</ul>
-	<hr/>
-		<div class="mb-3">
-		<i class="fa fa-font"></i>
-		字體大小
-		<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
-			<i class="fa fa-magnifying-glass-minus"></i>
-		</button>
-		<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
-			<i class="fa fa-magnifying-glass-plus"></i>
-		</button>
+		<hr/>
+				<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								
 	</div>
-	<hr/>
-				
-</nav>		</div>
+</nav>
+		</div>
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
@@ -230,7 +254,7 @@
 				</ol>
 			</nav>
 		
-			<h1>地藏菩薩念誦儀軌</h1>
+			<h1 class="toc-item" id="vol1">地藏菩薩念誦儀軌</h1>
 			<small class="float-start mb-3">
 				節錄　<a href="https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?mode=detail&useid=2410_,76,0582c12&key=%E5%9C%B0%E8%97%8F%E8%8F%A9%E8%96%A9%E5%BF%B5%E8%AA%A6%E5%84%80%E8%BB%8C&ktn=&mode2=2">溪嵐拾葉集</a>
 			</small>
@@ -475,13 +499,13 @@
 			<div class="mb-3">
 				<p>復次説心中心印。二手內縛進力摩尼形禪智並立。由是印威力故。消滅貧苦悉得福壽利。能滅定業能延壽命。</p>
 			</div>
-			<figure class="figure me-3">
-				<img src="/assets/images/寶印.png" class="figure-img img-fluid rounded" alt="寶印">
-				<figcaption class="figure-caption">雙手內縛，食指彎曲如寶珠，大拇指並立。</figcaption>
-			</figure>
 			<figure class="figure">
 				<img src="/assets/images/十指圖.png" class="figure-img img-fluid rounded" alt="十指圖">
 				<figcaption class="figure-caption">進力對應食指，禪智對應大拇指。</figcaption>
+			</figure>
+			<figure class="figure me-3">
+				<img src="/assets/images/寶印.png" class="figure-img img-fluid rounded" alt="寶印">
+				<figcaption class="figure-caption">雙手內縛，食指彎曲如寶珠，大拇指並立。</figcaption>
 			</figure>
 			<div class="mb-3">
 				<p>若有善男子善女人比丘比丘尼優婆塞優婆夷。厭三惡道求菩提。消除貧苦求福利。滅不淨業求清淨身。離惡業身求眾生愛。或求王位若求官位。欲得好子者。先擇宿曜吉祥之日。白絲或羂索上畫地藏菩薩形像。安坐千葉白蓮上。左手持如意寶珠。右手執錫杖。身色白肉色。現聲聞形。以種種瓔珞莊嚴其身。</p>

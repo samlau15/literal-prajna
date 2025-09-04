@@ -24932,7 +24932,7 @@ nav[data-toggle=toc] > ul {
 }
 
 /* small screens */
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   /* override stickyness so that the navigation does not follow scrolling */
   nav[data-toggle=toc] {
     margin-bottom: 80px;
@@ -24951,10 +24951,11 @@ nav[data-toggle=toc] > ul {
   */
 }
 /* large screens */
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   nav[data-toggle=toc] {
     max-height: calc(100vh - 100px);
     overflow-y: auto;
+    overflow-x: hidden;
   }
   nav[data-toggle=toc]::-webkit-scrollbar {
     width: 6px;
@@ -25045,7 +25046,7 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .toc-container {
   font-size: 0.9rem;
 }
-.toc-container .btn {
+.toc-container .controls .btn {
   width: 35px;
 }
 

@@ -69,7 +69,7 @@ nav[data-toggle="toc"] {
 }
 
 /* small screens */
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
 	/* override stickyness so that the navigation does not follow scrolling */
 	nav[data-toggle="toc"] {
 		margin-bottom: 80px;
@@ -90,10 +90,11 @@ nav[data-toggle="toc"] {
 }
 
 /* large screens */
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-up(md) {
 	nav[data-toggle="toc"] {
 		max-height: calc(100vh - 100px);
 		overflow-y: auto;
+		overflow-x: hidden;
 		
 		&::-webkit-scrollbar {
 			width: 6px;

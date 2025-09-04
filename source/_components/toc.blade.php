@@ -4,6 +4,7 @@
 		tocItems: {},
 		currItems: {},
 		audioCollapsed: false,
+		forceShow: false,
 		updateCurrItems: () => {
 			let enteries = Object.entries($data.tocItems);
 			let tmpArr = new Array(enteries.length);
@@ -83,79 +84,101 @@
 	
 	{!! $attributes->whereStartsWith(':class') !!}
 	@if ($attributes->has('class'))
-	class="{!! $attributes['class'] !!} px-2"
+	class="{!! $attributes['class'] !!}"
 	@endif
 	
 	data-toggle="toc"
 >
-	<i class="fa fa-list"></i> 目錄
-	{{ $slot }}
-	<hr/>
-	@if($attributes->has('textsize-supported'))
-	<div class="mb-3">
-		<i class="fa fa-font"></i>
-		字體大小
-		<button x-show="textsize==2" @@click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
-			<i class="fa fa-magnifying-glass-minus"></i>
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @@click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
 		</button>
-		<button x-show="textsize==1" @@click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
-			<i class="fa fa-magnifying-glass-plus"></i>
+		<button x-show="forceShow" @@click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
 		</button>
+		<div class="clearfix"></div>
 	</div>
-	<hr/>
-	@endif
-	@if($attributes->has('audio-supported'))
-	<div x-show="!readOnly" class="mb-3">
-		<i class="fa fa-headphones"></i>
-		粵語導讀 {{ $audioCtrlSubtitle ?? '' }}
-	</div>
-	<div x-show="!readOnly" class="mb-3">
-		<div class="mb-1">
-			{{--
-			<button x-show="audioCollapsed" @@click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
-				<i class="fa fa-headphones"></i>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		{{ $slot }}
+		<hr/>
+		@if($attributes->has('textsize-supported'))
+		<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @@click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
 			</button>
-			<button @@click="readOnly=true;$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
-			--}}
-			<button @@click="readOnly=true;$dispatch('stop-audio')" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
-				<i class="fa fa-volume-xmark"></i>
-			</button>
-			<i class="fas arrow"></i>
-			<button x-show="!audioPlaying" @@click="$dispatch('play-audio')" class="btn btn-sm btn-secondary" type="button" title="播放">
-				<i class="fa fa-play"></i>
-			</button>
-			<button x-show="audioPlaying" @@click="$dispatch('pause-audio')" class="btn btn-sm btn-secondary" type="button" title="暫停">
-				<i class="fa fa-pause"></i>
-			</button>
-			<button x-show="audioPlaying" @@click="$dispatch('stop-audio')" class="btn btn-sm btn-secondary" type="button" title="停止">
-				<i class="fa fa-stop"></i>
+			<button x-show="textsize==1" @@click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
 			</button>
 		</div>
-		<div class="form-check form-switch my-3">
-			<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
-			<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
+		<hr/>
+		@endif
+		@if($attributes->has('audio-supported'))
+		<div x-show="!readOnly" class="mb-3">
+			<i class="fa fa-headphones"></i>
+			粵語導讀 {{ $audioCtrlSubtitle ?? '' }}
 		</div>
+		<div x-show="!readOnly" class="mb-3">
+			<div class="mb-1">
+				{{--
+				<button x-show="audioCollapsed" @@click="$dispatch('show-audio')" class="btn btn-sm btn-primary" type="button" title="顯示聲音控制">
+					<i class="fa fa-headphones"></i>
+				</button>
+				<button @@click="readOnly=true;$dispatch('collapse-audio', {stop: true})" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
+				--}}
+				<button @@click="readOnly=true;$dispatch('stop-audio')" class="btn btn-sm btn-danger" type="button" title="關閉聲音控制">
+					<i class="fa fa-volume-xmark"></i>
+				</button>
+				<i class="fas arrow"></i>
+				<button x-show="!audioPlaying" @@click="$dispatch('play-audio')" class="btn btn-sm btn-secondary" type="button" title="播放">
+					<i class="fa fa-play"></i>
+				</button>
+				<button x-show="audioPlaying" @@click="$dispatch('pause-audio')" class="btn btn-sm btn-secondary" type="button" title="暫停">
+					<i class="fa fa-pause"></i>
+				</button>
+				<button x-show="audioPlaying" @@click="$dispatch('stop-audio')" class="btn btn-sm btn-secondary" type="button" title="停止">
+					<i class="fa fa-stop"></i>
+				</button>
+			</div>
+			<div class="form-check form-switch my-3">
+				<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
+				<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
+			</div>
+		</div>
+		<div x-show="!readOnly">
+			<i class="fa fa-book-open"></i>
+			<a @@click.prevent="readOnly=true;$dispatch('pause-audio')" href="#">開啟閱讀模式</a>
+		</div>
+		<div x-show="readOnly">
+			<i class="fa fa-headphones"></i>
+			<a @@click.prevent="readOnly=false;$dispatch('show-audio')" href="#">開啟粵語導讀</a>
+		</div>
+		<hr/>
+		@endif
+		@if($attributes->has('trans-supported'))
+		<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 {{ $transCtrlSubtitle ?? '' }}
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+		@endif
+		{{ $othersCtrl ?? '' }}
 	</div>
-	<div x-show="!readOnly">
-		<i class="fa fa-book-open"></i>
-		<a @@click.prevent="readOnly=true;$dispatch('pause-audio')" href="#">開啟閱讀模式</a>
-	</div>
-	<div x-show="readOnly">
-		<i class="fa fa-headphones"></i>
-		<a @@click.prevent="readOnly=false;$dispatch('show-audio')" href="#">開啟粵語導讀</a>
-	</div>
-	<hr/>
-	@endif
-	@if($attributes->has('trans-supported'))
-	<div class="mb-3">
-		<i class="fa fa-globe"></i>
-		白話淺譯 {{ $transCtrlSubtitle ?? '' }}
-	</div>
-	<div class="form-check form-switch">
-		<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
-		<label class="form-check-label" for="switch-details">顯示</label>
-	</div>
-	<hr/>
-	@endif
-	{{ $othersCtrl ?? '' }}
 </nav>

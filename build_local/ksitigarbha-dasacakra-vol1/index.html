@@ -8,7 +8,7 @@
 		
         <link rel="canonical" href="/ksitigarbha-dasacakra-vol1">
 		<link rel="icon" href="/assets/images/favicon.png">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=8dafaff6eeeaf5b71d5741f654f6738d">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=68dc142e29be1894cbcfa5e0b328a207">
 		<style>
 	body {
 		background-image: url('/assets/images/background-mantra.png');
@@ -120,6 +120,7 @@
 		tocItems: {},
 		currItems: {},
 		audioCollapsed: false,
+		forceShow: false,
 		updateCurrItems: () => {
 			let enteries = Object.entries($data.tocItems);
 			let tmpArr = new Array(enteries.length);
@@ -191,12 +192,33 @@
 	
 	
 	
-		class="sticky-top px-2"
+		class="sticky-top"
 		
 	data-toggle="toc"
 >
-	<i class="fa fa-list"></i> 目錄
-	<ul class="nav navbar-nav">
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
 					<li>
 						<a @click="jumpTo('vol1')" :class="{active: currItems['vol1'] && true}" class="nav-link text-nowrap" href="#vol1">地藏十輪經卷一</a>
 						<ul class="nav navbar-nav">
@@ -232,32 +254,34 @@
 						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol10">地藏十輪經卷十</a>
 					</li>
 				</ul>
-	<hr/>
-		<div class="mb-3">
-		<i class="fa fa-font"></i>
-		字體大小
-		<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
-			<i class="fa fa-magnifying-glass-minus"></i>
-		</button>
-		<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
-			<i class="fa fa-magnifying-glass-plus"></i>
-		</button>
-	</div>
-	<hr/>
+		<hr/>
 				<div class="mb-3">
-		<i class="fa fa-globe"></i>
-		白話淺譯 <small class="ms-2">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 <small class="ms-2">
 						(譕非原譯，轉載自 <a href="https://mahagoogol.pixnet.net/blog/post/185651701">「譕非的部落格」</a>，內有詳盡註釋。
 						由於原譯經文與 <a href="https://cbetaonline.dila.edu.tw/zh/T13n0411_p0721a04">CBETA</a> 有出入，本站依從 CBETA 的版本及對內容略作修改。)
 					</small>
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+				
 	</div>
-	<div class="form-check form-switch">
-		<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
-		<label class="form-check-label" for="switch-details">顯示</label>
-	</div>
-	<hr/>
-		
-</nav>		</div>
+</nav>
+		</div>
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
