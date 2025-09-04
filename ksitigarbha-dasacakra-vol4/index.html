@@ -1,0 +1,3302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="大乘經典">
+		<title>大乘大集地藏十輪經卷四</title>
+		
+        <link rel="canonical" href="/ksitigarbha-dasacakra-vol4">
+		<link rel="icon" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ec77030a13e450fc2cfdc6d140c59ae2">
+		<style>
+	body {
+		background-image: url('/assets/images/background-mantra.png');
+	}
+</style>
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </head>
+    <body
+		x-data="page"
+		@mmenu-opened.window="isSidebarOpened=true"
+		@mmenu-closed.window="isSidebarOpened=false"
+	>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="" width="55" src="/assets/images/logo-mantra.png" />
+				</a>
+				<div class="collapse navbar-collapse" id="main_nav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								地藏經典
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#menu" x-show="!isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+				<a href="#page" x-show="isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+			</div>
+		</nav>
+		
+		<!-- sidebar -->
+		<nav id="menu">
+			<ul id="panel-menu">
+				<li>
+					<span>地藏經典</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+						<li><a href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+		<!-- content -->
+		<div id="page" class="pt-3">
+			<div class="container pb-3">
+	<div class="row">
+		<div class="col-md-3 toc-container">
+			<nav
+	x-data="Object.assign({}, {
+		audioPlaying: false,
+		tocItems: {},
+		currItems: {},
+		audioCollapsed: false,
+		forceShow: false,
+		updateCurrItems: () => {
+			let enteries = Object.entries($data.tocItems);
+			let tmpArr = new Array(enteries.length);
+			for(let [id, val] of enteries) {
+				//tmpArr[val.pos] = {
+				tmpArr[tmpArr.length-1-val.pos] = {
+					id,
+					inview: val.inview,
+				}
+			}
+			tmpArr = tmpArr.filter(t => t.inview);
+			if(tmpArr.length > 0) {
+				$data.currItems = {};
+				$data.currItems[tmpArr[0].id] = true;
+				let ids = tmpArr[0].id.split('-');
+				ids.pop();
+				if(ids.length > 0) {
+					ids.forEach(id => $data.currItems[id] = true);
+				}
+			}
+		},
+		tocEnter: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = true;
+			$data.updateCurrItems();
+		},
+		tocExit: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = false;
+			$data.updateCurrItems();
+		},
+		jumpTo: id => {
+			$dispatch('jump-to', id);
+		},
+		adjustFontsize: deg => {
+			$data.textsize = deg;
+		}
+	}, {currItems: {vol4: true}})"
+	x-init="
+		let items = tocItems;
+		$('.toc-item').each(function(pos) {
+			const id = $(this).attr('id');
+			items[id] = {
+				pos,
+				inview: false,
+			};
+		});
+		inView('.toc-item')
+			.on('enter', el => {
+				$dispatch('toc-enter', $(el).attr('id'));
+			})
+			.on('exit', el => {
+				$dispatch('toc-exit', $(el).attr('id'));
+			});
+		inView.offset(80);
+		
+				$data.textsize = 1;
+						
+			
+				$data.details = false;
+			"
+	@toc-enter.window="tocEnter"
+	@toc-exit.window="tocExit"
+	@audio-shown.window="audioCollapsed=false"
+	@audio-collapsed.window="audioCollapsed=true"
+	@audio-played.window="audioPlaying=true"
+	@audio-paused.window="audioPlaying=false"
+	@audio-stopped.window="audioPlaying=false"
+	
+	
+	
+		class="sticky-top"
+		
+	data-toggle="toc"
+>
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol1">地藏十輪經卷一</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol2">地藏十輪經卷二</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol3">地藏十輪經卷三</a>
+					</li>
+					<li>
+						<a @click="jumpTo('vol4')" :class="{active: currItems['vol4'] && true}" class="nav-link text-nowrap" href="#vol4">地藏十輪經卷四</a>
+						<ul class="nav navbar-nav">
+							<li><a @click="jumpTo('vol4-ch4')" :class="{active: currItems['vol4-ch4'] && true}" class="nav-link text-nowrap" href="#vol4-ch4">無依行品第三之二</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol5">地藏十輪經卷五</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol6">地藏十輪經卷六</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol7">地藏十輪經卷七</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol8">地藏十輪經卷八</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol9">地藏十輪經卷九</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol10">地藏十輪經卷十</a>
+					</li>
+				</ul>
+		<hr/>
+				<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 <small class="ms-2">
+						(譕非原譯，轉載自 <a href="https://mahagoogol.pixnet.net/blog/post/185651701">「譕非的部落格」</a>，內有詳盡註釋。
+						由於原譯經文與 <a href="https://cbetaonline.dila.edu.tw/zh/T13n0411_p0721a04">CBETA</a> 有出入，本站依從 CBETA 的版本及對內容略作修改。)
+					</small>
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+				
+	</div>
+</nav>
+		</div>
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">地藏經典</li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+					<li class="breadcrumb-item active">卷四</li>
+				</ol>
+			</nav>
+		
+			<h1>大乘大集地藏十輪經</h1>
+			<small class="float-end mb-3">三藏法師玄奘　譯</small>
+			<div class="clearfix"></div>
+			<h2 class="toc-item" id="vol4">
+				<span class="word">地藏十輪經卷四</span>
+			</h2>
+			<h4 class="toc-item" id="vol4-ch4">
+				<span class="word">無依行品第三之二</span>
+			</h4>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時地藏菩薩摩訶薩復白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">大德世尊</span>
+				<span class="punc">！</span>
+				<span class="word">頗有佛土</span>
+				<span class="punc">，</span>
+				<span class="word">五濁惡世空無佛時</span>
+				<span class="punc">，</span>
+				<span class="word">其中眾生</span>
+				<span class="punc">，</span>
+				<span class="word">煩惱熾盛</span>
+				<span class="punc">，</span>
+				<span class="word">習諸惡行</span>
+				<span class="punc">，</span>
+				<span class="word">愚癡佷戾</span>
+				<span class="punc">，</span>
+				<span class="word">難可化不</span>
+				<span class="punc">？</span>
+				<span class="word">謂剎帝利旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">宰官旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">居士旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">長者旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">沙門旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門旃荼羅</span>
+				<span class="punc">。</span>
+				<span class="word">如是等人</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">無有信心</span>
+				<span class="punc">，</span>
+				<span class="word">諂曲愚癡</span>
+				<span class="punc">，</span>
+				<span class="word">懷聰明慢</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">，</span>
+				<span class="word">離善知識</span>
+				<span class="punc">，</span>
+				<span class="word">乃至趣向無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">如是等人為財利故</span>
+				<span class="punc">，</span>
+				<span class="word">與諸破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">相助共為非法朋黨</span>
+				<span class="punc">，</span>
+				<span class="word">皆定趣向無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此時地藏菩薩摩訶薩又對佛說：大德世尊！是否有五濁惡世的無佛國土，國土上的眾生，煩惱強烈，慣作各種惡行，愚癡邪見兇暴乖戾，很難調伏教化？就是說國土上有剎帝利惡人、宰官惡人、居士惡人、長者惡人、沙門惡人、婆羅門惡人等。這些惡人，善根低微覺慧淺薄，沒有佛法正信，諂媚逢迎愚癡邪見，自以為聰明高傲驕慢，不信也不畏懼後世惡業苦果，遠離善知識，乃至趨向無間地獄淪墮。這些惡人為了財利，與破戒惡行比丘，相互結成非法朋黨共同作惡，必定都將趨向無間地獄淪墮。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若有是處</span>
+				<span class="punc">，</span>
+				<span class="word">我當住彼</span>
+				<span class="punc">；</span>
+				<span class="word">以佛世尊如來法王</span>
+				<span class="punc">，</span>
+				<span class="word">利益安樂一切有情</span>
+				<span class="punc">，</span>
+				<span class="word">無上微妙甘露法味</span>
+				<span class="punc">，</span>
+				<span class="word">方便化導</span>
+				<span class="punc">，</span>
+				<span class="word">令得受行</span>
+				<span class="punc">。</span>
+				<span class="word">拔濟如是剎帝利旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">令不趣向無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果有這種地方，我應當在那裡示現住世；以諸佛世尊如來法王，利益安樂一切眾生的無上清淨解脫妙法，來方便教導眾生信受奉行佛法。救拔這些惡剎帝利王，惡宰相、惡居士、惡長者、惡沙門、乃至惡婆羅門等惡人，使他們不會趨向無間地獄淪墮。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時佛告地藏菩薩摩訶薩言</span>
+				<span class="punc">：</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有諸眾生</span>
+				<span class="punc">，</span>
+				<span class="word">煩惱熾盛</span>
+				<span class="punc">，</span>
+				<span class="word">習諸惡行</span>
+				<span class="punc">，</span>
+				<span class="word">愚癡佷戾</span>
+				<span class="punc">，</span>
+				<span class="word">難可化導</span>
+				<span class="punc">。</span>
+				<span class="word">謂剎帝利旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">宰官旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">居士旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">長者旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">沙門旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門旃荼羅</span>
+				<span class="punc">。</span>
+				<span class="word">如是等人善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">無有信心</span>
+				<span class="punc">，</span>
+				<span class="word">諂曲愚癡</span>
+				<span class="punc">，</span>
+				<span class="word">懷聰明慢</span>
+				<span class="punc">，</span>
+				<span class="word">離善知識</span>
+				<span class="punc">，</span>
+				<span class="word">言無真實</span>
+				<span class="punc">；</span>
+				<span class="word">不能隨順善知識語</span>
+				<span class="punc">，</span>
+				<span class="word">常行誹謗</span>
+				<span class="punc">，</span>
+				<span class="word">毀呰罵詈於諸正法</span>
+				<span class="punc">；</span>
+				<span class="word">猶豫倒見</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">常樂習近諸惡律儀</span>
+				<span class="punc">，</span>
+				<span class="word">好行殺生乃至邪見</span>
+				<span class="punc">；</span>
+				<span class="word">欺誑世間</span>
+				<span class="punc">，</span>
+				<span class="word">自他俱損</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時佛對地藏菩薩摩訶薩說：善男子！在未來世這個佛土中，有許多眾生，煩惱強盛，慣作各種惡行，愚癡邪見兇暴乖戾，很難教化開導。就是指國土上有惡剎帝利王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人。這些惡人，善根低微覺慧淺薄，沒有佛法正信，諂媚狡詐愚癡邪見，自以為聰明高傲驕慢，遠離善知識，惡言妄語不說真法實語。不但不順服善知識的正法教誨，反而常常出言譭謗，非議辱罵各種正法，顛倒邪見懷疑三寶，不信也不畏後世惡業苦果。時常愛好親近各種惡法儀軌，喜好造作殺生、乃至愚痴邪見等十不善業；欺詐誑騙世人，結果害了自己也害了他人。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">是剎帝利旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">壞亂我法</span>
+				<span class="punc">。</span>
+				<span class="word">於我法中而得出家</span>
+				<span class="punc">，</span>
+				<span class="word">毀破禁戒</span>
+				<span class="punc">，</span>
+				<span class="word">樂營俗業</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利乃至婆羅門等</span>
+				<span class="punc">，</span>
+				<span class="word">恭敬供養</span>
+				<span class="punc">。</span>
+				<span class="word">貪利求財</span>
+				<span class="punc">，</span>
+				<span class="word">有言無行</span>
+				<span class="punc">，</span>
+				<span class="word">傳書送印</span>
+				<span class="punc">，</span>
+				<span class="word">通信往來</span>
+				<span class="punc">，</span>
+				<span class="word">商賈販易</span>
+				<span class="punc">，</span>
+				<span class="word">好習外典</span>
+				<span class="punc">，</span>
+				<span class="word">種殖營農藏貯寶物</span>
+				<span class="punc">，</span>
+				<span class="word">守護園宅妻妾男女</span>
+				<span class="punc">。</span>
+				<span class="word">習行符印呪術使鬼</span>
+				<span class="punc">、</span>
+				<span class="word">占相吉凶</span>
+				<span class="punc">，</span>
+				<span class="word">合和湯藥療病求財</span>
+				<span class="punc">，</span>
+				<span class="word">以自活命</span>
+				<span class="punc">。</span>
+				<span class="word">貪著飲食</span>
+				<span class="punc">、</span>
+				<span class="word">衣服</span>
+				<span class="punc">、</span>
+				<span class="word">寶飾</span>
+				<span class="punc">，</span>
+				<span class="word">勤營俗務</span>
+				<span class="punc">，</span>
+				<span class="word">毀犯尸羅</span>
+				<span class="punc">，</span>
+				<span class="word">行諸惡法</span>
+				<span class="punc">，</span>
+				<span class="word">貝音狗行</span>
+				<span class="punc">。</span>
+				<span class="word">實非沙門自稱沙門</span>
+				<span class="punc">，</span>
+				<span class="word">實非梵行自稱梵行</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這些惡剎帝利王，乃至惡婆羅門等惡人，壞亂了佛法。有人皈依佛法出了家，卻毀壞戒律，喜好經營俗業，仍然受到這剎帝利王乃至婆羅門等人的恭敬供養。這些破戒僧人貪求利養財富，只會空言卻無德行，彼此傳遞書印名帖，相互通信往來應酬，經營商業生意買賣，喜愛研習外道典籍，經營農務貯藏財寶，守護園宅及妻妾子女。常作畫符唸咒驅使鬼神、占卜吉凶，或是配藥治病等等方術來謀財營生。貪求精美的飲食、衣服、寶飾，勤於經營世俗事業，毀犯戒律，造作惡法惡行，表面大吹法螺，行為卻低賤如狗。並非精勤修道的沙門卻自稱沙門，並非清淨修行的僧眾卻自稱是清淨梵行。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">彼剎帝利旃荼羅乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">愛樂親近恭敬供養聽受言教</span>
+				<span class="punc">。</span>
+				<span class="word">此破戒者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">亦樂親近恭敬供養聽受言教</span>
+				<span class="punc">。</span>
+				<span class="word">若見有人於我法中得出家已</span>
+				<span class="punc">，</span>
+				<span class="word">具戒富德</span>
+				<span class="punc">，</span>
+				<span class="word">精進修行學無學行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至證得最後極果</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">反生憎嫉</span>
+				<span class="punc">，</span>
+				<span class="word">不樂親近恭敬供養聽受言教</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這些惡剎帝利王乃至惡婆羅門等惡人，喜歡親近恭敬供養破戒惡行比丘而聽受言教。而這破戒惡行比丘，也歡喜惡剎帝利王乃至惡婆羅門等惡人，來親近恭敬供養聽受言教。如果見到了歸依佛法如法出家，戒德兼備、精進修行勝義僧眾，乃至證得最高果位的正法弟子，這些惡剎帝利王乃至惡婆羅門等惡人，反而生起厭惡嫉妒之心，不樂於親近恭敬供養聽受言教。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如有人入寶洲渚</span>
+				<span class="punc">，</span>
+				<span class="word">棄捨種種帝青</span>
+				<span class="punc">、</span>
+				<span class="word">大青</span>
+				<span class="punc">、</span>
+				<span class="word">金銀</span>
+				<span class="punc">、</span>
+				<span class="word">真珠</span>
+				<span class="punc">、</span>
+				<span class="word">紅蓮華色茷琉璃等大價真寶</span>
+				<span class="punc">，</span>
+				<span class="word">取迦遮珠</span>
+				<span class="punc">。</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅乃至婆羅門旃荼羅亦復如是</span>
+				<span class="punc">，</span>
+				<span class="word">入我正法寶洲渚中</span>
+				<span class="punc">，</span>
+				<span class="word">棄捨種種具戒富德</span>
+				<span class="punc">，</span>
+				<span class="word">樂勝義諦</span>
+				<span class="punc">，</span>
+				<span class="word">具足慚愧</span>
+				<span class="punc">，</span>
+				<span class="word">學無學人及善異生</span>
+				<span class="punc">，</span>
+				<span class="word">精勤修學六到彼岸</span>
+				<span class="punc">，</span>
+				<span class="word">具諸功德真聖弟子</span>
+				<span class="punc">。</span>
+				<span class="word">取諸破戒</span>
+				<span class="punc">、</span>
+				<span class="word">好行眾惡</span>
+				<span class="punc">、</span>
+				<span class="word">無慚無愧</span>
+				<span class="punc">、</span>
+				<span class="word">言辭麁獷</span>
+				<span class="punc">、</span>
+				<span class="word">身心憍慠</span>
+				<span class="punc">、</span>
+				<span class="word">離諸白法</span>
+				<span class="punc">、</span>
+				<span class="word">無慈無悲惡行苾芻</span>
+				<span class="punc">。</span>
+				<span class="word">以為福田</span>
+				<span class="punc">，</span>
+				<span class="word">恭敬供養</span>
+				<span class="punc">，</span>
+				<span class="word">聽受言教</span>
+				<span class="punc">。</span>
+				<span class="word">如是惡人師及弟子</span>
+				<span class="punc">，</span>
+				<span class="word">俱定趣向無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！譬如有人到了充滿珍寶的洲島，棄捨種種如帝青寶珠、大青寶玉、金銀、珍珠、紅蓮花色吠琉璃等高貴珍寶不取，卻拿了次等的水晶珠。在未來世這佛土中，有惡剎帝利王乃至惡婆羅門等惡人也是如此，到了佛門正法寶地，棄捨追隨種種戒德兼備、愛樂真諦正法、具足慚愧正念的勝義僧眾及世俗僧眾，這些精勤修學六波羅蜜，具足種種功德的正道正知佛門弟子。卻去跟隨那些毀壞戒律、歡喜造作惡行、無慚無愧、言辭粗惡、身心驕慢、背離清淨善法、無慈無悲的惡行比丘。將他們當作福田，恭敬供養、聽受言教。這些惡人無論師長及弟子，都必定趨向無間地獄淪墮。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">有十惡輪</span>
+				<span class="punc">，</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">宰官旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">居士旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">長者旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">沙門旃荼羅</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門旃荼羅</span>
+				<span class="punc">。</span>
+				<span class="word">如是等人</span>
+				<span class="punc">，</span>
+				<span class="word">於十惡輪</span>
+				<span class="punc">，</span>
+				<span class="word">或隨成一</span>
+				<span class="punc">、</span>
+				<span class="word">或具成就</span>
+				<span class="punc">，</span>
+				<span class="word">先所修集一切善根</span>
+				<span class="punc">，</span>
+				<span class="word">摧壞燒滅皆為灰燼</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當肢體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！有十種惡輪，在未來世這佛土中，有剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人。這些惡人，在這十種惡輪中，或是造就了一種，或者完全具足，累世所修的一切善根，都會壞滅燒毀化成灰燼，這些人很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<span class="word">如是破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利</span>
+				<span class="punc">、</span>
+				<span class="word">及宰官等</span>
+				<span class="punc">，</span>
+				<span class="word">忍受惡見</span>
+				<span class="punc">，</span>
+				<span class="word">謗阿練若清淨苾芻言</span>
+				<span class="punc">：</span>
+				<span class="word">諸仁者</span>
+				<span class="punc">！</span>
+				<span class="word">如是苾芻愚癡凡猥</span>
+				<span class="punc">，</span>
+				<span class="word">詐現異相</span>
+				<span class="punc">，</span>
+				<span class="word">誑惑世間</span>
+				<span class="punc">。</span>
+				<span class="word">為求飲食</span>
+				<span class="punc">、</span>
+				<span class="word">衣服</span>
+				<span class="punc">、</span>
+				<span class="word">利養</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">名譽</span>
+				<span class="punc">。</span>
+				<span class="word">自讚毀他</span>
+				<span class="punc">，</span>
+				<span class="word">嫉妬鬪亂</span>
+				<span class="punc">，</span>
+				<span class="word">貪著名利無有厭足</span>
+				<span class="punc">，</span>
+				<span class="word">應當擯黜勿受其言</span>
+				<span class="punc">。</span>
+				<span class="word">如是苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">專行妄語</span>
+				<span class="punc">，</span>
+				<span class="word">離諦實法</span>
+				<span class="punc">，</span>
+				<span class="word">於此皆無得道果者</span>
+				<span class="punc">，</span>
+				<span class="word">亦無離欲永盡諸漏</span>
+				<span class="punc">。</span>
+				<span class="word">但為利養</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">名譽</span>
+				<span class="punc">，</span>
+				<span class="word">住阿練若</span>
+				<span class="punc">，</span>
+				<span class="word">自現有德</span>
+				<span class="punc">。</span>
+				<span class="word">慎莫供養</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬</span>
+				<span class="punc">、</span>
+				<span class="word">承事如是諂曲</span>
+				<span class="punc">，</span>
+				<span class="word">非真福田</span>
+				<span class="punc">，</span>
+				<span class="word">非行道者</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				是那十種惡輪呢？就是有剎帝利王及宰官，聽受了破戒惡行比丘的惡言惡見，誹謗山林寂靜處修行的清淨比丘說：諸位大德！那些比丘都是愚痴平庸猥瑣的，他們故意顯現修行假相，是在欺騙迷惑世人。只是為了謀取飲食、衣服、利養、恭敬、名聞。他們總是自讚毀他，相互嫉妒鬥爭作亂，貪著名利不知滿足，應將他們驅逐擯除，不能聽受他們言教。那些比丘，只會虛言妄語，背離聖諦真法，根本沒有證果見道及永盡諸漏離欲清淨的聖人。只是為了謀取利養、恭敬、名譽，故意住在寂靜山林，顯示自己的功德假相。千萬不要去供養、恭敬、侍奉這些諂媚狡詐，不是真正福田，不是修德正行的人。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時剎帝利旃荼羅乃至婆羅門旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">於阿練若清淨苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">不能生實信心希有之想</span>
+				<span class="punc">；</span>
+				<span class="word">心無恭敬意懷凌蔑</span>
+				<span class="punc">，</span>
+				<span class="word">不樂親近承事供養</span>
+				<span class="punc">，</span>
+				<span class="word">所有言說皆不聽受</span>
+				<span class="punc">。</span>
+				<span class="word">輕毀如是住阿練若清淨苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">即是輕毀一切法眼</span>
+				<span class="punc">，</span>
+				<span class="word">三寶種姓</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時這些剎帝利惡王乃至惡婆羅門等惡人，對於寂靜處修行的清淨比丘，就不會再生起希有難逢的深心實信；總懷著不恭敬及輕蔑的心思，不願去親近、侍奉、供養，對於他們所說的正法道理也都不聽受。譭謗這些在寂靜處修行的清淨比丘，就是譭謗了一切正法知見及三寶傳承。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時彼國中</span>
+				<span class="punc">，</span>
+				<span class="word">有諸天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">，</span>
+				<span class="word">互相謂言</span>
+				<span class="punc">：</span>
+				<span class="word">仁等當觀此剎帝利</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">皆悉輕毀一切法眼三寶種姓</span>
+				<span class="punc">，</span>
+				<span class="word">損減善根</span>
+				<span class="punc">。</span>
+				<span class="word">由惡友力</span>
+				<span class="punc">，</span>
+				<span class="word">攝諸罪業</span>
+				<span class="punc">，</span>
+				<span class="word">當墮惡趣</span>
+				<span class="punc">。</span>
+				<span class="word">我等從今</span>
+				<span class="punc">，</span>
+				<span class="word">勿復擁護此剎帝利旃荼羅等</span>
+				<span class="punc">，</span>
+				<span class="word">并其所居國土城邑</span>
+				<span class="punc">。</span>
+				<span class="word">作是語已</span>
+				<span class="punc">，</span>
+				<span class="word">一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">皆悉棄捨</span>
+				<span class="punc">，</span>
+				<span class="word">不復擁護彼剎帝利旃荼羅等</span>
+				<span class="punc">，</span>
+				<span class="word">并彼所居國土城邑</span>
+				<span class="punc">。</span>
+				<span class="word">於彼國土一切法器</span>
+				<span class="punc">、</span>
+				<span class="word">真實福田</span>
+				<span class="punc">，</span>
+				<span class="word">皆出其國</span>
+				<span class="punc">。</span>
+				<span class="word">設有住者</span>
+				<span class="punc">，</span>
+				<span class="word">亦生捨心</span>
+				<span class="punc">，</span>
+				<span class="word">不復護念</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				在這國土中，有敬重三寶信心堅定的天、龍、藥叉等等護法神，對於這些剎帝利惡王，乃至惡沙門、惡婆羅門等惡人，生起了瞋怒心，互相傳話：我們已經看到這些剎帝利王、宰官、居士、長者、沙門、婆羅門等惡人，譭謗一切正法知見及三寶傳承，損減了福德善根。由於親近惡友的影響，造作惡言惡行，招攝了種種罪業，將來必定淪墮惡道。我們從今往後，不要再護持這些剎帝利惡王等惡人，及他們所居住的國土城市。說完這些話後，所有天龍、藥叉鬼神護法等，全都棄捨遠離，不再護持剎帝利惡王等惡人及他們居住的國土城市。在國土中一切能任持正法的法器僧眾、真正的福田僧眾，也都離開了這國度。即使還居住國土中的正法僧眾，也生起了捨離心，不再護念這國土。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">由諸天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">及諸法器</span>
+				<span class="punc">、</span>
+				<span class="word">真實福田</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅等</span>
+				<span class="punc">，</span>
+				<span class="word">并彼所居國土城邑</span>
+				<span class="punc">，</span>
+				<span class="word">皆捨守護不護念已</span>
+				<span class="punc">。</span>
+				<span class="word">時彼國土自軍他軍競起侵凌更相殘害</span>
+				<span class="punc">，</span>
+				<span class="word">疾疫飢饉因此復興</span>
+				<span class="punc">。</span>
+				<span class="word">彼剎帝利旃荼羅王乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">一切國民皆無歡樂</span>
+				<span class="punc">，</span>
+				<span class="word">先所愛樂今悉別離</span>
+				<span class="punc">；</span>
+				<span class="word">朋友眷屬更相瞋恨</span>
+				<span class="punc">、</span>
+				<span class="word">潛謀猜貳</span>
+				<span class="punc">、</span>
+				<span class="word">無慈無悲</span>
+				<span class="punc">、</span>
+				<span class="word">嫉妬慳貪</span>
+				<span class="punc">，</span>
+				<span class="word">眾惡皆起</span>
+				<span class="punc">，</span>
+				<span class="word">所謂殺生乃至邪見</span>
+				<span class="punc">；</span>
+				<span class="word">無慚無愧食用一切窣堵波物及僧祇物</span>
+				<span class="punc">，</span>
+				<span class="word">曾無悔心</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				由於天、龍、鬼神護法，及法器福田僧眾，都棄捨遠離，不再護念剎帝利惡王等惡人，及他們所居住的國土城市後。國內國外的軍隊就開始了不斷的戰爭，相互侵凌殘害，各種疾病饑荒也因此不斷發生。剎帝利惡王乃至惡沙門、惡婆羅門等惡人，及所有國民都失去了歡樂，先前親愛歡喜的人事如今都已遠離；朋友親屬間相互瞋恨、暗算猜忌，無慈無悲、嫉妒慳貪，種種殺生乃至邪見的十不善道惡行紛紛興起；眾人無慚無愧搶奪食用寺廟及僧眾物品，沒有絲毫懺悔心。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">憎嫉忠賢</span>
+				<span class="punc">，</span>
+				<span class="word">愛樂諂佞</span>
+				<span class="punc">，</span>
+				<span class="word">令己官庶互相侵凌</span>
+				<span class="punc">、</span>
+				<span class="word">憤恚結怨</span>
+				<span class="punc">，</span>
+				<span class="word">興諸鬪諍</span>
+				<span class="punc">。</span>
+				<span class="word">共餘隣國交陣戰時</span>
+				<span class="punc">，</span>
+				<span class="word">軍士離心無不退敗</span>
+				<span class="punc">。</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				那剎帝利惡王，憎厭嫉妒忠賢良臣，喜歡巧言諂媚奸佞，使得百官互相侵淩，彼此結怨，興起了各種鬥爭訴訟。軍隊士氣離散，與鄰國作戰時節節敗退。那些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">隨惡友行</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">諂曲愚癡</span>
+				<span class="punc">、</span>
+				<span class="word">懷聰明慢</span>
+				<span class="punc">，</span>
+				<span class="word">於三寶所無淳淨心</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">此有一類</span>
+				<span class="punc">，</span>
+				<span class="word">於聲聞乘得微少信</span>
+				<span class="punc">，</span>
+				<span class="word">實是愚癡自謂聰敏</span>
+				<span class="punc">，</span>
+				<span class="word">於我所說緣覺乘法及大乘法</span>
+				<span class="punc">，</span>
+				<span class="word">毀呰誹謗</span>
+				<span class="punc">，</span>
+				<span class="word">不聽眾生受持讀誦</span>
+				<span class="punc">，</span>
+				<span class="word">下至一頌</span>
+				<span class="punc">。</span>
+				<span class="word">復有一類</span>
+				<span class="punc">，</span>
+				<span class="word">於緣覺乘得微少信</span>
+				<span class="punc">，</span>
+				<span class="word">實是愚癡自謂聰敏</span>
+				<span class="punc">，</span>
+				<span class="word">於我所說聲聞乘法及大乘法</span>
+				<span class="punc">，</span>
+				<span class="word">毀呰誹謗</span>
+				<span class="punc">，</span>
+				<span class="word">不聽眾生受持讀誦</span>
+				<span class="punc">，</span>
+				<span class="word">下至一頌</span>
+				<span class="punc">。</span>
+				<span class="word">復有一類</span>
+				<span class="punc">，</span>
+				<span class="word">於大乘法得微少信</span>
+				<span class="punc">，</span>
+				<span class="word">實是愚癡自謂聰敏</span>
+				<span class="punc">，</span>
+				<span class="word">於我所說聲聞乘法</span>
+				<span class="punc">、</span>
+				<span class="word">緣覺乘法</span>
+				<span class="punc">，</span>
+				<span class="word">毀呰誹謗</span>
+				<span class="punc">，</span>
+				<span class="word">不聽眾生受持讀誦</span>
+				<span class="punc">，</span>
+				<span class="word">下至一頌</span>
+				<span class="punc">。</span>
+				<span class="word">如是等人名為毀謗佛正法者</span>
+				<span class="punc">，</span>
+				<span class="word">亦為違逆三世諸佛</span>
+				<span class="punc">；</span>
+				<span class="word">破三世佛一切法藏</span>
+				<span class="punc">，</span>
+				<span class="word">焚燒斷滅皆為灰燼</span>
+				<span class="punc">；</span>
+				<span class="word">斷壞一切八支聖道</span>
+				<span class="punc">，</span>
+				<span class="word">挑壞無量眾生法眼</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！有剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，親近惡知識造作惡行，覺慧淺薄善根低微，諂媚狡詐愚癡邪見，自認為聰明高傲驕慢，對於三寶沒有篤實淳淨信心，不信也不畏懼後世惡業苦果。其中有一類人，在聲聞乘法雖有少許信解，自認為聰敏實際卻是愚癡，非議譭謗我所宣說的緣覺乘法及大乘法，不允許眾生受持讀誦，甚至連一句一頌也不許受持讀誦。還有一類人，在緣覺乘法雖有少許信解，自認為聰敏實際卻是愚癡，非議譭謗我所宣說的聲聞乘法及大乘法，不允許眾生受持讀誦，甚至連一句一頌也不許受持讀誦。還有一類人，在大乘法雖有少許信解，自認為聰敏實際卻是愚癡，非議譭謗我所宣說的聲聞乘法及緣覺乘法，不允許眾生受持讀誦，甚至連一句一頌也不許受持讀誦。這樣的人就稱為譭謗佛道正法的人，也就是違逆了三世諸佛的人；斷壞三世諸佛一切法藏，如同焚毀經書燒成灰燼。斷壞了正見、正思維、正語、正業、正命、正精進、正念、正定一切八支正道，挑壞了無量眾生知見正法的法眼。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">於佛所說聲聞乘法</span>
+				<span class="punc">、</span>
+				<span class="word">緣覺乘法及大乘法</span>
+				<span class="punc">，</span>
+				<span class="word">障礙覆藏</span>
+				<span class="punc">，</span>
+				<span class="word">令其隱沒</span>
+				<span class="punc">，</span>
+				<span class="word">乃至一頌</span>
+				<span class="punc">；</span>
+				<span class="word">當知是人</span>
+				<span class="punc">，</span>
+				<span class="word">名不恭敬一切法眼</span>
+				<span class="punc">、</span>
+				<span class="word">三寶種姓</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">。</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間大獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果剎帝利惡王，乃至惡沙門惡婆羅門等惡人，障礙隱蔽了如來所宣說的聲聞乘法、緣覺乘法及大乘法，使得諸法隱沒消失，乃至隱沒一句一頌；應知這樣的人就是不恭敬一切正法知見及三寶傳承。由此惡緣，使得護持國土，信心堅定敬重三寶的天、龍、藥叉等護法神，對於剎帝利惡王，乃至惡沙門、惡婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">隨逐破戒惡苾芻行</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">於彼國中有諸法器</span>
+				<span class="punc">、</span>
+				<span class="word">真實福田</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅等</span>
+				<span class="punc">，</span>
+				<span class="word">皆住捨心而不護念</span>
+				<span class="punc">；</span>
+				<span class="word">雖居其國而依法住</span>
+				<span class="punc">，</span>
+				<span class="word">常不憙樂俗間居止</span>
+				<span class="punc">，</span>
+				<span class="word">亦不數數往施主家</span>
+				<span class="punc">；</span>
+				<span class="word">設令暫往而護語言</span>
+				<span class="punc">，</span>
+				<span class="word">縱有語言曾無虛誑</span>
+				<span class="punc">。</span>
+				<span class="word">終不對彼在家人前</span>
+				<span class="punc">，</span>
+				<span class="word">譏毀輕弄諸破戒者</span>
+				<span class="punc">；</span>
+				<span class="word">於諸破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">終不輕然輒相檢問</span>
+				<span class="punc">，</span>
+				<span class="word">亦不現相故顯其非</span>
+				<span class="punc">，</span>
+				<span class="word">常近福田</span>
+				<span class="punc">，</span>
+				<span class="word">遠諸破戒</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！有剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，追隨親近破戒惡行比丘造作惡行，廣說乃至，還居住國土中的正法有德的法器僧眾、真實福田僧眾，對於剎帝利惡王等惡人，都生起了捨離心不再護念。儘管還住在這國土中，也是依法持守，不喜歡與俗世往來，也不常常造訪施主家；即使短暫造訪，也能善持清淨口業；縱然開口言語，也不會虛言妄語。從不會在俗家白衣眾人前，譏毀嘲弄破戒比丘；對於破戒惡行比丘，從不輕率質問過失，也不故作姿態來凸顯破戒比丘的過失，常常親近福田僧眾，遠離破戒比丘。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">而彼破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">於此持戒真善行者</span>
+				<span class="punc">，</span>
+				<span class="word">反生瞋恨</span>
+				<span class="punc">、</span>
+				<span class="word">輕毀</span>
+				<span class="punc">、</span>
+				<span class="word">侵凌</span>
+				<span class="punc">。</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">在家男女大小等前</span>
+				<span class="punc">，</span>
+				<span class="word">種種諂曲</span>
+				<span class="punc">、</span>
+				<span class="word">虛妄談論</span>
+				<span class="punc">、</span>
+				<span class="word">毀呰誹謗此持戒者</span>
+				<span class="punc">。</span>
+				<span class="word">令剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">於我弟子少欲知足</span>
+				<span class="punc">、</span>
+				<span class="word">持戒多聞</span>
+				<span class="punc">、</span>
+				<span class="word">具妙辯才諸苾芻所心生瞋恨</span>
+				<span class="punc">，</span>
+				<span class="word">種種麁言呵罵逼切</span>
+				<span class="punc">，</span>
+				<span class="word">令心憂惱身不安泰</span>
+				<span class="punc">。</span>
+				<span class="word">或奪衣鉢諸資身具令其匱乏</span>
+				<span class="punc">；</span>
+				<span class="word">或奪所施四方僧物不聽受用</span>
+				<span class="punc">；</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">，</span>
+				<span class="word">枷鎖拷楚</span>
+				<span class="punc">，</span>
+				<span class="word">或解支節</span>
+				<span class="punc">，</span>
+				<span class="word">或斬身首</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				而那破戒惡行比丘，對於這些持戒清淨、正知善行的僧眾，反而生起了瞋恨心，欺淩、譭謗清淨比丘僧眾。在剎帝利惡王，乃至惡沙門、惡婆羅門等惡人，俗家男女老少眾人前，用種種諂媚狡猾、虛妄言論來譭謗這些持戒比丘。使得剎帝利惡王，乃至惡沙門惡婆羅門等惡人，對於我弟子中少欲知足、持戒多聞、具足辯才的正行比丘心生瞋恨，用各種粗言惡語來責罵逼迫，使他們身心煩擾不安。或是搶奪衣缽及各種資身用具，使他們生活匱乏；或者奪取信眾供養的僧物不許他們享用；或將他們關入牢獄，枷鎖縛綁嚴刑拷打，或斷解四肢，或斬首害命。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">當觀如是諸剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">親近破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">造作如是種種大罪</span>
+				<span class="punc">，</span>
+				<span class="word">乃至當墮無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">若諸眾生作五無間</span>
+				<span class="punc">、</span>
+				<span class="word">或犯重戒</span>
+				<span class="punc">、</span>
+				<span class="word">或近無間性罪遮罪猶輕</span>
+				<span class="punc">。</span>
+				<span class="word">如是諸剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">親近破戒</span>
+				<span class="punc">，</span>
+				<span class="word">越法重罪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！應知這些剎帝利惡王，乃至沙門、婆羅門等惡人，親近破戒惡行比丘，造作了這種種大罪，最後必定淪墮無間地獄。如果眾生們造作五無間罪、或犯重戒、或近無間罪的性罪或遮罪，罪行相對還輕。這些剎帝利惡王，乃至沙門、婆羅門等惡人，所親近的破戒惡行比丘，則是犯了越法重罪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">如是破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">雖作如是越法重罪</span>
+				<span class="punc">，</span>
+				<span class="word">而依我法</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮被服袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">進止威儀同諸賢聖</span>
+				<span class="punc">。</span>
+				<span class="word">我尚不許國王大臣諸在家者</span>
+				<span class="punc">，</span>
+				<span class="word">依俗正法</span>
+				<span class="punc">，</span>
+				<span class="word">以鞭杖等捶拷其身</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">、</span>
+				<span class="word">或復呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或解支節</span>
+				<span class="punc">、</span>
+				<span class="word">或斷其命</span>
+				<span class="punc">。</span>
+				<span class="word">況依非法</span>
+				<span class="punc">！</span>
+				<span class="word">國王大臣諸在家者</span>
+				<span class="punc">，</span>
+				<span class="word">若作此事便獲大罪</span>
+				<span class="punc">，</span>
+				<span class="word">決定當生無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">於諸破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">猶尚不應如是謫罰</span>
+				<span class="punc">，</span>
+				<span class="word">何況持戒真善行者</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！這樣破戒惡行比丘，雖然造作了這樣的越法重罪，但他們是遵依佛法正式出家，剃除鬚髮身披袈裟，行止威儀如同聖賢。我尚且不允許國王大臣等俗家白衣，依循經律論三藏所傳世俗正法，用鞭杖拷打他的身體，或關入牢獄、或喝斥責罵、或砍斷四肢手足、或殺害性命，何況是不依正法的邪法處罰。國王大臣等俗家白衣，如果處罰了比丘，就是犯了大罪，必定淪墮無間地獄。對於破戒惡行比丘，尚且不能這樣責罰，何況是清淨持戒的正知善行比丘。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若有苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">於諸根本性重罪中</span>
+				<span class="punc">，</span>
+				<span class="word">隨犯一罪</span>
+				<span class="punc">，</span>
+				<span class="word">雖名破戒惡行苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">而於親教和合僧中</span>
+				<span class="punc">，</span>
+				<span class="word">所得律儀猶不斷絕</span>
+				<span class="punc">。</span>
+				<span class="word">乃至棄捨所學尸羅</span>
+				<span class="punc">，</span>
+				<span class="word">猶有白法香氣隨逐</span>
+				<span class="punc">。</span>
+				<span class="word">國王大臣諸在家者</span>
+				<span class="punc">，</span>
+				<span class="word">無有律儀</span>
+				<span class="punc">，</span>
+				<span class="word">不應輕慢及加讁罰</span>
+				<span class="punc">。</span>
+				<span class="word">如是苾芻雖非法器</span>
+				<span class="punc">，</span>
+				<span class="word">退失聖法</span>
+				<span class="punc">，</span>
+				<span class="word">穢雜清眾</span>
+				<span class="punc">，</span>
+				<span class="word">破壞一切沙門法事</span>
+				<span class="punc">，</span>
+				<span class="word">不得受用四方僧物</span>
+				<span class="punc">。</span>
+				<span class="word">而於親教和合僧中</span>
+				<span class="punc">，</span>
+				<span class="word">所得律儀不棄捨故</span>
+				<span class="punc">，</span>
+				<span class="word">猶勝一切在家白衣</span>
+				<span class="punc">。</span>
+				<span class="word">犯性罪者尚應如是</span>
+				<span class="punc">，</span>
+				<span class="word">況犯其餘諸小遮罪</span>
+				<span class="punc">！</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">不許國王大臣諸在家者</span>
+				<span class="punc">，</span>
+				<span class="word">輕慢讁罰</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！如果比丘在性罪的四根本重罪中，犯了任何一罪，雖被稱為破戒惡行比丘，但他在和合僧團親教師處，所領受的戒儀並未斷絕。乃至棄捨了所學戒律，也仍有戒德善法香氣隨逐不離。國王大臣等俗家白衣，未領受過戒儀，不允許對他輕慢及責罰。這樣的破戒比丘，雖然已不是能任持佛法的法器僧，退失正法道心的污僧混雜在清淨僧眾中，毀壞了種種佛事修行，依律治罰不能享用信眾供養的僧物。但他在和合僧團親教師處，所領受的戒儀並未棄捨，因此功德威儀仍然高於一切俗家白衣。違犯性罪的比丘尚且應當如此對待，何況是違犯其他的小遮罪！因此，如來不允許國王大臣等俗家白衣，對比丘輕慢及責罰。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">乃往過去有迦奢國王名梵授</span>
+				<span class="punc">，</span>
+				<span class="word">勅旃荼羅</span>
+				<span class="punc">：</span>
+				<span class="word">有大象王名青蓮目</span>
+				<span class="punc">，</span>
+				<span class="word">六牙具足</span>
+				<span class="punc">，</span>
+				<span class="word">住雪山邊</span>
+				<span class="punc">。</span>
+				<span class="word">汝可往彼</span>
+				<span class="punc">，</span>
+				<span class="word">拔取牙來</span>
+				<span class="punc">。</span>
+				<span class="word">若不得者</span>
+				<span class="punc">，</span>
+				<span class="word">汝等五人定無活義</span>
+				<span class="punc">。</span>
+				<span class="word">時旃荼羅為護身命</span>
+				<span class="punc">，</span>
+				<span class="word">執持弓箭</span>
+				<span class="punc">，</span>
+				<span class="word">被赤袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">詐現沙門威儀形相</span>
+				<span class="punc">，</span>
+				<span class="word">往雪山邊至象王所</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				為何如此呢？善男子！過去有個迦奢國王名叫梵授，命令旃荼羅惡人手下說：有一個名叫青蓮目的大象王，生足了六支白牙，住在雪山邊。你們前去那裡，把他的象牙給我拔來。如果無法取來，你們五人必死無疑。這時惡人們為求活命，便手持弓箭，身披紅袈裟，偽裝成沙門威儀形相，前往雪山邊象王處。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時彼母象</span>
+				<span class="punc">，</span>
+				<span class="word">遙見人來執持弓箭</span>
+				<span class="punc">，</span>
+				<span class="word">驚怖馳走詣象王所</span>
+				<span class="punc">，</span>
+				<span class="word">白言</span>
+				<span class="punc">：</span>
+				<span class="word">大天</span>
+				<span class="punc">！</span>
+				<span class="word">今見有人張弓捻箭</span>
+				<span class="punc">，</span>
+				<span class="word">徐行視覘</span>
+				<span class="punc">，</span>
+				<span class="word">來趣我等</span>
+				<span class="punc">，</span>
+				<span class="word">將非我等命欲盡耶</span>
+				<span class="punc">？</span>
+				<span class="word">象王聞已</span>
+				<span class="punc">，</span>
+				<span class="word">舉目便見剃除鬚髮著袈裟人</span>
+				<span class="punc">，</span><br/>
+				<span class="word">即為母象而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">被殑伽沙等</span>
+					<span class="punc">，</span>
+					<span class="word">諸佛法幢相</span>
+					<span class="punc">，</span><br/>
+					<span class="word">觀此離諸惡</span>
+					<span class="punc">，</span>
+					<span class="word">必不害眾生</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時彼母象以頌答曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">雖知被法服</span>
+					<span class="punc">，</span>
+					<span class="word">而執持弓箭</span>
+					<span class="punc">，</span><br/>
+					<span class="word">是惡旃荼羅</span>
+					<span class="punc">，</span>
+					<span class="word">樂惡無悲愍</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時大象王復說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">見袈裟一相</span>
+					<span class="punc">，</span>
+					<span class="word">知是慈悲本</span>
+					<span class="punc">，</span><br/>
+					<span class="word">此必歸佛者</span>
+					<span class="punc">，</span>
+					<span class="word">愍念諸眾生</span>
+					<span class="punc">。</span><br/>
+					<span class="word">汝勿懷疑慮</span>
+					<span class="punc">，</span>
+					<span class="word">宜應速攝心</span>
+					<span class="punc">，</span><br/>
+					<span class="word">被此法衣人</span>
+					<span class="punc">，</span>
+					<span class="word">欲渡生死海</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時有頭母象，遠遠看到有人手持弓箭前來這裡，非常驚惶的奔到象王處，對象王說：大王！看到有人張弓持箭，邊走邊探慢慢向我們這裡尋來，莫非是來傷害我們性命嗎？象王聽後抬眼察看，只見是剃除鬚髮身穿袈裟的人，就對母象說了偈頌：
+				<blockquote>
+					身披莊嚴袈裟衣，
+					諸佛法幢解脫相，<br/>
+					見此便知離惡者，
+					定不傷害眾生命。
+				</blockquote>
+				這時母象也以頌回答：
+				<blockquote>
+					雖然身披法幢衣，
+					手持害命弓與箭，<br/>
+					定是惡人旃荼羅，
+					樂作惡事無悲憫。
+				</blockquote>
+				此時大象王又再以頌回答：
+				<blockquote>
+					一見袈裟莊嚴相，
+					知是慈悲善心人，<br/>
+					定是歸依佛弟子，
+					悲懷憫恤諸眾生。<br/>
+					汝勿心疑懷憂慮，
+					應速收攝恐懼心，<br/>
+					身著袈裟法衣人，
+					欲度煩惱生死海。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時旃荼羅即以毒箭彎弓審射</span>
+				<span class="punc">，</span>
+				<span class="word">中象王心</span>
+				<span class="punc">。</span>
+				<span class="word">母象見之</span>
+				<span class="punc">，</span>
+				<span class="word">舉聲號呴</span>
+				<span class="punc">，</span>
+				<span class="word">悲哀哽噎以頌白言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">被此法衣人</span>
+					<span class="punc">，</span>
+					<span class="word">宜應定歸佛</span>
+					<span class="punc">，</span><br/>
+					<span class="word">威儀雖寂靜</span>
+					<span class="punc">，</span>
+					<span class="word">而懷毒惡心</span>
+					<span class="punc">。</span><br/>
+					<span class="word">應速踏彼身</span>
+					<span class="punc">，</span>
+					<span class="word">令其命根斷</span>
+					<span class="punc">，</span><br/>
+					<span class="word">滅此怨令盡</span>
+					<span class="punc">，</span>
+					<span class="word">以射天身故</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時大象王以頌答曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">寧速捨身命</span>
+					<span class="punc">，</span>
+					<span class="word">不應生惡心</span>
+					<span class="punc">，</span><br/>
+					<span class="word">彼雖懷詐心</span>
+					<span class="punc">，</span>
+					<span class="word">猶似佛弟子</span>
+					<span class="punc">。</span><br/>
+					<span class="word">智者非為命</span>
+					<span class="punc">，</span>
+					<span class="word">而壞清淨心</span>
+					<span class="punc">，</span><br/>
+					<span class="word">為度諸有情</span>
+					<span class="punc">，</span>
+					<span class="word">常習菩提行</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時惡人用毒箭搭弓瞄準，射中了象王心臟。母象看見此狀，放聲嚎啕大哭，悲淒哽噎用頌說道：
+				<blockquote>
+					披此袈裟法衣人，
+					本應歸依佛門人，<br/>
+					雖有清淨威儀相，
+					卻懷毒惡奪命心。<br/>
+					應快重踏彼惡身，
+					令此惡人命根斷，<br/>
+					方能盡消我怨心，
+					只因箭傷王貴體。
+				</blockquote>
+				這時大象王以頌回答：
+				<blockquote>
+					寧捨性命身速亡，
+					不生惡心傷人命，<br/>
+					彼人雖懷欺詐心，
+					依然莊嚴佛子相。<br/>
+					智者豈能只為命，
+					而起惡念壞清淨，<br/>
+					時懷度眾菩薩心，
+					常習究竟菩提行。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時大象王心生悲愍</span>
+				<span class="punc">，</span>
+				<span class="word">徐問人曰</span>
+				<span class="punc">：</span>
+				<span class="word">汝何所須</span>
+				<span class="punc">？</span>
+				<span class="word">彼人答曰</span>
+				<span class="punc">：</span>
+				<span class="word">欲須汝牙</span>
+				<span class="punc">。</span>
+				<span class="word">象王歡喜</span>
+				<span class="punc">，</span>
+				<span class="word">即自拔牙施旃荼羅</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">我以白牙今施汝</span>
+					<span class="punc">，</span>
+					<span class="word">無忿無恨無貪惜</span>
+					<span class="punc">；</span><br/>
+					<span class="word">願此施福當成佛</span>
+					<span class="punc">，</span>
+					<span class="word">滅諸眾生煩惱病</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時大象王心生悲憫，緩緩問惡人說：你們想要什麼？惡人回答：我們想要你的牙。象王聽後心生歡喜，自己拔起象牙送給這些旃荼羅惡人，並說偈頌：
+				<blockquote>
+					現今白牙施贈與你，
+					無怒無恨無所吝惜，<br/>
+					施福回向當願成佛，
+					滅諸眾生煩惱病苦。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">當觀如是過去象王</span>
+				<span class="punc">，</span>
+				<span class="word">雖受無暇傍生趣身</span>
+				<span class="punc">，</span>
+				<span class="word">為求阿耨多羅三藐三菩提故</span>
+				<span class="punc">，</span>
+				<span class="word">而能棄捨身命無悋</span>
+				<span class="punc">，</span>
+				<span class="word">恭敬尊重著袈裟人</span>
+				<span class="punc">，</span>
+				<span class="word">雖彼為怨而不加報</span>
+				<span class="punc">。</span>
+				<span class="word">然未來世</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">實是愚癡</span>
+				<span class="punc">，</span>
+				<span class="word">懷聰明慢</span>
+				<span class="punc">，</span>
+				<span class="word">諂曲虛詐</span>
+				<span class="punc">，</span>
+				<span class="word">欺誑世間</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">於歸我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若是法器</span>
+				<span class="punc">、</span>
+				<span class="word">若非法器諸弟子所</span>
+				<span class="punc">，</span>
+				<span class="word">惱亂呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或以鞭杖楚撻其身</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄乃至斷命</span>
+				<span class="punc">。</span>
+				<span class="word">此於一切過去</span>
+				<span class="punc">、</span>
+				<span class="word">未來</span>
+				<span class="punc">、</span>
+				<span class="word">現在諸佛</span>
+				<span class="punc">，</span>
+				<span class="word">犯諸大罪</span>
+				<span class="punc">，</span>
+				<span class="word">決定當趣無間地獄</span>
+				<span class="punc">；</span>
+				<span class="word">斷滅善根焚燒相續</span>
+				<span class="punc">，</span>
+				<span class="word">一切智者之所遠離</span>
+				<span class="punc">。</span>
+				<span class="word">彼既造作如是重罪</span>
+				<span class="punc">，</span>
+				<span class="word">復懷傲慢</span>
+				<span class="punc">，</span>
+				<span class="word">誑惑世間</span>
+				<span class="punc">，</span>
+				<span class="word">自稱我等亦求無上正等菩提</span>
+				<span class="punc">，</span>
+				<span class="word">我是大乘</span>
+				<span class="punc">，</span>
+				<span class="word">當得作佛</span>
+				<span class="punc">。</span>
+				<span class="word">譬如有人自挑其目</span>
+				<span class="punc">，</span>
+				<span class="word">盲無所見</span>
+				<span class="punc">，</span>
+				<span class="word">而欲導他登上大山</span>
+				<span class="punc">，</span>
+				<span class="word">終無是處</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！當知過去這個象王，雖然生在八難畜生道中，為求無上正等正覺，能捨棄生命而無所吝惜，恭敬尊重身穿袈裟的人，雖受危害也不報復。然而在未來世，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等惡人，實際愚癡無智，卻自認聰明高傲驕慢，心性虛偽狡詐，誑騙詐欺世人，不信也不怕後世惡業苦果。對於歸依佛法的出家弟子，無論能任持正法的法器僧、或是非法器僧眾，都會去訶責斥罵擾亂身心，或用鞭杖拷打身體，或關進牢獄，甚至殺害生命。這種惡行是對一切過去、未來、現在三世諸佛，犯下了大罪，必定會淪墮無間地獄。這種惡行會將所有善根永遠焚毀斷滅，一切有智慧的人都應遠離這種惡行。這些人儘管造作了這些重罪，仍然心懷傲慢，誑騙詐欺世人，自稱我們也是在證求無上正等菩提，我是濟度眾生的大乘修行人，未來當能成佛。這好比是有人自己挖去了雙眼，什麼也看不見，卻想導引他人登上大山，是絕對不可能的。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">於未來世</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">亦復如是</span>
+				<span class="punc">。</span>
+				<span class="word">於歸我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若是法器</span>
+				<span class="punc">、</span>
+				<span class="word">若非法器諸弟子所</span>
+				<span class="punc">，</span>
+				<span class="word">惱亂呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">或以鞭杖楚撻其身</span>
+				<span class="punc">、</span>
+				<span class="word">或閉牢獄</span>
+				<span class="punc">，</span>
+				<span class="word">乃至斷命</span>
+				<span class="punc">。</span>
+				<span class="word">此於一切過去</span>
+				<span class="punc">、</span>
+				<span class="word">未來</span>
+				<span class="punc">、</span>
+				<span class="word">現在諸佛</span>
+				<span class="punc">，</span>
+				<span class="word">犯諸大罪</span>
+				<span class="punc">，</span>
+				<span class="word">斷滅善根焚燒相續</span>
+				<span class="punc">，</span>
+				<span class="word">一切智者之所遠離</span>
+				<span class="punc">，</span>
+				<span class="word">決定當趣無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">彼既造作如是重罪</span>
+				<span class="punc">，</span>
+				<span class="word">復懷傲慢</span>
+				<span class="punc">，</span>
+				<span class="word">誑惑世間</span>
+				<span class="punc">，</span>
+				<span class="word">自稱</span>
+				<span class="punc">：</span>
+				<span class="word">我等亦求無上正等菩提</span>
+				<span class="punc">，</span>
+				<span class="word">我是大乘當得作佛</span>
+				<span class="punc">。</span>
+				<span class="word">彼由惱亂出家人故</span>
+				<span class="punc">，</span>
+				<span class="word">下賤人身尚難可得</span>
+				<span class="punc">，</span>
+				<span class="word">況當能證二乘菩提</span>
+				<span class="punc">？</span>
+				<span class="word">無上大乘於其絕分</span>
+				<span class="punc">！</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				在未來世，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等惡人，也是如此。對於歸依佛法的出家弟子，無論能任持正法的法器僧、或是非法器僧眾，都會去訶責斥罵擾亂身心，或用鞭杖拷打身體，或關進牢獄，乃至殺害生命。這種惡行是對一切過去、未來、現在三世諸佛，犯下了大罪，必定會淪墮無間地獄。這種惡行會將所有善根永遠焚毀斷滅，一切有智慧的人都應遠離這種惡行。這些人儘管造作了這些重罪，仍然心懷傲慢，誑騙詐欺世人，自稱我們也是在證求無上正等菩提，我是濟度眾生的大乘修行人，未來當能成佛。由於這些人擾亂出家人身心，障礙修行，來世投生下賤人身尚且難得，又豈能證得二乘果位？想要證得無上大乘佛果沒有半分可能。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">過去有國名般遮羅</span>
+				<span class="punc">，</span>
+				<span class="word">王號勝軍</span>
+				<span class="punc">，</span>
+				<span class="word">統領彼國</span>
+				<span class="punc">。</span>
+				<span class="word">時彼有一大丘壙所</span>
+				<span class="punc">，</span>
+				<span class="word">名朅藍婆</span>
+				<span class="punc">，</span>
+				<span class="word">甚可怖畏</span>
+				<span class="punc">，</span>
+				<span class="word">藥叉羅剎多住其中</span>
+				<span class="punc">，</span>
+				<span class="word">若有入者心驚毛竪</span>
+				<span class="punc">。</span>
+				<span class="word">時國有人罪應合死</span>
+				<span class="punc">，</span>
+				<span class="word">王勅典獄縛其五處</span>
+				<span class="punc">，</span>
+				<span class="word">送朅藍婆大丘壙所</span>
+				<span class="punc">，</span>
+				<span class="word">令諸惡鬼食噉其身</span>
+				<span class="punc">。</span>
+				<span class="word">罪人聞已為護命故</span>
+				<span class="punc">，</span>
+				<span class="word">即剃鬚髮求覓袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">遇得一片自繫其頸</span>
+				<span class="punc">。</span>
+				<span class="word">時典獄者如王所勅</span>
+				<span class="punc">，</span>
+				<span class="word">縛其五處送丘壙中</span>
+				<span class="punc">。</span>
+				<span class="word">諸人還已至於夜分</span>
+				<span class="punc">，</span>
+				<span class="word">有大羅剎母</span>
+				<span class="punc">，</span>
+				<span class="word">名刀劍眼</span>
+				<span class="punc">，</span>
+				<span class="word">與五千眷屬來入塚間</span>
+				<span class="punc">，</span>
+				<span class="word">罪人遙見身心驚悚</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！過去還有個名叫般遮羅的國家，國王名叫勝軍，統領著這個國家。那時國中有個大墳丘，名叫朅藍婆，極為恐怖，許多藥叉羅剎住在那裡，如果有人進去了那裡，都會心驚害怕汗毛直豎。這時國中有人犯了死罪，國王下令獄官將他頭頸手足五處捆綁，送到朅藍婆大墳丘，讓惡鬼們吃掉他的身體。罪人聽到後為求保命，立即剃除了鬚髮尋找袈裟，結果只找到了一片，自己綁在脖子上。獄官遵照國王命令，將他頭頸四肢五處捆綁送到墳丘中。獄官們回去後到了午夜時分，有位大羅剎母，名叫刀劍眼，與五千羅剎眷屬來到了墳丘處，罪人遠遠望見，嚇得膽戰心驚。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時羅剎母見有此人被縛五處</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮片赤袈裟繫其頸下</span>
+				<span class="punc">，</span>
+				<span class="word">即便右遶</span>
+				<span class="punc">，</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">，</span>
+				<span class="word">合掌恭敬而說頌言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">人可自安慰</span>
+					<span class="punc">，</span>
+					<span class="word">我終不害汝</span>
+					<span class="punc">，</span><br/>
+					<span class="word">見剃髮染衣</span>
+					<span class="punc">，</span>
+					<span class="word">令我憶念佛</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子白其母曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">母我為飢渴</span>
+					<span class="punc">，</span>
+					<span class="word">甚逼切身心</span>
+					<span class="punc">，</span><br/>
+					<span class="word">願聽食此人</span>
+					<span class="punc">，</span>
+					<span class="word">息苦身心樂</span>
+					<span class="punc">。</span>
+				</blockquote>
+					<span class="word">時羅剎母便告子言</span>
+					<span class="punc">：</span>
+				<blockquote>
+					<span class="word">被殑伽沙佛</span>
+					<span class="punc">，</span>
+					<span class="word">解脫幢相衣</span>
+					<span class="punc">，</span><br/>
+					<span class="word">於此起惡心</span>
+					<span class="punc">，</span>
+					<span class="word">定墮無間獄</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子與諸眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">右遶此人</span>
+				<span class="punc">、</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">、</span>
+				<span class="word">合掌恭敬而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">懺悔染衣人</span>
+					<span class="punc">，</span>
+					<span class="word">我寧於父母</span>
+					<span class="punc">，</span><br/>
+					<span class="word">造身語意惡</span>
+					<span class="punc">，</span>
+					<span class="word">於汝終無害</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時羅剎母看到這罪人的頭頸四肢被五處捆綁，卻剃除鬚髮還有一片袈裟繫在脖頸下，立刻右繞此人，非常尊重向他頂禮，恭敬合掌並說偈頌：
+				<blockquote>
+					你可寬心消恐懼，
+					我終不會傷害你，<br/>
+					但見剃髮袈裟服，
+					使我憶念諸如來。
+				</blockquote>
+				這時羅剎的兒子對他母親說：
+				<blockquote>
+					母親我被飢渴惱，
+					逼迫身心甚煩苦，<br/>
+					請允准我食此人，
+					平息苦惱樂身心。
+				</blockquote>
+				這時羅剎母便對兒子說：
+				<blockquote>
+					身披解脫幢相衣，
+					恆沙諸佛皆護念，<br/>
+					若起惡心傷害他，
+					必當淪墮無間獄。
+				</blockquote>
+				這時羅剎子與眷屬們聽聞教導後，圍著此人右繞三匝，尊重頂禮，合掌恭敬而說偈頌：
+				<blockquote>
+					對袈裟人起懺悔，
+					寧與父母共為惡，<br/>
+					造身語意不善行，
+					終無惡心傷害你。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時復有大羅剎母名驢騾齒</span>
+				<span class="punc">，</span>
+				<span class="word">亦有五千眷屬圍遶來入塚間</span>
+				<span class="punc">。</span>
+				<span class="word">時羅剎母亦見此人被縛五處</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮片赤袈裟繫其頸下</span>
+				<span class="punc">，</span>
+				<span class="word">即便右遶</span>
+				<span class="punc">，</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">，</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">人於我勿怖</span>
+					<span class="punc">，</span>
+					<span class="word">汝頸所繫服</span>
+					<span class="punc">，</span><br/>
+					<span class="word">是仙幢相衣</span>
+					<span class="punc">，</span>
+					<span class="word">我頂禮供養</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子白其母曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">人血肉甘美</span>
+					<span class="punc">，</span>
+					<span class="word">願母聽我食</span>
+					<span class="punc">，</span><br/>
+					<span class="word">增長身心力</span>
+					<span class="punc">，</span>
+					<span class="word">勇猛無所畏</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎母便告子言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">人天等妙樂</span>
+					<span class="punc">，</span>
+					<span class="word">由恭敬出家</span>
+					<span class="punc">，</span><br/>
+					<span class="word">故供養染衣</span>
+					<span class="punc">，</span>
+					<span class="word">當獲無量樂</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子與諸眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">右遶此人</span>
+				<span class="punc">、</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">、</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">我今恭敬禮</span>
+					<span class="punc">，</span>
+					<span class="word">剃髮染衣人</span>
+					<span class="punc">，</span><br/>
+					<span class="word">願常於未來</span>
+					<span class="punc">，</span>
+					<span class="word">見佛深生信</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時又有一位大羅剎母名為驢騾齒，也帶領五千羅剎眷屬進到了墳丘處。羅剎母也看到這罪人被五處捆綁，剃除了鬚髮還有一片紅袈裟繫在他頸下，立刻右繞這人，非常尊重向他頂禮，恭敬合掌並說偈頌：
+				<blockquote>
+					請勿對我生怖畏，
+					汝頸所繫袈裟服，<br/>
+					諸佛莊嚴解脫衣，
+					我應頂禮來供養。
+				</blockquote>
+				這時羅剎子對他的母親說：
+				<blockquote>
+					人身血肉甘又美，
+					請母允許我食用，<br/>
+					強壯身心增氣力，
+					勇健威猛無畏懼。
+				</blockquote>
+				這時羅剎母回答孩子說：
+				<blockquote>
+					人天福報諸妙樂，
+					起於恭敬出家人，<br/>
+					故應供養袈裟眾，
+					當能得獲無量樂。
+				</blockquote>
+				這時羅剎子與羅剎眷屬們聽聞教導後，圍著此人右繞三匝，非常尊重向他頂禮，恭敬合掌並說偈頌：
+				<blockquote>
+					我今恭敬並頂禮，
+					剃髮身著袈裟人，<br/>
+					祈願常能於未來，
+					見佛聞法生淨信。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時復有大羅剎母</span>
+				<span class="punc">，</span>
+				<span class="word">名鬇鬡髮</span>
+				<span class="punc">，</span>
+				<span class="word">亦有五千眷屬圍遶來入塚間</span>
+				<span class="punc">。</span>
+				<span class="word">時羅剎母亦見此人被縛五處</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮片赤袈裟繫其頸下</span>
+				<span class="punc">，</span>
+				<span class="word">即便右遶</span>
+				<span class="punc">，</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">，</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">大仙幢相衣</span>
+					<span class="punc">，</span>
+					<span class="word">智者應讚奉</span>
+					<span class="punc">，</span><br/>
+					<span class="word">若能修供養</span>
+					<span class="punc">，</span>
+					<span class="word">必斷諸有縛</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子白其母曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">此人身血肉</span>
+					<span class="punc">，</span>
+					<span class="word">國王之所賴</span>
+					<span class="punc">，</span><br/>
+					<span class="word">願聽我飲噉</span>
+					<span class="punc">，</span>
+					<span class="word">得力承事母</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎母便告子言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">如是染衣人</span>
+					<span class="punc">，</span>
+					<span class="word">非汝所應食</span>
+					<span class="punc">，</span><br/>
+					<span class="word">於此起惡者</span>
+					<span class="punc">，</span>
+					<span class="word">當成大苦器</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子與諸眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">右遶此人</span>
+				<span class="punc">、</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">、</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">汝是大仙種</span>
+					<span class="punc">，</span>
+					<span class="word">堪為良福田</span>
+					<span class="punc">，</span><br/>
+					<span class="word">故我修供養</span>
+					<span class="punc">，</span>
+					<span class="word">願絕諸有縛</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時又有大羅剎母，名叫鬇鬡發，也帶領五千羅剎眷屬進到了墳丘處。羅剎母也看到這罪人被五處捆綁，剃除了鬚髮有一片紅袈裟繫在頸下，立刻右繞此人，非常尊重向他頂禮，恭敬合掌並說偈頌道：
+				<blockquote>
+					大仙莊嚴解脫衣，
+					智者讚揚及奉養，<br/>
+					若能以此修供養，
+					必斷所有煩惱苦。
+				</blockquote>
+				這時羅剎子對他的母親說：
+				<blockquote>
+					此人身上血與肉，
+					國王所賜故來此，<br/>
+					請允許我來飲噉，
+					精力強健以侍母。
+				</blockquote>
+				這時羅剎母回答孩子說：
+				<blockquote>
+					穿著如是袈裟人，
+					並非你我所能食，<br/>
+					若對此人造惡業，
+					必受無盡大苦報。
+				</blockquote>
+				這時羅剎子與羅剎眷屬們聽聞教導後，圍著這人右繞三匝，非常尊重向他頂禮，恭敬合掌並說偈頌：
+				<blockquote>
+					你是大仙佛弟子，
+					能作眾生良福田，<br/>
+					故我應該供養你，
+					願此功德斷煩惱。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時復有大羅剎母</span>
+				<span class="punc">，</span>
+				<span class="word">名刀劍口</span>
+				<span class="punc">，</span>
+				<span class="word">亦有五千眷屬圍遶來入塚間</span>
+				<span class="punc">。</span>
+				<span class="word">時羅剎母亦見此人被縛五處</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮片赤袈裟繫其頸下</span>
+				<span class="punc">，</span>
+				<span class="word">即便右遶</span>
+				<span class="punc">，</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">，</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">汝今被法衣</span>
+					<span class="punc">，</span>
+					<span class="word">必趣涅槃樂</span>
+					<span class="punc">，</span><br/>
+					<span class="word">故我不害汝</span>
+					<span class="punc">，</span>
+					<span class="word">恐諸佛所呵</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子白其母曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">我常吸精氣</span>
+					<span class="punc">，</span>
+					<span class="word">飲噉人血肉</span>
+					<span class="punc">，</span><br/>
+					<span class="word">願聽食此人</span>
+					<span class="punc">，</span>
+					<span class="word">令色力充盛</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎母便告子言</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">若害著袈裟</span>
+					<span class="punc">，</span>
+					<span class="word">剃除鬚髮者</span>
+					<span class="punc">，</span><br/>
+					<span class="word">必墮無間獄</span>
+					<span class="punc">，</span>
+					<span class="word">久受大苦器</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">時羅剎子與諸眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">右遶此人</span>
+				<span class="punc">、</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">、</span>
+				<span class="word">合掌恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">我等怖地獄</span>
+					<span class="punc">，</span>
+					<span class="word">故不害汝命</span>
+					<span class="punc">，</span><br/>
+					<span class="word">當解放汝身</span>
+					<span class="punc">，</span>
+					<span class="word">願脫地獄苦</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時又有大羅剎母，名叫刀劍口，也率領五千眷屬來到墳丘處，羅剎母也看到這罪人被五處捆綁，剃除了鬚髮有一片紅袈裟繫在頸下，立刻右繞此人三匝，非常尊重向他頂禮，恭敬合掌而說偈頌：
+				<blockquote>
+					你今身被淨法衣，
+					必趣涅槃成大樂，<br/>
+					故我不起害你心，
+					唯恐諸佛所呵責。
+				</blockquote>
+				這時羅剎子對他的母親說：
+				<blockquote>
+					我們常吸人精氣，
+					食噉其肉飲其血，<br/>
+					請允許我食此人，
+					氣色充盈體力盛。
+				</blockquote>
+				這時羅剎母回答兒子說：
+				<blockquote>
+					若生惡心來加害，
+					剃除鬚髮袈裟人，<br/>
+					必定淪墮無間獄，
+					久受無量大苦報。
+				</blockquote>
+				這時羅剎子與羅剎眷屬們聽聞教導後，圍著此人右繞三匝，非常尊重向他頂禮，恭敬合掌並說偈頌：
+				<blockquote>
+					我等畏懼地獄苦，
+					故息惡心不害你，<br/>
+					應當鬆綁解放你，
+					也願解脫地獄苦。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時諸羅剎母子眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">同起慈心解此人縛</span>
+				<span class="punc">，</span>
+				<span class="word">懺謝慰喻歡喜放還</span>
+				<span class="punc">。</span>
+				<span class="word">此人清旦疾至王所</span>
+				<span class="punc">，</span>
+				<span class="word">以如上事具白於王</span>
+				<span class="punc">。</span>
+				<span class="word">時勝軍王及諸眷屬</span>
+				<span class="punc">，</span>
+				<span class="word">聞之驚躍歎未曾有</span>
+				<span class="punc">；</span>
+				<span class="word">即立條制頒告國人</span>
+				<span class="punc">：</span>
+				<span class="word">自今已後於我國中</span>
+				<span class="punc">，</span>
+				<span class="word">有佛弟子</span>
+				<span class="punc">，</span>
+				<span class="word">若持戒</span>
+				<span class="punc">、</span>
+				<span class="word">若破戒</span>
+				<span class="punc">、</span>
+				<span class="word">下至無戒</span>
+				<span class="punc">，</span>
+				<span class="word">但剃鬚髮被服袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">諸有侵凌或加害者</span>
+				<span class="punc">，</span>
+				<span class="word">當以死罪而刑罰之</span>
+				<span class="punc">。</span>
+				<span class="word">由此因緣</span>
+				<span class="punc">，</span>
+				<span class="word">眾人慕德</span>
+				<span class="punc">，</span>
+				<span class="word">漸漸歸化</span>
+				<span class="punc">，</span>
+				<span class="word">王贍部洲</span>
+				<span class="punc">，</span>
+				<span class="word">皆共誠心歸敬三寶</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				當時羅剎母子與眷屬們，同生慈悲心解開這罪人的捆綁，向他懺悔謝罪，寬慰開導後放他歡喜回去。清晨這罪人立即跑到國王前，將所有事情如實稟告了國王。這時勝軍王及大臣眷屬們聽聞後，都感歎是前所未有的驚奇與振奮。國王立即頒佈了法令通告國人：從今往後在我國中，不論清淨持戒，或是破戒，甚至還沒有受過戒的佛門弟子，只要是剃除鬚髮穿著袈裟，所有侵淩或加害的人，都要處以死罪。因為這敬重三寶的因緣，群眾仰慕國王德行，漸漸前來歸化，國王因此一統了南贍部洲，所有眾生都能誠心歸依禮敬三寶。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">當觀如是過去羅剎</span>
+				<span class="punc">，</span>
+				<span class="word">雖受無暇餓鬼趣身</span>
+				<span class="punc">，</span>
+				<span class="word">吸人精氣</span>
+				<span class="punc">，</span>
+				<span class="word">飲噉血肉</span>
+				<span class="punc">，</span>
+				<span class="word">惡心熾盛</span>
+				<span class="punc">，</span>
+				<span class="word">無有慈悲</span>
+				<span class="punc">。</span>
+				<span class="word">而見無戒</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮以片袈裟掛其頸者</span>
+				<span class="punc">，</span>
+				<span class="word">即便右遶</span>
+				<span class="punc">、</span>
+				<span class="word">尊重頂禮</span>
+				<span class="punc">、</span>
+				<span class="word">恭敬讚頌</span>
+				<span class="punc">、</span>
+				<span class="word">無損害心</span>
+				<span class="punc">。</span>
+				<span class="word">然未來世</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心懷毒惡</span>
+				<span class="punc">，</span>
+				<span class="word">無有慈愍</span>
+				<span class="punc">，</span>
+				<span class="word">造罪過於藥叉羅剎</span>
+				<span class="punc">。</span>
+				<span class="word">愚癡傲慢</span>
+				<span class="punc">、</span>
+				<span class="word">斷滅善根</span>
+				<span class="punc">；</span>
+				<span class="word">於歸我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若是法器</span>
+				<span class="punc">、</span>
+				<span class="word">若非法器</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮被服袈裟諸弟子所</span>
+				<span class="punc">，</span>
+				<span class="word">不生恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">惱亂呵罵</span>
+				<span class="punc">，</span>
+				<span class="word">或以鞭杖楚撻其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄乃至斷命</span>
+				<span class="punc">。</span>
+				<span class="word">此於一切過去</span>
+				<span class="punc">、</span>
+				<span class="word">未來</span>
+				<span class="punc">、</span>
+				<span class="word">現在諸佛</span>
+				<span class="punc">，</span>
+				<span class="word">犯諸大罪</span>
+				<span class="punc">，</span>
+				<span class="word">斷滅善根焚燒相續</span>
+				<span class="punc">，</span>
+				<span class="word">一切智者之所遠離</span>
+				<span class="punc">，</span>
+				<span class="word">決定當生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！應知以往這些羅剎，雖然生在八難中受餓鬼身，吸人精氣，飲食人身血肉，惡念旺盛，沒有慈悲心。但見到還沒受戒，只是剃除鬚髮掛著一片袈裟在頸上的人，就立即右繞、尊重頂禮、恭敬讚頌、不生傷害心。但在未來世，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等旃荼羅惡人，心腸惡毒，沒有慈悲心憐憫心，所造罪業大過藥叉羅剎。這些惡王惡人，愚癡無知驕傲高慢，善根斷滅；對於歸依佛法的出家弟子，無論是能任持正法的法器僧，或非法器僧，或剃除鬚髮身穿袈裟的弟子們，都不生恭敬心，或是斥責辱罵擾亂心神，或用鞭杖拷打身體，或關進牢獄，甚至殺害生命。這種行為是對一切過去、未來、現在三世諸佛，犯下了大罪，所有善根都將相續焚毀斷滅，必定淪墮無間地獄，一切有智慧的人都應當遠離這些惡行。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">昔有國王</span>
+				<span class="punc">，</span>
+				<span class="word">名超福德</span>
+				<span class="punc">。</span>
+				<span class="word">有人犯過罪應合死</span>
+				<span class="punc">，</span>
+				<span class="word">王性仁慈不欲斷命</span>
+				<span class="punc">。</span>
+				<span class="word">有一大臣多諸智策</span>
+				<span class="punc">，</span>
+				<span class="word">前白王曰</span>
+				<span class="punc">：</span>
+				<span class="word">願勿為憂</span>
+				<span class="punc">，</span>
+				<span class="word">終不令王得殺生罪</span>
+				<span class="punc">，</span>
+				<span class="word">不付魁膾令殺此人</span>
+				<span class="punc">。</span>
+				<span class="word">時彼大臣以己智力</span>
+				<span class="punc">，</span>
+				<span class="word">將犯罪人付惡醉象</span>
+				<span class="punc">。</span>
+				<span class="word">時惡醉象以鼻卷取罪人兩脛舉上空中</span>
+				<span class="punc">，</span>
+				<span class="word">盡其勢力欲撲於地</span>
+				<span class="punc">，</span>
+				<span class="word">忽見此人裳有赤色</span>
+				<span class="punc">，</span>
+				<span class="word">謂是袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">心生淨信</span>
+				<span class="punc">，</span>
+				<span class="word">便徐置地</span>
+				<span class="punc">，</span>
+				<span class="word">懺謝悲號</span>
+				<span class="punc">，</span>
+				<span class="word">跪伏於前</span>
+				<span class="punc">，</span>
+				<span class="word">以鼻抆足</span>
+				<span class="punc">，</span>
+				<span class="word">深心敬重</span>
+				<span class="punc">，</span>
+				<span class="word">瞻仰彼人</span>
+				<span class="punc">。</span>
+				<span class="word">大臣見已</span>
+				<span class="punc">，</span>
+				<span class="word">馳還白王</span>
+				<span class="punc">。</span>
+				<span class="word">王聞喜愕歎未曾有</span>
+				<span class="punc">，</span>
+				<span class="word">便勅國人加敬三寶</span>
+				<span class="punc">，</span>
+				<span class="word">因斯斷殺</span>
+				<span class="punc">，</span>
+				<span class="word">王贍部洲</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！過去有一位國王名叫超福德。國內有人犯了死罪，國王仁慈不想殺害生命。有位足智多謀的大臣，向國王說：請國王不要擔憂，我能讓您不犯殺生罪業，不用交給劊子手去殺此人。當時那位大臣動了腦筋，將這罪人扔給一頭兇惡醉象。當惡醉象用鼻子卷起罪人雙腳高舉空中，準備用力將他摔到地上時，突然看到這罪人衣服上有紅色，以為是袈裟，生起了清淨心念，將罪人緩緩放到地上，不停悲嚎懺悔謝罪，跪伏在罪人前，用象鼻蹭摸罪人腳，非常恭敬仰望著這個罪人。大臣見此景象，疾忙回去向國王稟報。國王聽後又驚又喜，感嘆是前所未有的奇景。便下令國人更加禮敬三寶，不造殺生惡業，由這禁斷殺業的善緣，進而統治了整個南贍部洲。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">當觀如是過去醉象</span>
+				<span class="punc">，</span>
+				<span class="word">雖受無暇傍生趣身</span>
+				<span class="punc">，</span>
+				<span class="word">而敬袈裟不造惡業</span>
+				<span class="punc">。</span>
+				<span class="word">然未來世</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心懷毒惡</span>
+				<span class="punc">，</span>
+				<span class="word">無有慈愍</span>
+				<span class="punc">，</span>
+				<span class="word">造諸罪業過惡醉象</span>
+				<span class="punc">。</span>
+				<span class="word">愚癡傲慢</span>
+				<span class="punc">，</span>
+				<span class="word">斷滅善根</span>
+				<span class="punc">，</span>
+				<span class="word">於歸我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">若是法器</span>
+				<span class="punc">、</span>
+				<span class="word">若非法器</span>
+				<span class="punc">，</span>
+				<span class="word">剃除鬚髮被服袈裟諸弟子所</span>
+				<span class="punc">，</span>
+				<span class="word">不生恭敬</span>
+				<span class="punc">，</span>
+				<span class="word">惱亂呵罵</span>
+				<span class="punc">，</span>
+				<span class="word">或以鞭杖楚撻其身</span>
+				<span class="punc">，</span>
+				<span class="word">或閉牢獄乃至斷命</span>
+				<span class="punc">。</span>
+				<span class="word">此於一切過去</span>
+				<span class="punc">、</span>
+				<span class="word">未來</span>
+				<span class="punc">、</span>
+				<span class="word">現在諸佛</span>
+				<span class="punc">，</span>
+				<span class="word">犯諸大罪</span>
+				<span class="punc">，</span>
+				<span class="word">斷滅善根焚燒相續</span>
+				<span class="punc">，</span>
+				<span class="word">一切智者之所遠離</span>
+				<span class="punc">，</span>
+				<span class="word">決定當生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！當知過去這頭醉象，雖然生在八難中受畜生報身，卻能恭敬袈裟而不造殺生惡業。而在未來世，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等旃荼羅惡人，心腸惡毒，沒有慈悲心憐憫心，所造罪業大過這頭兇惡醉象。這些惡王惡人，愚癡無知驕傲高慢，善根斷滅。對於歸依佛門如法出家，無論是能任持正法的法器僧，或是非法器僧，所有剃除鬚髮身穿袈裟的出家弟子都不恭敬，或是斥責辱罵，擾亂心神，或是用鞭杖拷打身體，或是關進牢獄，乃至殺害生命。這種種惡行是對一切過去、未來、現在三世諸佛，犯下了大罪，所有善根因此都會相續焚毀斷滅，必定淪墮無間地獄，一切有智慧的人都應當遠離這些惡行。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">成就如是第三惡輪</span>
+				<span class="punc">。</span>
+				<span class="word">由此因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果剎帝利惡王、乃至沙門、婆羅門等惡人，造作惡業，成就了這第三惡輪。由此惡緣，使得護持國土，信心堅定敬重三寶的所有天、龍、藥叉等護法神，對於剎帝利惡王，乃至沙門、婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">隨惡友行</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">見有所施四方僧物</span>
+				<span class="punc">，</span>
+				<span class="word">謂諸寺舍</span>
+				<span class="punc">、</span>
+				<span class="word">或寺舍物</span>
+				<span class="punc">、</span>
+				<span class="word">或諸園林</span>
+				<span class="punc">、</span>
+				<span class="word">或園林物</span>
+				<span class="punc">、</span>
+				<span class="word">或諸莊田</span>
+				<span class="punc">、</span>
+				<span class="word">或莊田物</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受淨人男女</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受畜生種類</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受衣服飲食</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受床座敷具</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受病緣醫藥</span>
+				<span class="punc">、</span>
+				<span class="word">或所攝受種種資身應受用物</span>
+				<span class="punc">。</span>
+				<span class="word">如是所施四方僧物</span>
+				<span class="punc">，</span>
+				<span class="word">具戒富德</span>
+				<span class="punc">，</span>
+				<span class="word">精進修行學無學行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至證得最後極果清淨苾芻所應受用</span>
+				<span class="punc">。</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">以強勢力侵奪</span>
+				<span class="punc">，</span>
+				<span class="word">具戒清淨苾芻不聽受用</span>
+				<span class="punc">。</span>
+				<span class="word">迴與破戒惡行苾芻經營在家諸俗業者</span>
+				<span class="punc">，</span>
+				<span class="word">令共受用</span>
+				<span class="punc">、</span>
+				<span class="word">或獨受用</span>
+				<span class="punc">。</span>
+				<span class="word">破戒苾芻既受得已</span>
+				<span class="punc">，</span>
+				<span class="word">或共受用</span>
+				<span class="punc">，</span>
+				<span class="word">或獨受用</span>
+				<span class="punc">，</span>
+				<span class="word">或與俗人同共受用</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">。</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！在未來世這佛土中，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等惡人，隨從惡友造作惡行，覺慧淺薄善根低微，如前經文廣說乃至不信也不怕後世惡業苦果。見到信眾布施供養的四方僧物，就是寺廟、屋舍、園林、莊園田地，及這些寺舍、園林、莊田中的物品、淨人、牲畜、或是衣服、飲食、床座、敷具、湯藥等等資生用品。這些四方僧物，都是給戒德兼備，精進修行有學、無學道業，乃至證得最高果位的清淨比丘所享用的。而這剎帝利惡王、乃至沙門、婆羅門等惡人，用強橫勢力侵佔搶奪，不讓具戒富德的清淨比丘享用。轉送給了那些經營各種在家俗業的破戒惡行比丘，讓他們共同享用，或單獨享用。破戒比丘得到了這些資具，有的會共同享用，或是單獨享用，或是與在家俗眾一起享用。因此惡緣，使得護持國土，信心堅定敬重三寶的所有天、龍、藥叉等護法神，對於剎帝利惡王，乃至沙門、婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">隨惡友行</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">見依我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">聰叡多聞</span>
+				<span class="punc">，</span>
+				<span class="word">語甚圓滿</span>
+				<span class="punc">，</span>
+				<span class="word">或能傳通聲聞乘法</span>
+				<span class="punc">、</span>
+				<span class="word">或能傳通獨覺乘法</span>
+				<span class="punc">、</span>
+				<span class="word">或能傳通無上乘法</span>
+				<span class="punc">，</span>
+				<span class="word">令廣流布利樂有情</span>
+				<span class="punc">。</span>
+				<span class="word">彼於如是說法師所</span>
+				<span class="punc">，</span>
+				<span class="word">呵罵</span>
+				<span class="punc">、</span>
+				<span class="word">毀辱</span>
+				<span class="punc">、</span>
+				<span class="word">誹謗</span>
+				<span class="punc">、</span>
+				<span class="word">輕弄</span>
+				<span class="punc">、</span>
+				<span class="word">欺誑</span>
+				<span class="punc">、</span>
+				<span class="word">逼迫</span>
+				<span class="punc">、</span>
+				<span class="word">惱亂法師</span>
+				<span class="punc">，</span>
+				<span class="word">障礙正法</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">。</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難</span>
+				<span class="punc">，</span>
+				<span class="word">忍命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！在未來世這佛土中，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等旃荼羅惡人，隨從惡友造作惡行，覺慧淺薄善根低微，如前經文廣說乃至不信也不怕後世惡業苦果。見到歸依佛門如法出家，聰慧多聞，說法辯才都非常圓滿的出家人，或是能弘揚傳教聲聞乘法、或是能弘揚傳教緣覺乘法、或是能弘揚傳教無上大乘佛法，使得佛法能廣播流通利樂眾生。這些惡人對於這些出家弘法的法師，或是斥責辱罵，或是誹謗嘲弄、欺詐逼迫、擾亂法師心神，障礙正法流通。因此惡緣，使得護持國土，信心堅定敬重三寶的所有天、龍、藥叉等護法神，對於剎帝利惡王，乃至沙門、婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">隨惡友行</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">；</span>
+				<span class="word">廣說乃至不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">見有所施四方僧物</span>
+				<span class="punc">、</span>
+				<span class="word">寺舍</span>
+				<span class="punc">、</span>
+				<span class="word">莊田</span>
+				<span class="punc">、</span>
+				<span class="word">人畜</span>
+				<span class="punc">、</span>
+				<span class="word">財寶</span>
+				<span class="punc">、</span>
+				<span class="word">花樹</span>
+				<span class="punc">、</span>
+				<span class="word">果樹</span>
+				<span class="punc">、</span>
+				<span class="word">染樹</span>
+				<span class="punc">、</span>
+				<span class="word">蔭樹</span>
+				<span class="punc">、</span>
+				<span class="word">香藥樹等</span>
+				<span class="punc">，</span>
+				<span class="word">及餘資身種種雜物</span>
+				<span class="punc">。</span>
+				<span class="word">我諸弟子具戒富德</span>
+				<span class="punc">、</span>
+				<span class="word">精進修行學無學行</span>
+				<span class="punc">，</span>
+				<span class="word">乃至證得最後極果清淨苾芻</span>
+				<span class="punc">，</span>
+				<span class="word">所應受用</span>
+				<span class="punc">。</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">以強勢力</span>
+				<span class="punc">，</span>
+				<span class="word">或自逼奪</span>
+				<span class="punc">、</span>
+				<span class="word">或教人奪</span>
+				<span class="punc">、</span>
+				<span class="word">或為自用</span>
+				<span class="punc">、</span>
+				<span class="word">或為他用</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">。</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！在未來世這佛土中，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等旃荼羅惡人，隨從惡友造作惡行，覺慧淺薄善根低微，如前經文廣說乃至不信也不怕後世惡業苦果。見到四方信眾布施供養僧眾的物品、寺廟屋舍、莊園田地，人畜財寶、染樹蔭樹、香藥樹等花果樹木，及其他種種資身生活用品。這些物品是給佛門弟子，那些戒德兼備，精進修行有學及無學道業，乃至證得最高果位的清淨比丘所享用。而剎帝利惡王、惡沙門、惡婆羅門等惡人，用強橫勢力自己強權搶奪，或是教唆他人搶奪，搶奪過來自己享用，或給他人享用。因此惡緣，使得護持國土，信心堅定敬重三寶的所有天、龍、藥叉等護法神，對於剎帝利惡王，乃至沙門、婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">於未來世此佛土中</span>
+				<span class="punc">，</span>
+				<span class="word">有剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">善根微少</span>
+				<span class="punc">，</span>
+				<span class="word">無有信心</span>
+				<span class="punc">，</span>
+				<span class="word">諂曲愚癡</span>
+				<span class="punc">，</span>
+				<span class="word">懷聰明慢</span>
+				<span class="punc">，</span>
+				<span class="word">言無真實</span>
+				<span class="punc">，</span>
+				<span class="word">遠離善友</span>
+				<span class="punc">，</span>
+				<span class="word">隨惡友行</span>
+				<span class="punc">，</span>
+				<span class="word">於諸聖法心懷猶豫</span>
+				<span class="punc">，</span>
+				<span class="word">不見不畏後世苦果</span>
+				<span class="punc">。</span>
+				<span class="word">常樂習近諸惡律儀</span>
+				<span class="punc">，</span>
+				<span class="word">好行殺生乃至邪見</span>
+				<span class="punc">；</span>
+				<span class="word">而懷傲慢誑惑世間</span>
+				<span class="punc">，</span>
+				<span class="word">自稱我是住律儀者</span>
+				<span class="punc">。</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">種種方便毀滅我法</span>
+				<span class="punc">，</span>
+				<span class="word">於歸我法而出家者</span>
+				<span class="punc">，</span>
+				<span class="word">數數瞋忿</span>
+				<span class="punc">、</span>
+				<span class="word">呵罵毀辱</span>
+				<span class="punc">、</span>
+				<span class="word">拷楚禁閉</span>
+				<span class="punc">、</span>
+				<span class="word">割截支節乃至斷命</span>
+				<span class="punc">。</span>
+				<span class="word">我所說法不肯信受</span>
+				<span class="punc">，</span>
+				<span class="word">壞窣堵波及諸寺舍</span>
+				<span class="punc">，</span>
+				<span class="word">驅逼苾芻退令還俗</span>
+				<span class="punc">，</span>
+				<span class="word">障礙剃髮被服袈裟</span>
+				<span class="punc">，</span>
+				<span class="word">種種驅使同諸僕庶</span>
+				<span class="punc">。</span>
+				<span class="word">由是因緣</span>
+				<span class="punc">，</span>
+				<span class="word">令護國土一切天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉神等</span>
+				<span class="punc">，</span>
+				<span class="word">信敬三寶無動壞者</span>
+				<span class="punc">，</span>
+				<span class="word">於剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">心生瞋忿</span>
+				<span class="punc">。</span>
+				<span class="word">廣說乃至</span>
+				<span class="punc">，</span>
+				<span class="word">彼剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！在未來世這佛土中，有剎帝利惡王、宰官、居士、長者、沙門、婆羅門等惡人，善根低微覺慧淺薄，沒有佛法正信，諂媚逢迎愚癡邪見，自以為聰明高傲驕慢，惡言妄語不說真法實語，遠離善知識，隨從惡友造作惡行，猶疑不信各種正法，不信也不怕後世惡業苦果。時常愛好親近修學各種惡道軌儀，喜好造作殺生，乃至邪見等十不善業；驕傲高慢誑騙世人，自稱是嚴守佛門戒律的人。這些剎帝利惡王、惡沙門、惡婆羅門等旃荼羅惡人，用種種方法來毀滅佛法，對於歸依佛門的出家人，經常瞋怒相對、斥罵毀辱、拷打禁閉、斬斷四肢甚至殺害性命。不願信受如來所宣說的各種正法，破壞塔廟及寺院，強令逼迫比丘還俗，阻礙佛子剃髮出家穿著袈裟，差譴佛子操持種種勞役如同奴僕。因此惡緣，使得護持國土，信心堅定敬重三寶的所有天、龍、藥叉等護法神，對於剎帝利惡王，乃至沙門、婆羅門等惡人，生起了瞋怒心，如前面經文所廣說，這些剎帝利惡王、惡宰官、惡居士、惡長者、惡沙門、惡婆羅門等惡人，很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">於上所說十種惡輪</span>
+				<span class="punc">，</span>
+				<span class="word">或隨成一</span>
+				<span class="punc">，</span>
+				<span class="word">或具成就</span>
+				<span class="punc">，</span>
+				<span class="word">先所修集一切善根</span>
+				<span class="punc">，</span>
+				<span class="word">摧壞燒滅皆為灰燼</span>
+				<span class="punc">。</span>
+				<span class="word">不久便當支體廢缺</span>
+				<span class="punc">，</span>
+				<span class="word">於多日夜結舌不言</span>
+				<span class="punc">，</span>
+				<span class="word">受諸苦毒痛切難忍</span>
+				<span class="punc">，</span>
+				<span class="word">命終定生無間地獄</span>
+				<span class="punc">。</span>
+				<span class="word">此剎帝利旃荼羅王</span>
+				<span class="punc">、</span>
+				<span class="word">宰官</span>
+				<span class="punc">、</span>
+				<span class="word">居士</span>
+				<span class="punc">、</span>
+				<span class="word">長者</span>
+				<span class="punc">、</span>
+				<span class="word">沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">於當來世下賤人身尚難可得</span>
+				<span class="punc">，</span>
+				<span class="word">況當能證二乘菩提</span>
+				<span class="punc">？</span>
+				<span class="word">無上大乘於其絕分</span>
+				<span class="punc">。</span>
+				<span class="word">如是惡人</span>
+				<span class="punc">，</span>
+				<span class="word">大乘名字尚難得聞</span>
+				<span class="punc">，</span>
+				<span class="word">況當能證無上佛果</span>
+				<span class="punc">！</span>
+				<span class="word">是人究竟自損損他</span>
+				<span class="punc">，</span>
+				<span class="word">一切諸佛所不能救</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！如果剎帝利惡王，宰官、居士、長者、沙門、婆羅門等惡人，在以上所說的十種惡輪，無論是造就了其中那一惡輪，或者完全具足造作，累世所修的一切善根，都會被燒毀化成灰燼。這些惡人很快就會肢體殘廢，多日多夜不能言語，遭受種種痛楚難忍的苦毒折磨，命終身後必定淪墮無間地獄。這些剎帝利惡王，宰官、居士、長者、沙門、婆羅門等惡人，來世投生下賤人身尚且難得，又豈能證得二乘果位？修持無上大乘佛法根本沒有半分可能。這些惡人，連大乘這個名字都難聽聞到，更何況能證得無上正覺佛果！這些人所作所為是徹底自毀毀他，一切諸佛皆無法救度。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如有人壓油為業</span>
+				<span class="punc">，</span>
+				<span class="word">一一麻粒皆有蟲生</span>
+				<span class="punc">，</span>
+				<span class="word">以輪壓之油便流出</span>
+				<span class="punc">。</span>
+				<span class="word">汝當觀此壓麻油人</span>
+				<span class="punc">，</span>
+				<span class="word">於日夜中殺幾生命</span>
+				<span class="punc">？</span>
+				<span class="word">假使如是壓麻油人</span>
+				<span class="punc">，</span>
+				<span class="word">以十具輪相續恒壓於一日夜</span>
+				<span class="punc">，</span>
+				<span class="word">一一輪中所壓麻油數滿千斛</span>
+				<span class="punc">；</span>
+				<span class="word">如是相續至滿千年</span>
+				<span class="punc">，</span>
+				<span class="word">汝觀此人殺幾生命</span>
+				<span class="punc">？</span>
+				<span class="word">所獲罪業寧為多不</span>
+				<span class="punc">？</span>
+				<span class="word">地藏菩薩摩訶薩言</span>
+				<span class="punc">：</span>
+				<span class="word">甚多</span>
+				<span class="punc">，</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">甚多</span>
+				<span class="punc">，</span>
+				<span class="word">大德</span>
+				<span class="punc">！</span>
+				<span class="word">此人所殺無量無邊</span>
+				<span class="punc">，</span>
+				<span class="word">所獲罪業不可稱計</span>
+				<span class="punc">，</span>
+				<span class="word">算數譬喻所不能及</span>
+				<span class="punc">，</span>
+				<span class="word">唯佛能知餘無知者</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！譬如有人以榨油為生，每一顆麻粒上都有蟲生長，用油輪壓榨麻粒，麻油就能榨出。你可知這壓麻油人，在一日一夜中殺了多少生命？如果這個壓麻油人，用十個油輪連續壓油一日一夜，每一油輪所壓出的麻油數量能滿一千斛；這樣子連續壓油滿一千年，你可知這人殺害了多少生命？所獲罪業多不多呢？地藏菩薩摩訶薩說：非常多，世尊！非常多，大德！這人所殺害的生命無量無邊，所犯罪業無法計算，就連算數比喻也算不清楚，只有佛能知曉，其他人都無法得知。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">佛言</span>
+				<span class="punc">：</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">假使有人為財利故</span>
+				<span class="punc">，</span>
+				<span class="word">置十婬坊</span>
+				<span class="punc">，</span>
+				<span class="word">一一坊中置千婬女</span>
+				<span class="punc">，</span>
+				<span class="word">一一婬女種種莊嚴</span>
+				<span class="punc">，</span>
+				<span class="word">誑惑多人恒為欲事</span>
+				<span class="punc">；</span>
+				<span class="word">如是相續至滿千年</span>
+				<span class="punc">，</span>
+				<span class="word">此人獲罪不可稱計</span>
+				<span class="punc">，</span>
+				<span class="word">算數譬喻所不能及</span>
+				<span class="punc">。</span>
+				<span class="word">如前十輪壓油人罪</span>
+				<span class="punc">，</span>
+				<span class="word">等一婬坊所獲罪業</span>
+				<span class="punc">。</span>
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">假使有人為財利故</span>
+				<span class="punc">，</span>
+				<span class="word">置十酒坊</span>
+				<span class="punc">，</span>
+				<span class="word">一一坊中種種嚴飾</span>
+				<span class="punc">，</span>
+				<span class="word">方便招誘千耽酒人</span>
+				<span class="punc">，</span>
+				<span class="word">飲興歡娛晝夜無廢</span>
+				<span class="punc">；</span>
+				<span class="word">如是相續至滿千年</span>
+				<span class="punc">，</span>
+				<span class="word">此人獲罪不可稱計</span>
+				<span class="punc">，</span>
+				<span class="word">算數譬喻所不能及</span>
+				<span class="punc">。</span>
+				<span class="word">如前所說</span>
+				<span class="punc">，</span>
+				<span class="word">十婬坊罪</span>
+				<span class="punc">，</span>
+				<span class="word">等一酒坊所獲罪業</span>
+				<span class="punc">。</span>
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">假使有人為財利故</span>
+				<span class="punc">，</span>
+				<span class="word">置十屠坊</span>
+				<span class="punc">，</span>
+				<span class="word">一一坊中於一日夜殺害千生</span>
+				<span class="punc">，</span>
+				<span class="word">牛</span>
+				<span class="punc">、</span>
+				<span class="word">羊</span>
+				<span class="punc">、</span>
+				<span class="word">駝</span>
+				<span class="punc">、</span>
+				<span class="word">鹿</span>
+				<span class="punc">、</span>
+				<span class="word">雞</span>
+				<span class="punc">、</span>
+				<span class="word">猪等命</span>
+				<span class="punc">；</span>
+				<span class="word">如是相續至滿千年</span>
+				<span class="punc">，</span>
+				<span class="word">此人獲罪不可稱計</span>
+				<span class="punc">，</span>
+				<span class="word">算數譬喻所不能及</span>
+				<span class="punc">。</span>
+				<span class="word">如前所說</span>
+				<span class="punc">，</span>
+				<span class="word">十酒坊罪</span>
+				<span class="punc">，</span>
+				<span class="word">等一屠坊所獲罪業</span>
+				<span class="punc">。</span>
+				<span class="word">如前所說十屠坊罪</span>
+				<span class="punc">，</span>
+				<span class="word">等剎帝利旃荼羅王</span>
+				<span class="punc">，</span>
+				<span class="word">乃至沙門</span>
+				<span class="punc">、</span>
+				<span class="word">婆羅門等旃荼羅人</span>
+				<span class="punc">，</span>
+				<span class="word">於前十惡</span>
+				<span class="punc">，</span>
+				<span class="word">隨成一輪</span>
+				<span class="punc">，</span>
+				<span class="word">一日一夜所獲罪業</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				佛說：善男子！假使有人為了財利，開了十間青樓婬坊，每一婬坊安置了一千名妓女，每個妓女打扮豔麗，媚惑許多人沉迷在淫欲中；這樣子連續滿一千年，此人所犯罪業無法計算，連算數比喻也算不清楚。相比前面所說，用十輪壓油人的罪業，等同一間婬坊所獲的罪業。此外，善男子！假使有人為了財利，開設了十家酒坊，每家酒坊中裝飾華麗，方便引誘千人沉迷飲酒，晝夜不停歡杯作樂；這樣子連續滿一千年，此人所犯罪業無法計算，連算數比喻也算不清楚，相比前面所說，十間淫坊的罪業，等同於一家酒坊所獲的罪業。此外，善男子！假使有人為了財利，開設了十處屠宰場，每處屠場，在一日一夜殺害千條生命，包括牛、羊、駝、鹿、雞、豬等等生命；這樣子連續滿一千年，此人所犯罪業無法計算，連算數比喻也算不清楚，相比前所說，十家酒坊的罪業，等同於一處屠宰場所獲的罪業。如同前面所說的，十處屠宰場所獲的罪業，等同於剎帝利惡王，乃至惡沙門、惡婆羅門等惡人，在前面所說的十惡輪，無論造就那一惡輪，一日一夜所獲的罪業。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">十壓油輪罪</span>
+					<span class="punc">，</span>
+					<span class="word">等彼一婬坊</span>
+					<span class="punc">，</span><br/>
+					<span class="word">置彼十婬坊</span>
+					<span class="punc">，</span>
+					<span class="word">等一酒坊罪</span>
+					<span class="punc">，</span><br/>
+					<span class="word">置十酒坊罪</span>
+					<span class="punc">，</span>
+					<span class="word">等彼一屠坊</span>
+					<span class="punc">，</span><br/>
+					<span class="word">置彼十屠坊</span>
+					<span class="punc">，</span>
+					<span class="word">罪等王等一</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時世尊說了偈頌：
+				<blockquote>
+					十輪壓油人所得罪業，
+					等同開設一淫坊罪業。<br/>
+					開設十淫坊所得罪業，
+					等同開設一酒坊罪業。<br/>
+					開設十酒坊所得罪業，
+					等同開設一屠坊罪業。<br/>
+					開設十屠坊所得罪業，
+					等同剎帝利惡王等惡人在十惡輪中隨造一惡輪所得罪業 。
+				</blockquote>
+				<hr/>
+			</div>
+			<div class="paragraph">
+				<h2>
+					<span class="word">地藏十輪經卷四</span>
+				</h2>
+			</div>
+			<div class="d-flex mb-3">
+				<div class="me-auto w-50">
+					<a href="/ksitigarbha-dasacakra-vol3" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-left fs-1"></i>
+							</div>
+							<div class="d-flex w-100 justify-content-center">
+								<span class="ms-2 text-start text-truncate">地藏十輪經卷三</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="ms-auto me-3 w-50">
+					<a href="/ksitigarbha-dasacakra-vol5" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex w-100 justify-content-center">
+								<span class="me-2 text-start text-truncate">地藏十輪經卷五</span>
+							</div>
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-right fs-1"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+		
+		<!-- audio control -->
+				
+		<!-- footer -->
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
+	<div class="row px-5">
+		<div class="col-lg-6 px-4 mb-3">
+			<p>
+				本站的所有內容皆轉載自網絡或流通善書，目的為宏揚法門才加以整理匯編，無意侵犯版權著作。
+				版權持有人如覺有利益侵損，請與本站管理員聯絡，我們會盡快刪除相關內容。
+			</p>
+			
+			<p>
+				本站的內容經過初步校對，盡最大努力保持內容的完整和準確性，如有缺失遺漏還請各位大德指正，功德無量。
+			</p>
+			
+			<p>
+				如果對本站有任何建議或使用問題，亦都歡迎與我們聯絡。
+			</p>
+
+			我們的聯絡方法：<a href="mailto:admin@mahayanasutras.xyz">admin@mahayanasutras.xyz</a>
+		</div>
+		
+	</div>
+</div>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
+		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
+        <script src="/assets/build/js/app.js?id=5545468d150b09f8bc1a551763b7af04"></script>
+		    </body>
+</html>

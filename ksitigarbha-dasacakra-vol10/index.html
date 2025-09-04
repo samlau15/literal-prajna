@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="大乘經典">
+		<title>大乘大集地藏十輪經卷十</title>
+		
+        <link rel="canonical" href="/ksitigarbha-dasacakra-vol10">
+		<link rel="icon" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=ec77030a13e450fc2cfdc6d140c59ae2">
+		<style>
+	body {
+		background-image: url('/assets/images/background-mantra.png');
+	}
+</style>
+		
+		<!-- Google tag (gtag.js) -->
+		<!-- Must be placed in head tag, otherwise Google search console cannot detect it. -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CYG1JG43E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-9CYG1JG43E');
+		</script>
+    </head>
+    <body
+		x-data="page"
+		@mmenu-opened.window="isSidebarOpened=true"
+		@mmenu-closed.window="isSidebarOpened=false"
+	>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="" width="55" src="/assets/images/logo-mantra.png" />
+				</a>
+				<div class="collapse navbar-collapse" id="main_nav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								地藏經典
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								修行概要
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								占察工具
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#menu" x-show="!isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+				<a href="#page" x-show="isSidebarOpened">
+					<button class="navbar-toggler">
+						<i class="fas fa-bars"></i>
+					</button>
+				</a>
+			</div>
+		</nav>
+		
+		<!-- sidebar -->
+		<nav id="menu">
+			<ul id="panel-menu">
+				<li>
+					<span>地藏經典</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-vol1">地藏菩薩本願經</a></li>
+						<li><a href="/ksitigarbha-divination-vol1">占察善惡業報經</a></li>
+						<li><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+						<li><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>修行概要</span>
+					<ul>
+						<li><a href="/ksitigarbha-vows-practices">地藏經修行概要</a></li>
+						<li><a href="/ksitigarbha-divination-practices">占察善惡業報經行法</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>占察工具</span>
+					<ul>
+						<li><a href="/ksitigarbha-divination-tools-group3">第三輪相翻查結果</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+		<!-- content -->
+		<div id="page" class="pt-3">
+			<div class="container pb-3">
+	<div class="row">
+		<div class="col-md-3 toc-container">
+			<nav
+	x-data="Object.assign({}, {
+		audioPlaying: false,
+		tocItems: {},
+		currItems: {},
+		audioCollapsed: false,
+		forceShow: false,
+		updateCurrItems: () => {
+			let enteries = Object.entries($data.tocItems);
+			let tmpArr = new Array(enteries.length);
+			for(let [id, val] of enteries) {
+				//tmpArr[val.pos] = {
+				tmpArr[tmpArr.length-1-val.pos] = {
+					id,
+					inview: val.inview,
+				}
+			}
+			tmpArr = tmpArr.filter(t => t.inview);
+			if(tmpArr.length > 0) {
+				$data.currItems = {};
+				$data.currItems[tmpArr[0].id] = true;
+				let ids = tmpArr[0].id.split('-');
+				ids.pop();
+				if(ids.length > 0) {
+					ids.forEach(id => $data.currItems[id] = true);
+				}
+			}
+		},
+		tocEnter: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = true;
+			$data.updateCurrItems();
+		},
+		tocExit: e => {
+			const id = e.detail;
+			$data.tocItems[id].inview = false;
+			$data.updateCurrItems();
+		},
+		jumpTo: id => {
+			$dispatch('jump-to', id);
+		},
+		adjustFontsize: deg => {
+			$data.textsize = deg;
+		}
+	}, {currItems: {vol10: true}})"
+	x-init="
+		let items = tocItems;
+		$('.toc-item').each(function(pos) {
+			const id = $(this).attr('id');
+			items[id] = {
+				pos,
+				inview: false,
+			};
+		});
+		inView('.toc-item')
+			.on('enter', el => {
+				$dispatch('toc-enter', $(el).attr('id'));
+			})
+			.on('exit', el => {
+				$dispatch('toc-exit', $(el).attr('id'));
+			});
+		inView.offset(80);
+		
+				$data.textsize = 1;
+						
+			
+				$data.details = false;
+			"
+	@toc-enter.window="tocEnter"
+	@toc-exit.window="tocExit"
+	@audio-shown.window="audioCollapsed=false"
+	@audio-collapsed.window="audioCollapsed=true"
+	@audio-played.window="audioPlaying=true"
+	@audio-paused.window="audioPlaying=false"
+	@audio-stopped.window="audioPlaying=false"
+	
+	
+	
+		class="sticky-top"
+		
+	data-toggle="toc"
+>
+	<div
+		:class="{
+			'd-block' : !forceShow,
+			'd-md-none' : true,
+		}"
+	>
+		<button x-show="!forceShow" @click="forceShow=!forceShow" class="btn btn-outline-primary">
+			<div><i class="fa fa-list"></i> 目錄</div>
+		</button>
+		<button x-show="forceShow" @click="forceShow=!forceShow" class="btn btn-outline-danger float-end">
+			<div><i class="fa fa-close"></i> 關閉目錄</div>
+		</button>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		:class="{
+			'd-none' : !forceShow,
+			'd-md-block' : !forceShow,
+		}"
+		class="controls px-2"
+	>
+		<i class="fa fa-list"></i> 目錄
+		<ul class="nav navbar-nav">
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol1">地藏十輪經卷一</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol2">地藏十輪經卷二</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol3">地藏十輪經卷三</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol4">地藏十輪經卷四</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol5">地藏十輪經卷五</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol6">地藏十輪經卷六</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol7">地藏十輪經卷七</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol8">地藏十輪經卷八</a>
+					</li>
+					<li>
+						<a class="nav-link text-nowrap" href="/ksitigarbha-dasacakra-vol9">地藏十輪經卷九</a>
+					</li>
+					<li>
+						<a @click="jumpTo('vol10')" :class="{active: currItems['vol10'] && true}" class="nav-link text-nowrap" href="#vol10">地藏十輪經卷十</a>
+						<ul class="nav navbar-nav">
+							<li><a @click="jumpTo('vol10-ch13')" :class="{active: currItems['vol10-ch13'] && true}" class="nav-link text-nowrap" href="#vol10-ch13">福田相品第七之二</a></li>
+							<li><a @click="jumpTo('vol10-ch14')" :class="{active: currItems['vol10-ch14'] && true}" class="nav-link text-nowrap" href="#vol10-ch14">獲益囑累品第八</a></li>
+						</ul>
+					</li>
+				</ul>
+		<hr/>
+				<div class="mb-3">
+			<i class="fa fa-font"></i>
+			字體大小
+			<button x-show="textsize==2" @click="textsize=1" class="btn btn-sm btn-secondary ms-3" type="button" title="縮小">
+				<i class="fa fa-magnifying-glass-minus"></i>
+			</button>
+			<button x-show="textsize==1" @click="textsize=2" class="btn btn-sm btn-secondary ms-3" type="button" title="增大">
+				<i class="fa fa-magnifying-glass-plus"></i>
+			</button>
+		</div>
+		<hr/>
+								<div class="mb-3">
+			<i class="fa fa-globe"></i>
+			白話淺譯 <small class="ms-2">
+						(譕非原譯，轉載自 <a href="https://mahagoogol.pixnet.net/blog/post/185651701">「譕非的部落格」</a>，內有詳盡註釋。
+						由於原譯經文與 <a href="https://cbetaonline.dila.edu.tw/zh/T13n0411_p0721a04">CBETA</a> 有出入，本站依從 CBETA 的版本及對內容略作修改。)
+					</small>
+		</div>
+		<div class="form-check form-switch">
+			<input x-model="details" class="form-check-input" type="checkbox" role="switch" id="switch-details">
+			<label class="form-check-label" for="switch-details">顯示</label>
+		</div>
+		<hr/>
+				
+	</div>
+</nav>
+		</div>
+		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">地藏經典</li>
+					<li class="breadcrumb-item"><a href="/ksitigarbha-dasacakra-vol1">大乘大集地藏十輪經</a></li>
+					<li class="breadcrumb-item active">卷十</li>
+				</ol>
+			</nav>
+		
+			<h1>大乘大集地藏十輪經</h1>
+			<small class="float-end mb-3">三藏法師玄奘　譯</small>
+			<div class="clearfix"></div>
+			<h2 class="toc-item" id="vol10">
+				<span class="word">地藏十輪經卷十</span>
+			</h2>
+			<h4 class="toc-item" id="vol10-ch13">
+				<span class="word">福田相品第七之二</span>
+			</h4>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩摩訶薩復有般若大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+				<span class="word">云何般若大甲冑輪</span>
+				<span class="punc">？</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩般若有二種相</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">世間</span>
+					<span class="punc">；</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">出世間</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！菩薩摩訶薩還有般若大甲胄輪。衛護莊嚴大甲冑，迴轉法輪行度間，摧碾煩惱惑業苦，普為群生作福田。成就此輪的菩薩摩訶薩，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執，福德成就勝越一切聲聞獨覺，能成就為一切聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。什麼是般若大甲胄輪？善男子！菩薩般若有二種相，
+				<blockquote>
+					一是世間般若，<br/>
+					二是出世間般若。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何菩薩世間般若</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩唯依讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">書寫</span>
+				<span class="punc">、</span>
+				<span class="word">聽聞</span>
+				<span class="punc">、</span>
+				<span class="word">為他演說三乘正法</span>
+				<span class="punc">。</span>
+				<span class="word">欲求除滅一切眾生無明黑暗</span>
+				<span class="punc">，</span>
+				<span class="word">欲求發起一切眾生大慧光明</span>
+				<span class="punc">。</span>
+				<span class="word">謂於如來所說種種與聲聞乘相應正法</span>
+				<span class="punc">，</span>
+				<span class="word">精勤讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">聽聞</span>
+				<span class="punc">、</span>
+				<span class="word">書寫</span>
+				<span class="punc">、</span>
+				<span class="word">為他演說</span>
+				<span class="punc">，</span>
+				<span class="word">勸正修行</span>
+				<span class="punc">。</span>
+				<span class="word">或於如來所說種種與獨覺乘相應正法</span>
+				<span class="punc">，</span>
+				<span class="word">精勤讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">聽聞</span>
+				<span class="punc">、</span>
+				<span class="word">書寫</span>
+				<span class="punc">、</span>
+				<span class="word">為他演說</span>
+				<span class="punc">，</span>
+				<span class="word">勸正修行</span>
+				<span class="punc">。</span>
+				<span class="word">或於如來所說種種與無上乘相應正法</span>
+				<span class="punc">，</span>
+				<span class="word">精勤讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">聽聞</span>
+				<span class="punc">、</span>
+				<span class="word">書寫</span>
+				<span class="punc">、</span>
+				<span class="word">為他演說</span>
+				<span class="punc">，</span>
+				<span class="word">勸正修行</span>
+				<span class="punc">。</span>
+				<span class="word">不求賢聖無漏道支</span>
+				<span class="punc">、</span>
+				<span class="word">不求聖道</span>
+				<span class="punc">、</span>
+				<span class="word">不求聖道所攝解脫</span>
+				<span class="punc">，</span>
+				<span class="word">不行寂靜真實般若</span>
+				<span class="punc">，</span>
+				<span class="word">常行有見</span>
+				<span class="punc">、</span>
+				<span class="word">有相般若</span>
+				<span class="punc">。</span>
+				<span class="word">如是般若有取有著</span>
+				<span class="punc">，</span>
+				<span class="word">是名菩薩世間般若</span>
+				<span class="punc">。</span>
+				<span class="word">如是般若</span>
+				<span class="punc">，</span>
+				<span class="word">共諸聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">此不名為大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">亦不由此名為菩薩摩訶薩也</span>
+				<span class="punc">，</span>
+				<span class="word">及名一切聲聞獨覺真實福田</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是菩薩世間般若？就是說菩薩只靠著讀誦、書寫、聽受，為他人演說講解三乘正法經典文義。想要藉此除滅一切眾生無明黑暗，想要藉此發起一切眾生破除黑闇的大光明智慧。就是對於如來所說的各種與聲聞乘相應正法的經典法義，精勤讀誦、聽受、書寫、為他人演說講解，勸導眾生如法修行。或是對於如來所說的各種與獨覺乘相應正法的經典法義，精勤讀誦、聽受、書寫、為他人演說講解，勸導眾生如法修行。或是對於如來所說的各種與無上大乘相應正法的經典法義，精勤讀誦、聽受、書寫、為他人演說講解，勸導眾生如法修行。不希求賢聖無漏道法、不希求出世正道、不希求出世正道所含攝的種種解脫法門，不任持無相寂靜，無所照之境、亦無能照之心的真實般若，而慣行有所觀照緣取，有所思維分別的世俗智。這種般若有所取受、有所執著，稱為菩薩世間般若。這種般若與聲聞獨覺二乘等行者所修相同，不能稱作大甲冑輪，也不能藉由這種世間般若的修持而稱為菩薩摩訶薩，及稱為一切聲聞獨覺乘的真實福田。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何菩薩出世般若</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩精勤修習菩提道時</span>
+				<span class="punc">，</span>
+				<span class="word">隨力讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">聽聞</span>
+				<span class="punc">、</span>
+				<span class="word">書寫</span>
+				<span class="punc">、</span>
+				<span class="word">為他演說三乘正法</span>
+				<span class="punc">。</span>
+				<span class="word">而於其中</span>
+				<span class="punc">，</span>
+				<span class="word">依無所得方便而住</span>
+				<span class="punc">，</span>
+				<span class="word">無所行動</span>
+				<span class="punc">、</span>
+				<span class="word">無所思惟</span>
+				<span class="punc">、</span>
+				<span class="word">無有根本</span>
+				<span class="punc">。</span>
+				<span class="word">以如虛空心</span>
+				<span class="punc">、</span>
+				<span class="word">普寂滅心</span>
+				<span class="punc">、</span>
+				<span class="word">無增減慧</span>
+				<span class="punc">、</span>
+				<span class="word">無取著心</span>
+				<span class="punc">、</span>
+				<span class="word">無生滅心</span>
+				<span class="punc">、</span>
+				<span class="word">無退轉心</span>
+				<span class="punc">、</span>
+				<span class="word">法平等心</span>
+				<span class="punc">、</span>
+				<span class="word">真如心</span>
+				<span class="punc">、</span>
+				<span class="word">實際心</span>
+				<span class="punc">、</span>
+				<span class="word">法界心</span>
+				<span class="punc">、</span>
+				<span class="word">無我心</span>
+				<span class="punc">、</span>
+				<span class="word">無分別心</span>
+				<span class="punc">、</span>
+				<span class="word">寂滅安忍離分別心</span>
+				<span class="punc">，</span>
+				<span class="word">善巧安住無成壞地</span>
+				<span class="punc">，</span>
+				<span class="word">善巧安住無住無著勝妙慧地</span>
+				<span class="punc">。</span>
+				<span class="word">如是般若無取</span>
+				<span class="punc">、</span>
+				<span class="word">無著</span>
+				<span class="punc">，</span>
+				<span class="word">是名菩薩出世般若大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若菩薩摩訶薩成此般若大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">得名菩薩摩訶薩也</span>
+				<span class="punc">。</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">，</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是菩薩出世間般若？就是指菩薩精勤修習菩提道時，隨自己能力所及，來讀誦、聽受、書寫、為他人演說講解三乘正法。以這讀、聽、寫、說，作為導引眾生趨入正修正定的因緣方便法，心念不住於相，沒有造作相，沒有思維相，沒有任何本源繫縛。以離一切染妄猶如虛空心、以一切有漏畢竟滅盡心、以觀法平等無增減慧、以無所取執離貪著心、以諸法無為無生無滅心、以勇猛進修無所退屈心、以諸法平等無所差別心、以真實離妄法性如常真如心、以真實離妄心、以法界無限本來一體心，以無人我見、無法我見究竟真理心、以諸相平等無所分別心、以深入寂滅捨離分別心，善巧安住如虛空般無成無壞不動境界，善巧安住無住無著無相覺慧境界。這種無取受、無執著的般若智慧，就是菩薩出世般若大甲胄輪。善男子！菩薩摩訶薩成就了這般若大甲冑輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。可稱作為菩薩摩訶薩。福德成就勝過一切聲聞獨覺，能成就為聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護持。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩摩訶薩復有善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！菩薩摩訶薩還有善巧方便大甲胄輪。成就此輪的菩薩摩訶薩，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執，福德成就勝越一切聲聞獨覺，能成就為一切聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何名為善巧方便大甲冑輪</span>
+				<span class="punc">？</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩善巧方便有二種相</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">世間</span>
+					<span class="punc">；</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">出世間</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">云何名為菩薩世間善巧方便</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩或為自利</span>
+				<span class="punc">、</span>
+				<span class="word">或為他利</span>
+				<span class="punc">、</span>
+				<span class="word">或為俱利</span>
+				<span class="punc">，</span>
+				<span class="word">常懷彼此</span>
+				<span class="punc">，</span>
+				<span class="word">示現種種工巧伎術</span>
+				<span class="punc">。</span>
+				<span class="word">為自及他得成熟故</span>
+				<span class="punc">，</span>
+				<span class="word">承事供養諸佛世尊</span>
+				<span class="punc">、</span>
+				<span class="word">或諸菩薩</span>
+				<span class="punc">、</span>
+				<span class="word">或諸獨覺</span>
+				<span class="punc">、</span>
+				<span class="word">或諸聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">或母或父</span>
+				<span class="punc">、</span>
+				<span class="word">或諸病者</span>
+				<span class="punc">、</span>
+				<span class="word">或諸羸劣無依怙者</span>
+				<span class="punc">。</span>
+				<span class="word">若見厄難臨被害者</span>
+				<span class="punc">，</span>
+				<span class="word">種種勤苦方便救濟</span>
+				<span class="punc">，</span>
+				<span class="word">以四攝事成熟有情</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是善巧方便大甲胄輪？善男子！菩薩善巧方便有兩種相，
+				<blockquote>
+					一是世間善巧方便，<br/>
+					二是出世間善巧方便。
+				</blockquote>
+				什麼是菩薩世間善巧方便？就是指諸菩薩或為自身利益、或為利益他人，或為了自他兩利，時常掛懷我他彼此，展現種種工巧技藝學識。為了成熟自他，侍奉供養諸佛世尊、或諸菩薩、諸獨覺、諸聲聞、或父母、或濟助各種患病、衰弱、無依無靠之人。如果見到遭逢苦難、面臨危害的人，會用種種方法勤苦救濟，以布施、愛語、利行、同事四攝法來成熟眾生 。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">是諸菩薩自住大乘</span>
+				<span class="punc">，</span>
+				<span class="word">於諸聲聞及獨覺乘非大乘器</span>
+				<span class="punc">，</span>
+				<span class="word">若諸聲聞及獨覺乘根未熟者</span>
+				<span class="punc">，</span>
+				<span class="word">為說微妙甚深法教令其修學</span>
+				<span class="punc">。</span>
+				<span class="word">或勸勤修諸聖靜慮</span>
+				<span class="punc">；</span>
+				<span class="word">或為開示最勝義諦</span>
+				<span class="punc">，</span>
+				<span class="word">勸令修行</span>
+				<span class="punc">，</span>
+				<span class="word">超四顛倒</span>
+				<span class="punc">，</span>
+				<span class="word">覺悟四種無墮法性</span>
+				<span class="punc">；</span>
+				<span class="word">或令趣入四無礙解</span>
+				<span class="punc">；</span>
+				<span class="word">或復乃至勸令安住四念住</span>
+				<span class="punc">、</span>
+				<span class="word">四正斷</span>
+				<span class="punc">、</span>
+				<span class="word">四神足</span>
+				<span class="punc">、</span>
+				<span class="word">五根</span>
+				<span class="punc">、</span>
+				<span class="word">五力</span>
+				<span class="punc">、</span>
+				<span class="word">七等覺支</span>
+				<span class="punc">、</span>
+				<span class="word">八聖道支</span>
+				<span class="punc">、</span>
+				<span class="word">有餘</span>
+				<span class="punc">、</span>
+				<span class="word">無餘道及道果</span>
+				<span class="punc">，</span>
+				<span class="word">趣入巧智</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這些菩薩們自己依止大乘修行，對於未具大乘根器的聲聞及獨覺乘眾，或是聲聞及獨覺二乘根器尚未成熟的人，就對他們宣說深奧微妙大乘法理讓他們修學。或是勸導眾生勤修各種正定；或為眾生開示第一義諦，勸導他們修行超越四顛倒法，修學解悟四依不退墮法。或者讓眾生修學法，義，辭，辯四無礙。乃至勸導眾生依止四念住、四正斷、四神足、五根、五力、七菩提分、八正道分，安住修學有餘或無餘道法及修證道果。以各種巧智善法來成熟眾生。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若諸有情貪求名稱</span>
+				<span class="punc">、</span>
+				<span class="word">利養</span>
+				<span class="punc">、</span>
+				<span class="word">富貴</span>
+				<span class="punc">，</span>
+				<span class="word">諸根躁擾</span>
+				<span class="punc">，</span>
+				<span class="word">善根未熟</span>
+				<span class="punc">，</span>
+				<span class="word">勸令讀誦諸阿笈摩及毘奈耶</span>
+				<span class="punc">、</span>
+				<span class="word">阿毘達磨</span>
+				<span class="punc">。</span>
+				<span class="word">或勸讀誦除佛所說順解脫論</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情不樂布施</span>
+				<span class="punc">，</span>
+				<span class="word">勸令惠捨種種珍財</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情暴惡不仁</span>
+				<span class="punc">，</span>
+				<span class="word">勸令修學四種梵住</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情心多忿恚</span>
+				<span class="punc">，</span>
+				<span class="word">勸令修忍</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情心多懈怠</span>
+				<span class="punc">，</span>
+				<span class="word">勸修精進</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情心多散亂</span>
+				<span class="punc">，</span>
+				<span class="word">勸修靜慮</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情具足惡慧</span>
+				<span class="punc">，</span>
+				<span class="word">為說正法</span>
+				<span class="punc">，</span>
+				<span class="word">謂以記說</span>
+				<span class="punc">、</span>
+				<span class="word">教誡方便</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情不敬三寶</span>
+				<span class="punc">，</span>
+				<span class="word">具無依行</span>
+				<span class="punc">，</span>
+				<span class="word">勸受三歸令敬三寶</span>
+				<span class="punc">、</span>
+				<span class="word">或勸受學近事律儀</span>
+				<span class="punc">、</span>
+				<span class="word">或勸受學近住律儀</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+				<span class="word">或勸修習種種工巧伎術業處</span>
+				<span class="punc">，</span>
+				<span class="word">令其成熟</span>
+				<span class="punc">。</span>
+				<span class="word">如是等菩薩摩訶薩種種世間巧方便智</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果眾生們貪求名聞、利養、富貴，六根躁動不安，涅槃善根尚未成熟，就勸導他們讀頌阿含經和修持律藏、學習論藏等三藏。或勸導他們誦習順應佛法的世間各種解脫論典，來使他們成熟善根。如果眾生們不喜好布施，就勸導他們施捨種種金銀財寶利益他人，使他們成熟善根。如果眾生們性情暴惡無慈憫心，就勸導他們修學慈、悲、喜、捨四梵住。如果眾生們心念常常怨恨憤怒，就勸導他們修學安忍。如果眾生們心念多懶惰散漫，就勸導他們修學精進。如果眾生們心念常散雜紛亂，就勸導他們修學禪定。如果眾生們具有不正智見，缺乏真智正慧。則為他們宣說正法，就是以記說示導、教誡示導等方法，使他們成熟善根。如果眾生們不敬重三寶，行無依行惡法，則勸導他們皈依三寶，恭敬三寶。或勸導他們受學五戒等近事律儀；或勸導他們受學八關齋戒等近住律儀，使他們成熟善根。或是勸導眾生修習世間種種工巧、技術、事業，使他們成熟善根。有這麼多種菩薩摩訶薩的世間善巧方便智法。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">過殑伽沙菩薩摩訶薩</span>
+				<span class="punc">，</span>
+				<span class="word">以是一切書論</span>
+				<span class="punc">、</span>
+				<span class="word">工巧伎術業處</span>
+				<span class="punc">，</span>
+				<span class="word">加行精進巧方便智</span>
+				<span class="punc">，</span>
+				<span class="word">摧伏一切外道異學</span>
+				<span class="punc">。</span>
+				<span class="word">如是名為菩薩世間善巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">此巧方便共諸聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">亦作一切佛法依因</span>
+				<span class="punc">，</span>
+				<span class="word">亦是善巧諸行依處</span>
+				<span class="punc">，</span>
+				<span class="word">亦是善巧任運無思滅退墮法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				有超過恒河沙數的菩薩摩訶薩，用這一切書典經論、工巧技術、事業修學，精益求精的善巧方便智法，來摧伏一切外道異學。這就是菩薩的世間善巧方便，這種善巧方便與聲聞獨覺二乘等眾所修相同，也可作為眾生修學一切佛法的起始依止，也是各種善巧有為行法的遵循方式，也是各種善巧方法自在運用，滅除眾生種種迷困，修行不會退轉的善法。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若諸菩薩不依明師</span>
+				<span class="punc">，</span>
+				<span class="word">不依善友</span>
+				<span class="punc">，</span>
+				<span class="word">修行世間善巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">是諸菩薩愚於世間善巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">向諸惡趣</span>
+				<span class="punc">。</span>
+				<span class="word">不能隨順安住出世巧方便智</span>
+				<span class="punc">，</span>
+				<span class="word">亦非一切真實福田</span>
+				<span class="punc">。</span>
+				<span class="word">不能善巧知諸有情根行差別</span>
+				<span class="punc">，</span>
+				<span class="word">以於善巧方便愚故</span>
+				<span class="punc">，</span>
+				<span class="word">為諸聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">及獨覺乘</span>
+				<span class="punc">、</span>
+				<span class="word">非大乘器及於大乘根未熟者</span>
+				<span class="punc">，</span>
+				<span class="word">宣說大乘</span>
+				<span class="punc">，</span>
+				<span class="word">令其修學</span>
+				<span class="punc">。</span>
+				<span class="word">又為大乘法器有情</span>
+				<span class="punc">，</span>
+				<span class="word">宣說聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘法</span>
+				<span class="punc">，</span>
+				<span class="word">令修聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘行</span>
+				<span class="punc">。</span>
+				<span class="word">為獨覺乘法器有情說聲聞乘</span>
+				<span class="punc">，</span>
+				<span class="word">令其修習聲聞乘行</span>
+				<span class="punc">。</span>
+				<span class="word">為聲聞乘法器有情</span>
+				<span class="punc">，</span>
+				<span class="word">說生死法</span>
+				<span class="punc">，</span>
+				<span class="word">令其愛著</span>
+				<span class="punc">，</span>
+				<span class="word">不為宣說厭生死法</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！如果諸菩薩不依止明師，不依止善知識教導，修行世間善巧方便法，則菩薩們會因為自己的解悟及能力不足，迷執似是而非的世間善巧方便，誤導自己及眾生惡行，而趨向三惡道淪墮。這樣的菩薩，則不能隨順正法而安住在出世間善巧方便智，也不是一切眾生真實福田。因為迷惑愚執了世間法的善巧方便，不能善知諸眾生根性、果報行業的不同，以致為聲聞及獨覺二乘眾等，還不能任持大乘諸法，及大乘根機還未成熟的人，宣說大乘法來讓他們修學。或是為大乘的法器眾生宣說聲聞、獨覺乘法，讓他們修行聲聞、獨覺乘法。或為獨覺乘法器眾生宣說聲聞乘法，使他們修行聲聞乘法。或為聲聞乘法器眾生宣說生死輪迴法，使他們心生愛執來世果報，而不為他們宣說厭離生死求涅槃法。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又於善巧方便愚故</span>
+				<span class="punc">，</span>
+				<span class="word">若諸有情樂行殺生</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至執著邪見</span>
+				<span class="punc">，</span>
+				<span class="word">為彼宣說甚深大乘</span>
+				<span class="punc">，</span>
+				<span class="word">不為宣說生死流轉</span>
+				<span class="punc">，</span>
+				<span class="word">死此生彼</span>
+				<span class="punc">，</span>
+				<span class="word">眾苦果報</span>
+				<span class="punc">，</span>
+				<span class="word">令其厭怖</span>
+				<span class="punc">，</span>
+				<span class="word">離諸惡法</span>
+				<span class="punc">。</span>
+				<span class="word">又於善巧方便愚故</span>
+				<span class="punc">，</span>
+				<span class="word">乃至若諸有情</span>
+				<span class="punc">，</span>
+				<span class="word">樂修淨戒</span>
+				<span class="punc">，</span>
+				<span class="word">令修布施</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情</span>
+				<span class="punc">，</span>
+				<span class="word">樂修安忍</span>
+				<span class="punc">；</span>
+				<span class="word">勸捨安忍</span>
+				<span class="punc">，</span>
+				<span class="word">令修淨戒</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情</span>
+				<span class="punc">，</span>
+				<span class="word">樂修精進</span>
+				<span class="punc">；</span>
+				<span class="word">勸捨精進</span>
+				<span class="punc">，</span>
+				<span class="word">令修安忍</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情</span>
+				<span class="punc">，</span>
+				<span class="word">樂修靜慮</span>
+				<span class="punc">；</span>
+				<span class="word">勸捨靜慮</span>
+				<span class="punc">，</span>
+				<span class="word">令修精進</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情</span>
+				<span class="punc">，</span>
+				<span class="word">樂修般若</span>
+				<span class="punc">；</span>
+				<span class="word">勸捨般若</span>
+				<span class="punc">，</span>
+				<span class="word">令修靜慮</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩愚於世間善巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">不能真實利樂有情</span>
+				<span class="punc">，</span>
+				<span class="word">與諸有情為惡知識</span>
+				<span class="punc">。</span>
+				<span class="word">此巧方便依有所得</span>
+				<span class="punc">、</span>
+				<span class="word">有所執著</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為菩薩世間善巧方便</span>
+				<span class="punc">。</span>
+				<span class="word">如是世間善巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">共諸聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">此不名為大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">亦不由此名為菩薩摩訶薩也</span>
+				<span class="punc">，</span>
+				<span class="word">及名一切聲聞獨覺真實福田</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				又因愚執世間善巧方便法緣故，遇有好行殺生，乃至執著邪見等十不善道的眾生，為他們宣說深奧的大乘法，而不說生死輪迴此死彼生種種惡道苦報，使他們心生畏怖厭惡，而能遠離種種不善惡業。又因愚執世間善巧方便法緣故，乃至對樂修淨戒的眾生，讓他們修習布施。對樂修安忍的眾生們，勸使他們捨離安忍，而修淨戒。對樂修精進的眾生們，勸使他們捨離精進，而修安忍。對樂修禪定的眾生們，勸使他們捨離禪定，而修精進。對樂修般若的眾生們，勸使他們捨離般若，而修禪定。這種愚執世間善巧方便法的菩薩，不能真正利樂眾生，反成了眾生們的惡知識。這種善巧方便，有種種取捨分別，有種種執著，因而稱為菩薩的世間善巧方便。這種世間善巧方便，與聲聞獨覺二乘眾等所修相同，不能稱為善巧方便大甲冑輪。也不能藉由受持這種世間善巧方便而稱為菩薩摩訶薩，也不能稱為一切聲聞獨覺的真實福田。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何名為菩薩出世善巧方便</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩但為利他</span>
+				<span class="punc">，</span>
+				<span class="word">不為自利</span>
+				<span class="punc">，</span>
+				<span class="word">示現種種工巧伎術</span>
+				<span class="punc">。</span>
+				<span class="word">為成熟他</span>
+				<span class="punc">，</span>
+				<span class="word">承事供養諸佛世尊</span>
+				<span class="punc">、</span>
+				<span class="word">或諸菩薩</span>
+				<span class="punc">、</span>
+				<span class="word">或諸獨覺</span>
+				<span class="punc">、</span>
+				<span class="word">或諸聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">或母或父</span>
+				<span class="punc">、</span>
+				<span class="word">或諸病者</span>
+				<span class="punc">、</span>
+				<span class="word">或諸羸劣無依怙者</span>
+				<span class="punc">；</span>
+				<span class="word">若見厄難臨被害者</span>
+				<span class="punc">，</span>
+				<span class="word">種種勤苦方便救濟</span>
+				<span class="punc">，</span>
+				<span class="word">以四攝事成熟有情</span>
+				<span class="punc">，</span>
+				<span class="word">隨其意樂隨其根器</span>
+				<span class="punc">，</span>
+				<span class="word">為諸有情宣說正法</span>
+				<span class="punc">。</span>
+				<span class="word">又能漸次勸諸聲聞修獨覺乘</span>
+				<span class="punc">；</span>
+				<span class="word">勸諸獨覺修習大乘</span>
+				<span class="punc">。</span>
+				<span class="word">若於聲聞及獨覺乘根未熟者</span>
+				<span class="punc">，</span>
+				<span class="word">為說厭離生死苦法</span>
+				<span class="punc">，</span>
+				<span class="word">令其修學厭離生死</span>
+				<span class="punc">，</span>
+				<span class="word">欣求涅槃</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是菩薩出世間善巧方便呢？就是說菩薩們只為了利益他人，不求自身利益，教示種種工巧技藝。為了成熟其他眾生，侍奉供養諸佛世尊、諸菩薩、諸獨覺、諸聲聞、或父母，或濟助有病疾、衰弱、無依無靠的人。如果見到遭逢苦難，面臨危害的人，會用種種方法勤苦救濟，以布施、愛語、利行、同事四攝法來成熟眾生，隨應眾生意樂及根機，而為他們宣說正法。又能漸次巧勸導聲聞乘人，修學獨覺乘法；漸次勸導獨覺乘人，修習大乘法。如果遇見聲聞及獨覺乘根機都未成熟的人，則為他們宣說厭離生死苦惱法門，讓他們修學厭離生死，樂求涅槃。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若諸有情樂行殺生</span>
+				<span class="punc">，</span>
+				<span class="word">廣說乃至樂著邪見</span>
+				<span class="punc">，</span>
+				<span class="word">隨其根性</span>
+				<span class="punc">，</span>
+				<span class="word">或為宣說</span>
+				<span class="punc">，</span>
+				<span class="word">生死流轉</span>
+				<span class="punc">，</span>
+				<span class="word">死此生彼眾苦果報</span>
+				<span class="punc">，</span>
+				<span class="word">令其厭怖離諸惡法</span>
+				<span class="punc">。</span>
+				<span class="word">或為宣說與聲聞乘相應正法</span>
+				<span class="punc">；</span>
+				<span class="word">或為宣說與獨覺乘相應正法</span>
+				<span class="punc">；</span>
+				<span class="word">或為宣說無上乘中淺近之法</span>
+				<span class="punc">，</span>
+				<span class="word">令漸修學</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情已樂布施</span>
+				<span class="punc">，</span>
+				<span class="word">為說勝上受持淨戒</span>
+				<span class="punc">，</span>
+				<span class="word">令其修學</span>
+				<span class="punc">；</span>
+				<span class="word">廣說乃至若諸有情已樂靜慮</span>
+				<span class="punc">，</span>
+				<span class="word">為說勝上無漏聖道所攝般若</span>
+				<span class="punc">，</span>
+				<span class="word">令其修學</span>
+				<span class="punc">。</span>
+				<span class="word">此巧方便</span>
+				<span class="punc">，</span>
+				<span class="word">依無所得</span>
+				<span class="punc">、</span>
+				<span class="word">無所執著</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為菩薩出世善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果是好行殺生，乃至樂持邪見等不善業道的眾生，則隨應他們根機心性，或為他們宣說生死輪迴，此死彼生種種苦果惡報，使他們心生畏怖厭離種種惡業。或為他們宣說聲聞乘相應正法；或為他們宣說獨覺乘相應正法；或是為他們宣說無上大乘法中較淺顯的義理，使他們漸入大乘修行。如果眾生們已樂行布施，則可為他們宣說更殊勝的受持淨戒法，讓他們修學；乃至已樂修禪定眾生，則可宣說更殊勝含攝般若法門的無漏正道，讓他們修學。這種善巧方便，不依止種種取捨分別，沒有任何執著，因此稱為菩薩出世間善巧方便大甲冑輪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若菩薩摩訶薩成就如是善巧方便大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">得名菩薩摩訶薩也</span>
+				<span class="punc">。</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+				<span class="word">爾時世尊欲重顯此義</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">所修慧有二</span>
+					<span class="punc">，</span>
+					<span class="word">世間出世間</span>
+					<span class="punc">，</span><br/>
+					<span class="word">取著名世間</span>
+					<span class="punc">，</span>
+					<span class="word">無取著出世</span>
+					<span class="punc">。</span><br/>
+					<span class="word">修善巧方便</span>
+					<span class="punc">，</span>
+					<span class="word">依二種差別</span>
+					<span class="punc">，</span><br/>
+					<span class="word">有所得世間</span>
+					<span class="punc">，</span>
+					<span class="word">無所得出世</span>
+					<span class="punc">。</span><br/>
+					<span class="word">若唯說一乘</span>
+					<span class="punc">，</span>
+					<span class="word">是名惡說法</span>
+					<span class="punc">，</span><br/>
+					<span class="word">不能自成熟</span>
+					<span class="punc">，</span>
+					<span class="word">亦不能度他</span>
+					<span class="punc">。</span><br/>
+					<span class="word">一向惡眾生</span>
+					<span class="punc">，</span>
+					<span class="word">為說三乘教</span>
+					<span class="punc">，</span><br/>
+					<span class="word">是則為愚癡</span>
+					<span class="punc">，</span>
+					<span class="word">不名摩訶薩</span>
+					<span class="punc">。</span><br/>
+					<span class="word">有堪趣三乘</span>
+					<span class="punc">，</span>
+					<span class="word">欣求聞正法</span>
+					<span class="punc">，</span><br/>
+					<span class="word">為說樂生死</span>
+					<span class="punc">，</span>
+					<span class="word">非為智者相</span>
+					<span class="punc">。</span><br/>
+					<span class="word">專意諦思惟</span>
+					<span class="punc">，</span>
+					<span class="word">隨根欲教化</span>
+					<span class="punc">，</span><br/>
+					<span class="word">此善巧方便</span>
+					<span class="punc">，</span>
+					<span class="word">智者所稱譽</span>
+					<span class="punc">。</span><br/>
+					<span class="word">眾生雖有惡</span>
+					<span class="punc">，</span>
+					<span class="word">而堪入三乘</span>
+					<span class="punc">，</span><br/>
+					<span class="word">隨根器教導</span>
+					<span class="punc">，</span>
+					<span class="word">令解脫眾惡</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！如果菩薩摩訶薩成就了這善巧方便大甲冑輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。可稱作為菩薩摩訶薩。福德成就勝過一切聲聞獨覺，能成就為聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護持。這時世尊再次昭顯這義理而說偈頌：
+				<blockquote>
+					智慧修行有世間與出世間兩種，有所執取是世間智，無取執無著相才是出世間般若。<br/>
+					菩薩所修善巧方便法，依有執與無執有兩種差別，有執取有分別是世間善巧，無執著無分別是出世間善巧。<br/>
+					不知眾生根性一味傳教大乘法，是錯誤的惡說法，不能成熟自我，也不能廣度眾生。<br/>
+					面對一向惡見惡行的眾生，不說因果輪迴讓他心生畏懼遠離惡行，就直接教說三乘正法，是愚痴無智的行為，不是菩薩摩訶薩應當所行。<br/>
+					如果眾生善根已經成熟能修行三乘，想要聽聞三乘正法，卻為他宣說生死輪迴、來生福報等等，這不是有智慧的人應當所行。<br/>
+					要專心仔細觀察、仔細思維，隨應眾生根性及心所意樂之法來施教，這種善巧方便法，才是有智慧的人所當稱揚讚嘆。<br/>
+					眾生或許有惡知見惡習氣，但具足三乘聞法根機，應當要隨應他的根機來開化教導，讓他能解脫種種惡行惡業。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩摩訶薩復有大慈大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！菩薩摩訶薩還有大慈大甲胄輪。成就此輪的菩薩摩訶薩，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執，福德成就勝越一切聲聞獨覺，能成就為一切聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何大慈大甲冑輪</span>
+				<span class="punc">？</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">慈有二種</span>
+				<span class="punc">，</span>
+				<span class="word">謂法緣慈</span>
+				<span class="punc">、</span>
+				<span class="word">有情緣慈</span>
+				<span class="punc">。</span>
+				<span class="word">法緣慈者</span>
+				<span class="punc">，</span>
+				<span class="word">名為大慈</span>
+				<span class="punc">，</span>
+				<span class="word">名大甲冑</span>
+				<span class="punc">。</span>
+				<span class="word">有情緣慈</span>
+				<span class="punc">，</span>
+				<span class="word">不名大慈</span>
+				<span class="punc">，</span>
+				<span class="word">非大甲冑</span>
+				<span class="punc">。</span>
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">有情緣慈</span>
+				<span class="punc">，</span>
+				<span class="word">共諸聲聞獨覺乘等</span>
+				<span class="punc">。</span>
+				<span class="word">聲聞獨覺為自利樂</span>
+				<span class="punc">，</span>
+				<span class="word">不為有情</span>
+				<span class="punc">，</span>
+				<span class="word">精勤修習有情緣慈</span>
+				<span class="punc">。</span>
+				<span class="word">聲聞獨覺為自寂靜</span>
+				<span class="punc">、</span>
+				<span class="word">為自涅槃</span>
+				<span class="punc">、</span>
+				<span class="word">為滅自惑</span>
+				<span class="punc">、</span>
+				<span class="word">為滅自結</span>
+				<span class="punc">，</span>
+				<span class="word">不為有情精勤修習有情緣慈</span>
+				<span class="punc">。</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">此慈不名大慈</span>
+				<span class="punc">，</span>
+				<span class="word">非大甲冑</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是大慈大甲胄輪？善男子！慈有二種，就是法緣慈及有情緣慈。法緣慈是真大慈，是大甲胄輪。有情緣慈不是真大慈，不是大甲胄輪。為何如此呢？有情緣慈，是與聲聞獨覺二乘眾等所修相同。聲聞獨覺為了自身利益安樂，不為眾生的利益安樂，而精勤修習有情緣慈。聲聞獨覺為了自身能得寂靜，為了自身能得涅槃、為了滅除自身顛倒迷惑、為了滅除自身煩惱繫縛，而不是專為有情眾生而精勤修習的有情緣慈。因此，這個有情緣慈不稱為大慈，不是大甲胄輪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">其法緣慈</span>
+				<span class="punc">，</span>
+				<span class="word">不共聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">唯諸菩薩摩訶薩眾所能修行</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩摩訶薩普為利樂一切有情</span>
+				<span class="punc">，</span>
+				<span class="word">精勤修習此法緣慈</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩摩訶薩普為一切有情寂靜</span>
+				<span class="punc">，</span>
+				<span class="word">及得涅槃</span>
+				<span class="punc">，</span>
+				<span class="word">滅煩惱結</span>
+				<span class="punc">，</span>
+				<span class="word">精勤修習此法緣慈</span>
+				<span class="punc">。</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">此慈名為大慈</span>
+				<span class="punc">，</span>
+				<span class="word">是大甲冑</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				菩薩摩訶薩的法緣慈，不同於聲聞獨覺二乘眾等所修，只有菩薩摩訶薩才能專門修持。菩薩摩訶薩為了利益安樂一切眾生，精勤修習這法緣慈。菩薩摩訶薩為了一切眾生能得寂靜及得證涅槃，除滅煩惱結縛，精勤修習這法緣慈。因此，這法緣慈才稱為大慈，是大甲胄輪。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又諸菩薩修法緣慈</span>
+				<span class="punc">，</span>
+				<span class="word">不依諸蘊</span>
+				<span class="punc">、</span>
+				<span class="word">不依諸處</span>
+				<span class="punc">、</span>
+				<span class="word">不依諸界</span>
+				<span class="punc">；</span>
+				<span class="word">不依念住</span>
+				<span class="punc">，</span>
+				<span class="word">乃至不依道支</span>
+				<span class="punc">、</span>
+				<span class="word">不依欲界</span>
+				<span class="punc">、</span>
+				<span class="word">不依色界</span>
+				<span class="punc">、</span>
+				<span class="word">不依無色界</span>
+				<span class="punc">、</span>
+				<span class="word">不依此世</span>
+				<span class="punc">、</span>
+				<span class="word">不依他世</span>
+				<span class="punc">、</span>
+				<span class="word">不依此岸</span>
+				<span class="punc">、</span>
+				<span class="word">不依彼岸</span>
+				<span class="punc">、</span>
+				<span class="word">不依得</span>
+				<span class="punc">、</span>
+				<span class="word">不依不得</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩修法緣慈</span>
+				<span class="punc">，</span>
+				<span class="word">超諸聲聞獨覺乘地</span>
+				<span class="punc">，</span>
+				<span class="word">是名菩薩法緣大慈大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若菩薩摩訶薩成此大慈大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">得名菩薩摩訶薩也</span>
+				<span class="punc">。</span>
+				<span class="word">超勝一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				而且諸菩薩修行法緣慈時，不依著諸蘊處界的種種根境識的作用執受。不依執四念處、四正勤、四如意足、五根、五力、七覺分、八正道等三十七道品功德而修持。不依執在欲界、色界、無色界等境界成就而修持。不依執今世、不依執過去、未來世諸因緣而修持。不依執此岸、彼岸解脫與否而修持。不依執功德成就，或不成就而修持。菩薩這種修持的法緣慈，超越了聲聞獨覺二乘所修境界，稱為菩薩法緣大慈大甲胄輪。善男子！如果菩薩摩訶薩成就了這大慈大甲冑輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。可稱作為菩薩摩訶薩。福德成就勝過一切聲聞獨覺，能成就為聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護持。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊重顯此義</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰 </span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">聲聞及獨覺</span>
+					<span class="punc">，</span>
+					<span class="word">修有情緣慈</span>
+					<span class="punc">，</span><br/>
+					<span class="word">心帶十三過</span>
+					<span class="punc">，</span>
+					<span class="word">唯求自利樂</span>
+					<span class="punc">。</span><br/>
+					<span class="word">菩薩大名稱</span>
+					<span class="punc">，</span>
+					<span class="word">普為諸有情</span>
+					<span class="punc">，</span><br/>
+					<span class="word">修不共大慈</span>
+					<span class="punc">，</span>
+					<span class="word">心離十三過</span>
+					<span class="punc">。</span><br/>
+					<span class="word">心除十三垢</span>
+					<span class="punc">，</span>
+					<span class="word">為趣大菩提</span>
+					<span class="punc">，</span><br/>
+					<span class="word">修法緣大慈</span>
+					<span class="punc">，</span>
+					<span class="word">成福田非遠</span>
+					<span class="punc">。</span><br/>
+					<span class="word">安住十三力</span>
+					<span class="punc">，</span>
+					<span class="word">出過諸有情</span>
+					<span class="punc">，</span><br/>
+					<span class="word">猶如師子王</span>
+					<span class="punc">，</span>
+					<span class="word">超勝諸禽獸</span>
+					<span class="punc">。</span><br/>
+					<span class="word">降伏十三怨</span>
+					<span class="punc">，</span>
+					<span class="word">離斷常邊執</span>
+					<span class="punc">，</span><br/>
+					<span class="word">心無有染濁</span>
+					<span class="punc">，</span>
+					<span class="word">速證大菩提</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時，世尊再次昭顯這義理而說偈頌：
+				<blockquote>
+					聲聞獨覺二乘眾，修行有情緣慈小慈悲，心懷自利種種過失，不為眾生只求自我利樂。<br/>
+					具有廣大名稱的菩薩摩訶薩，完全為了利樂一切眾生，所修法緣大慈不同於二乘所修，心離種種自求利樂的過失。<br/>
+					心念除滅了自求利樂的垢染過失，為求無上菩提大正覺，修行法緣大慈悲，快速成就為眾生大福田。<br/>
+					菩薩安住十三力，威德勝越一切眾生，猶如獅子百獸王，威勢勝越一切飛禽走獸。降伏種種怨結煩惱，遠離斷常兩端的偏執妄見，心性清淨沒有染濁，能夠快速證悟菩提正覺。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩摩訶薩復有大悲大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+				<span class="word">所以者何</span>
+				<span class="punc">？</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">但為己身得利樂故而修行悲</span>
+				<span class="punc">，</span>
+				<span class="word">不欲普為一切有情得利樂故修行大悲</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩摩訶薩不為己身得利樂故而修行悲</span>
+				<span class="punc">，</span>
+				<span class="word">但欲普為一切有情得利樂故修行大悲</span>
+				<span class="punc">。</span>
+				<span class="word">是故</span>
+				<span class="punc">，</span>
+				<span class="word">菩薩成就大悲大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！菩薩摩訶薩還有大悲大甲胄輪。成就此輪的菩薩摩訶薩，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執，福德成就勝越一切聲聞獨覺，能成就為一切聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。為何如此呢？一切聲聞獨覺乘眾，只為自求利益安樂而修悲行，不是普遍為了利益安樂一切眾生而修悲行。菩薩摩訶薩不為自求利益安樂而修悲行，只為利益安樂一切眾生而修行大悲。因此，菩薩摩訶薩成就大悲大甲胄輪，福德境界超越一切聲聞獨覺乘，能成就為一切聲聞獨覺乘的勝妙福田。一切聲聞獨覺乘眾，都應來供養侍奉守護。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">是菩薩摩訶薩普為饒益諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">行四攝事而成熟之</span>
+				<span class="punc">。</span>
+				<span class="word">謂由大悲</span>
+				<span class="punc">，</span>
+				<span class="word">普為利樂諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">行布施攝</span>
+				<span class="punc">，</span>
+				<span class="word">能捨一切珍寶財物</span>
+				<span class="punc">、</span>
+				<span class="word">禽獸僕使</span>
+				<span class="punc">、</span>
+				<span class="word">國城妻子</span>
+				<span class="punc">、</span>
+				<span class="word">乃至身命無所悋惜</span>
+				<span class="punc">。</span>
+				<span class="word">行無所得為方便故</span>
+				<span class="punc">，</span>
+				<span class="word">不見一切所化有情</span>
+				<span class="punc">、</span>
+				<span class="word">不見施者</span>
+				<span class="punc">、</span>
+				<span class="word">不見受者</span>
+				<span class="punc">、</span>
+				<span class="word">不見施物</span>
+				<span class="punc">、</span>
+				<span class="word">不見施行</span>
+				<span class="punc">、</span>
+				<span class="word">不見施行所得果報</span>
+				<span class="punc">，</span>
+				<span class="word">乃至不見無所得行</span>
+				<span class="punc">。</span>
+				<span class="word">如是大悲普為利樂諸有情故</span>
+				<span class="punc">，</span>
+				<span class="word">行愛語攝</span>
+				<span class="punc">、</span>
+				<span class="word">行利行攝</span>
+				<span class="punc">、</span>
+				<span class="word">行同事攝</span>
+				<span class="punc">，</span>
+				<span class="word">隨其所應如上廣說</span>
+				<span class="punc">，</span>
+				<span class="word">乃至不見無所得行</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				大悲行的菩薩摩訶薩為了普遍利益眾生，以布施、愛語、利行、同事四攝法來成熟眾生。就是菩薩以拔苦大悲心來利益安樂諸眾生，行財、法布施來攝受引領眾生，能施捨一切的珍寶財物、禽獸僕使、國家都城、妻子兒女、乃至施捨自己的身家性命也在所不惜。以無所執著、無所分別的心念來行布施，不執著一切所攝化的眾生，不執著所施之人，不執著受施之人，不執著所施之物，不執著布施之行，不執著布施所得果報，乃至這個無所得布施的心行也毫不執著。同樣以這種不取執的大悲心來利樂有情眾生，以慰喻親愛言語來攝受引領眾生，生起親愛之心，而能親近開導。以種種利益善行來攝受引領眾生，生起敬愛之心，而能感化發心。以同苦樂共禍福心來攝受引領眾生，生起信愛之心，而能信受所教。順隨眾生相應因緣而來成熟，如同上面經文說，乃至無所得的心行也毫不執著。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">是菩薩摩訶薩</span>
+				<span class="punc">，</span>
+				<span class="word">常以最勝能調伏心</span>
+				<span class="punc">、</span>
+				<span class="word">能寂靜心</span>
+				<span class="punc">、</span>
+				<span class="word">無數量心</span>
+				<span class="punc">、</span>
+				<span class="word">不行一切蘊處界心</span>
+				<span class="punc">，</span>
+				<span class="word">所生無動無住大悲大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">成熟一切所化有情心無厭倦</span>
+				<span class="punc">，</span>
+				<span class="word">如是名為菩薩大悲大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">不共一切聲聞獨覺</span>
+				<span class="punc">。</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若菩薩摩訶薩成此大悲大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">得名菩薩摩訶薩也</span>
+				<span class="punc">。</span>
+				<span class="word">超勝一切聲聞獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				菩薩摩訶薩常用第一殊勝能調伏身口意三業諸惡心、能解脫煩惱的涅槃寂靜心，無數無量、寬廣無邊心，不生一切蘊處界的我執、我受、我作心，以所生的無相無動、無住無著大悲大甲胄輪，來成熟一切所教化眾生心無厭倦，這就是菩薩大悲大甲胄輪，與一切聲聞獨覺二乘所修不同。善男子！如果菩薩摩訶薩成就了這大悲大甲冑輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。可稱作為菩薩摩訶薩。福德成就勝過一切聲聞獨覺，能成就為聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護持。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊重顯此義</span>
+				<span class="punc">，</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">甚深微妙法</span>
+					<span class="punc">，</span>
+					<span class="word">所成之大悲</span>
+					<span class="punc">，</span><br/>
+					<span class="word">難測類虛空</span>
+					<span class="punc">，</span>
+					<span class="word">無色無安住</span>
+					<span class="punc">。</span><br/>
+					<span class="word">菩薩大精進</span>
+					<span class="punc">，</span>
+					<span class="word">具杜多功德</span>
+					<span class="punc">，</span><br/>
+					<span class="word">勝智成大悲</span>
+					<span class="punc">，</span>
+					<span class="word">勇健超諸世</span>
+					<span class="punc">。</span><br/>
+					<span class="word">無依怙有情</span>
+					<span class="punc">，</span>
+					<span class="word">生死苦穢縛</span>
+					<span class="punc">，</span><br/>
+					<span class="word">大悲水沐浴</span>
+					<span class="punc">，</span>
+					<span class="word">令解脫眾苦</span>
+					<span class="punc">。</span><br/>
+					<span class="word">菩薩行大悲</span>
+					<span class="punc">，</span>
+					<span class="word">能竭生死海</span>
+					<span class="punc">，</span><br/>
+					<span class="word">非諸聲聞眾</span>
+					<span class="punc">，</span>
+					<span class="word">及獨覺所行</span>
+					<span class="punc">。</span><br/>
+					<span class="word">眾生貪恚癡</span>
+					<span class="punc">，</span>
+					<span class="word">迷謬墮惡趣</span>
+					<span class="punc">，</span><br/>
+					<span class="word">濯以大悲水</span>
+					<span class="punc">，</span>
+					<span class="word">脫苦得蕭然</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時，世尊再次昭顯這義理而說偈頌：
+				<blockquote>
+					無上甚深微妙正法，成就了無上大悲心，廣大難測如同虛空，無色無相無所依執。<br/>
+					菩薩勇猛大精進，具足頭陀修治清淨的功德，殊勝妙智成就了大悲行，勇猛堅決超越世間眾生。<br/>
+					眾生孤苦無所憑依，生死苦惱垢穢纏擾，以菩薩大悲清淨水沐浴清洗，能除滅解脫一切眾苦。<br/>
+					菩薩殊願大悲行，能枯竭煩惱生死海，這種悲願並非聲聞獨覺二乘眾等，所能成就的大福德。<br/>
+					貪瞋痴等毒惑眾生，眾生迷謬無明而沉淪惡趣，以菩薩大悲水洗滌濯沐，便能解脫眾苦而得安閒。
+				</blockquote>
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復次</span>
+				<span class="punc">，</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">菩薩摩訶薩復有能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具</span>
+				<span class="punc">，</span>
+				<span class="word">辭無礙解</span>
+				<span class="punc">、</span>
+				<span class="word">一切佛法諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼</span>
+				<span class="punc">、</span>
+				<span class="word">堅固大忍大甲冑輪</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				其次，善男子！菩薩摩訶薩還有一個堅固大忍大甲冑輪，這個堅固大忍大甲冑輪具有不可思議殊勝功德、極致廣大威力，能引生遍滿虛空無量無邊、一切種種無礙的語言、音聲、辯才，一切佛法的三摩地、陀羅尼皆能徹悟通達，自在任持。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				如果菩薩摩訶薩成就了此輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。福德成就勝過一切聲聞獨覺，能成就為一切聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">云何菩薩摩訶薩能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">、</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼</span>
+				<span class="punc">，</span>
+				<span class="word">堅固大忍大甲冑輪</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩於一切法審諦照察</span>
+				<span class="punc">，</span>
+				<span class="word">如明月光遍滿虛空</span>
+				<span class="punc">。</span>
+				<span class="word">其心平等</span>
+				<span class="punc">，</span>
+				<span class="word">無依無相</span>
+				<span class="punc">、</span>
+				<span class="word">無住無染</span>
+				<span class="punc">，</span>
+				<span class="word">普於一切三摩地門</span>
+				<span class="punc">、</span>
+				<span class="word">陀羅尼門心無行動</span>
+				<span class="punc">。</span>
+				<span class="word">於諸眼色</span>
+				<span class="punc">、</span>
+				<span class="word">眼識</span>
+				<span class="punc">、</span>
+				<span class="word">眼觸</span>
+				<span class="punc">，</span>
+				<span class="word">離意染著</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">。</span>
+				<span class="word">於眼觸緣生內三受</span>
+				<span class="punc">，</span>
+				<span class="word">或樂</span>
+				<span class="punc">、</span>
+				<span class="word">或苦</span>
+				<span class="punc">、</span>
+				<span class="word">或非苦樂</span>
+				<span class="punc">，</span>
+				<span class="word">心常寂定</span>
+				<span class="punc">，</span>
+				<span class="word">無所取著</span>
+				<span class="punc">。</span>
+				<span class="word">於諸耳聲</span>
+				<span class="punc">、</span>
+				<span class="word">耳識</span>
+				<span class="punc">、</span>
+				<span class="word">耳觸</span>
+				<span class="punc">，</span>
+				<span class="word">於諸鼻香</span>
+				<span class="punc">、</span>
+				<span class="word">鼻識</span>
+				<span class="punc">、</span>
+				<span class="word">鼻觸</span>
+				<span class="punc">，</span>
+				<span class="word">於諸舌味</span>
+				<span class="punc">、</span>
+				<span class="word">舌識</span>
+				<span class="punc">、</span>
+				<span class="word">舌觸</span>
+				<span class="punc">，</span>
+				<span class="word">於諸身觸</span>
+				<span class="punc">、</span>
+				<span class="word">身識</span>
+				<span class="punc">、</span>
+				<span class="word">身觸</span>
+				<span class="punc">，</span>
+				<span class="word">於諸意法</span>
+				<span class="punc">、</span>
+				<span class="word">意識</span>
+				<span class="punc">、</span>
+				<span class="word">意觸</span>
+				<span class="punc">，</span>
+				<span class="word">廣說亦爾</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				什麼是菩薩摩訶薩菩薩摩訶薩能引遍滿虛空，無量無邊，廣大眾具，辭無礙解，一切佛法、諸三摩地、諸陀羅尼，堅固大忍大甲冑輪？就是諸菩薩對於一切法能真確思惟、明察了知， 如同皎明月光遍照一切虛空。菩薩心性平等，無所分別，無所依止，不著諸相，沒有不淨雜染，對於一切三摩地門、陀羅尼門，無住無依任持自在，心念寂靜無所妄動。對於眼色、眼識、眼觸，所生心、心所法，不生染著思維，心念寂靜無所妄動。對於眼觸於心、心所相應所生的樂、苦、不苦不樂等三受，心念時時寂靜，沒有繫縛執著。對於種種耳根聲境所生的耳識耳觸。鼻根香境所生的鼻識鼻觸。舌根味境所生的舌識舌觸。身根觸境所生的身識身觸。意根法境所生的意識意觸。如同對眼色所廣說的不著不動。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">普於一切心意識中</span>
+				<span class="punc">，</span>
+				<span class="word">心常寂定無所取著</span>
+				<span class="punc">。</span>
+				<span class="word">於心</span>
+				<span class="punc">、</span>
+				<span class="word">意</span>
+				<span class="punc">、</span>
+				<span class="word">識所生三受</span>
+				<span class="punc">，</span>
+				<span class="word">或樂</span>
+				<span class="punc">、</span>
+				<span class="word">或苦</span>
+				<span class="punc">、</span>
+				<span class="word">或非苦樂</span>
+				<span class="punc">，</span>
+				<span class="word">心常寂定無所取著</span>
+				<span class="punc">。</span>
+				<span class="word">普於三世諸蘊</span>
+				<span class="punc">、</span>
+				<span class="word">界</span>
+				<span class="punc">、</span>
+				<span class="word">處一切品類</span>
+				<span class="punc">，</span>
+				<span class="word">皆無取著</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">。</span>
+				<span class="word">普於一切三界</span>
+				<span class="punc">、</span>
+				<span class="word">三行</span>
+				<span class="punc">、</span>
+				<span class="word">三觸</span>
+				<span class="punc">、</span>
+				<span class="word">三受</span>
+				<span class="punc">、</span>
+				<span class="word">三根</span>
+				<span class="punc">、</span>
+				<span class="word">三乘</span>
+				<span class="punc">、</span>
+				<span class="word">三律儀</span>
+				<span class="punc">、</span>
+				<span class="word">三解脫一切品類</span>
+				<span class="punc">，</span>
+				<span class="word">其心寂靜</span>
+				<span class="punc">，</span>
+				<span class="word">無住無相</span>
+				<span class="punc">、</span>
+				<span class="word">無所取著</span>
+				<span class="punc">，</span>
+				<span class="word">平等而住</span>
+				<span class="punc">。</span>
+				<span class="word">普於一切布施</span>
+				<span class="punc">、</span>
+				<span class="word">淨戒</span>
+				<span class="punc">、</span>
+				<span class="word">安忍</span>
+				<span class="punc">、</span>
+				<span class="word">精進</span>
+				<span class="punc">、</span>
+				<span class="word">靜慮</span>
+				<span class="punc">、</span>
+				<span class="word">般若波羅蜜多</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動寂靜而住</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				對於一切種識、末那思惟、意識了別等等，心常寂靜，不生妄念，沒有繫縛執著。對於心、意、識所緣生的樂受、苦受、不苦不樂受等三受，心常寂靜，不生妄念，沒有繫縛執著。對於三世各蘊、界、處的一切執、依、受等，都不起執著，心念寂靜不起動亂。對於一切三界、三行、三觸、三受、三根、三乘、三律儀、三解脫等種種品項，心性寂靜，無所住法，不著於相，沒有取受執著，平等不二無所分別。對於一切布施、淨戒、安忍、精進、靜慮、般若六波羅蜜等，皆能寂靜安住、心無動亂。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">如是普於四念住</span>
+				<span class="punc">、</span>
+				<span class="word">四正斷</span>
+				<span class="punc">、</span>
+				<span class="word">四神足</span>
+				<span class="punc">、</span>
+				<span class="word">五根</span>
+				<span class="punc">、</span>
+				<span class="word">五力</span>
+				<span class="punc">、</span>
+				<span class="word">七等覺支</span>
+				<span class="punc">、</span>
+				<span class="word">八聖道支</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">，</span>
+				<span class="word">寂靜而住</span>
+				<span class="punc">。</span>
+				<span class="word">普於一切九次第定</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">，</span>
+				<span class="word">寂靜而住</span>
+				<span class="punc">。</span>
+				<span class="word">又於三行無障法智</span>
+				<span class="punc">，</span>
+				<span class="word">道支道體所引作用</span>
+				<span class="punc">，</span>
+				<span class="word">皆無取著</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">。</span>
+				<span class="word">於阿賴耶</span>
+				<span class="punc">、</span>
+				<span class="word">非阿賴耶</span>
+				<span class="punc">，</span>
+				<span class="word">有取無取</span>
+				<span class="punc">、</span>
+				<span class="word">有漏無漏</span>
+				<span class="punc">、</span>
+				<span class="word">此岸彼岸</span>
+				<span class="punc">、</span>
+				<span class="word">小大無量</span>
+				<span class="punc">、</span>
+				<span class="word">作與不作</span>
+				<span class="punc">、</span>
+				<span class="word">善惡無記諸品類中</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">，</span>
+				<span class="word">寂靜而住</span>
+				<span class="punc">。</span>
+				<span class="word">普於一切大慈大悲</span>
+				<span class="punc">、</span>
+				<span class="word">善巧方便</span>
+				<span class="punc">、</span>
+				<span class="word">成熟有情</span>
+				<span class="punc">，</span>
+				<span class="word">乃至十地</span>
+				<span class="punc">、</span>
+				<span class="word">三不護</span>
+				<span class="punc">、</span>
+				<span class="word">四無所畏</span>
+				<span class="punc">，</span>
+				<span class="word">乃至十八不共佛法</span>
+				<span class="punc">，</span>
+				<span class="word">一切品類皆無取著</span>
+				<span class="punc">，</span>
+				<span class="word">心無所動</span>
+				<span class="punc">，</span>
+				<span class="word">寂靜而住</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				也同樣在四念住、四正斷、四神足、五根、五力、七菩提分、八聖道支等道品中，心無所動寂靜安住。對於一切九次第定境界，心無所動寂靜安住。乃至圓修三行無障之法，種種道法支法所引起的作用覺知，皆無取著，心無行動。在阿賴耶識或非阿賴耶識、有取識或無取識、有漏煩惱或無漏煩惱、煩惱此岸或解脫彼岸、小相大相或無量相、諸法成辦或不成、善性惡性無記三性諸法等等品類中，心無所動寂靜安住。在一切成熟眾生的大慈大悲、善巧方便，乃至菩薩十地、如來三不護、四無所畏，乃至於十八不共佛法等，一切品類都不執著，心無所動寂靜安住。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">菩薩摩訶薩由此輪故</span>
+				<span class="punc">，</span>
+				<span class="word">能永息除三受過失</span>
+				<span class="punc">，</span>
+				<span class="word">能永寂滅一切分別</span>
+				<span class="punc">，</span>
+				<span class="word">能永遠離一切法相</span>
+				<span class="punc">。</span>
+				<span class="word">復能安住能引一切虛空眼頂</span>
+				<span class="punc">，</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩安住如是輪故</span>
+				<span class="punc">，</span>
+				<span class="word">一切過去所引未盡惡不善業</span>
+				<span class="punc">、</span>
+				<span class="word">無暇惡趣</span>
+				<span class="punc">、</span>
+				<span class="word">諸有諸趣</span>
+				<span class="punc">、</span>
+				<span class="word">死生諸業</span>
+				<span class="punc">，</span>
+				<span class="word">皆能除滅令盡無餘</span>
+				<span class="punc">，</span>
+				<span class="word">不受果報</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				菩薩摩訶薩由於成就這大忍大甲冑輪的功德，能永遠除滅苦受、樂受、不苦不樂受等三受過失，能永遠寂滅一切分別心，能永遠離一切法相執著。還能安住在能引發一切的虛空眼頂，引發一切三摩地、陀羅尼皆能隨宜相應的善巧方便大甲冑輪。菩薩安住在這大甲冑輪，能使過去一切惡行造作所引發尚未報盡的不善惡業、無暇惡報、六道輪迴、生死流轉等業報，都能完全除滅沒有剩餘，不再遭受輪迴果報。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如世界火災將起</span>
+				<span class="punc">，</span>
+				<span class="word">五日出時</span>
+				<span class="punc">，</span>
+				<span class="word">一切世間小池大池</span>
+				<span class="punc">、</span>
+				<span class="word">小河大河</span>
+				<span class="punc">、</span>
+				<span class="word">小海大海水</span>
+				<span class="punc">，</span>
+				<span class="word">皆枯竭滅盡無餘</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩成就能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具</span>
+				<span class="punc">，</span>
+				<span class="word">辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">、</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼堅固大忍大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">復能安住能引一切虛空眼頂諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">一切過去所引未盡惡不善業</span>
+				<span class="punc">、</span>
+				<span class="word">無暇惡趣</span>
+				<span class="punc">、</span>
+				<span class="word">諸有諸趣</span>
+				<span class="punc">、</span>
+				<span class="word">死生諸業</span>
+				<span class="punc">，</span>
+				<span class="word">皆能除滅令盡無餘</span>
+				<span class="punc">，</span>
+				<span class="word">不受果報</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！又譬如燒盡世界的大火災發生，五個太陽同時出現天空，一切世間的小池大池、小河大河、小海大海水源，都被曬乾枯竭沒有剩餘。菩薩也似如此，成就了能引遍滿虛空、無量無邊、廣大眾具、辭無礙解，一切佛法、諸三摩地、諸陀羅尼，堅固大忍大甲冑輪，又能安住能引一切虛空眼頂，諸三摩地、諸陀羅尼善巧方便大甲冑輪，也是如此。能使過去一切惡行造作所引發尚未報盡的不善惡業、無暇惡報、六道輪迴、生死流轉等業報，都能完全除滅沒有剩餘，不再遭受輪迴果報。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如世界水災起時</span>
+				<span class="punc">，</span>
+				<span class="word">於此三千大千世界</span>
+				<span class="punc">、</span>
+				<span class="word">諸小世界</span>
+				<span class="punc">、</span>
+				<span class="word">各四大洲</span>
+				<span class="punc">、</span>
+				<span class="word">八萬小渚</span>
+				<span class="punc">、</span>
+				<span class="word">妙高山王及諸山等</span>
+				<span class="punc">，</span>
+				<span class="word">皆為灰水𣷽[氵*侵]爛銷盡令無有餘</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩成就能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">、</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼堅固大忍大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">復能安住能引一切虛空眼頂諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">一切過去所引未盡惡不善業</span>
+				<span class="punc">、</span>
+				<span class="word">無暇惡趣</span>
+				<span class="punc">、</span>
+				<span class="word">諸有諸趣</span>
+				<span class="punc">、</span>
+				<span class="word">死生諸業</span>
+				<span class="punc">，</span>
+				<span class="word">皆能除滅</span>
+				<span class="punc">，</span>
+				<span class="word">令盡無餘不受果報</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！又譬如毀滅世界的大水災發生時，在這三千大千世界中的各小世界、各四大洲、八萬小洲渚、妙高山王及所有山脈等，都被灰水浸泡腐爛殆盡，沒有剩餘。菩薩也似如此，成就了能引遍滿虛空、無量無邊、廣大眾具、辭無礙解，一切佛法、諸三摩地、諸陀羅尼，堅固大忍大甲冑輪，又能安住能引一切虛空眼頂，諸三摩地、諸陀羅尼善巧方便大甲冑輪，。能使過去一切惡行造作所引發尚未報盡的不善惡業、無暇惡報、六道輪迴、生死流轉等業報，都能完全除滅沒有剩餘，不再遭受輪迴果報。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">譬如黑暗遍滿虛空</span>
+				<span class="punc">，</span>
+				<span class="word">朗日出時皆能除滅</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩成就能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">，</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">，</span>
+				<span class="word">諸陀羅尼堅固大忍大甲冑輪</span>
+				<span class="punc">，</span>
+				<span class="word">復能安住能引一切虛空眼頂諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">發起無邊虛空智日</span>
+				<span class="punc">，</span>
+				<span class="word">能永除滅自身四倒無明黑暗</span>
+				<span class="punc">。</span>
+				<span class="word">一切過去所引未盡惡不善業</span>
+				<span class="punc">、</span>
+				<span class="word">無暇惡趣</span>
+				<span class="punc">、</span>
+				<span class="word">諸有諸趣</span>
+				<span class="punc">、</span>
+				<span class="word">死生諸業</span>
+				<span class="punc">，</span>
+				<span class="word">皆能除滅令盡無餘</span>
+				<span class="punc">，</span>
+				<span class="word">不受果報</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！又譬如黑暗遍滿虛空，朗日出現陽光普照時，所有黑暗全都除滅。菩薩也似如此，成就了能引遍滿虛空、無量無邊、廣大眾具、辭無礙解，一切佛法、諸三摩地、諸陀羅尼，堅固大忍大甲冑輪，又能安住能引一切虛空眼頂，諸三摩地、諸陀羅尼善巧方便大甲冑輪。能生起如同照遍無邊虛空的日光真智，永遠滅除自身四種顛倒妄見的無明黑暗。能使過去一切惡行造作所引發尚未報盡的不善惡業、無暇惡報、六道輪迴、生死流轉等業報，都能完全除滅沒有剩餘，不再遭受輪迴果報。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又由此故</span>
+				<span class="punc">，</span>
+				<span class="word">於諸佛法</span>
+				<span class="punc">，</span>
+				<span class="word">增進自在常無退轉</span>
+				<span class="punc">。</span>
+				<span class="word">不復隨順惡友力行</span>
+				<span class="punc">。</span>
+				<span class="word">常得不離見一切佛</span>
+				<span class="punc">，</span>
+				<span class="word">及諸菩薩</span>
+				<span class="punc">、</span>
+				<span class="word">聲聞弟子</span>
+				<span class="punc">。</span>
+				<span class="word">不離聞法</span>
+				<span class="punc">、</span>
+				<span class="word">不離親近供養眾僧</span>
+				<span class="punc">。</span>
+				<span class="word">於諸功德心常無厭</span>
+				<span class="punc">，</span>
+				<span class="word">乃至菩提恒無間斷</span>
+				<span class="punc">。</span>
+				<span class="word">又常不離念佛思惟</span>
+				<span class="punc">，</span>
+				<span class="word">乃至夢中亦無暫廢</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				又由於這大甲冑輪的功德成就，在一切佛法修持上，常能增長通達無礙而不退轉。不再依從惡友造作惡業。常能不斷得見一切佛，及諸菩薩、聲聞弟子。不斷聽聞佛法、不斷親近供養眾僧。常能修持種種善法功德心無疲厭，乃至修持種種菩提行願永不間斷。還能常常不斷念佛思維法義，乃至連睡夢中也無片刻間斷。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">又善男子</span>
+				<span class="punc">！</span>
+				<span class="word">云何菩薩摩訶薩能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">、</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼堅固大忍大甲冑輪</span>
+				<span class="punc">？</span>
+				<span class="word">謂諸菩薩入初靜慮乃至第四靜慮</span>
+				<span class="punc">，</span>
+				<span class="word">入無邊虛空處乃至非想非非想處</span>
+				<span class="punc">，</span>
+				<span class="word">入滅受想定</span>
+				<span class="punc">。</span>
+				<span class="word">住此定中</span>
+				<span class="punc">，</span>
+				<span class="word">一切三受三行斷滅</span>
+				<span class="punc">，</span>
+				<span class="word">心無行動</span>
+				<span class="punc">；</span>
+				<span class="word">諸受</span>
+				<span class="punc">，</span>
+				<span class="word">想</span>
+				<span class="punc">、</span>
+				<span class="word">思</span>
+				<span class="punc">、</span>
+				<span class="word">觸</span>
+				<span class="punc">、</span>
+				<span class="word">作意等</span>
+				<span class="punc">，</span>
+				<span class="word">悉皆斷滅</span>
+				<span class="punc">。</span>
+				<span class="word">安住此定</span>
+				<span class="punc">，</span>
+				<span class="word">或一日夜</span>
+				<span class="punc">，</span>
+				<span class="word">或復乃至七七日夜</span>
+				<span class="punc">，</span>
+				<span class="word">受定味食</span>
+				<span class="punc">。</span>
+				<span class="word">從此定起</span>
+				<span class="punc">，</span>
+				<span class="word">其心寂靜</span>
+				<span class="punc">，</span>
+				<span class="word">無所取著</span>
+				<span class="punc">，</span>
+				<span class="word">宴然而住</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				此外，善男子！什麼是菩薩摩訶薩能引發遍滿虛空、無量無邊、廣大眾具辭無礙解，一切佛法、諸三摩地諸陀羅尼堅固大忍大甲冑輪？就是諸菩薩入在初禪、二禪、三禪、四禪等四禪定，入在空無邊處定、識無邊處定，無所有處定、非想非非想處定等無色界四空定，乃至入在滅受想定中。安住在這定中，一切苦、樂、不苦不樂三受，身口意三行都能斷滅寂靜，心念不起心無所動，所有受、想、思、觸、作意等等全都斷滅。安住在這定中，或是一天一夜，或七七四十九天，受用禪悅法味。出定之後，心性平等安靜沒有煩惱，沒有任何取受執著，安住安寧平靜境界。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復入勝義究竟空定</span>
+				<span class="punc">，</span>
+				<span class="word">住此定中其心平等</span>
+				<span class="punc">，</span>
+				<span class="word">無所取著猶若虛空</span>
+				<span class="punc">。</span>
+				<span class="word">身諸毛孔皆出霜液</span>
+				<span class="punc">，</span>
+				<span class="word">狀如昴星</span>
+				<span class="punc">，</span>
+				<span class="word">滅除一切欝烝結縛</span>
+				<span class="punc">。</span>
+				<span class="word">從此定起得正憶念</span>
+				<span class="punc">，</span>
+				<span class="word">最勝喜樂充遍其身</span>
+				<span class="punc">。</span>
+				<span class="word">如大自在天子入現一切樂定</span>
+				<span class="punc">，</span>
+				<span class="word">身諸毛孔皆遍受樂</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				又再入定在最殊勝的究竟空定，安住在這定境中，心性平等無所分別，沒有取受執著如同虛空。身上所有毛孔都冒出霜液，形狀如同一團一團的昴宿星雲，一切鬱結惱熱、煩惱繫縛全都除滅。出定之後，得受清淨正念覺知，最勝喜樂充滿全身，如同淨居大自在天的大自在天子，入定在一切喜樂現行的定境中，身上所有毛孔都充滿了喜樂。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">如是菩薩樂觸其身</span>
+				<span class="punc">，</span>
+				<span class="word">便思念佛</span>
+				<span class="punc">，</span>
+				<span class="word">思念佛故則唯見佛</span>
+				<span class="punc">，</span>
+				<span class="word">不見餘相</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩爾時</span>
+				<span class="punc">，</span>
+				<span class="word">若念一佛則見一佛</span>
+				<span class="punc">；</span>
+				<span class="word">若念多佛則見多佛</span>
+				<span class="punc">。</span>
+				<span class="word">若念小身佛則見小身佛</span>
+				<span class="punc">；</span>
+				<span class="word">若念大身佛則見大身佛</span>
+				<span class="punc">；</span>
+				<span class="word">若念無量身佛則見無量身佛</span>
+				<span class="punc">。</span>
+				<span class="word">若念自身為佛身相</span>
+				<span class="punc">，</span>
+				<span class="word">則見自身同於佛身</span>
+				<span class="punc">，</span>
+				<span class="word">眾相圓滿</span>
+				<span class="punc">。</span>
+				<span class="word">若念他身為佛身相</span>
+				<span class="punc">，</span>
+				<span class="word">則見他身同於佛身</span>
+				<span class="punc">，</span>
+				<span class="word">眾相圓滿</span>
+				<span class="punc">。</span>
+				<span class="word">若念一切情</span>
+				<span class="punc">、</span>
+				<span class="word">非情數所有色像為佛身相</span>
+				<span class="punc">，</span>
+				<span class="word">則見一切情</span>
+				<span class="punc">、</span>
+				<span class="word">非情數所有色像皆同佛身眾相圓滿</span>
+				<span class="punc">，</span>
+				<span class="word">不見其餘一切色像</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				菩薩在這種喜樂充滿的境界，便會觀想念佛，因為觀想念佛，就只會見著佛，不會見到其他異相。菩薩這時觀想憶念一佛則會見到一佛；如果憶念多佛則會見到多佛。如果觀想憶念小身佛則會見到小身佛；如果憶念大身佛則會見到大身佛；如果憶念無量身佛則會見到無量身佛。如果觀想憶念自身如同諸佛身相，則會見到自身如同諸佛身相，眾相圓滿。如果觀想憶念他身成為諸佛身相，則會見到他身如同諸佛身相，眾相圓滿。如果觀想憶念一切眾生、非眾生類所有色相皆為諸佛身相，則會見到一切有情、非有情的所有色相都如同諸佛身相一樣眾相圓滿，不會見到其他一切異相。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">菩薩爾時便作是念</span>
+				<span class="punc">：</span>
+				<span class="word">一切諸法一切色像</span>
+				<span class="punc">，</span>
+				<span class="word">皆如幻等</span>
+				<span class="punc">，</span>
+				<span class="word">諦實不虛</span>
+				<span class="punc">，</span>
+				<span class="word">我今復應皆悉斷滅</span>
+				<span class="punc">，</span>
+				<span class="word">一切三受三行等法</span>
+				<span class="punc">，</span>
+				<span class="word">令無有餘</span>
+				<span class="punc">。</span>
+				<span class="word">作是念已入滅盡定</span>
+				<span class="punc">，</span>
+				<span class="word">住此定中</span>
+				<span class="punc">，</span>
+				<span class="word">如心所期皆盡斷滅</span>
+				<span class="punc">。</span>
+				<span class="word">受定味食</span>
+				<span class="punc">，</span>
+				<span class="word">或一七日夜</span>
+				<span class="punc">、</span>
+				<span class="word">或二七日夜</span>
+				<span class="punc">、</span>
+				<span class="word">或三四五六七八九十七日夜</span>
+				<span class="punc">、</span>
+				<span class="word">或經無量百千俱胝那庾多劫</span>
+				<span class="punc">，</span>
+				<span class="word">隨力所能安住此定</span>
+				<span class="punc">，</span>
+				<span class="word">受定味食</span>
+				<span class="punc">。</span>
+				<span class="word">從此定起</span>
+				<span class="punc">，</span>
+				<span class="word">其心寂靜</span>
+				<span class="punc">，</span>
+				<span class="word">無所取著</span>
+				<span class="punc">，</span>
+				<span class="word">宴然而住</span>
+				<span class="punc">。</span>
+				<span class="word">復入勝義究竟空定</span>
+				<span class="punc">，</span>
+				<span class="word">廣說如前</span>
+				<span class="punc">，</span>
+				<span class="word">乃至思念佛身相已</span>
+				<span class="punc">，</span>
+				<span class="word">知一切法</span>
+				<span class="punc">、</span>
+				<span class="word">一切色像</span>
+				<span class="punc">，</span>
+				<span class="word">皆如幻等</span>
+				<span class="punc">，</span>
+				<span class="word">諦實不虛</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時菩薩會生起念想：一切法相、色相都是幻化，這「諸相如幻」是真實不虛的，我現在還應盡斷一切的三受三行諸法，盡斷一切法相沒有剩餘。生起這種念想，即入定在滅盡定中，安住這定中，如同心中期望，一切法相色相全都斷滅。受用這種禪悅法味，或是七晝夜、或二七十四晝夜、或三四五六七八九十七等晝夜，或是經過無量百千萬億劫時間，隨力所能安住這定中，受用禪悅法味。出定之後，心性平等安靜沒有煩惱，沒有任何取受執著，安住安寧平靜境界。又再入定在最殊勝的究竟空定中，如同前面所廣說，乃至憶念諸佛相後，了知一切法相色相都如幻化，是真實不假的。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">是名菩薩摩訶薩能引遍滿虛空</span>
+				<span class="punc">、</span>
+				<span class="word">無量無邊</span>
+				<span class="punc">、</span>
+				<span class="word">廣大眾具辭無礙解</span>
+				<span class="punc">，</span>
+				<span class="word">一切佛法</span>
+				<span class="punc">、</span>
+				<span class="word">諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼堅固大忍大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">則能安住能引一切虛空眼頂諸三摩地</span>
+				<span class="punc">、</span>
+				<span class="word">諸陀羅尼善巧方便大甲冑輪</span>
+				<span class="punc">。</span>
+				<span class="word">住此輪故</span>
+				<span class="punc">，</span>
+				<span class="word">發起無邊虛空智日</span>
+				<span class="punc">，</span>
+				<span class="word">能永除滅自身四倒無明黑暗</span>
+				<span class="punc">。</span>
+				<span class="word">一切過去所引未盡惡不善業</span>
+				<span class="punc">、</span>
+				<span class="word">無暇惡趣</span>
+				<span class="punc">、</span>
+				<span class="word">諸有諸趣</span>
+				<span class="punc">、</span>
+				<span class="word">死生諸業</span>
+				<span class="punc">，</span>
+				<span class="word">皆能除滅令盡無餘</span>
+				<span class="punc">，</span>
+				<span class="word">不受果報</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！這就是菩薩摩訶薩能引發遍滿虛空、無量無邊、廣大眾具辭無礙解，一切佛法、諸三摩地、諸陀羅尼堅固大忍大甲冑輪。菩薩摩訶薩成就此輪，則能安住能引一切虛空眼頂，諸三摩地、諸陀羅尼善巧方便大甲冑輪。因為安住在這大甲胄輪，能生起如同照遍無邊虛空的日光真智，永遠滅除自身無明黑暗的四種顛倒。能使過去一切惡行造作所引發尚未報盡的不善惡業、無暇惡報、六道輪迴、生死流轉等業報，都能完全除滅沒有剩餘，不再遭受輪迴果報。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若菩薩摩訶薩成就此輪</span>
+				<span class="punc">，</span>
+				<span class="word">從初發心</span>
+				<span class="punc">，</span>
+				<span class="word">一切五欲皆能除斷</span>
+				<span class="punc">，</span>
+				<span class="word">超勝一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺</span>
+				<span class="punc">，</span>
+				<span class="word">普為一切聲聞獨覺作大福田</span>
+				<span class="punc">。</span>
+				<span class="word">一切聲聞</span>
+				<span class="punc">、</span>
+				<span class="word">獨覺乘等</span>
+				<span class="punc">，</span>
+				<span class="word">皆應供養承事守護</span>
+				<span class="punc">。</span>
+				<span class="word">由此輪故</span>
+				<span class="punc">，</span>
+				<span class="word">於諸佛法增進自在常無退轉</span>
+				<span class="punc">，</span>
+				<span class="word">不復隨順惡友力行</span>
+				<span class="punc">。</span>
+				<span class="word">常得不離見一切佛</span>
+				<span class="punc">，</span>
+				<span class="word">及諸菩薩</span>
+				<span class="punc">、</span>
+				<span class="word">聲聞弟子</span>
+				<span class="punc">，</span>
+				<span class="word">不離聞法</span>
+				<span class="punc">、</span>
+				<span class="word">不離親近供養眾僧</span>
+				<span class="punc">。</span>
+				<span class="word">於諸功德心常無厭</span>
+				<span class="punc">，</span>
+				<span class="word">乃至菩提恒無間斷</span>
+				<span class="punc">，</span>
+				<span class="word">又常不離念佛思惟</span>
+				<span class="punc">，</span>
+				<span class="word">乃至夢中亦無暫廢</span>
+				<span class="punc">。</span>
+				<span class="word">如是菩薩</span>
+				<span class="punc">，</span>
+				<span class="word">福德智慧速疾圓滿</span>
+				<span class="punc">，</span>
+				<span class="word">不久安住清淨佛國</span>
+				<span class="punc">，</span>
+				<span class="word">證得無上正等菩提</span>
+				<span class="punc">。</span>
+				<span class="word">於彼佛國一切有情</span>
+				<span class="punc">，</span>
+				<span class="word">皆受化生色相如佛</span>
+				<span class="punc">，</span>
+				<span class="word">煩惱微薄皆住大乘</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				善男子！如果菩薩摩訶薩成就了此輪，從發心求道起，即已斷除一切色、聲、香、味、觸，五欲染執。福德成就勝過一切聲聞獨覺，能成就為聲聞獨覺乘的勝妙福田，一切聲聞獨覺乘眾，都應來供養侍奉守護。由於這大甲冑輪的功德成就，在佛法的修持上，常能自在增長而不退轉。不再依從惡友造作惡業，常能不斷得見一切佛，及諸菩薩、聲聞弟子。不斷聽聞佛法、不斷親近供養眾僧。常能修持種種善法功德心無疲厭。持修種種菩提行願永不間斷。還能常常不斷念佛思維法義，甚至連睡夢中也無片刻間斷。這樣的菩薩，福德智慧能快速圓滿，很快安住清淨佛國，證得無上正等菩提。在這佛國的所有眾生，都是化生而來，身相莊嚴如佛身，煩惱微薄，皆能安住大乘趣求佛果。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時世尊重顯此義</span>
+				<span class="punc">。</span>
+				<span class="word">而說頌曰</span>
+				<span class="punc">：</span>
+				<blockquote>
+					<span class="word">欲成諸法器</span>
+					<span class="punc">，</span>
+					<span class="word">斷一切煩惱</span>
+					<span class="punc">，</span><br/>
+					<span class="word">常趣入真空</span>
+					<span class="punc">，</span>
+					<span class="word">眾事無難作</span>
+					<span class="punc">；</span><br/>
+					<span class="word">為斷諸有縛</span>
+					<span class="punc">，</span>
+					<span class="word">當勤修等持</span>
+					<span class="punc">，</span><br/>
+					<span class="word">功德定相應</span>
+					<span class="punc">，</span>
+					<span class="word">必獲難思慧</span>
+					<span class="punc">。</span><br/>
+					<span class="word">修靜慮無色</span>
+					<span class="punc">，</span>
+					<span class="word">滅定真空觀</span>
+					<span class="punc">，</span><br/>
+					<span class="word">起念佛勝智</span>
+					<span class="punc">，</span>
+					<span class="word">能盡一切惡</span>
+					<span class="punc">；</span><br/>
+					<span class="word">有無一切法</span>
+					<span class="punc">，</span>
+					<span class="word">破以真空觀</span>
+					<span class="punc">，</span><br/>
+					<span class="word">永離諸惡趣</span>
+					<span class="punc">，</span>
+					<span class="word">常得見諸佛</span>
+					<span class="punc">。</span><br/>
+					<span class="word">善修真空觀</span>
+					<span class="punc">，</span>
+					<span class="word">勤學諸善法</span>
+					<span class="punc">，</span><br/>
+					<span class="word">供養一切佛</span>
+					<span class="punc">，</span>
+					<span class="word">速當成佛果</span>
+					<span class="punc">；</span><br/>
+					<span class="word">為有情親友</span>
+					<span class="punc">，</span>
+					<span class="word">滅除煩惱病</span>
+					<span class="punc">，</span><br/>
+					<span class="word">速住淨佛國</span>
+					<span class="punc">，</span>
+					<span class="word">證得大菩提</span>
+					<span class="punc">。</span><br/>
+					<span class="word">眾生如佛相</span>
+					<span class="punc">，</span>
+					<span class="word">遍滿於佛土</span>
+					<span class="punc">，</span><br/>
+					<span class="word">皆趣求佛乘</span>
+					<span class="punc">，</span>
+					<span class="word">離聲聞獨覺</span>
+					<span class="punc">。</span>
+				</blockquote>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時世尊再次昭顯義理而說偈頌：
+				<blockquote>
+					想成就任運諸法的法器，斷除一切煩惱，當要善住在無空無有的真空境界，則天下皆無疑難之事。<br/>
+					為了斷除一切輪迴束縛，應當勤修止觀禪定，必能證得相應契合的功德，獲得不可思議的智慧。<br/>
+					修習禪定出離一切諸相，乃至滅盡定證得第一究竟真空，真空中生起殊勝念佛智慧，能滅除所有惡障惡業。<br/>
+					一切法執的有相無相，都以究竟真空觀來滅除，能永離一切惡趣輪迴，時時得見諸佛世尊。<br/>
+					圓滿修持真空絕相觀，精進修學一切善法，恭敬供養一切諸佛，當能快速證得佛果。<br/>
+					應視一切眾生為親友，除滅眾生煩惱病苦而作福田，速能安住佛國淨土，證得無上正等正覺。<br/>
+					眾生相貌莊嚴猶如佛相，遍滿佛國淨土，皆願證修無上佛道成就佛果，遠離聲聞獨覺二乘之法。
+				</blockquote>
+				<hr/>
+			</div>
+			<h4 class="toc-item" id="vol10-ch14">
+				<span class="word">獲益囑累品第八</span>
+			</h4>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">佛說如是大法門時</span>
+				<span class="punc">，</span>
+				<span class="word">於眾會中有殑伽沙等菩薩摩訶薩</span>
+				<span class="punc">，</span>
+				<span class="word">過去久習念佛思惟</span>
+				<span class="punc">，</span>
+				<span class="word">今聞世尊所說念佛修觀方便</span>
+				<span class="punc">，</span>
+				<span class="word">皆得念佛三摩地門復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞是法已</span>
+				<span class="punc">，</span>
+				<span class="word">皆得一切定命華鬘陀羅尼門</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">皆得一切首楞伽摩電光依止陀羅尼門</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">皆得一切法自在轉光明依止順忍</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">遠塵離垢</span>
+				<span class="punc">，</span>
+				<span class="word">於諸法中生淨法眼</span>
+				<span class="punc">，</span>
+				<span class="word">得預流果</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">得一來果</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">得不還果</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">皆得最上阿羅漢果</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				世尊宣說這地藏十輪經大法門時，法會大眾中有如恆河沙數的菩薩摩訶薩，已在過去久習念佛正法思維，曾有廢忘者，今天聽聞世尊所開示的念佛禪定修觀法門，都證悟了念佛三摩地門，除滅種種煩惱雜染及先世罪業。還有無量無數眾生，聽聞這法門後，都證得一切命定華鬘陀羅尼門。還有無量無數眾生，聽聞佛所說法，都證得一切依止首楞嚴三昧，乃至電光三昧陀羅尼門。還有無量無數眾生，聽聞佛所說法，都證得一切依止諸法自在，生起清淨光明，達悟無生法忍。還有無量無數眾生，聽聞佛所說法，遠離煩惱塵垢，得清淨法眼徹見諸法正道，證得了初果，二果，三果及最上乘的阿羅漢果。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">心求出離三界牢獄</span>
+				<span class="punc">，</span>
+				<span class="word">依佛出家趣入正法</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">盡壽安住十善業道</span>
+				<span class="punc">，</span>
+				<span class="word">依聲聞乘發心不退</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">盡壽安住十善業道</span>
+				<span class="punc">，</span>
+				<span class="word">依獨覺乘發心不退</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">盡壽安住十善業道</span>
+				<span class="punc">，</span>
+				<span class="word">依大乘中發阿耨多羅三藐三菩提心</span>
+				<span class="punc">，</span>
+				<span class="word">不復退轉</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">得世正見</span>
+				<span class="punc">，</span>
+				<span class="word">由此正見</span>
+				<span class="punc">，</span>
+				<span class="word">除滅一切往惡趣因煩惱惡業</span>
+				<span class="punc">，</span>
+				<span class="word">增長一切向善趣因正願善業</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">皆受三歸</span>
+				<span class="punc">，</span>
+				<span class="word">安住近事</span>
+				<span class="punc">，</span>
+				<span class="word">近住淨戒</span>
+				<span class="punc">，</span>
+				<span class="word">樂供養佛</span>
+				<span class="punc">、</span>
+				<span class="word">樂聽聞法</span>
+				<span class="punc">、</span>
+				<span class="word">樂奉事僧</span>
+				<span class="punc">，</span>
+				<span class="word">晝夜精勤</span>
+				<span class="punc">，</span>
+				<span class="word">曾無懈廢</span>
+				<span class="punc">。</span>
+				<span class="word">復有無量無邊眾生</span>
+				<span class="punc">，</span>
+				<span class="word">聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">遠離一切邪趣</span>
+				<span class="punc">、</span>
+				<span class="word">邪歸</span>
+				<span class="punc">、</span>
+				<span class="word">惡意</span>
+				<span class="punc">、</span>
+				<span class="word">惡業</span>
+				<span class="punc">，</span>
+				<span class="word">於佛法中得決定信</span>
+				<span class="punc">，</span>
+				<span class="word">棄捨家法</span>
+				<span class="punc">，</span>
+				<span class="word">清淨出家</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				還有無量無數眾生，聽聞佛所說法，一心證求出離三界煩惱牢籠，歸依世尊出家趣求正法。還有無量無數眾生，聽聞佛所說法，終身安住在十善業道，依止聲聞乘法修行，發心不退轉。還有無量無數眾生，聽聞佛所說法，終身安住在十善業道，依止緣覺乘法修行，發心不退轉。還有無量無數眾生，聽聞佛所說法，終身安住在十善業道，依止大乘法修行，發無上正等正覺心，得不退轉。還有無量無數眾生，聽聞佛所說法，得悟世間正見，由此正見因緣，能除滅一切淪墮惡趣惡因、煩惱雜染惡業，增長一切趨向人天福報善因、正願善業。還有無量無數眾生，聽聞佛所說法，都領受了三皈依，安住近事戒、近住戒，樂於供養諸佛、樂於聽聞佛法、樂於侍奉僧眾，晝夜勇猛精進，不會懶散懈怠。還有無量無數眾生，聽聞佛所說法，遠離一切邪道、邪歸依，遠離造作惡業、惡念惡行，歸依佛法生起無雜無染、淨信不退心，棄捨俗家種種愛欲，清淨出家。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">爾時</span>
+				<span class="punc">，</span>
+				<span class="word">世尊告虛空藏菩薩摩訶薩言</span>
+				<span class="punc">：</span>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">吾今持此地藏十輪大記法門</span>
+				<span class="punc">，</span>
+				<span class="word">付囑汝手</span>
+				<span class="punc">，</span>
+				<span class="word">汝當受持廣令流布</span>
+				<span class="punc">。</span>
+				<span class="word">若諸眾生於此法門</span>
+				<span class="punc">，</span>
+				<span class="word">有能讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">思惟其義</span>
+				<span class="punc">、</span>
+				<span class="word">為他解說</span>
+				<span class="punc">、</span>
+				<span class="word">住正行者</span>
+				<span class="punc">，</span>
+				<span class="word">汝當為彼守護十法</span>
+				<span class="punc">，</span>
+				<span class="word">令於長夜利益安樂</span>
+				<span class="punc">。</span>
+				<span class="word">何等為十</span>
+				<span class="punc">？</span>
+				<blockquote>
+					<span class="word">一者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">一切財位令無損乏</span>
+					<span class="punc">。</span><br/>
+					<span class="word">二者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">一切怨敵令不侵害</span>
+					<span class="punc">。</span><br/>
+					<span class="word">三者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">令捨一切邪見</span>
+					<span class="punc">、</span>
+					<span class="word">邪歸</span>
+					<span class="punc">、</span>
+					<span class="word">十惡業道</span>
+					<span class="punc">。</span><br/>
+					<span class="word">四者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">令免一切身</span>
+					<span class="punc">、</span>
+					<span class="word">語讁罰</span>
+					<span class="punc">。</span><br/>
+					<span class="word">五者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">遮斷一切謗毀輕弄</span>
+					<span class="punc">。</span><br/>
+					<span class="word">六者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">令於一切軌範</span>
+					<span class="punc">、</span>
+					<span class="word">尸羅皆得無犯</span>
+					<span class="punc">。</span><br/>
+					<span class="word">七者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">令悉除滅一切非人</span>
+					<span class="punc">、</span>
+					<span class="word">四大乖反</span>
+					<span class="punc">、</span>
+					<span class="word">非時老病</span>
+					<span class="punc">。</span><br/>
+					<span class="word">八者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">不遭一切非時非理災橫夭歿</span>
+					<span class="punc">。</span><br/>
+					<span class="word">九者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">命欲終時</span>
+					<span class="punc">，</span>
+					<span class="word">得見一切諸佛色像</span>
+					<span class="punc">。</span><br/>
+					<span class="word">十者</span>
+					<span class="punc">、</span>
+					<span class="word">為彼守護</span>
+					<span class="punc">，</span>
+					<span class="word">令其終後</span>
+					<span class="punc">，</span>
+					<span class="word">往生善趣利益安樂</span>
+					<span class="punc">。</span>
+				</blockquote>
+				<span class="word">善男子</span>
+				<span class="punc">！</span>
+				<span class="word">若諸有情於此法門</span>
+				<span class="punc">，</span>
+				<span class="word">有能讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">思惟其義</span>
+				<span class="punc">、</span>
+				<span class="word">為他解說</span>
+				<span class="punc">、</span>
+				<span class="word">住正行者</span>
+				<span class="punc">，</span>
+				<span class="word">汝當為彼</span>
+				<span class="punc">，</span>
+				<span class="word">勤加守護如是十法</span>
+				<span class="punc">，</span>
+				<span class="word">令於長夜利益安樂</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時，世尊告訴虛空藏菩薩摩訶薩說：善男子！我現在付託這地藏十輪經大了義法門在你手中，你應當受持這法門並讓這法門廣為流傳。如果眾生們在這法門上，有能讀誦、思惟法義、為人解說、安住正道正行的人，你應當為他們作十種守善不失、防護侵害的守護功德，使他們在生死流轉長夜能得利益安樂。是那十種守護功德呢？
+				<blockquote>
+					一者、為他守護，一切財富不受損失。<br/>
+					二者、為他守護，一切仇敵怨親不來侵害。<br/>
+					三者、為他守護，使他遠離一切邪見、邪歸依、十惡業道。<br/>
+					四者、為他守護，使他遠離一切身過失、語過失，及所受責罰。<br/>
+					五者、為他守護，為他遮阻一切謗毀，輕慢嘲弄。<br/>
+					六者、為他守護，使他不會毀犯一切法軌、戒律。<br/>
+					七者、為他守護，使他除滅一切鬼神非人擾亂、四大不調、反常的衰老病厄。<br/>
+					八者、為他守護，使他不遭受一切意外災禍橫死夭折。<br/>
+					九者、為他守護，使他臨命終際，得見一切諸佛莊嚴好相。<br/>
+					十者、為他守護，使他命終身後，往生善道利益安樂。
+				</blockquote>
+				善男子！如果有情眾生在這法門，有能讀誦、思惟法義、為人解說、安住正道正行的人，你應當為他們勤作這十種守善不失、防護侵害的守護功德，使他們在生死流轉長夜能得利益安樂。
+				<hr/>
+			</div>
+			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">
+				<span class="word">時虛空藏菩薩摩訶薩白佛言</span>
+				<span class="punc">：</span>
+				<span class="word">唯然</span>
+				<span class="punc">，</span>
+				<span class="word">世尊</span>
+				<span class="punc">！</span>
+				<span class="word">我當受持如是法門</span>
+				<span class="punc">，</span>
+				<span class="word">廣令流布</span>
+				<span class="punc">。</span>
+				<span class="word">若諸有情於此法門</span>
+				<span class="punc">，</span>
+				<span class="word">有能讀誦</span>
+				<span class="punc">、</span>
+				<span class="word">思惟其義</span>
+				<span class="punc">、</span>
+				<span class="word">為他解說</span>
+				<span class="punc">、</span>
+				<span class="word">住正行者</span>
+				<span class="punc">，</span>
+				<span class="word">我當為彼守護十法</span>
+				<span class="punc">，</span>
+				<span class="word">令於長夜利益安樂</span>
+				<span class="punc">。</span>
+				<span class="word">時薄伽梵說是經已</span>
+				<span class="punc">，</span>
+				<span class="word">於眾會中</span>
+				<span class="punc">，</span>
+				<span class="word">虛空藏菩薩摩訶薩</span>
+				<span class="punc">、</span>
+				<span class="word">地藏菩薩摩訶薩</span>
+				<span class="punc">、</span>
+				<span class="word">金剛藏菩薩摩訶薩</span>
+				<span class="punc">、</span>
+				<span class="word">好疑問菩薩摩訶薩</span>
+				<span class="punc">、</span>
+				<span class="word">天藏大梵等</span>
+				<span class="punc">，</span>
+				<span class="word">及諸天</span>
+				<span class="punc">、</span>
+				<span class="word">龍</span>
+				<span class="punc">、</span>
+				<span class="word">藥叉</span>
+				<span class="punc">、</span>
+				<span class="word">健達縛</span>
+				<span class="punc">、</span>
+				<span class="word">阿素洛</span>
+				<span class="punc">、</span>
+				<span class="word">揭路荼</span>
+				<span class="punc">、</span>
+				<span class="word">緊捺洛</span>
+				<span class="punc">、</span>
+				<span class="word">莫呼洛伽</span>
+				<span class="punc">、</span>
+				<span class="word">人非人等</span>
+				<span class="punc">，</span>
+				<span class="word">一切大眾聞佛所說</span>
+				<span class="punc">，</span>
+				<span class="word">皆大歡喜信受奉行</span>
+				<span class="punc">。</span>
+			</div>
+			<div x-show="details" class="details mb-3">
+				這時虛空藏菩薩摩訶薩對佛說：是的，世尊！我必當受持這法門，使這法門廣為流傳。如果眾生們在這法門，有能讀誦、思惟法義、為人解說、安住正道正行的人，我定當為他們作十種守善不失、防護侵害功德守護，使他們在生死流轉長夜能得利益安樂。世尊圓滿開示了這大乘大集地藏十輪經後，法會大眾中，虛空藏菩薩摩訶薩、地藏菩薩摩訶薩、金剛藏菩薩摩訶薩、好疑問菩薩摩訶薩、天藏大梵天等，及諸天、龍、藥叉、健達縛、阿素洛、揭路荼、緊捺洛、莫呼洛伽、人非人等，一切大眾聽聞佛所開示，都生大歡喜心，淨信受持奉行。
+				<hr/>
+			</div>
+			<div class="paragraph">
+				<h2>
+					<span class="word">地藏十輪經卷十</span>
+				</h2>
+			</div>
+			<div class="d-flex mb-3">
+				<div class="me-auto w-50">
+					<a href="/ksitigarbha-dasacakra-vol9" class="btn btn-link border p-2 me-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-left fs-1"></i>
+							</div>
+							<div class="d-flex w-100 justify-content-center">
+								<span class="ms-2 text-start text-truncate">地藏十輪經卷九</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="ms-auto me-3 w-50">
+					<a href="/ksitigarbha-reciting-rituals" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+						<div class="d-flex h-100 justify-content-between align-items-center">
+							<div class="d-flex w-100 justify-content-center">
+								<span class="me-2 text-start text-truncate">地藏菩薩念誦儀軌</span>
+							</div>
+							<div class="d-flex">
+								<i class="fas fa-arrow-circle-right fs-1"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+		
+		<!-- audio control -->
+				
+		<!-- footer -->
+		<div class="container-fuild footer-link py-4 mt-5 bg-light mm-slideout">
+	<div class="row px-5">
+		<div class="col-lg-6 px-4 mb-3">
+			<p>
+				本站的所有內容皆轉載自網絡或流通善書，目的為宏揚法門才加以整理匯編，無意侵犯版權著作。
+				版權持有人如覺有利益侵損，請與本站管理員聯絡，我們會盡快刪除相關內容。
+			</p>
+			
+			<p>
+				本站的內容經過初步校對，盡最大努力保持內容的完整和準確性，如有缺失遺漏還請各位大德指正，功德無量。
+			</p>
+			
+			<p>
+				如果對本站有任何建議或使用問題，亦都歡迎與我們聯絡。
+			</p>
+
+			我們的聯絡方法：<a href="mailto:admin@mahayanasutras.xyz">admin@mahayanasutras.xyz</a>
+		</div>
+		
+	</div>
+</div>
+<div class="footer-link-bottom bg-light"></div>		
+		<!-- scripts -->
+		<!-- never use defer attribute as it caused jQuery undefined -->
+		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
+		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
+        <script src="/assets/build/js/app.js?id=5545468d150b09f8bc1a551763b7af04"></script>
+		    </body>
+</html>
