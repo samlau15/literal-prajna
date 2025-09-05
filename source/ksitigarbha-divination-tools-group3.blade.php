@@ -191,6 +191,15 @@
 		</ol>
 	</nav>
 	<h3>第三輪相翻查結果</h3>
+	<h5 class="text-center text-danger lh-lg">
+		至心敬禮十方一切諸佛、法藏、賢聖及地藏菩薩，如法供養。
+		次當稱名或默念<br/>
+		<b>「南無地藏菩薩摩訶薩」</b><br/>
+		滿足一千，而作是言：<br/>
+		<b>「地藏菩薩摩訶薩！ 大慈大悲！ 唯願護念我及一切眾生，速除諸障，增長淨信，令今所觀稱實相應。」</b>
+	</h5>
+	<small class="float-end">儀軌詳見<a href="/ksitigarbha-divination-practices#vol1-ch7">占察善惡業報經行法</a></small>
+	<div class="clearfix mb-3"></div>
 	<div x-show="stage==1">
 		<h4>1. 輸入問題</h4>
 		<form class="row g-3 mb-3" autocomplete="off">
@@ -232,15 +241,6 @@
 		</button>
 		<div class="clearfix"></div>
 		<div class="container mt-3">
-			<h5 class="text-center text-danger lh-lg">
-				至心敬禮十方一切諸佛、法藏、賢聖及地藏菩薩，如法供養。
-				次當稱名或默念<br/>
-				<b>「南無地藏菩薩摩訶薩」</b><br/>
-				滿足一千，而作是言：<br/>
-				<b>「地藏菩薩摩訶薩！ 大慈大悲！ 唯願護念我及一切眾生，速除諸障，增長淨信，令今所觀稱實相應。」</b>
-			</h5>
-			<small class="float-end">儀軌詳見<a href="/ksitigarbha-divination-practices#vol1-ch7">占察善惡業報經行法</a></small>
-			<div class="clearfix"></div>
 			<template x-for="(q, i) in questions">
 				<div class="p-3 mb-3 border rounded" :class="i % 2 == 0 ? 'bg-body-tertiary' : 'bg-body-secondary'" :key="`q${i}`">
 					<h5 x-text="`問題 ${i+1}.`"></h5>

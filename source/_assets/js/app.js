@@ -45,7 +45,7 @@ $(function() {
 		diameter: 45,
 		backgroundColor: 'rgb(75, 75, 75, 1)',
 		textColor: '#fff',
-		zIndex: 10,
+		zIndex: 20,
 		cornerOffset: 12,
 	});
 	

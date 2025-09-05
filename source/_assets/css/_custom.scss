@@ -9,8 +9,12 @@ body {
 	white-space: break-spaces;
 }
 
-.navbar, .fixed-bottom {
-	z-index: 4;
+.navbar {
+	z-index: 30;
+}
+
+.fixed-bottom {
+	z-index: 15;
 }
 
 .collapsing {
@@ -226,7 +230,7 @@ blockquote {
 
 #back-to-top {
 	opacity: 0.5;
-	right: 0px;
+	right: 5px;
 	
 	&:hover {
 		opacity: 1;

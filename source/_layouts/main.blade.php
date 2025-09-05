@@ -31,7 +31,7 @@
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="/">
 					@yield('navbar-brand-img')
 				</a>
 				<div class="collapse navbar-collapse" id="main_nav">
