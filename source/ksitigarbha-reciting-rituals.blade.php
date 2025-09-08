@@ -43,7 +43,7 @@
 		<div id="content" class="col-md-9" :class="{'font-enlarged': textsize == 2, 'readonly': readOnly}">
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item">地藏經典</li>
+					<li class="breadcrumb-item">密法儀軌</li>
 					<li class="breadcrumb-item"><a href="/ksitigarbha-reciting-rituals">地藏菩薩念誦儀軌</a></li>
 				</ol>
 			</nav>
@@ -163,15 +163,15 @@
 			<div class="mb-3">
 				<p>復次説根本印相。二手相縛竪。一合火輪圓滿如錫杖形。是名根本印。由是結印故。成就大悲。不墮三惡道。常生諸佛前。</p>
 			</div>
-			<figure class="figure me-3">
+			<figure class="figure text-center me-3">
 				<img src="{{ $page->baseUrl.'/assets/images/內縛印.png' }}" class="figure-img img-fluid rounded" alt="內縛印">
 				<figcaption class="figure-caption">雙手內縛</figcaption>
 			</figure>
-			<figure class="figure me-3">
+			<figure class="figure text-center me-3">
 				<img src="{{ $page->baseUrl.'/assets/images/旗印.png' }}" class="figure-img img-fluid rounded" alt="旗印">
-				<figcaption class="figure-caption">兩中指豎起相對</figcaption>
+				<figcaption class="figure-caption">兩中指豎起相對，成「旗印」。</figcaption>
 			</figure>
-			<figure class="figure me-3">
+			<figure class="figure text-center">
 				<img src="{{ $page->baseUrl.'/assets/images/九華山旗印.png' }}" class="figure-img img-fluid rounded" alt="九華山旗印">
 				<figcaption class="figure-caption">九華山根本印模型</figcaption>
 			</figure>
@@ -181,9 +181,9 @@
 			<div class="mb-3">
 				<p>復次説心印。二手合掌作蓮花形。由是結印故。消滅一切破戒罪障。一切毀犯業悉得清淨。</p>
 			</div>
-			<figure class="figure">
+			<figure class="figure text-center">
 				<img src="{{ $page->baseUrl.'/assets/images/蓮花印.png' }}" class="figure-img img-fluid rounded" alt="蓮花印">
-				<figcaption class="figure-caption">蓮花印</figcaption>
+				<figcaption class="figure-caption">雙手作蓮花形，成「蓮花印」。</figcaption>
 			</figure>
 			<h6 class="toc-item" id="vol1-mu3">
 				<span class="word">心中心印相</span>
@@ -191,13 +191,13 @@
 			<div class="mb-3">
 				<p>復次説心中心印。二手內縛進力摩尼形禪智並立。由是印威力故。消滅貧苦悉得福壽利。能滅定業能延壽命。</p>
 			</div>
-			<figure class="figure">
+			<figure class="figure text-center me-3">
 				<img src="{{ $page->baseUrl.'/assets/images/十指圖.png' }}" class="figure-img img-fluid rounded" alt="十指圖">
-				<figcaption class="figure-caption">進力對應食指，禪智對應大拇指。</figcaption>
+				<figcaption class="figure-caption w-100">進力對應食指，禪智對應大拇指。</figcaption>
 			</figure>
-			<figure class="figure me-3">
+			<figure class="figure text-center">
 				<img src="{{ $page->baseUrl.'/assets/images/寶印.png' }}" class="figure-img img-fluid rounded" alt="寶印">
-				<figcaption class="figure-caption">雙手內縛，食指彎曲如寶珠，大拇指並立。</figcaption>
+				<figcaption class="figure-caption w-100">雙手內縛，食指彎曲如寶珠，大拇指並立，成「寶印」。</figcaption>
 			</figure>
 			<div class="mb-3">
 				<p>若有善男子善女人比丘比丘尼優婆塞優婆夷。厭三惡道求菩提。消除貧苦求福利。滅不淨業求清淨身。離惡業身求眾生愛。或求王位若求官位。欲得好子者。先擇宿曜吉祥之日。白絲或羂索上畫地藏菩薩形像。安坐千葉白蓮上。左手持如意寶珠。右手執錫杖。身色白肉色。現聲聞形。以種種瓔珞莊嚴其身。</p>
@@ -209,7 +209,7 @@
 				<p>二　次畫持寶童子。其身如日光。左手持如意寶珠。右手與願印。</p>
 			</div>
 			<div class="mb-3">
-				<p>三　次畫大力使者。身青黒色載師子王左手持獸稍(梢)。右手開赦押右腰。以忿怒惡眼觀四方形。</p>
+				<p>三　次畫大力使者。身青黑色載師子王左手持獸稍(梢)。右手開赦押右腰。以忿怒惡眼觀四方形。</p>
 			</div>
 			<div class="mb-3">
 				<p>四　右方畫大慈大悲天女。身白肉色。左手與願印。右手執圓扇。</p>
@@ -264,12 +264,11 @@
 						</div>
 					</a>
 				</div>
-				{{--
 				<div class="ms-auto me-3 w-50">
-					<a href="#" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
+					<a href="/ksitigarbha-rituals" class="btn btn-link border p-2 ms-3 w-100 h-100 text-decoration-none">
 						<div class="d-flex h-100 justify-content-between align-items-center">
 							<div class="d-flex w-100 justify-content-center">
-								<span class="me-2 text-start text-truncate"></span>
+								<span class="me-2 text-start text-truncate">地藏菩薩儀軌</span>
 							</div>
 							<div class="d-flex">
 								<i class="fas fa-arrow-circle-right fs-1"></i>
@@ -277,7 +276,6 @@
 						</div>
 					</a>
 				</div>
-				--}}
 			</div>
 		</div>
 	</div>

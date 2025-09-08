@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('title')
-<title>首頁</title>
+<title>南無大願地藏王菩薩摩訶薩</title>
 @endsection
 
 @push('styles')
