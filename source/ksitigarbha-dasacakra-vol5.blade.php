@@ -43,7 +43,7 @@
 						<a @@click="jumpTo('vol5')" :class="{active: currItems['vol5'] && true}" class="nav-link text-nowrap" href="#vol5">地藏十輪經卷五</a>
 						<ul class="nav navbar-nav">
 							<li><a @@click="jumpTo('vol5-ch5')" :class="{active: currItems['vol5-ch5'] && true}" class="nav-link text-nowrap" href="#vol5-ch5">無依行品第三之三</a></li>
-							<li><a @@click="jumpTo('vol5-m2')" :class="{active: currItems['vol5-m2'] && true}" class="nav-link text-nowrap" href="#vol5-m2">護國不退輪心<br/>大陀羅尼明呪章句</a></li>
+							<li><a @@click="jumpTo('vol5-m2')" :class="{active: currItems['vol5-m2'] && true}" class="nav-link text-break" href="#vol5-m2">護國不退輪心大陀羅尼明呪章句</a></li>
 							<li><a @@click="jumpTo('vol5-ch6')" :class="{active: currItems['vol5-ch6'] && true}" class="nav-link text-nowrap" href="#vol5-ch6">有依行品第四之一</a></li>
 						</ul>
 					</li>
