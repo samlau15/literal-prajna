@@ -59,11 +59,19 @@ $(function() {
 const Alpine = require('alpinejs').default;
 window.Alpine = Alpine;
 
+const PreloadAudioStatus = {
+	PENDING: 0,
+	PRELOADING: 1,
+	PRELOADED: 2,
+}
+window.PreloadAudioStatus = PreloadAudioStatus;
+
 Alpine.data('page', () => ({
 	isSidebarOpened: false,
 	textsize: 1,
 	readOnly: true,
 	autoScroll: true,
+	preloadAudio: PreloadAudioStatus.PENDING,
 	details: false,
 }));
 

@@ -1966,7 +1966,7 @@
 					<span class="word" @@click="$dispatch('play-segment')" data-start="34:44.12" data-end="34:47.18" data-index="3136">現在未來天人眾</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="34:47.68" data-end="34:50.32" data-index="3137">吾今慇懃付囑汝</span>
-					<span class="punc">，</span>
+					<span class="punc">，</span><br/>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="34:50.90" data-end="34:53.74" data-index="3138">以大神通方便度</span>
 					<span class="punc">，</span>
 					<span class="word" @@click="$dispatch('play-segment')" data-start="34:54.34" data-end="34:56.80" data-index="3139">勿令墮在諸惡趣</span>
@@ -1974,7 +1974,12 @@
 				</blockquote>
 			</div>
 			<div x-show="details" class="details mb-3">
-				這時，佛又說出以下偈言：「現在未來的天人眾生，我今天殷勤託付給你，你要以大神通力設法度脫他們，不要讓他們墮入惡道受痛苦。」
+				這時，佛又說出以下偈言：「
+				<blockquote>
+					現在未來的天人眾生，我今天殷勤託付給你，<br/>
+					你要以大神通力設法度脫他們，不要讓他們墮入惡道受痛苦。
+				</blockquote>
+				」
 				<hr/>
 			</div>
 			<div :class="details ? 'bg-secondary text-white' : ''" class="paragraph">

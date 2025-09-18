@@ -44,6 +44,31 @@
 			$data.player.stop();
 			$('span.word').removeClass('curr');
 		},
+		preload: e => {
+			const {player} = $data;
+			if(player.source) {
+				$data.preloadAudio = PreloadAudioStatus.PRELOADING;
+				const audio = new Audio();
+				audio.src = player.source;
+				audio.preload = 'auto';
+				audio.addEventListener('progress', () => {
+					if(audio.buffered.length > 0) {
+						const bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
+						const duration = audio.duration;
+						if(duration > 0) {
+							const progress = Math.round((bufferedEnd / duration) * 100);
+							$dispatch('preloading-audio', {progress});
+						}
+					}
+				});
+				audio.addEventListener('loadeddata', () => {
+					$dispatch('preloading-audio', {progress: 100});
+				});
+				audio.addEventListener('canplaythrough', () => {
+					$data.preloadAudio = PreloadAudioStatus.PRELOADED;
+				});
+			}
+		},
 		playSegment: e => {
 			const {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
@@ -181,6 +206,7 @@
 	@@play-audio.window="play"
 	@@pause-audio.window="pause"
 	@@stop-audio.window="stop"
+	@@preload-audio.window="preload"
 	@@play-segment.window="playSegment"
 	@@jump-to.window="jumpTo"
 	@@mmenu-opened.window="pause"

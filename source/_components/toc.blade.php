@@ -67,6 +67,7 @@
 				
 		@if($attributes->has('audio-supported'))
 		$data.autoScroll = true;
+		$data.preloadAudio = false;
 		@endif
 	
 		@if($attributes->has('trans-supported'))
@@ -153,6 +154,18 @@
 					<i class="fa fa-stop"></i>
 				</button>
 			</div>
+			<div x-show="preloadAudio == PreloadAudioStatus.PENDING" @@click="$dispatch('preload-audio')" class="form-check form-switch my-3">
+				<input class="form-check-input" type="checkbox" role="switch" id="switch-preloadAudio" value="false">
+				<label class="form-check-label" for="switch-preloadAudio">預載音訊 <sub>(如播放出現延誤)</sub></label>
+			</div>
+			<div
+				x-data="{ preloadProgress: '預載音訊 0%。' }"
+				x-show="preloadAudio == PreloadAudioStatus.PRELOADING"
+				x-text="preloadProgress"
+				@@preloading-audio.window="e => $data.preloadProgress = `預載音訊 ${e.detail.progress}%。`"
+				class="my-3">
+			</div>
+			<div x-show="preloadAudio == PreloadAudioStatus.PRELOADED" class="my-3">已預載整段音訊。</div>
 			<div class="form-check form-switch my-3">
 				<input x-model="autoScroll" class="form-check-input" type="checkbox" role="switch" id="switch-autoScroll">
 				<label class="form-check-label" for="switch-autoScroll">自動滾動</label>
