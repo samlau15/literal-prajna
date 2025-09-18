@@ -656,6 +656,31 @@
 			$data.player.stop();
 			$('span.word').removeClass('curr');
 		},
+		preload: e => {
+			const {player} = $data;
+			if(player.source) {
+				$data.preloadAudio = PreloadAudioStatus.PRELOADING;
+				const audio = new Audio();
+				audio.src = player.source;
+				audio.preload = 'auto';
+				audio.addEventListener('progress', () => {
+					if(audio.buffered.length > 0) {
+						const bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
+						const duration = audio.duration;
+						if(duration > 0) {
+							const progress = Math.round((bufferedEnd / duration) * 100);
+							$dispatch('preloading-audio', {progress});
+						}
+					}
+				});
+				audio.addEventListener('loadeddata', () => {
+					$dispatch('preloading-audio', {progress: 100});
+				});
+				audio.addEventListener('canplaythrough', () => {
+					$data.preloadAudio = PreloadAudioStatus.PRELOADED;
+				});
+			}
+		},
 		playSegment: e => {
 			const {player, timeToSecond} = $data;
 			let start = timeToSecond($(e.target).data('start'));
@@ -793,6 +818,7 @@
 	@play-audio.window="play"
 	@pause-audio.window="pause"
 	@stop-audio.window="stop"
+	@preload-audio.window="preload"
 	@play-segment.window="playSegment"
 	@jump-to.window="jumpTo"
 	@mmenu-opened.window="pause"
@@ -839,6 +865,6 @@
 		<!-- never use defer attribute as it caused jQuery undefined -->
 		<script src="/assets/build/js/manifest.js?id=8ddbb49fea4a9e000b611851e0bf935b" ></script>
 		<script src="/assets/build/js/vendor.js?id=2b693dc9d35d5d8a9c3541385602b231" ></script>
-        <script src="/assets/build/js/app.js?id=f80a2ca6458a227954cad53fa249a566"></script>
+        <script src="/assets/build/js/app.js?id=14d1c55b6bc9d908026f9af9091ddbf4"></script>
 		    </body>
 </html>
