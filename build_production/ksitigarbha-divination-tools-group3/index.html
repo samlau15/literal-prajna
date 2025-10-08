@@ -346,7 +346,7 @@
 		<button
 			@click="reset"
 			type="button"
-			class="btn btn-danger float-end me-3"
+			class="btn btn-danger float-end mt-3 me-3"
 		>
 			重新設置問題
 		</button>
@@ -355,10 +355,10 @@
 			<template x-for="(q, i) in questions">
 				<div class="p-3 mb-3 border rounded" :class="i % 2 == 0 ? 'bg-body-tertiary' : 'bg-body-secondary'" :key="`q${i}`">
 					<h5 x-text="`問題 ${i+1}.`"></h5>
-					<button x-show="questions.length > 1" @click="removeQuestion($event, i)" type="button" class="btn btn-sm btn-danger float-end">
+					<button x-show="questions.length > 1" @click="removeQuestion($event, i)" type="button" class="btn btn-sm btn-danger float-end ms-2">
 						<i class="fa-solid fa-trash-can"></i>
 					</button>
-					<strong><p x-text="`「${q}」`"></p></strong>
+					<strong><p class="text-break" x-text="`「${q}」`"></p></strong>
 					
 					<h6>輪相結果 1.</h6>
 					<div class="row mb-3">
