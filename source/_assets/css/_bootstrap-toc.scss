@@ -61,53 +61,53 @@ nav[data-toggle="toc"] .nav-link.active + ul {
 
 /********** Custom **********/
 nav[data-toggle="toc"] {
-	top: 100px;
-	
-	> ul {
-		overflow: hidden;
-	}
+    top: 100px;
+    
+    > ul {
+        overflow: hidden;
+    }
 }
 
 /* small screens */
 @include media-breakpoint-down(md) {
-	/* override stickyness so that the navigation does not follow scrolling */
-	nav[data-toggle="toc"] {
-		margin-bottom: 80px;
-		position: static;
-	}
+    /* override stickyness so that the navigation does not follow scrolling */
+    nav[data-toggle="toc"] {
+        margin-bottom: 80px;
+        position: static;
+    }
 
-	/* PICK ONE */
-	/* don't expand nested items, which pushes down the rest of the page when navigating */
-	nav[data-toggle="toc"] .nav .active .nav {
-		display: none;
-	}
-	/* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
-	/*
-	nav[data-toggle='toc'] .nav .nav {
-		display: block;
-	}
-	*/
+    /* PICK ONE */
+    /* don't expand nested items, which pushes down the rest of the page when navigating */
+    nav[data-toggle="toc"] .nav .active .nav {
+        display: none;
+    }
+    /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+    /*
+    nav[data-toggle='toc'] .nav .nav {
+        display: block;
+    }
+    */
 }
 
 /* large screens */
 @include media-breakpoint-up(md) {
-	nav[data-toggle="toc"] {
-		max-height: calc(100vh - 100px);
-		overflow-y: auto;
-		overflow-x: hidden;
-		
-		&::-webkit-scrollbar {
-			width: 6px;
-			background-color: #F5F5F5;
-		}
-		
-		&::-webkit-scrollbar-thumb {
-			background-color: #c1c1c1;
-		}
-		
-		&::-webkit-scrollbar-track {
-			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-			background-color: #F5F5F5;
-		}
-	}
+    nav[data-toggle="toc"] {
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        &::-webkit-scrollbar {
+            width: 6px;
+            background-color: #F5F5F5;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: #c1c1c1;
+        }
+        
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+    }
 }

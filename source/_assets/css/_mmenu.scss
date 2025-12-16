@@ -1,55 +1,55 @@
 body {
-	--mm-min-size: 200px;
-	--mm-max-size: 250px;
+    --mm-min-size: 200px;
+    --mm-max-size: 250px;
 }
 
 .mm-menu--theme-light-contrast {
-	--mm-color-background: white;
+    --mm-color-background: white;
 }
 
 .mm-menu {
-	padding-top: 30px;
-	visibility: hidden;
-	
-	&.mm-menu--opened {
-		visibility: visible;
-	}
+    padding-top: 30px;
+    visibility: hidden;
+    
+    &.mm-menu--opened {
+        visibility: visible;
+    }
 }
 
 .mm-wrapper--opened .mm-page {
-	box-shadow: 0 0 10px rgb( 0 0 0 / 20%);
+    box-shadow: 0 0 10px rgb( 0 0 0 / 20%);
 }
 
 .mm-wrapper__blocker {
-	background: none;
+    background: none;
 }
 
 .mm-panels {
-	> .mm-panel {
-		padding-top: 50px;
-	}
+    > .mm-panel {
+        padding-top: 50px;
+    }
 }
 
 .mm-panel--parent {
-	--mm-panel-parent-offset: 100%;
+    --mm-panel-parent-offset: 100%;
 }
 
 .mm-navbar {
-	border-bottom: unset;
-	font-size: 18px;
+    border-bottom: unset;
+    font-size: 18px;
 }
 
 .mm-listitem:after {
-	content: none;
+    content: none;
 }
 
 .mm-listitem > a,
 .mm-listitem > span {
-	padding: 15px 10px 15px 35px;
+    padding: 15px 10px 15px 35px;
 }
 
 .mm-blocker.mm-slideout {
-	background-color: #000;
-	opacity: 0.2;
-	z-index: 25;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: 25;
 }

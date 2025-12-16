@@ -1,24 +1,24 @@
 body {
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center center;
-	background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
 }
 
 .white-space-break {
-	white-space: break-spaces;
+    white-space: break-spaces;
 }
 
 sub.sub-lg {
-	font-size: 0.8em;
+    font-size: 0.8em;
 }
 
 .navbar {
-	z-index: 30;
+    z-index: 30;
 }
 
 .fixed-bottom {
-	z-index: 15;
+    z-index: 15;
 }
 
 .collapsing {
@@ -27,256 +27,256 @@ sub.sub-lg {
 }
 
 .navbar.navbar-expand-lg {
-	background-color: #ffebb4;
+    background-color: #ffebb4;
 }
 
 .navbar-toggler a[href="#page"] {
-	display: none;
+    display: none;
 }
 
 #menu:not(.mm-menu):not(.mm) {
-	display: none;
+    display: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	padding-top: 120px;
-	margin-top: -100px;
+    padding-top: 120px;
+    margin-top: -100px;
 }
 
 h1, h2 {
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
-			
+            
 h3, h4, h5, h6 {
-	margin-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
 }
 
 .paragraph {
-	padding: 0.3rem;
-	margin-bottom: 0.5rem;
-	line-height: 1.8rem;
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.8rem;
 }
 
 .blockquote {
-	font-size: 1rem;
-	> :first-child::before {
-		font-family: "Font Awesome 6 Free";
-		font-weight: 900;
-		content: "\f10d";
-	}
-	
-	> :last-child::after {
-		font-family: "Font Awesome 6 Free";
-		font-weight: 900;
-		content: "\f10e";
-	}
+    font-size: 1rem;
+    > :first-child::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "\f10d";
+    }
+    
+    > :last-child::after {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "\f10e";
+    }
 }
 
 .font-enlarged {
-	font-size: 1.4rem;
-	
-	.blockquote {
-	  font-size: 1.4rem;
-	}
-	
-	.paragraph {
-		line-height: 2.5rem;
-	}
+    font-size: 1.4rem;
+    
+    .blockquote {
+      font-size: 1.4rem;
+    }
+    
+    .paragraph {
+        line-height: 2.5rem;
+    }
 }
 
 .toc-container {
-	font-size: 0.9rem;
+    font-size: 0.9rem;
 
-	.controls {
-		.btn {
-			width: 35px;
-		}
-	}
+    .controls {
+        .btn {
+            width: 35px;
+        }
+    }
 }
 
 h4.toc-item::before {
-	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
-	content: "\f1dd";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f1dd";
 }
 
 h6.toc-item::before {
-	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
-	content: "\f02e";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f02e";
 }
 
 .word {
-	padding: 0.3rem 0;
-	border-radius: 10px;
-	
-	&[data-start] {
-		cursor: pointer;
-	}
-	
-	&.curr {
-		padding: 0.3rem;
-		background: yellow;
-		color: black;
-	}
-	
-	sub {
-		color: $indigo-200;
-	}
+    padding: 0.3rem 0;
+    border-radius: 10px;
+    
+    &[data-start] {
+        cursor: pointer;
+    }
+    
+    &.curr {
+        padding: 0.3rem;
+        background: yellow;
+        color: black;
+    }
+    
+    sub {
+        color: $indigo-200;
+    }
 }
 
 @media(hover: hover) and (pointer: fine) {
-	.word[data-start]:hover {
-		background:rgba(255,255,153, 0.4);
-	}
+    .word[data-start]:hover {
+        background:rgba(255,255,153, 0.4);
+    }
 }
 
 .readonly {
-	.word {
-		&[data-start] {
-			cursor: inherit;
-		}
-		
-		&.curr {
-			padding: 0.3rem 0;
-			background: inherit;
-			color: inherit;
-		}
-		
-		&:hover {
-			background: inherit;
-		}
-	}
+    .word {
+        &[data-start] {
+            cursor: inherit;
+        }
+        
+        &.curr {
+            padding: 0.3rem 0;
+            background: inherit;
+            color: inherit;
+        }
+        
+        &:hover {
+            background: inherit;
+        }
+    }
 }
 
 .paragraph.bg-secondary {
-	&:has(> :not(blockquote:only-child)) {
-		&::before {
-			font-family: "Font Awesome 6 Free";
-			font-weight: 900;
-			content: "\f10d";
-		}
+    &:has(> :not(blockquote:only-child)) {
+        &::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f10d";
+        }
 
-		&::after {
-			font-family: "Font Awesome 6 Free";
-			font-weight: 900;
-			content: "\f10e";
-		}
-	}
-	
-	&:has(> blockquote:only-child) {
-		&::before {
-			content: none;
-		}
+        &::after {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f10e";
+        }
+    }
+    
+    &:has(> blockquote:only-child) {
+        &::before {
+            content: none;
+        }
 
-		&::after {
-			content: none;
-		}
-		
-		blockquote {
-			&::before {
-				font-family: "Font Awesome 6 Free";
-				font-weight: 900;
-				content: "\f10d";
-			}
+        &::after {
+            content: none;
+        }
+        
+        blockquote {
+            &::before {
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                content: "\f10d";
+            }
 
-			&::after {
-				font-family: "Font Awesome 6 Free";
-				font-weight: 900;
-				content: "\f10e";
-			}
-		}
-	}
-	
-	blockquote:last-of-type {
-		margin-bottom: 0;
-	}
+            &::after {
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                content: "\f10e";
+            }
+        }
+    }
+    
+    blockquote:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .mantra:not(.collapsed) {
-	background-color: $orange-100;
+    background-color: $orange-100;
 }
 
 .details {
-	blockquote:last-of-type {
-		margin-bottom: 0;
-	}
+    blockquote:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 blockquote {
-	margin-left: 30px;
-	margin-bottom: 0.5rem;
+    margin-left: 30px;
+    margin-bottom: 0.5rem;
 }
 
 .audio-container {
-	.collapse {
-		background-color: #f8f9fa;
-	}
-	
-	.btn {
-		margin-top: -28px;
-		margin-right: -0px;
-		width: 38px;
-	}
-	
-	.btn::before {
-		font-family: "Font Awesome 6 Free";
-		font-weight: 900;
-		content: "\f078";
-	}
-	
-	.btn[aria-expanded="false"]::before {
-		font-family: "Font Awesome 6 Free";
-		font-weight: 900;
-		content: "\f025";
-	}
+    .collapse {
+        background-color: #f8f9fa;
+    }
+    
+    .btn {
+        margin-top: -28px;
+        margin-right: -0px;
+        width: 38px;
+    }
+    
+    .btn::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "\f078";
+    }
+    
+    .btn[aria-expanded="false"]::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "\f025";
+    }
 }
 
 #back-to-top {
-	opacity: 0.5;
-	right: 5px;
-	
-	&:hover {
-		opacity: 1;
-	}
+    opacity: 0.5;
+    right: 5px;
+    
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .footer-link-bottom {
-	padding-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 .divination {
-	textarea.form-control {
-		height: 200px;
-	}
+    textarea.form-control {
+        height: 200px;
+    }
 }
 
 /* small screens */
 @include media-breakpoint-down(sm) {
-	body {
-		&:has(.audio-outer-container.opened) {
-			#back-to-top {
-				right: 20px;
-				bottom: 60px;
-			}
-		}
-	
-		&:has(.audio-outer-container.opened .collapse.show) {
-			#back-to-top {
-				right: 20px;
-				bottom: 120px;
-			}
-		}
-	}
+    body {
+        &:has(.audio-outer-container.opened) {
+            #back-to-top {
+                right: 20px;
+                bottom: 60px;
+            }
+        }
+    
+        &:has(.audio-outer-container.opened .collapse.show) {
+            #back-to-top {
+                right: 20px;
+                bottom: 120px;
+            }
+        }
+    }
 }
 
 /* large screens */
 @include media-breakpoint-up(sm) {
-	body {
-		&:has(.audio-outer-container.opened .collapse.show) {
-			nav[data-toggle="toc"] {
-				max-height: calc(100vh - 200px);
-			}
-		}
-	}
+    body {
+        &:has(.audio-outer-container.opened .collapse.show) {
+            nav[data-toggle="toc"] {
+                max-height: calc(100vh - 200px);
+            }
+        }
+    }
 }
