@@ -82,7 +82,7 @@
 			</div>
             <figure class="figure">
                 <a href="/assets/images/traffic.png" target="_blank">
-                    <img width="400" src="/assets/images/traffic.png" class="img-thumbnail" alt="traffic">
+                    <img width="400" src="/assets/images/thumbnails/traffic.png" class="img-thumbnail" alt="traffic">
                 </a>
               <figcaption class="figure-caption text-center">My site still got around a hundred daily visitors.</figcaption>
             </figure>
@@ -110,13 +110,13 @@
                     </div>
                     <div class="mb-3">
                         <a href="/assets/images/yama-japan.png" target="_blank">
-                            <img width="200" src="/assets/images/yama-japan.png" class="img-thumbnail" alt="yama-in-japan-style">
+                            <img width="200" src="/assets/images/thumbnails/yama-japan.png" class="img-thumbnail" alt="yama-in-japan-style">
                         </a>
                     </div>
                     <div class="mb-3">You may take Svacchanda Bhairava as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/svacchanda-bhairava.png" target="_blank">
-                            <img width="200" src="/assets/images/svacchanda-bhairava.png" class="img-thumbnail" alt="svacchanda-bhairava">
+                            <img width="200" src="/assets/images/thumbnails/svacchanda-bhairava.png" class="img-thumbnail" alt="svacchanda-bhairava">
                         </a>
                     </div>
                     <div class="mb-3">
@@ -127,25 +127,25 @@
                     <div class="mb-3">Another painting of Nāropā also shows a good reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/naropa.png" target="_blank">
-                            <img width="200" src="/assets/images/naropa.png" class="img-thumbnail" alt="naropa">
+                            <img width="200" src="/assets/images/thumbnails/naropa.png" class="img-thumbnail" alt="naropa">
                         </a>
                     </div>
                     <div class="mb-3">You may also draw him <b>sitting on a buffalo</b> with the right knee bent while the left leg hangs down.</div>
                     <div class="mb-3">
                         <a href="/assets/images/yama2-japan.png" target="_blank">
-                            <img width="200" src="/assets/images/yama2-japan.png" class="img-thumbnail" alt="yama2-in-japan-style">
+                            <img width="200" src="/assets/images/thumbnails/yama2-japan.png" class="img-thumbnail" alt="yama2-in-japan-style">
                         </a>
                     </div>
                     <div class="mb-3">For Treasure mirror, you may take this as reference, replacing the Dharma wheel to mirror:</div>
                     <div class="mb-3">
                         <a href="/assets/images/treasure-mirror.png" target="_blank">
-                            <img width="200" src="/assets/images/treasure-mirror.png" class="img-thumbnail" alt="treasure-mirror">
+                            <img width="200" src="/assets/images/thumbnails/treasure-mirror.png" class="img-thumbnail" alt="treasure-mirror">
                         </a>
                     </div>
                     <div class="mb-3">For Sceptre of human heads, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/sceptre-of-heads.png" target="_blank">
-                            <img width="200" src="/assets/images/sceptre-of-heads.png" class="img-thumbnail" alt="sceptre-of-human-heads">
+                            <img width="200" src="/assets/images/thumbnails/sceptre-of-heads.png" class="img-thumbnail" alt="sceptre-of-human-heads">
                         </a>
                     </div>
                     <div class="mb-3">
@@ -177,19 +177,19 @@
                     <div class="mb-3">You may take the childhood of the Buddha as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/child-buddha.png" target="_blank">
-                            <img width="200" src="/assets/images/child-buddha.png" class="img-thumbnail" alt="child-buddha">
+                            <img width="200" src="/assets/images/thumbnails/child-buddha.png" class="img-thumbnail" alt="child-buddha">
                         </a>
                     </div>
                     <div class="mb-3">Another example of a childlike god:</div>
                     <div class="mb-3">
                         <a href="/assets/images/childlike-god.png" target="_blank">
-                            <img width="200" src="/assets/images/childlike-god.png" class="img-thumbnail" alt="childlike-god">
+                            <img width="200" src="/assets/images/thumbnails/childlike-god.png" class="img-thumbnail" alt="childlike-god">
                         </a>
                     </div>
                     <div class="mb-3">For a Cintāmaṇi, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/cintamani.png" target="_blank">
-                            <img width="200" src="/assets/images/cintamani.png" class="img-thumbnail" alt="cintamani">
+                            <img width="200" src="/assets/images/thumbnails/cintamani.png" class="img-thumbnail" alt="cintamani">
                         </a>
                     </div>
                 </p>
@@ -228,24 +228,24 @@
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/tamer.png" target="_blank">
-                            <img width="200" src="/assets/images/tamer.png" class="img-thumbnail" alt="tamer">
+                            <img width="200" src="/assets/images/thumbnails/tamer.png" class="img-thumbnail" alt="tamer">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/vidyaraja.png" target="_blank">
-                            <img width="200" src="/assets/images/vidyaraja.png" class="img-thumbnail" alt="vidyaraja">
+                            <img width="200" src="/assets/images/thumbnails/vidyaraja.png" class="img-thumbnail" alt="vidyaraja">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/vidyaraja2.png" target="_blank">
-                            <img width="200" src="/assets/images/vidyaraja2.png" class="img-thumbnail" alt="vidyaraja2">
+                            <img width="200" src="/assets/images/thumbnails/vidyaraja2.png" class="img-thumbnail" alt="vidyaraja2">
                         </a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="mb-3">For a Whip, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/whip.png" target="_blank">
-                            <img width="200" src="/assets/images/whip.png" class="img-thumbnail" alt="whip">
+                            <img width="200" src="/assets/images/thumbnails/whip.png" class="img-thumbnail" alt="whip">
                         </a>
                     </div>
                 </p>
@@ -272,21 +272,21 @@
                     <div class="mb-3">I think you may take White Tara as reference, changing from seven eyes to two eyes:</div>
                     <div class="mb-3">
                         <a href="/assets/images/white-tara.png" target="_blank">
-                            <img width="200" src="/assets/images/white-tara.png" class="img-thumbnail" alt="white-tara">
+                            <img width="200" src="/assets/images/thumbnails/white-tara.png" class="img-thumbnail" alt="white-tara">
                         </a>
                     </div>
                     <div class="mb-3">I love this painting very much, I would appreciate if you could imitate the above drawing of this devi.</div>
                     <div class="mb-3">Standing pose like this also look promising, see if you can tranform the above painting to standing pose.</div>
                     <div class="mb-3">
                         <a href="/assets/images/white-tara3.png" target="_blank">
-                            <img width="200" src="/assets/images/white-tara3.png" class="img-thumbnail" alt="white-tara3">
+                            <img width="200" src="/assets/images/thumbnails/white-tara3.png" class="img-thumbnail" alt="white-tara3">
                         </a>
                     </div>
                     
                     <div class="mb-3">For Round fan, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/round-fan.png" target="_blank">
-                            <img width="200" src="/assets/images/round-fan.png" class="img-thumbnail" alt="round-fan">
+                            <img width="200" src="/assets/images/thumbnails/round-fan.png" class="img-thumbnail" alt="round-fan">
                         </a>
                     </div>
                 </p>
@@ -316,22 +316,22 @@
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/tara.png" target="_blank">
-                            <img width="200" src="/assets/images/tara.png" class="img-thumbnail" alt="tara">
+                            <img width="200" src="/assets/images/thumbnails/tara.png" class="img-thumbnail" alt="tara">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/lokeshvara.png" target="_blank">
-                            <img width="200" src="/assets/images/lokeshvara.png" class="img-thumbnail" alt="lokeshvara">
+                            <img width="200" src="/assets/images/thumbnails/lokeshvara.png" class="img-thumbnail" alt="lokeshvara">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/laxshmi-with-jewellery.png" target="_blank">
-                            <img width="200" src="/assets/images/laxshmi-with-jewellery.png" class="img-thumbnail" alt="laxshmi-with-jewellery">
+                            <img width="200" src="/assets/images/thumbnails/laxshmi-with-jewellery.png" class="img-thumbnail" alt="laxshmi-with-jewellery">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/laxshmi-with-jewellery2.png" target="_blank">
-                            <img width="200" src="/assets/images/laxshmi-with-jewellery2.png" class="img-thumbnail" alt="laxshmi-with-jewellery2">
+                            <img width="200" src="/assets/images/thumbnails/laxshmi-with-jewellery2.png" class="img-thumbnail" alt="laxshmi-with-jewellery2">
                         </a>
                     </div>
                     <div class="clearfix"></div>
@@ -341,7 +341,7 @@
                     </div>
                     <div class="mb-3">
                         <a href="/assets/images/vasudhara.png" target="_blank">
-                            <img width="200" src="/assets/images/vasudhara.png" class="img-thumbnail" alt="vasudhara">
+                            <img width="200" src="/assets/images/thumbnails/vasudhara.png" class="img-thumbnail" alt="vasudhara">
                         </a>
                     </div>
                     <div class="mb-3">
@@ -350,25 +350,25 @@
                     </div>
                     <div class="mb-3">
                         <a href="/assets/images/white-tara2.png" target="_blank">
-                            <img width="200" src="/assets/images/white-tara2.png" class="img-thumbnail" alt="white-tara2">
+                            <img width="200" src="/assets/images/thumbnails/white-tara2.png" class="img-thumbnail" alt="white-tara2">
                         </a>
                     </div>
                     <div class="mb-3">Her role is a protector in human realm. So she has a sharp eyes, watching all kinds of spirits not to do evil things and maintain dharma.</div>
                     <div class="mb-3">
                         <a href="/assets/images/angry-staring.png" target="_blank">
-                            <img width="200" src="/assets/images/angry-staring.png" class="img-thumbnail" alt="angry-staring">
+                            <img width="200" src="/assets/images/thumbnails/angry-staring.png" class="img-thumbnail" alt="angry-staring">
                         </a>
                     </div>
                     <div class="mb-3">For a Stupa, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/stupa.png" target="_blank">
-                            <img width="200" src="/assets/images/stupa.png" class="img-thumbnail" alt="stupa">
+                            <img width="200" src="/assets/images/thumbnails/stupa.png" class="img-thumbnail" alt="stupa">
                         </a>
                     </div>
                     <div class="mb-3">For a lightweight Gada, please take the rightmost one as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/lightweight-gada.png" target="_blank">
-                            <img width="400" src="/assets/images/lightweight-gada.png" class="img-thumbnail" alt="lightweight-gada">
+                            <img width="400" src="/assets/images/thumbnails/lightweight-gada.png" class="img-thumbnail" alt="lightweight-gada">
                         </a>
                     </div>
                 </p>
@@ -391,12 +391,12 @@
                     <div class="mb-3">He is the Ruler of Heaven, please take these as reference:</div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/indra.png" target="_blank">
-                            <img width="200" src="/assets/images/indra.png" class="img-thumbnail" alt="indra">
+                            <img width="200" src="/assets/images/thumbnails/indra.png" class="img-thumbnail" alt="indra">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/indra2.png" target="_blank">
-                            <img width="200" src="/assets/images/indra2.png" class="img-thumbnail" alt="indra2">
+                            <img width="200" src="/assets/images/thumbnails/indra2.png" class="img-thumbnail" alt="indra2">
                         </a>
                     </div>
                     <div class="clearfix"></div>
@@ -405,7 +405,7 @@
                     <div class="mb-3">For a Three-pronged vajra, please take this as reference:</div>
                     <div class="mb-3">
                         <a href="/assets/images/three-pronged-vajra.png" target="_blank">
-                            <img width="200" src="/assets/images/three-pronged-vajra.png" class="img-thumbnail" alt="three-pronged-vajra">
+                            <img width="200" src="/assets/images/thumbnails/three-pronged-vajra.png" class="img-thumbnail" alt="three-pronged-vajra">
                         </a>
                     </div>
                 </p>
@@ -436,7 +436,7 @@
             <div class="me-3 mb-3 float-start">
                 <figure class="figure">
                     <a href="/assets/images/vasudhara.png" target="_blank">
-                        <img width="200" src="/assets/images/vasudhara.png" class="img-thumbnail" alt="vasudhara">
+                        <img width="200" src="/assets/images/thumbnails/vasudhara.png" class="img-thumbnail" alt="vasudhara">
                     </a>
                   <figcaption class="figure-caption text-center">Vasudhārā painting</figcaption>
                 </figure>
@@ -444,7 +444,7 @@
             <div class="me-3 mb-3 float-start">
                 <figure class="figure">
                     <a href="/assets/images/aureole.png" target="_blank">
-                        <img width="200" src="/assets/images/aureole.png" class="img-thumbnail" alt="aureole">
+                        <img width="200" src="/assets/images/thumbnails/aureole.png" class="img-thumbnail" alt="aureole">
                     </a>
                   <figcaption class="figure-caption text-center">Circle of aureole</figcaption>
                 </figure>
@@ -452,7 +452,7 @@
             <div class="me-3 mb-3 float-start">
                 <figure class="figure">
                     <a href="/assets/images/fairy.png" target="_blank">
-                        <img width="200" src="/assets/images/fairy.png" class="img-thumbnail" alt="fairy">
+                        <img width="200" src="/assets/images/thumbnails/fairy.png" class="img-thumbnail" alt="fairy">
                     </a>
                   <figcaption class="figure-caption text-center">Fairy painting</figcaption>
                 </figure>
