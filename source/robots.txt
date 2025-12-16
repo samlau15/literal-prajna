@@ -1,0 +1,7 @@
+# robots.txt for https://mahayanasutras.xyz/
+
+User-agent: *
+
+Disallow: /req*
+
+Sitemap: https://mahayanasutras.xyz/sitemap.xml

@@ -9,8 +9,8 @@
             let enteries = Object.entries($data.tocItems);
             let tmpArr = new Array(enteries.length);
             for(let [id, val] of enteries) {
-                //tmpArr[val.pos] = {
-                tmpArr[tmpArr.length-1-val.pos] = {
+                tmpArr[val.pos] = {
+                //tmpArr[tmpArr.length-1-val.pos] = {
                     id,
                     inview: val.inview,
                 }
@@ -20,6 +20,8 @@
                 $data.currItems = {};
                 $data.currItems[tmpArr[0].id] = true;
                 let ids = tmpArr[0].id.split('-');
+                //$data.currItems[tmpArr[tmpArr.length-1].id] = true;
+                //let ids = tmpArr[tmpArr.length-1].id.split('-');
                 ids.pop();
                 if(ids.length > 0) {
                     ids.forEach(id => $data.currItems[id] = true);
