@@ -142,7 +142,12 @@
         
         $data.initTimes();
             
-        player = new Plyr('#{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}');
+        player = new Plyr('#{{ $attributes->has('id') ? $attributes['id'] : 'audio-controls' }}', {
+            i18n: {
+                speed: '速度',
+                normal: '正常',
+            }
+        });
         player.on('play', e => {
             const {currIntId, times} = $data;
             let throttleScroll = throttle(function($el) {

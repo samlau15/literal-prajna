@@ -98,7 +98,11 @@
             let result = val0 + val1 + val2;
             $resultText = $(`.ref_${result}`);
             if($resultText.length > 0) {
-                $data.results[i][`round${j}`] = $resultText.text().replace(/\t/g, '');
+                // $data.results[i][`round${j}`] = $resultText.text().replace(/\t/g, '');
+                $data.results[i][`round${j}`] = $resultText.text()
+                        .split(/\n/)
+                        .map(s => s.replace(/^\s*/g, ''))
+                        .join('\n');
             } else {
                 $data.results[i][`round${j}`] = '';
                 $data.errMsgs[i][`round${j}`] = 2;
@@ -259,7 +263,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-0-0`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round0[0]"
                                     />
                                 </div>
@@ -269,7 +273,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-0-1`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round0[1]"
                                     />
                                 </div>
@@ -279,7 +283,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-0-2`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round0[2]"
                                     />
                                 </div>
@@ -310,7 +314,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-1-0`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round1[0]"
                                     />
                                 </div>
@@ -320,7 +324,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-1-1`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round1[1]"
                                     />
                                 </div>
@@ -330,7 +334,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-1-2`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round1[2]"
                                     />
                                 </div>
@@ -361,7 +365,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-2-0`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round2[0]"
                                     />
                                 </div>
@@ -371,7 +375,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-2-1`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round2[1]"
                                     />
                                 </div>
@@ -381,7 +385,7 @@
                                         type="text"
                                         inputmode="numeric"
                                         :id="`q${i}-2-2`"
-                                        placeholder="圓點作分隔，0 為空白。"
+                                        placeholder="點作分隔，0 為空白。"
                                         x-model="inputs[i].round2[2]"
                                     />
                                 </div>
@@ -419,11 +423,12 @@
             <button 
                 @@click="exportResults($event)"
                 type="button"
-                class="btn btn-success btn-export mb-3"
+                class="btn btn-success btn-export mb-3 float-end"
                 data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已複製"
             >
                 複製結果
             </button>
+            <div class="clearfix"></div>
         </div>
     </div>
     <div class="visually-hidden" id="ref">
@@ -432,9 +437,7 @@
 
             白話解說：追求上乘佛法不會退步或退怯，會得到不退的境界，可以得到大乘佛法的境界。 廣義應用：
 
-            1、一心致意精進，實行上乘的佛法，求無上菩提，永不退轉，即使遭遇各式的考驗，都能轉化煩惱即菩提，證得無上佛果，境界已脫離六道輪迴之外，
-
-            虛空法界對你而言，沒有時間與空間的限制，乘願再來，望世間皆為佛國，世人皆得佛道。
+            1、一心致意精進，實行上乘的佛法，求無上菩提，永不退轉，即使遭遇各式的考驗，都能轉化煩惱即菩提，證得無上佛果，境界已脫離六道輪迴之外，虛空法界對你而言，沒有時間與空間的限制，乘願再來，望世間皆為佛國，世人皆得佛道。
 
             2、修習菩薩乘，願度一切眾生，已有中下乘之佛法基礎，能將所修學實踐於大道，度己度人度萬眾生，占得此輪相，表示你已有菩薩的心腸與境界修為，實在是位人間菩薩。
 

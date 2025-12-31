@@ -20,7 +20,7 @@
 <div class="container pb-3">
 
     <div class="container w-75">
-        <img src="{{ $page->baseUrl.'/assets/images/ksitigarbha.png' }}" class="w-100 mx-auto mb-3 d-block" alt="地藏菩薩摩訶薩" />
+        <img src="{{ $page->baseUrl.'/assets/images/ksitigarbha.webp' }}" class="w-100 mx-auto mb-3 d-block" alt="地藏菩薩摩訶薩" />
     </div>
 
     <div class="text-center fs-4 fw-bold mb-5">
