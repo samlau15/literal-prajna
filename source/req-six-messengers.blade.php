@@ -202,6 +202,7 @@
                             <figcaption class="figure-caption text-center" style="width: 200px">In Japan, Yama looks like a celestial being.</figcaption>
                         </figure>
                     </div>
+                    <!--
                     <div class="mb-3 me-3 float-start">
                         <figure class="figure">
                             <a href="/assets/images/svacchanda-bhairava.webp" target="_blank">
@@ -210,12 +211,21 @@
                             <figcaption class="figure-caption text-center" style="width: 200px">The painting of Svacchanda Bhairava also serves a good reference.</figcaption>
                         </figure>
                     </div>
+                    -->
                     <div class="mb-3 me-3 float-start">
                         <figure class="figure">
                             <a href="/assets/images/naropa.webp" target="_blank">
                                 <img width="200" src="/assets/images/thumbnails/naropa.webp" class="img-thumbnail" alt="naropa">
                             </a>
-                            <figcaption class="figure-caption text-center" style="width: 200px">The painting of Nāropā shows a good facial features of rugged appearance.</figcaption>
+                            <figcaption class="figure-caption text-center" style="width: 200px">The painting of Nāropā or Virupa shows a good facial features of majesty.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="mb-3 me-3 float-start">
+                        <figure class="figure">
+                            <a href="/assets/images/virupa.webp" target="_blank">
+                                <img width="200" src="/assets/images/thumbnails/virupa.webp" class="img-thumbnail" alt="virupa">
+                            </a>
+                            <figcaption class="figure-caption text-center" style="width: 200px">Virupa</figcaption>
                         </figure>
                     </div>
                     <div class="clearfix"></div>
@@ -415,11 +425,13 @@
                     </div>
                     -->
                     <div class="mb-3">For Round Fan, an example reference could be:</div>
+                    <!--
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/round-fan.webp" target="_blank">
                             <img width="200" src="/assets/images/thumbnails/round-fan.webp" class="img-thumbnail" alt="round-fan">
                         </a>
                     </div>
+                    -->
                     <div class="me-3 mb-3 float-start">
                         <figure class="figure">
                             <a href="/assets/images/devi.webp" target="_blank">
@@ -450,9 +462,11 @@
                     <h6>Expectation:</h6>
                     <div class="mb-3">
                         Esoteric Buddhism in Japan believes that she is an incarnation of Aryavalokiteshvara, like Tara, with great power.
-                        In some rituals, she is a crossover with Vaiśravaṇa (known as Kubera) and appeared as a Deva.
+                        In some rituals, she is a crossover with Vaiśravaṇa (known as Kubera) and appears as a Deva.
                         In summary, she is a Queen or King of Yakṣa with great power and holding treasures.
                         Her divine form looks like a young lady with an adorable face and smooth skin; even her breath smells good.
+                        Since she is the Queen of Yakṣa, she should be a Yakṣiṇī.
+                        A Yakṣiṇī symbolized fertility, so she should have an excellent feminine body as well.
                         Her signature features are wearing <b>purple clothes and head-to-toe jewellery made of colored gemstones and gold</b>.
                     </div>
                     <div class="me-3 mb-3 float-start">
@@ -460,19 +474,39 @@
                             <img width="200" src="/assets/images/thumbnails/tara.webp" class="img-thumbnail" alt="tara">
                         </a>
                     </div>
+                    <!--
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/lokeshvara.webp" target="_blank">
                             <img width="200" src="/assets/images/thumbnails/lokeshvara.webp" class="img-thumbnail" alt="lokeshvara">
                         </a>
                     </div>
+                    -->
+                    <!--
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/laxshmi-with-jewellery.webp" target="_blank">
                             <img width="200" src="/assets/images/thumbnails/laxshmi-with-jewellery.webp" class="img-thumbnail" alt="laxshmi-with-jewellery">
                         </a>
                     </div>
                     <div class="me-3 mb-3 float-start">
+                        <a href="/assets/images/white-tara2.webp" target="_blank">
+                            <img width="200" src="/assets/images/thumbnails/white-tara2.webp" class="img-thumbnail" alt="white-tara2">
+                        </a>
+                    </div>
+                    -->
+                    <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/laxshmi-with-jewellery2.webp" target="_blank">
                             <img width="200" src="/assets/images/thumbnails/laxshmi-with-jewellery2.webp" class="img-thumbnail" alt="laxshmi-with-jewellery2">
+                        </a>
+                    </div>
+                    <div class="me-3 mb-3 float-start">
+                        <a href="/assets/images/laxmi.webp" target="_blank">
+                            <img width="200" src="/assets/images/thumbnails/laxmi.webp" class="img-thumbnail" alt="laxmi">
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="me-3 mb-3 float-start">
+                        <a href="/assets/images/devi2.webp" target="_blank">
+                            <img width="200" src="/assets/images/thumbnails/devi2.webp" class="img-thumbnail" alt="devi2">
                         </a>
                     </div>
                     <div class="clearfix"></div>
@@ -485,21 +519,6 @@
                             <img width="200" src="/assets/images/thumbnails/vasudhara.webp" class="img-thumbnail" alt="vasudhara">
                         </a>
                     </div>
-                    <div class="mb-3">
-                        If she is the Queen of Yakṣa, then she should be a Yakṣiṇī.
-                        A Yakṣiṇī symbolized fertility, so she should have an excellent feminine body as well.
-                    </div>
-                    <div class="me-3 mb-3 float-start">
-                        <a href="/assets/images/white-tara2.webp" target="_blank">
-                            <img width="200" src="/assets/images/thumbnails/white-tara2.webp" class="img-thumbnail" alt="white-tara2">
-                        </a>
-                    </div>
-                    <div class="me-3 mb-3 float-start">
-                        <a href="/assets/images/devi2.webp" target="_blank">
-                            <img width="200" src="/assets/images/thumbnails/devi2.webp" class="img-thumbnail" alt="devi2">
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
                     <div class="mb-3">Her role is a protector in the human realm. So she has sharp eyes, watching all kinds of spirits not to do evil things and maintain dharma.</div>
                     <div class="mb-3">
                         <a href="/assets/images/angry-staring.webp" target="_blank">
@@ -535,7 +554,7 @@
                 </p>
                 <p>
                     <h6>Expectation:</h6>
-                    <div class="mb-3">He is the Ruler of Heaven. Please take these as a reference:</div>
+                    <div class="mb-3">He is the Ruler of Heaven.</div>
                     <div class="me-3 mb-3 float-start">
                         <a href="/assets/images/indra.webp" target="_blank">
                             <img width="200" src="/assets/images/thumbnails/indra.webp" class="img-thumbnail" alt="indra">
@@ -634,26 +653,42 @@
                 </div>
             </div>
             <div class="mb-3">
-                Whether the deities' positions is horizontal or vertical is up to you.
-                The rule of thumb is deities' positions can be beside the throne but no higher than Ksitigarbha.
+                Whether the messengers' positions are horizontal or vertical is up to you.
+                The rule of thumb is that messengers' positions can be beside the throne but no higher than Ksitigarbha.
             </div>
             <h4 class="toc-item" id="scene-01">Remarks</h4>
             <div class="mb-3">
                 <ul>
                     <li>
                         If you think there is too much workload for you,
-                        for the back of each deity,
+                        for those messengers,
                         you may consider avoiding drawing complex structures.
-                        A simple circle of aureole or fire is also fine.
+                        But Ksitigarbha should pay more attention to him.
                     </li>
-                    <li>Other drawing details, like sky or landscape, are up to you.</li>
                     <li>
                         Please bear in mind the proportion of these six messengers.
                         Deva will be physically larger than Devi, and the childlike-god will be shorter than other deities.
                         However, Ksitigarbha Bodhisattva is the main character of this painting, so he is disproportionately big.
                     </li>
-                    <li>Is it possible to draw other celestial beings like apsarās or nāgas who are making offerings to the Bodhisattva as well?</li>
+                    <li>
+                        The scripture always mentions deities in a white skin tone.
+                        You may consider using medium to fair skin tone for variation.
+                        However, the Goddess of Great Compassion should be as white as the White Tara.
+                    </li>
+                    <li>Other drawing details, like sky or landscape, are up to you.</li>
+                    <li>
+                        Drawing other celestial beings like apsarās, nāgas, kiṃnaras, etc., who are making offerings to the Bodhisattva, would be a plus.
+                        Offerings could be food, flowers, a parasol, a lamp, incense, playing a musical instrument, etc.
+                    </li>
                 </ul>
+            </div>
+            <div class="me-3 mb-3 float-start">
+                <figure class="figure">
+                    <a href="/assets/images/skin.webp" target="_blank">
+                        <img width="200" src="/assets/images/thumbnails/skin.webp" class="img-thumbnail" alt="skin">
+                    </a>
+                  <figcaption class="figure-caption text-center">Skin tone</figcaption>
+                </figure>
             </div>
             <!--
             <div class="me-3 mb-3 float-start">
@@ -664,7 +699,6 @@
                   <figcaption class="figure-caption text-center">Vasudhārā painting</figcaption>
                 </figure>
             </div>
-            -->
             <div class="me-3 mb-3 float-start">
                 <figure class="figure">
                     <a href="/assets/images/aureole.webp" target="_blank">
@@ -673,7 +707,6 @@
                   <figcaption class="figure-caption text-center">Circle of aureole</figcaption>
                 </figure>
             </div>
-            <!--
             <div class="me-3 mb-3 float-start">
                 <figure class="figure">
                     <a href="/assets/images/fairy.webp" target="_blank">
@@ -687,16 +720,18 @@
             <h2 class="toc-item" id="canvas">Canvas</h2>
             <div class="mb-3">
                 <ul>
-                    <li>Between A1 (594 x 841 millimeters) and A2 (420 x 594 millimeters) size.</li>
+                    <li>Around A2 (420 x 594 millimeters) canvas size.</li>
                     <li>Portrait orientation.</li>
-                    <li>The best option would be to use natural pigments.</li>
+                    <li>Acrylic paint should be fine.</li>
+                    <!--
                     <li>
-                        However, many scriptures have pointed out that never use animal glue to draw Buddha or Bodhisattva paintings.
+                        Many scriptures have pointed out that never use animal glue to draw Buddha or Bodhisattva paintings.
                         Tibetan Thangka paintings, as I know, used animal glue as an adhesive for color pigments.
                         Is it possible to use plant-based glue instead?
                         The fallback option could be acrylic paints.
                         Please let me know the cost differences between the color pigments and acrylic paints.
                     </li>
+                    -->
                     <li>
                         24K gold paint is too luxurious for me.
                         Is there any alternative paint that gives a similar metallic look and feel?
